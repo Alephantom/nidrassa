@@ -1,0 +1,34 @@
+{%- comment -%}
+  Section navigation for one-page layouts (currently the retreat page).
+  Enabled by a "subnav" list in the page's front matter:
+    subnav:
+      - title: Ablauf
+        id: ablauf          # id of the section on the page
+      - title: Warteliste
+        id: warteliste
+        cta: true           # shown as the solid button on the right
+  Desktop: a narrower pill tucked behind the main navigation.
+  Phone (≤900px): replaces the main navigation – back button, CTA and a menu with the sections.
+  The current section is highlighted while scrolling (assets/site.js).
+{%- endcomment -%}
+{%- assign cta = page.subnav | where: "cta", true | first -%}
+<nav class="subnav" id="subnav" aria-label="{{ page.title }}: Inhalte">
+  <a class="pill subnav-back" href="/" aria-label="Zurück zur Startseite"><span aria-hidden="true">←</span> Nidrassa</a>
+  <ul class="subnav-links">
+    {%- for item in page.subnav %}{% unless item.cta %}
+    <li><a class="pill" href="#{{ item.id }}" data-section="{{ item.id }}">{{ item.title }}</a></li>
+    {%- endunless %}{% endfor %}
+  </ul>
+  {%- if cta %}
+  <a class="pill solid subnav-cta" href="#{{ cta.id }}" data-section="{{ cta.id }}">{{ cta.title }}</a>
+  {%- endif %}
+  <button class="burger subnav-burger" type="button" id="subnav-burger" aria-expanded="false" aria-controls="subnav-menu" aria-label="Inhalte öffnen"><span></span><span></span><span></span></button>
+  <div class="menu" id="subnav-menu" hidden>
+    {%- for item in page.subnav %}
+    <a href="#{{ item.id }}" data-section="{{ item.id }}">{{ item.title }}</a>
+    {%- endfor %}
+    <p class="menu-divider">Nidrassa</p>
+    <a href="/">Startseite</a>
+    <a href="/shop/">Shop</a>
+  </div>
+</nav>

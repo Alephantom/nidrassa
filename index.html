@@ -1,0 +1,174 @@
+---
+layout: default
+title: "Halte inne und komm zurück zu dir"
+image: /assets/arms-raised.webp
+description: "Nidrassa: Meditation, Journaling und ruhige Momente für Frauen mit vollen Tagen."
+permalink: /
+---
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <svg class="star star-lite" role="img" aria-label="Nidrassa"><use href="#star"/></svg>
+    <h1>NIDRASSA</h1>
+    <h2>Halte inne und komm zurück zu dir.</h2>
+    <h3>Für Frauen <span>·</span> Meditation <span>·</span> Journaling <span>·</span> Wohlbefinden</h3>
+    <a class="scroll" href="#intro">Hier beginnen</a>
+  </div>
+</section>
+
+<!-- ============ INTRO / PAIN POINT ============ -->
+<section class="intro" id="intro">
+  <div class="wrap intro-grid">
+    <figure class="photo intro-photo">
+      <img src="/assets/arms-raised.webp" alt="Frau mit langen Haaren streckt die Arme zwischen Bäumen dem Sonnenlicht entgegen" loading="lazy">
+    </figure>
+    <div>
+    <div class="lead">
+      <p class="eyebrow">Kommt dir das bekannt vor?</p>
+      <p class="big">Du kennst jeden Termin, jeden Lieblingssnack, jede Deadline. <em>Aber wann hast du dich zuletzt gefragt, was du brauchst?</em></p>
+      <p class="body">Zwischen Arbeit, Kindern, Haushalt und all den kleinen Dingen, die niemand sieht, hältst du alles am Laufen und verlierst dich dabei langsam selbst aus den Augen. Du würdest gern mal durchatmen und neue Kraft tanken, aber in deinem Tag ist dafür schlicht keine Zeit.</p>
+    </div>
+    <ul class="list">
+      <li>Du bist müde, selbst nach einer ganzen Nacht Schlaf.</li>
+      <li>Deine Gedanken sind schon drei Termine weiter, während du noch am Küchentisch sitzt.</li>
+      <li>Du wirst bei „Kleinigkeiten“ laut und fühlst dich danach schuldig.</li>
+      <li>Auf die Frage „Und was willst <em>du</em>?“ fällt dir keine Antwort ein.</li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2-5-15 METHOD ============ -->
+<section class="method" id="methode">
+  <div class="wrap">
+    <div class="method-card">
+      <h2 class="stop">Stop Scrolling.</h2>
+      <p class="stop-sub">Nutze den Moment. Du brauchst keine Stunde.</p>
+      <p class="stop-text">Unter der Dusche, auf dem Weg zur Arbeit, in der Schlange an der Kasse: Genau diese Momente reichen für eine kleine Übung. Meditation ist mehr als still sitzen und an nichts denken. Du kannst sie überall üben, jederzeit.</p>
+      <p class="eyebrow method-label">Die 2-5-15-Methode</p>
+      <p class="method-intro">Wähle die Zeit, die du gerade hast, und du bekommst eine passende Übung.</p>
+      <div class="method-grid">
+        <button class="step" type="button" data-min="2">
+          <span class="step-num">2</span>
+          <span class="step-unit">Minuten</span>
+          <span class="step-text">Für zwischendurch</span>
+        </button>
+        <button class="step" type="button" data-min="5">
+          <span class="step-num">5</span>
+          <span class="step-unit">Minuten</span>
+          <span class="step-text">Für eine kleine Pause</span>
+        </button>
+        <button class="step" type="button" data-min="15">
+          <span class="step-num">15</span>
+          <span class="step-unit">Minuten</span>
+          <span class="step-text">Für Zeit nur mit dir</span>
+        </button>
+      </div>
+      <ul class="method-formats">
+        {%- for f in site.data.formats %}
+        <li><a href="/uebungen/#fmt-{{ f[0] }}">{{ f[1].name }}</a></li>
+        {%- endfor %}
+      </ul>
+      <div class="pick" id="pick" aria-live="polite" hidden></div>
+      {%- comment -%} Practice data for the random picker in assets/site.js {%- endcomment -%}
+      <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}}</script>
+      <a class="btn method-btn" href="/uebungen/">Alle Begleitübungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARUM MEDITATION ============ -->
+<section class="why">
+  <div class="wrap">
+    <div class="why-top">
+      <div class="why-head">
+        <p class="eyebrow">Warum Meditation</p>
+        <h2>Ein Hebel, um wieder zu dir zu finden</h2>
+        <p>Meditation leert deine To-do-Liste nicht. Aber sie gibt dir etwas, das dir die Liste nicht nehmen kann: ein paar Minuten, in denen niemand etwas von dir will und du dich selbst wieder hörst.</p>
+      </div>
+      <figure class="photo why-photo">
+        <img src="/assets/canyon.webp" alt="Frau sitzt im Schneidersitz im roten Sand vor einer Sandsteinwand, die Handflächen vor dem Gesicht aneinandergelegt" loading="lazy">
+      </figure>
+    </div>
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="num">01</div>
+        <h4>Abstand zum Trubel</h4>
+        <p>Ein paar Atemzüge lang still sitzen schafft einen kleinen Raum zwischen dem, was passiert, und deiner Reaktion darauf. In diesem Raum kannst du neu entscheiden.</p>
+      </article>
+      <article class="why-card">
+        <div class="num">02</div>
+        <h4>Deine eigenen Signale wieder hören</h4>
+        <p>Anspannung, Müdigkeit, ein leiser Wunsch. Wenn du regelmäßig nach innen schaust, merkst du, was dein Körper und dein Herz dir schon länger sagen wollen.</p>
+      </article>
+      <article class="why-card">
+        <div class="num">03</div>
+        <h4>Klein genug fürs echte Leben</h4>
+        <p>Fünf Minuten, bevor alle aufwachen. Zwei im Auto. Eine Praxis, die in volle Tage passt, weil sie genau dafür gemacht ist.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER NIDRASSA ============ -->
+<section class="about" id="ueber">
+  <div class="wrap about-grid">
+    <figure class="photo about-photo">
+      <img src="/assets/retreat-olive-wall.webp" alt="Olivenzweige vor einer warmen, rosafarbenen Hauswand in Andalusien" loading="lazy">
+    </figure>
+    <div>
+      <p class="eyebrow">Über Nidrassa</p>
+      <h2>Nidrassa: Wo Ruhe auf Begegnung trifft</h2>
+      <figure class="venn" aria-label="Nidra, tiefe Entspannung, und Madrassa, Ort des Wissens, überschneiden sich zu Nidrassa">
+        <svg viewBox="0 0 520 290" role="img" aria-hidden="true">
+          <circle class="venn-a" cx="192" cy="145" r="138"/>
+          <circle class="venn-b" cx="328" cy="145" r="138"/>
+          <text class="venn-word" x="118" y="140" text-anchor="middle">Nidra</text>
+          <text class="venn-sub" x="118" y="166" text-anchor="middle">tiefe Entspannung</text>
+          <text class="venn-word" x="402" y="140" text-anchor="middle">Madrassa</text>
+          <text class="venn-sub" x="402" y="166" text-anchor="middle">Ort des Wissens</text>
+          <text class="venn-core" x="260" y="150" text-anchor="middle">NIDRASSA</text>
+        </svg>
+      </figure>
+      <p>Aus der tiefen Entspannung (Nidra) und dem Ort des Wissens (Madrassa) entsteht Nidrassa. Inspiriert vom maurischen Erbe Andalusiens haben wir einen Ort geschaffen, an dem du durchatmen, lernen und Gemeinschaft erleben kannst. Digital und mitten im Leben.</p>
+      <h3>Zeit für dich – ganz ohne Erwartungen</h3>
+      <p>Mental Load, Alltagstrubel, Verpflichtungen: Frauen tragen oft die Verantwortung für viele Dinge gleichzeitig. Bei Nidrassa geht es einmal nur um dich. In unserem geschützten Frauenkreis musst du nichts leisten. Du darfst zur Ruhe kommen, dich verbinden und einfach du selbst sein.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter">
+  <div class="wrap">
+    <div class="news-card">
+      <p class="eyebrow">Newsletter</p>
+      <h2>Eine Übung pro Woche</h2>
+      <p>Jeden Sonntag eine kurze Übung in deinem Postfach, für 2, 5 oder 15 Minuten. Damit du dranbleibst, auch wenn die Woche voll ist.</p>
+      <form class="notify" data-form="newsletter">
+        <div class="notify-row">
+          <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
+          <input type="email" id="news-email" name="email" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
+          <button class="btn" type="submit">Anmelden</button>
+        </div>
+      </form>
+      <p class="notify-hint">Kein Spam, Abmeldung jederzeit mit einem Klick. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+      <p class="notify-done" hidden>Danke! Bitte bestätige noch kurz deine Anmeldung in der E-Mail, die wir dir geschickt haben.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG PREVIEW ============ -->
+<section class="blog" id="blog">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h2>Gedanken zum Innehalten</h2>
+      </div>
+      <a href="/blog/">Alle Artikel</a>
+    </div>
+    <div class="posts">
+      {% for post in site.posts limit: 3 %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+  </div>
+</section>

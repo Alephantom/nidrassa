@@ -1,0 +1,88 @@
+---
+layout: default
+title: "Shop"
+description: "Eine Frage weiter: 31 Journaling-Karten, jetzt vorbestellen. 25 €, Versand Anfang Dezember."
+nav: shop
+image: /assets/shop-flatlay.webp
+# Product photos for the gallery (shuffled and rotated by assets/site.js)
+gallery:
+  - src: /assets/shop-flatlay.webp
+    alt: "Schachtel, Kartenrückseite, Frage- und Affirmationskarte auf olivgrünem Leinen"
+  - src: /assets/shop-box-cards.webp
+    alt: "Kartenschachtel und Kartenstapel mit Goldschnitt"
+  - src: /assets/shop-notebook.webp
+    alt: "Kartenset neben einem Leinen-Notizbuch, dahinter ein andalusisches Dorf"
+permalink: /shop/
+---
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Shop</p>
+    <h1>Kleine Begleiter für ruhige Momente</h1>
+    <p>Kartensets und Begleiter für volle Tage. Wir starten mit unserem ersten Kartenset, weitere folgen.</p>
+    <nav class="shop-options" aria-label="Produkte">
+      <a href="#eine-frage-weiter"><span>Eine Frage weiter</span><small>25 € · <span>Vorbestellung</span></small></a>
+      <a href="#fundraiser"><span>Fundraiser</span><small>GoFundMe</small></a>
+    </nav>
+  </div>
+</section>
+
+<section class="shop" id="eine-frage-weiter">
+  <div class="wrap product">
+    <div class="gallery" id="gallery" role="group" aria-label="Produktfotos">
+      <div class="gallery-main photo"><img id="gallery-main" class="in" src="{{ page.gallery[0].src }}" alt="{{ page.gallery[0].alt }}"></div>
+      <div class="gallery-thumbs">
+        {%- for photo in page.gallery %}
+        <button type="button" data-src="{{ photo.src }}" data-alt="{{ photo.alt }}" aria-label="Foto: {{ photo.alt }}"><img src="{{ photo.src }}" alt=""></button>
+        {%- endfor %}
+      </div>
+    </div>
+    <div class="product-info">
+      <span class="badge">Vorbestellung</span>
+      <p class="eyebrow">Journaling-Karten · 31 Karten</p>
+      <h2 id="p-title">Eine Frage weiter</h2>
+      <p class="sub" id="p-sub">Journaling-Karten für Gedanken, die Raum brauchen</p>
+      <div class="price-row">
+        <span class="price">25 €</span>
+        <span class="ship">Versand Anfang Dezember</span>
+      </div>
+      <p class="surprise"><strong>Kleine Überraschung:</strong> Zu jeder Vorbestellung legen wir dir etwas Kleines mit ins Päckchen.</p>
+      <p class="desc">Vorne drei zusammenhängende Fragen, hinten ein Satz, der dich durch den Tag begleitet. Ohne Datum, ohne feste Reihenfolge, nichts zum Nachholen. Eine Karte kann für zwei Minuten reichen oder für mehrere Seiten.</p>
+      <ul class="features">
+        <li>31 Karten + Anleitungskarte</li>
+        <li>Passt zu jedem Notizbuch oder Journal</li>
+        <li>Für 2, 5 oder 15 Minuten</li>
+      </ul>
+      <div class="edition" role="group" aria-label="Ausgabe">
+        <button type="button" aria-pressed="true" data-title="Eine Frage weiter" data-sub="Journaling-Karten für Gedanken, die Raum brauchen">Deutsch</button>
+        <button type="button" aria-pressed="false" data-title="One Question Closer" data-sub="Journaling cards for thoughts that need room">English</button>
+      </div>
+      <label class="gift">
+        <input type="checkbox" name="gift">
+        <span><strong>Als Geschenk verpacken</strong><small>Verpackt und ohne Rechnung im Päckchen.</small></span>
+      </label>
+      <a class="btn buy-btn" id="preorder" href="#">Vorbestellen</a>
+    </div>
+  </div>
+</section>
+
+<!-- Fundraiser: GoFundMe loads only after a click (see assets/site.js) -->
+<section class="shop fundraiser" id="fundraiser">
+  <div class="wrap">
+    <div class="fund-head">
+      <p class="eyebrow">GoFundMe</p>
+      <h2>Hilf uns, die Karten zu drucken</h2>
+      <p>Mit dem Fundraiser „Eine Karte weiter“ finanzieren wir den ersten Druck unseres Kartensets. Jeder Beitrag hilft, dass die Karten zu mehr Frauen kommen.</p>
+    </div>
+    <div class="fund-compare">
+      <div><h3>Karten für dich</h3><p>Du möchtest das Set selbst haben? Dann bestell es oben vor, für 25 €, Versand Anfang Dezember.</p><a class="ghost" href="#eine-frage-weiter">Zur Vorbestellung</a></div>
+      <div><h3>Projekt unterstützen</h3><p>Du möchtest Nidrassa darüber hinaus unterstützen? Dann freuen wir uns über deinen Beitrag auf GoFundMe.</p></div>
+    </div>
+    <div class="fund-widget" id="gfm-box">
+      <div class="gfm-consent">
+        <button class="btn" type="button" id="gfm-load">Fundraiser anzeigen</button>
+        <p>Beim Anzeigen lädt die Seite Inhalte von GoFundMe. Dabei werden Daten an GoFundMe übertragen, mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+      </div>
+    </div>
+  </div>
+  <p class="wrap shop-next">Weitere Kartensets und Begleiter sind in Arbeit.</p>
+</section>

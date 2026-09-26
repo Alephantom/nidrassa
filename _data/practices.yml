@@ -1,0 +1,116 @@
+# Companion practices ("Begleitübungen").
+# format: key from formats.yml · minutes: 2, 5 or 15 (used by the 2-5-15 picker) · steps: shown as a numbered list.
+
+- format: meditation
+  minutes: 2
+  title: "Drei bewusste Atemzüge"
+  steps:
+    - "Halte an, wo du gerade bist."
+    - "Atme dreimal langsam ein und aus."
+    - "Spür bei jedem Ausatmen, wie deine Schultern ein Stück sinken."
+    - "Dann mach weiter mit deinem Tag."
+- format: atmung
+  minutes: 2
+  title: "Der lange Seufzer"
+  steps:
+    - "Atme zweimal kurz hintereinander durch die Nase ein."
+    - "Atme lang und langsam durch den Mund aus."
+    - "Wiederhole das fünfmal."
+- format: journaling
+  minutes: 2
+  title: "Ein ehrlicher Satz"
+  steps:
+    - "Nimm Stift und Papier oder dein Handy."
+    - "Vervollständige: „Gerade fühle ich mich …“"
+    - "Und: „Was ich jetzt brauche, ist …“"
+- format: dehnen
+  minutes: 2
+  title: "Schultern lösen"
+  steps:
+    - "Zieh die Schultern hoch zu den Ohren und halte kurz."
+    - "Lass sie mit dem Ausatmen fallen. Fünfmal."
+    - "Neig den Kopf sanft zur rechten Seite, drei Atemzüge. Dann links."
+- format: alltag
+  minutes: 2
+  title: "Unter der Dusche"
+  steps:
+    - "Spür nur das Wasser: Temperatur, Geräusch, wo es auf die Haut trifft."
+    - "Wenn Gedanken an den Tag kommen, geh zurück zum Wasser."
+    - "Keine To-do-Liste, nur diese zwei Minuten."
+- format: alltag
+  minutes: 2
+  title: "5-4-3-2-1"
+  steps:
+    - "Nenne in Gedanken 5 Dinge, die du siehst."
+    - "4 Dinge, die du hörst."
+    - "3 Dinge, die du spürst."
+    - "2 Dinge, die du riechst, und 1, das du schmeckst."
+- format: meditation
+  minutes: 5
+  title: "Body-Scan im Sitzen"
+  steps:
+    - "Setz dich bequem hin, schließ die Augen oder senk den Blick."
+    - "Wandere mit deiner Aufmerksamkeit langsam von den Füßen bis zum Kopf."
+    - "Nimm wahr, was du spürst, ohne etwas zu verändern."
+    - "Zum Schluss: drei tiefe Atemzüge."
+- format: atmung
+  minutes: 5
+  title: "4-6-Atmung"
+  steps:
+    - "Atme durch die Nase ein und zähle dabei bis 4."
+    - "Atme langsam aus und zähle bis 6."
+    - "Bleib fünf Minuten in diesem Rhythmus."
+    - "Das längere Ausatmen hilft vielen, ruhiger zu werden."
+- format: journaling
+  minutes: 5
+  title: "Drei gute Dinge"
+  steps:
+    - "Schreib drei Dinge auf, die heute gut waren. Auch kleine zählen."
+    - "Such dir eins davon aus."
+    - "Schreib auf, warum es dir gutgetan hat."
+- format: dehnen
+  minutes: 5
+  title: "Sanfte Morgenrunde"
+  steps:
+    - "Streck beide Arme weit nach oben und atme tief ein."
+    - "Neig dich langsam zur Seite, erst rechts, dann links."
+    - "Beug dich mit weichen Knien nach vorn und lass den Oberkörper hängen."
+    - "Roll dich Wirbel für Wirbel wieder auf."
+- format: alltag
+  minutes: 5
+  title: "Auf dem Weg"
+  steps:
+    - "Steck das Handy weg."
+    - "Nimm bewusst wahr: deine Schritte, die Geräusche, das Licht."
+    - "Wenn du merkst, dass du abschweifst, fang einfach wieder an."
+- format: meditation
+  minutes: 15
+  title: "Der Atem als Anker"
+  steps:
+    - "Stell dir einen Timer auf 15 Minuten und setz dich bequem hin."
+    - "Richte deine Aufmerksamkeit auf den Atem, an der Nase oder am Bauch."
+    - "Wenn du abschweifst, bemerk es und kehr freundlich zurück."
+    - "Frag dich am Ende: Wie geht es mir jetzt?"
+- format: journaling
+  minutes: 15
+  title: "Eine Frage weiter"
+  steps:
+    - "Zieh eine Karte oder nimm die Frage: „Was brauche ich gerade wirklich?“"
+    - "Schreib zehn Minuten, ohne abzusetzen."
+    - "Lies alles noch einmal und unterstreich einen Satz, der bleiben darf."
+- format: dehnen
+  minutes: 15
+  title: "Runterkommen am Abend"
+  steps:
+    - "Katze-Kuh im Vierfüßlerstand, im Rhythmus deines Atems."
+    - "Kindhaltung, einige Atemzüge lang."
+    - "Im Liegen die Knie zu einer Seite sinken lassen, dann zur anderen."
+    - "Zum Schluss drei Minuten die Beine an die Wand legen."
+- format: alltag
+  minutes: 15
+  title: "Langsames Gehen"
+  steps:
+    - "Such dir einen ruhigen Ort, drinnen oder draußen."
+    - "Geh deutlich langsamer als sonst."
+    - "Spür, wie sich der Fuß hebt, nach vorn bewegt und aufsetzt."
+    - "Nach 15 Minuten: kurz stehen bleiben und nachspüren."

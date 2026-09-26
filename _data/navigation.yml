@@ -1,0 +1,32 @@
+# Links in the top navigation (and burger menu on phones).
+# "nav" must match the page's front matter "nav" to highlight the current page.
+main:
+  - title: Übungen
+    url: /uebungen/
+    nav: uebungen
+  - title: Blog
+    url: /blog/
+    nav: blog
+  - title: Retreat
+    url: /retreat/
+    nav: retreat
+
+# Links in the footer.
+footer:
+  - title: Über
+    url: /#ueber
+  - title: Übungen
+    url: /uebungen/
+  - title: Blog
+    url: /blog/
+  - title: Retreat
+    url: /retreat/
+  - title: Shop
+    url: /shop/
+  - title: Pinterest
+    url: https://www.pinterest.com/Nidrassa
+    external: true
+  - title: Impressum
+    url: /impressum/
+  - title: Datenschutz
+    url: /datenschutz/

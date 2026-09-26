@@ -1,0 +1,15 @@
+{%- comment -%} Floating footer card. Links are defined in _data/navigation.yml. {%- endcomment -%}
+<div class="footer-shell">
+  <footer>
+    <div class="wrap">
+      <svg class="star star-lite" aria-hidden="true"><use href="#star"/></svg>
+      <div class="word">NIDRASSA</div>
+      <nav aria-label="Footer">
+        {%- for link in site.data.navigation.footer %}
+        <a class="pill" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.title }}</a>
+        {%- endfor %}
+      </nav>
+      <small>© {{ site.time | date: "%Y" }} Nidrassa</small>
+    </div>
+  </footer>
+</div>

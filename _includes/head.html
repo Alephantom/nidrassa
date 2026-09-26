@@ -1,0 +1,16 @@
+{%- comment -%}
+  <head> for every page. Title, description and social preview come from the page's
+  front matter via jekyll-seo-tag (title, description, image).
+  Front matter noindex: true keeps a page out of search engines (e.g. the hidden /retreat1/).
+  ?v= busts the browser cache on every build.
+{%- endcomment -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+{% if page.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords | join: ', ' }}">{% endif %}
+{% feed_meta %}
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css?v={{ site.time | date: '%s' }}">

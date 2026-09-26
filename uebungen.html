@@ -1,0 +1,43 @@
+---
+layout: default
+title: "Begleitübungen"
+description: "Kurze Begleitübungen für 2, 5 oder 15 Minuten: Meditation, Atmung, Journaling, Dehnen und Achtsamkeit im Alltag."
+nav: uebungen
+permalink: /uebungen/
+---
+<section class="page-hero">
+  <svg class="star star-lite" aria-hidden="true"><use href="#star"/></svg>
+  <p class="eyebrow">Begleitübungen</p>
+  <h1>Alle Übungen nach Format</h1>
+  <p class="page-intro">Meditation, Atmung, Journaling, Dehnen und kleine Momente im Alltag. Sortiert nach Format, jeweils mit Dauer. Öffne eine Übung, um die Schritte zu sehen.</p>
+  <a class="btn" href="/#methode">Zurück zur 2-5-15-Methode</a>
+</section>
+
+<section class="library">
+  <div class="wrap">
+    <nav class="lib-index" aria-label="Formate">
+      {%- for f in site.data.formats %}
+      {%- assign count = site.data.practices | where: "format", f[0] | size %}
+      <a href="#fmt-{{ f[0] }}">{{ f[1].name }} <span class="count">{{ count }}</span></a>
+      {%- endfor %}
+    </nav>
+    {%- for f in site.data.formats %}
+    {%- assign items = site.data.practices | where: "format", f[0] | sort: "minutes" %}
+    <div class="lib-group" id="fmt-{{ f[0] }}">
+      <figure class="photo lib-photo"><img src="{{ f[1].image }}" alt="{{ f[1].image_alt }}"{% if f[1].image_position %} style="object-position: {{ f[1].image_position }}"{% endif %} loading="lazy"></figure>
+      <div class="lib-body">
+        <h2>{{ f[1].name }}</h2>
+        <p>{{ f[1].intro }}</p>
+        <div class="lib-list">
+          {%- for e in items %}
+          <details class="ex">
+            <summary><span class="dur">{{ e.minutes }} Min.</span>{{ e.title }}</summary>
+            <ol class="steps">{% for step in e.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+          </details>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>

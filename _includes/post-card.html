@@ -1,0 +1,13 @@
+{%- comment -%}
+  Blog card. Usage: {% include post-card.html post=post cls="feature|compact" %}
+  data-topic is used by the topic filter on /blog/.
+{%- endcomment -%}
+{%- assign p = include.post -%}
+<a class="post{% if include.cls %} {{ include.cls }}{% endif %}" href="{{ p.url }}" data-topic="{{ p.topic }}">
+  <div class="thumb"><img src="{{ p.image }}" alt="{{ p.image_alt }}" loading="lazy"></div>
+  <div class="body">
+    <p class="meta">{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.</p>
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.description }}</p>
+  </div>
+</a>

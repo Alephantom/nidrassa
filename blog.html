@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Blog"
+description: "Artikel über Meditation, Atmung, Journaling und kleine Pausen in vollen Tagen."
+nav: blog
+permalink: /blog/
+---
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Blog</p>
+    <h1>Gedanken zum Innehalten</h1>
+    <p>Kurze Artikel über Meditation, Atmung, Journaling und kleine Pausen in vollen Tagen.</p>
+  </div>
+</section>
+
+<section class="blog-hl-section">
+  <div class="wrap">
+    <h2 class="list-title">Neu im Blog</h2>
+    <div class="blog-hl">
+      {% assign latest = site.posts | slice: 0, 3 %}
+      {% for post in latest %}{% if forloop.first %}{% include post-card.html post=post cls="feature" %}<div class="hl-side">{% else %}{% include post-card.html post=post cls="compact" %}{% endif %}{% endfor %}</div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-all">
+  <div class="wrap">
+    <h2 class="list-title">Alle Artikel</h2>
+    <div class="blog-filter" id="blog-filter" role="group" aria-label="Nach Thema filtern">
+      <button type="button" data-f="all">Alle</button>
+      {% for f in site.data.formats %}<button type="button" data-f="{{ f[0] }}">{{ f[1].name }}</button>{% endfor %}
+    </div>
+    <div class="posts" id="blog-list">
+      {% for post in site.posts %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+    <div class="blog-more"><button class="ghost" type="button" id="blog-more" hidden>Mehr Artikel anzeigen</button></div>
+  </div>
+</section>

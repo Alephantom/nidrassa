@@ -1,0 +1,22 @@
+{%- comment -%}
+  Floating pill navigation. On screens up to 900px the links move into the burger menu
+  (opened by assets/site.js). Links are defined in _data/navigation.yml.
+{%- endcomment -%}
+<header class="nav" id="site-nav">
+  <a class="brand" href="/"><svg class="star-dark" aria-hidden="true"><use href="#star"/></svg>NIDRASSA</a>
+  <ul class="nav-links">
+    {%- for link in site.data.navigation.main %}
+    <li><a class="pill" href="{{ link.url }}"{% if page.nav == link.nav %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+    {%- endfor %}
+  </ul>
+  <div class="nav-actions">
+    <a class="pill solid" href="/shop/"{% if page.nav == "shop" %} aria-current="page"{% endif %}>Shop</a>
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="menu" id="menu" hidden aria-label="Menü">
+    {%- for link in site.data.navigation.main %}
+    <a href="{{ link.url }}"{% if page.nav == link.nav %} aria-current="page"{% endif %}>{{ link.title }}</a>
+    {%- endfor %}
+    <a href="/shop/">Shop</a>
+  </nav>
+</header>

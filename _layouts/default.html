@@ -1,0 +1,23 @@
+{%- comment -%}
+  Base layout for every page.
+  Front matter options:
+    title, description, image  → SEO / social preview (jekyll-seo-tag)
+    nav                        → highlights the matching navigation link (see _data/navigation.yml)
+    body_class                 → extra class on <body>, e.g. "theme-blue" for the retreat page
+    subnav                     → list of page sections for the second navigation (see _includes/subnav.html)
+    footer: false              → hide the footer (404 page)
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+{% include head.html %}
+</head>
+<body class="{{ page.body_class }}{% if page.subnav %} has-subnav{% endif %}">
+{% include star-sprite.html %}
+{% include header.html %}
+{% if page.subnav %}{% include subnav.html %}{% endif %}
+{{ content }}
+{% unless page.footer == false %}{% include footer.html %}{% endunless %}
+<script src="/assets/site.js?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

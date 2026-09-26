@@ -1,0 +1,29 @@
+# Formats used by the practices page, the 2-5-15 method and as blog topics (front matter "topic").
+# Order here = order on the site.
+
+meditation:
+  name: "Meditation"
+  intro: "Still werden und wahrnehmen, was gerade da ist."
+  image: /assets/lotus.webp
+  image_alt: "Lotusknospe vor einer unscharfen Buddha-Figur im Garten"
+atmung:
+  name: "Atmung"
+  intro: "Der Atem ist immer dabei. Ein paar bewusste Züge verändern oft schon viel."
+  image: /assets/sunset-mudra.webp
+  image_alt: "Hand in einer Mudra auf dem Knie, dahinter die untergehende Sonne"
+journaling:
+  name: "Journaling"
+  intro: "Gedanken aufs Papier bringen, damit im Kopf wieder Platz ist."
+  image: /assets/cards-journal.webp
+  image_alt: "Journaling-Karten neben einem aufgeschlagenen Notizbuch"
+  image_position: "22% 50%"
+dehnen:
+  name: "Dehnen"
+  intro: "Sanfte Bewegung für Schultern, Rücken und Hüften. Beweg dich nur so weit, wie es sich gut anfühlt."
+  image: /assets/tree-pose.webp
+  image_alt: "Frau in der Baumhaltung auf einem Felsen über nebligen, grünen Hügeln"
+alltag:
+  name: "Im Alltag"
+  intro: "Mikro-Meditationen für die Momente, die du sowieso hast."
+  image: /assets/singing-bowls.webp
+  image_alt: "Hand hält kleine Zimbeln über Klangschalen"

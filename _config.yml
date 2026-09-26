@@ -1,0 +1,49 @@
+# Nidrassa – Jekyll configuration
+# After changing this file, restart `jekyll serve`.
+
+title: Nidrassa
+tagline: Halte inne und komm zurück zu dir
+description: Meditation, Atmung, Journaling und kleine Pausen für Frauen mit vollen Tagen.
+url: "https://nidrassa.com"
+baseurl: ""
+lang: de_DE
+locale: de_DE
+timezone: Europe/Berlin
+
+# Blog posts live at /blog/<slug>/ (slug = file name without the date).
+permalink: /blog/:title/
+
+# Posts with a future date are NOT built until that day.
+# The site is rebuilt every morning (.github/workflows/pages.yml) so they go live on schedule.
+future: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["sbquo", "lsquo", "bdquo", "ldquo"]   # German quotation marks „…“
+
+plugins:
+  - jekyll-seo-tag   # title, description, social preview, structured data
+  - jekyll-sitemap   # /sitemap.xml
+  - jekyll-feed      # /blog/feed.xml (can be connected to Pinterest for auto-pins)
+
+feed:
+  path: blog/feed.xml
+
+social:
+  name: Nidrassa
+  links:
+    - https://www.pinterest.com/Nidrassa
+
+defaults:
+  - scope: { type: posts }
+    values:
+      layout: post
+      nav: blog        # highlights "Blog" in the navigation
+      author: Nidrassa
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
