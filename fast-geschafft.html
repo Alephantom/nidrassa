@@ -1,0 +1,27 @@
+---
+layout: default
+title: "Fast geschafft"
+description: "Bitte bestätige deine Anmeldung zum Nidrassa-Newsletter über den Link in der E-Mail, die wir dir gerade geschickt haben."
+permalink: /fast-geschafft/
+footer: false
+noindex: true
+sitemap: false
+---
+{%- comment -%}
+  Page shown right after the newsletter form is submitted (before the double opt-in click).
+  Enter https://nidrassa.com/fast-geschafft/ as the "page after submitting the form" in the newsletter tool.
+  After the click in the email, visitors land on /opt-in/.
+  Uses the 404 page styles (section 14 in styles.css).
+{%- endcomment -%}
+<main class="notfound">
+  <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
+  <p class="nf-eyebrow">Fast geschafft</p>
+  <h1>Bitte schau in dein Postfach.</h1>
+  <p>Wir haben dir gerade eine E-Mail geschickt. Klick dort auf den Link, um deine Anmeldung zu bestätigen. Erst dann bekommst du die Sonntagsübungen.</p>
+  <p>Keine Mail da? Manchmal dauert es ein paar Minuten. Schau auch im Spam- oder Werbung-Ordner nach.</p>
+  <p class="nf-breathe">Während du wartest: drei Atemzüge. Ein, wenn der Stern wächst, aus, wenn er kleiner wird.</p>
+  <div class="nf-actions">
+    <a class="btn" href="/">Zur Startseite</a>
+    <a class="ghost light" href="/uebungen/">Zu den Übungen</a>
+  </div>
+</main>

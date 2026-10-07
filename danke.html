@@ -1,0 +1,27 @@
+---
+layout: default
+title: "Willkommen beim Sunday Reset"
+description: "Deine Anmeldung zum Sunday Reset ist bestätigt. Am Sonntag bekommst du deine erste kleine Übung."
+permalink: /danke/
+footer: false
+noindex: true
+sitemap: false
+# Link to the 20-minute candle video on YouTube. The video button only shows once this is filled in.
+video_url: "https://www.youtube.com/watch?v=yiAKGDb5ONY"
+---
+{%- comment -%}
+  Page after the click on the confirmation link in the double opt-in email.
+  Enter https://nidrassa.com/danke/ as the "page after confirming" in the newsletter tool.
+  Uses the 404 page styles (section 14 in styles.css).
+{%- endcomment -%}
+<main class="notfound">
+  <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
+  <p class="nf-eyebrow">Anmeldung bestätigt</p>
+  <h1>Willkommen beim Sunday Reset! 🤍</h1>
+  <p>Deine Anmeldung ist bestätigt. Am Sonntag bekommst du deine erste kleine Übung.</p>
+  <p class="nf-breathe">Bis dahin: Nimm dir 20 Minuten mit der Kerze. 🕯️</p>
+  <div class="nf-actions">
+    {% if page.video_url != "" %}<a class="btn" href="{{ page.video_url }}" target="_blank" rel="noopener">Zum Video auf YouTube</a>{% endif %}
+    <a class="ghost light" href="/">Zur Startseite</a>
+  </div>
+</main>

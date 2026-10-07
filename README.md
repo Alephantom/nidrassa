@@ -17,6 +17,9 @@ Built with [Jekyll](https://jekyllrb.com) (static site, no database). Language: 
 | `/retreat/` | `retreat.html` | Public retreat page for now: hero + waitlist only (blue theme) |
 | `/retreat1/` | `retreat1.html` | **Hidden** full retreat one-pager (not linked, not in sitemap, `noindex`): Retreats · Ablauf · Ort · Warteliste · Stimmen, with section navigation |
 | `/impressum/`, `/datenschutz/` | `impressum.html`, `datenschutz.html` | Legal pages (**templates: fill in the highlighted placeholders**) |
+| `/fast-geschafft/` | `fast-geschafft.html` | Shown after the newsletter form is sent ("Fast geschafft", check your inbox), `noindex`, not in sitemap. Set `https://nidrassa.com/fast-geschafft/` as the page after submitting in the newsletter tool |
+| `/danke/` | `danke.html` | Shown after the click on the confirmation link ("Willkommen beim Sunday Reset"), `noindex`, not in sitemap. YouTube link of the candle video goes in `video_url` in its front matter. Set `https://nidrassa.com/danke/` as the page after confirming in the newsletter tool |
+| `/opt-in/` | `opt-in.html` | Old address, forwards to `/danke/` |
 | `/404.html` | `404.html` | "Seite nicht gefunden" |
 
 ## Folder structure
@@ -117,7 +120,6 @@ Edit the `gallery` list in the front matter of `shop.html`.
 | What | Where |
 |---|---|
 | Checkout link for the pre-order button | `CONFIG.preorderUrl` at the top of `assets/site.js` |
-| Newsletter form endpoint (Brevo, MailerLite …, with double opt-in) | `CONFIG.newsletterUrl` |
 | Retreat waitlist endpoint | `CONFIG.waitlistUrl` |
 | Name, address, providers | placeholders in `impressum.html` and `datenschutz.html` |
 

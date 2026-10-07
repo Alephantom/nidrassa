@@ -8,7 +8,6 @@
 // ---------- Settings: paste the real links here once the tools are set up ----------
 const CONFIG = {
   preorderUrl: "",    // checkout link for "Eine Frage weiter" (e.g. Stripe payment link or Shopify)
-  newsletterUrl: "",  // form endpoint of the newsletter tool (e.g. Brevo, MailerLite)
   waitlistUrl: ""     // form endpoint for the retreat waitlist
 };
 
@@ -223,8 +222,9 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 })();
 
 
-// ---------- Forms: newsletter + retreat waitlist ----------
-// Sends to the matching endpoint in CONFIG (form data-form="newsletter" → newsletterUrl).
+// ---------- Forms: retreat waitlist ----------
+// Sends to the matching endpoint in CONFIG (form data-form="waitlist" → waitlistUrl).
+// The newsletter form posts straight to Brevo (see index.html) and is not handled here.
 // While the endpoint is empty NOTHING is sent; the thank-you note still shows for testing.
 document.querySelectorAll("form[data-form]").forEach(form => {
   form.addEventListener("submit", async e => {
