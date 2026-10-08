@@ -19,6 +19,7 @@ Built with [Jekyll](https://jekyllrb.com) (static site, no database). Language: 
 | `/impressum/`, `/datenschutz/` | `impressum.html`, `datenschutz.html` | Legal pages (**templates: fill in the highlighted placeholders**) |
 | `/fast-geschafft/` | `fast-geschafft.html` | Shown after the newsletter form is sent ("Fast geschafft", check your inbox), `noindex`, not in sitemap. Set `https://nidrassa.com/fast-geschafft/` as the page after submitting in the newsletter tool |
 | `/danke/` | `danke.html` | Shown after the click on the confirmation link ("Willkommen beim Sunday Reset"), `noindex`, not in sitemap. YouTube link of the candle video goes in `video_url` in its front matter. Set `https://nidrassa.com/danke/` as the page after confirming in the newsletter tool |
+| `/newsletter/` | `newsletter.html` | Short link for Instagram etc., forwards to the newsletter form on the home page (`/#newsletter`) |
 | `/opt-in/` | `opt-in.html` | Old address, forwards to `/danke/` |
 | `/404.html` | `404.html` | "Seite nicht gefunden" |
 
