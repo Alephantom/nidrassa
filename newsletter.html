@@ -1,21 +1,13 @@
 ---
-layout: null
+layout: default
+title: "Newsletter: Sunday Reset"
+description: "Jeden Sonntag eine kurze Übung in deinem Postfach, für 2, 5 oder 15 Minuten. Melde dich für den Sunday Reset von Nidrassa an."
+image: /assets/sunset-mudra.webp
 permalink: /newsletter/
-sitemap: false
 ---
 {%- comment -%}
-  Short link for Instagram & co: nidrassa.com/newsletter → newsletter form on the home page.
+  Short link for Instagram & co: nidrassa.com/newsletter shows the sign-up form directly.
 {%- endcomment -%}
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="0; url=/#newsletter">
-<link rel="canonical" href="https://nidrassa.com/">
-<title>Newsletter | Nidrassa</title>
-</head>
-<body>
-<p><a href="/#newsletter">Zum Newsletter</a></p>
-</body>
-</html>
+<main class="newsletter-page">
+{% include newsletter.html %}
+</main>

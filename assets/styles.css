@@ -406,6 +406,8 @@ a { color: inherit; }
 /* ---------- 7b. Newsletter + shared form styles (.notify) ---------- */
 .newsletter { padding: 0 0 24px; }
 .newsletter + .blog { padding-top: 96px; }
+.newsletter-page { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 140px 0 72px; }
+.newsletter-page .newsletter { padding: 0; }
 .news-card {
   max-width: 760px; margin: 0 auto; text-align: center; padding: 56px 40px 44px;
   background: var(--beige); border: 1px solid var(--sand); border-radius: 32px;

@@ -138,34 +138,7 @@ permalink: /
 </section>
 
 <!-- ============ NEWSLETTER ============ -->
-<section class="newsletter" id="newsletter">
-  <div class="wrap">
-    <div class="news-card">
-      <p class="eyebrow">Newsletter</p>
-      <h2>Eine Übung pro Woche</h2>
-      <p>Jeden Sonntag eine kurze Übung in deinem Postfach, für 2, 5 oder 15 Minuten. Damit du dranbleibst, auch wenn die Woche voll ist.</p>
-      {%- comment -%}
-        Sends straight to Brevo (no Brevo script, fonts or styles are loaded).
-        Brevo then redirects to /fast-geschafft/ and, after the click in the email, to /danke/.
-        Field names (EMAIL, OPT_IN, email_address_check, locale) must stay as Brevo expects them.
-      {%- endcomment %}
-      <form class="notify" method="POST" action="https://1e4bd713.sibforms.com/serve/MUIFAEEAQTFrYpL0Xe2CPBpHADPEKnXaoQUdgti4ZH_vlM_FsgUGCfxNYIFhY_XSgnUMgVCHsJZLrW-Z9wR_XF_V6Y5wJoPf6xbmp-b2OfspmoP_vrOjTc8o5VZphM6nnrwF4o2sg7U6TkoG25yplAUg5NyN0Y8LqvLMFjzcTyFM7VBdFTWegg31umtnyyn8BUnAVtBA-8TpHAjTNQ==">
-        <div class="notify-row">
-          <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
-          <input type="email" id="news-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
-          <button class="btn" type="submit">Anmelden</button>
-        </div>
-        <label class="notify-consent">
-          <input type="checkbox" name="OPT_IN" value="1" required>
-          <span>Ich möchte den Newsletter erhalten und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
-        </label>
-        <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="locale" value="de">
-      </form>
-      <p class="notify-hint">Kein Spam, Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>
-    </div>
-  </div>
-</section>
+{% include newsletter.html %}
 
 <!-- ============ BLOG PREVIEW ============ -->
 <section class="blog" id="blog">
