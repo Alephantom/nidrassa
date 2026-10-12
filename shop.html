@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Shop"
-description: "Eine Frage weiter: 31 Journaling-Karten, jetzt vorbestellen. 25 €, Versand Anfang Dezember."
+description: "Eine Frage weiter: 31 Journaling-Karten. Der Shop öffnet am 15. November, Versand Anfang Dezember. Auf der Warteliste gibt es einen Adventskalender und 10 % Rabatt."
 nav: shop
 image: /assets/shop-flatlay.webp
 # Product photos for the gallery (shuffled and rotated by assets/site.js)
@@ -13,14 +13,16 @@ gallery:
   - src: /assets/shop-notebook.webp
     alt: "Kartenset neben einem Leinen-Notizbuch, dahinter ein andalusisches Dorf"
 permalink: /shop/
+# Brevo form URL for the card waitlist (Brevo → Formulare → Waitlist form → "Teilen" / HTML code, the action="…" link)
+waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4Xc_A1nKYF7Jri_t3_iVACCxgNS0AlTTH5Rql0ZbS-ia1qFXl1P--BccIv3_ju9qOYew-Ud4DlN-MerliOYCR3_WpOkXONsKxcQryI4JXvjOnTWlqvZA2OAKbQSG71QvavqB0xyY0M0Bx58-lEI0WJFvTC1Eb10R5Cxmb0MeG3J_Y4cAbWbQvONG2Q=="
 ---
 <section class="page-head">
   <div class="wrap">
     <p class="eyebrow">Shop</p>
     <h1>Kleine Begleiter für ruhige Momente</h1>
-    <p>Kartensets und Begleiter für volle Tage. Wir starten mit unserem ersten Kartenset, weitere folgen.</p>
+    <p>Kartensets und Begleiter für volle Tage. Wir starten mit unserem ersten Kartenset, weitere folgen. Der Shop öffnet am <strong>{{ site.data.shop.open_date }}</strong>.</p>
     <nav class="shop-options" aria-label="Produkte">
-      <a href="#eine-frage-weiter"><span>Eine Frage weiter</span><small>25 € · <span>Vorbestellung</span></small></a>
+      <a href="#eine-frage-weiter"><span>Eine Frage weiter</span><small>25 € · <span>ab {{ site.data.shop.open_date }}</span></small></a>
       <a href="#fundraiser"><span>Fundraiser</span><small>GoFundMe</small></a>
     </nav>
   </div>
@@ -37,7 +39,7 @@ permalink: /shop/
       </div>
     </div>
     <div class="product-info">
-      <span class="badge">Vorbestellung</span>
+      <span class="badge">Vorbestellung ab {{ site.data.shop.open_date }}</span>
       <p class="eyebrow">Journaling-Karten · 31 Karten</p>
       <h2 id="p-title">Eine Frage weiter</h2>
       <p class="sub" id="p-sub">Journaling-Karten für Gedanken, die Raum brauchen</p>
@@ -45,7 +47,6 @@ permalink: /shop/
         <span class="price">25 €</span>
         <span class="ship">Versand Anfang Dezember</span>
       </div>
-      <p class="surprise"><strong>Kleine Überraschung:</strong> Zu jeder Vorbestellung legen wir dir etwas Kleines mit ins Päckchen.</p>
       <p class="desc">Vorne drei zusammenhängende Fragen, hinten ein Satz, der dich durch den Tag begleitet. Ohne Datum, ohne feste Reihenfolge, nichts zum Nachholen. Eine Karte kann für zwei Minuten reichen oder für mehrere Seiten.</p>
       <ul class="features">
         <li>31 Karten + Anleitungskarte</li>
@@ -61,6 +62,36 @@ permalink: /shop/
         <span><strong>Als Geschenk verpacken</strong><small>Verpackt und ohne Rechnung im Päckchen.</small></span>
       </label>
       <a class="btn buy-btn" id="preorder" href="#">Vorbestellen</a>
+      {%- comment -%}
+        Card waitlist: posts straight to Brevo, like the newsletter form.
+        Brevo then redirects to /karten-fast-geschafft/ and, after the click in the email, to /karten-danke/.
+        Field names (VORNAME, EMAIL, OPT_IN, email_address_check, locale) must match the Brevo form.
+      {%- endcomment %}
+      <div class="shop-waitlist" id="warteliste">
+        <h3>Warteliste</h3>
+        <p>Der Shop öffnet am {{ site.data.shop.open_date }}. Trag dich ein, dann bekommst du:</p>
+        <ul class="perks">
+          {%- for perk in site.data.shop.perks %}
+          <li>{{ perk }}</li>
+          {%- endfor %}
+        </ul>
+        <form class="notify" method="POST" action="{{ page.waitlist_action }}">
+          <div class="notify-row">
+            <label class="visually-hidden" for="wl-name">Dein Vorname</label>
+            <input type="text" id="wl-name" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
+            <label class="visually-hidden" for="wl-email">Deine E-Mail-Adresse</label>
+            <input type="email" id="wl-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
+          </div>
+          <label class="notify-consent">
+            <input type="checkbox" name="OPT_IN" value="1" required>
+            <span>Ich möchte per E-Mail den Adventskalender, meinen Rabattcode und die Info zum Shopstart bekommen und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
+          </label>
+          <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="locale" value="de">
+          <button class="btn" type="submit">Auf die Warteliste</button>
+        </form>
+        <p class="notify-hint">Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -74,7 +105,7 @@ permalink: /shop/
       <p>Mit dem Fundraiser „Eine Karte weiter“ finanzieren wir den ersten Druck unseres Kartensets. Jeder Beitrag hilft, dass die Karten zu mehr Frauen kommen.</p>
     </div>
     <div class="fund-compare">
-      <div><h3>Karten für dich</h3><p>Du möchtest das Set selbst haben? Dann bestell es oben vor, für 25 €, Versand Anfang Dezember.</p><a class="ghost" href="#eine-frage-weiter">Zur Vorbestellung</a></div>
+      <div><h3>Karten für dich</h3><p>Du möchtest das Set selbst haben? Ab dem {{ site.data.shop.open_date }} kannst du es oben vorbestellen, für 25 €, Versand Anfang Dezember. Bis dahin: ab auf die Warteliste.</p><a class="ghost" href="#warteliste">Zur Warteliste</a></div>
       <div><h3>Projekt unterstützen</h3><p>Du möchtest Nidrassa darüber hinaus unterstützen? Dann freuen wir uns über deinen Beitrag auf GoFundMe.</p></div>
     </div>
     <div class="fund-widget" id="gfm-box">

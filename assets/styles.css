@@ -210,6 +210,26 @@ a { color: inherit; }
 
 /* ---------- 4. Pain point + "Warum Meditation" (home) ---------- */
 .intro { padding: 140px 0 120px; }
+.shop-banner { padding: 64px 0 0; }
+.shop-banner + .intro { padding-top: 104px; }
+.sb-card {
+  display: grid; grid-template-columns: 2fr 3fr; align-items: center; overflow: hidden; text-decoration: none;
+  background: var(--olive-deep); color: var(--beige); border-radius: 32px;
+}
+.sb-card img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
+.sb-text { padding: 40px 48px; }
+.sb-text .eyebrow { color: var(--stone); }
+.sb-text h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 40px); margin-top: 10px; }
+.sb-text p:not(.eyebrow) { margin-top: 12px; max-width: 460px; color: var(--stone); }
+.sb-text .btn { display: inline-flex; margin-top: 24px; border-radius: 999px; background: var(--beige); color: var(--olive); }
+.sb-card:hover .btn { background: var(--sand); }
+@media (max-width: 760px) {
+  .sb-card { grid-template-columns: 1fr; }
+  .sb-card img { min-height: 0; aspect-ratio: 16 / 10; }
+  .sb-text { padding: 28px 22px 32px; }
+  .sb-text .btn { width: 100%; justify-content: center; }
+  .shop-banner + .intro { padding-top: 80px; }
+}
 .photo { margin: 0; overflow: hidden; border-radius: 28px; background: var(--sand); }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
 .intro-grid { display: grid; grid-template-columns: 0.85fr 1fr; gap: 72px; align-items: center; }
@@ -506,6 +526,13 @@ a { color: inherit; }
 .gift small { display: block; font-size: 13px; color: #6a655b; }
 .buy-btn[aria-disabled="true"], .buy-btn[aria-disabled="true"]:hover { background: var(--sand); color: var(--olive); cursor: default; }
 .buy-btn { margin-top: 24px; border-radius: 999px; text-align: center; min-width: 240px; }
+.shop-waitlist { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--sand); scroll-margin-top: 110px; }
+.shop-waitlist h3 { font-family: var(--display); font-weight: 400; font-size: 28px; color: var(--olive); }
+.shop-waitlist > p:not(.notify-hint) { margin-top: 6px; color: #4a463f; }
+.perks { list-style: none; margin-top: 12px; display: grid; gap: 8px; }
+.perks li { position: relative; padding-left: 22px; color: #4a463f; }
+.perks li::before { content: ""; position: absolute; left: 4px; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--deep-copper); }
+.shop-waitlist .btn { margin-top: 18px; min-height: 52px; min-width: 240px; }
 .shop-options { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .shop-options a {
   display: flex; flex-direction: column; gap: 2px; min-width: 220px; padding: 16px 22px;
@@ -661,12 +688,12 @@ a { color: inherit; }
 }
 .rt-choice input { width: 18px; height: 18px; accent-color: var(--olive); }
 .notify-row { display: flex; gap: 8px; margin-top: 14px; }
-.notify input[type="email"] {
+.notify input[type="email"], .notify input[type="text"]:not(.visually-hidden) {
   flex: 1; min-width: 0; min-height: 52px; padding: 0 22px; border-radius: 999px;
   border: 1px solid var(--sand); background: #FBF8F3; font: inherit; font-size: 16px; color: var(--ink);
 }
 .notify input::placeholder { color: #8a857b; }
-.notify input[type="email"]:focus { outline: 2px solid var(--moss); outline-offset: 2px; }
+.notify input[type="email"]:focus, .notify input[type="text"]:focus { outline: 2px solid var(--moss); outline-offset: 2px; }
 .notify .btn { border: 0; cursor: pointer; border-radius: 999px; font-family: var(--sans); white-space: nowrap; background: var(--olive); color: var(--beige); }
 .notify .btn:hover { background: var(--moss); }
 .notify-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; text-align: left; font-size: 14px; color: #4a463f; cursor: pointer; }
@@ -716,6 +743,7 @@ a { color: inherit; }
 .article-cta h2 { font-family: var(--display); font-weight: 400; font-size: 30px; }
 .article-cta p { margin: 10px auto 0; max-width: 460px; color: var(--stone); }
 .article-cta .btn { margin-top: 24px; border-radius: 999px; }
+.article-cta p.cta-note { margin-top: 16px; font-size: 14px; }
 @media (max-width: 560px) {
   .article { padding: 116px 0 80px; }
   .prose { font-size: 17px; }
@@ -768,6 +796,8 @@ footer .word { font-family: var(--display); font-size: 22px; letter-spacing: .3e
 footer nav { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
 footer nav .pill { color: var(--stone); border: 1px solid rgba(201, 199, 166, 0.35); }
 footer nav .pill:hover { background: rgba(242, 234, 223, 0.1); color: var(--beige); }
+.footer-note { margin: 18px auto 0; max-width: 520px; font-size: 14px; color: var(--stone); }
+.footer-note a { color: var(--beige); }
 footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--stone); letter-spacing: .06em; }
 
 /* ---------- 16. Responsive: tablet (≤900px) and phone (≤560px) ---------- */
@@ -821,7 +851,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .pick { padding: 28px 22px; }
   .post.compact { flex-direction: column; }
   .post.compact .thumb { width: 100%; aspect-ratio: 4 / 3; }
-  .buy-btn { width: 100%; }
+  .buy-btn, .shop-waitlist .btn { width: 100%; }
 }
 @media (max-width: 380px) {
   .nav .brand { font-size: 12px; letter-spacing: .16em; gap: 8px; }

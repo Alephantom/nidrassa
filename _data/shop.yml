@@ -1,0 +1,7 @@
+# Shop launch + waitlist perks. Used on /shop/, in the footer, under blog posts that link to the shop
+# and on the waitlist confirmation pages. Change the date or perks here only.
+open_date: "15. November"
+perks:
+  - "Den Mama-Tochter-Adventskalender als kostenlosen Download"
+  - "10 % auf „Eine Frage weiter“"
+  - "5 % extra für jede Freundin, die ab dem 15. November bestellt (bis zu drei). Sie bekommt auch 5 %."

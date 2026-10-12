@@ -125,7 +125,7 @@ Edit the `gallery` list in the front matter of `shop.html`.
 | Name, address, providers | placeholders in `impressum.html` and `datenschutz.html` |
 
 While an endpoint is empty, the forms send **nothing** but still show the thank-you note (for testing).
-The pre-order button shows "Vorbestellung öffnet bald" until a checkout link is set.
+The pre-order button shows "Shop öffnet am 15. November" until a checkout link is set. Launch date and waitlist perks live in `_data/shop.yml`.
 The gift-wrap checkbox is only visual until the checkout can receive it.
 
 ## Privacy notes

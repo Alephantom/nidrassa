@@ -200,7 +200,7 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
   } else {
     btn.removeAttribute("href");
     btn.setAttribute("aria-disabled", "true");
-    btn.textContent = "Vorbestellung öffnet bald";
+    btn.textContent = "Shop öffnet am 15. November";
   }
 })();
 
