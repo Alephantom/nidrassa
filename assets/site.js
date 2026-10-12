@@ -248,20 +248,8 @@ document.querySelectorAll("form[data-redirect]").forEach(form => {
     e.preventDefault();
     const button = form.querySelector("button[type=submit]");
     if (button) button.disabled = true;
-    const fields = new FormData(form);
-    const wantsNewsletter = fields.get("newsletter") === "1";
-    fields.delete("newsletter");
     try {
-      // Optional newsletter tick: separate sign-up through the newsletter form (its own opt-in email).
-      if (wantsNewsletter && form.dataset.newsletter) {
-        const news = new FormData();
-        news.append("EMAIL", fields.get("EMAIL"));
-        news.append("OPT_IN", "1");
-        news.append("email_address_check", "");
-        news.append("locale", "de");
-        await fetch(form.dataset.newsletter, { method: "POST", body: news }).catch(() => {});
-      }
-      const res = await fetch(form.action, { method: "POST", body: fields });
+      const res = await fetch(form.action, { method: "POST", body: new FormData(form) });
       if (!res.ok) throw new Error(res.status);
       const data = await res.json().catch(() => ({}));
       if (data.success === false) throw new Error("rejected");

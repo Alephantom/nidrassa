@@ -41,21 +41,13 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
         <li>Passt zu jedem Notizbuch oder Journal</li>
         <li>Für 2, 5 oder 15 Minuten</li>
       </ul>
-      <div class="edition" role="group" aria-label="Ausgabe">
-        <button type="button" aria-pressed="true" data-title="Eine Frage weiter" data-sub="Journaling-Karten für Gedanken, die Raum brauchen">Deutsch</button>
-        <button type="button" aria-pressed="false" data-title="One Question Closer" data-sub="Journaling cards for thoughts that need room">English</button>
-      </div>
-      <label class="gift">
-        <input type="checkbox" name="gift">
-        <span><strong>Als Geschenk verpacken</strong><small>Verpackt und ohne Rechnung im Päckchen.</small></span>
-      </label>
       <a class="btn buy-btn" id="preorder" href="#">Vorbestellen</a>
       {%- comment -%}
         Card waitlist: posts straight to Brevo, like the newsletter form.
         Brevo then redirects to /karten-fast-geschafft/ and, after the click in the email, to /karten-danke/.
-        Field names (VORNAME, EMAIL, OPT_IN, email_address_check, locale) must match the Brevo form.
-        The "newsletter" tick is not sent to the waitlist; if ticked, assets/site.js also signs the email up
-        via the newsletter form (site.newsletter_action), which sends its own double opt-in email.
+        Field names (VORNAME, EMAIL, OPT_IN, lists_28[], email_address_check, locale) must match the Brevo form.
+        Brevo list IDs: 11 = Vorbestellung Journaling Karten (always sent), 9 = Sunday Reset (newsletter tick).
+        One double opt-in email confirms both.
       {%- endcomment %}
       <div class="shop-waitlist" id="warteliste">
         <h3>Warteliste</h3>
@@ -65,7 +57,7 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
           <li>{{ perk }}</li>
           {%- endfor %}
         </ul>
-        <form class="notify" method="POST" action="{{ page.waitlist_action }}" data-redirect="/karten-fast-geschafft/" data-newsletter="{{ site.newsletter_action }}">
+        <form class="notify" method="POST" action="{{ page.waitlist_action }}" data-redirect="/karten-fast-geschafft/">
           <div class="notify-row">
             <label class="visually-hidden" for="wl-name">Dein Vorname</label>
             <input type="text" id="wl-name" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
@@ -77,10 +69,11 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
             <span>Ich möchte per E-Mail den Adventskalender, meinen Rabattcode und die Info zum Shopstart bekommen und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
           </label>
           <label class="notify-consent">
-            <input type="checkbox" name="newsletter" value="1">
-            <span>Ich möchte auch den <a href="/newsletter/">Sunday Reset Newsletter</a> erhalten (optional, eigene Bestätigungsmail).</span>
+            <input type="checkbox" name="lists_28[]" value="9">
+            <span>Ich möchte auch den <a href="/newsletter/">Sunday Reset Newsletter</a> erhalten (optional).</span>
           </label>
           <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="lists_28[]" value="11">
           <input type="hidden" name="locale" value="de">
           <button class="btn" type="submit">Auf die Warteliste</button>
         </form>
