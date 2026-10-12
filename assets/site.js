@@ -222,6 +222,25 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 })();
 
 
+// ---------- Card waitlist confirmation: countdown to the shop launch ----------
+// Target date comes from _data/shop.yml (open_at). Hidden once the shop is open.
+(function () {
+  const box = document.querySelector("[data-countdown]");
+  if (!box) return;
+  const target = new Date(box.dataset.countdown).getTime();
+  const units = { d: 86400, h: 3600, m: 60, s: 1 };
+  function tick() {
+    let left = Math.floor((target - Date.now()) / 1000);
+    if (isNaN(left) || left <= 0) { box.hidden = true; clearInterval(timer); return; }
+    for (const [unit, size] of Object.entries(units)) {
+      box.querySelector(`[data-unit="${unit}"]`).textContent = String(Math.floor(left / size)).padStart(unit === "d" ? 1 : 2, "0");
+      left %= size;
+    }
+  }
+  const timer = setInterval(tick, 1000);
+  tick();
+})();
+
 // ---------- Forms: retreat waitlist ----------
 // Sends to the matching endpoint in CONFIG (form data-form="waitlist" → waitlistUrl).
 // The newsletter form posts straight to Brevo (see index.html) and is not handled here.

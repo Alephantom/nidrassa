@@ -765,6 +765,13 @@ a { color: inherit; }
 .notfound h1 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 4vw, 44px); margin-top: 10px; }
 .notfound p:not(.nf-code) { max-width: 520px; margin-top: 16px; color: var(--stone); }
 .notfound .nf-breathe { font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--beige); }
+.countdown { margin-top: 32px; }
+.countdown .cd-label { margin: 0 auto; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage) !important; }
+.cd-units { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
+.cd-units > div { min-width: 76px; padding: 14px 8px 12px; border: 1px solid rgba(201, 199, 166, 0.35); border-radius: 18px; }
+.cd-num { display: block; font-family: var(--display); font-size: clamp(30px, 5vw, 42px); line-height: 1; color: var(--beige); font-variant-numeric: tabular-nums; }
+.cd-name { display: block; margin-top: 6px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
+@media (max-width: 380px) { .cd-units { gap: 8px; } .cd-units > div { min-width: 64px; } }
 .nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
 .nf-actions .btn { border-radius: 999px; }
 @media (prefers-reduced-motion: reduce) { .rt-scroll, .notfound .breathe { animation: none; } }

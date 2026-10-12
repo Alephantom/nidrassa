@@ -1,6 +1,7 @@
 # Shop launch + waitlist perks. Used on /shop/, in the footer, under blog posts that link to the shop
 # and on the waitlist confirmation pages. Change the date or perks here only.
 open_date: "15. November"
+open_at: "2026-11-15T00:00:00+01:00"   # countdown on /karten-danke/ (Spanish/German time)
 perks:
   - "Den Mama-Tochter-Adventskalender als kostenlosen Download"
   - "10 % auf „Eine Frage weiter“"
