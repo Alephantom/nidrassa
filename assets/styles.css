@@ -474,6 +474,7 @@ a { color: inherit; }
 
 /* ---------- 9. Shop: product, gallery, fundraiser ---------- */
 .shop { background: var(--beige); padding: 96px 0 110px; }
+#eine-frage-weiter { padding-top: 150px; }
 .product { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
 .product > * { min-width: 0; }
 .gallery-main { aspect-ratio: 4 / 3.3; }
@@ -491,7 +492,7 @@ a { color: inherit; }
   display: inline-block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
   background: var(--olive); color: var(--beige); border-radius: 999px; padding: 7px 14px; margin-bottom: 18px;
 }
-.product-info h2 {
+.product-info h1 {
   font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 3.6vw, 46px);
   line-height: 1.1; color: var(--olive); margin-top: 14px;
 }
@@ -533,16 +534,6 @@ a { color: inherit; }
 .perks li { position: relative; padding-left: 22px; color: #4a463f; }
 .perks li::before { content: ""; position: absolute; left: 4px; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--deep-copper); }
 .shop-waitlist .btn { margin-top: 18px; min-height: 52px; min-width: 240px; }
-.shop-options { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.shop-options a {
-  display: flex; flex-direction: column; gap: 2px; min-width: 220px; padding: 16px 22px;
-  border-radius: 22px; border: 1px solid var(--sand); background: #F5EFE6; text-decoration: none;
-  transition: border-color .2s, transform .2s;
-}
-.shop-options a:hover { border-color: var(--olive); transform: translateY(-2px); }
-.shop-options span { font-family: var(--serif); font-size: 22px; color: var(--olive); }
-.shop-options small { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--deep-copper); }
-.shop-options small span { font: inherit; color: inherit; }
 .fundraiser { background: var(--paper); border-top: 1px solid var(--sand); }
 .fund-head { text-align: center; max-width: 620px; margin: 0 auto; }
 .fund-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; color: var(--olive); margin-top: 14px; }
@@ -846,6 +837,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .newsletter + .blog { padding-top: 64px; }
   .about,   .shop { padding: 64px 0 80px; }
   .page-head { padding: 120px 0 40px; }
+  #eine-frage-weiter { padding-top: 120px; }
   .legal { padding: 120px 0 80px; }
   .news-card { padding: 40px 20px 32px; }
   .pick { padding: 28px 22px; }
