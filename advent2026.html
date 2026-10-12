@@ -11,24 +11,26 @@ calendars:
     who: "Für dich, Mama"
     text: "24 kleine Pausen für volle Tage"
     cover: /assets/downloads/advent2026/cover-mama.jpg
-    a4: /assets/downloads/advent2026/nidrassa-mein-stiller-advent-mama-a4.pdf
-    a5: /assets/downloads/advent2026/nidrassa-mein-stiller-advent-mama-a5.pdf
+    a4: mama-a4
+    a5: mama-a5
+    file: Nidrassa_Mein_stiller_Advent_Mama
   - title: "Mein strahlender Advent"
     who: "Für deine Tochter"
     text: "24 kleine Mutmacher"
     cover: /assets/downloads/advent2026/cover-tochter.jpg
-    a4: /assets/downloads/advent2026/nidrassa-mein-strahlender-advent-tochter-a4.pdf
-    a5: /assets/downloads/advent2026/nidrassa-mein-strahlender-advent-tochter-a5.pdf
+    a4: tochter-a4
+    a5: tochter-a5
+    file: Nidrassa_Mein_strahlender_Advent_Tochter
 ---
 {%- comment -%}
   Download page for the waitlist gift. Linked from the waitlist confirmation email (Brevo/warteliste-bestaetigung.html),
-  which also contains the code. The code check runs in the browser only: it keeps casual visitors out,
-  it is not real protection (the PDF addresses are in this file).
-  Code: set in data-code below. Compared without upper/lower case, spaces and "+".
-  PDFs and covers: assets/downloads/advent2026/, listed in `calendars` above.
+  which contains the code. The code is not stored here: the PDFs are encrypted with it
+  (assets/downloads/advent2026/*.bin) and decrypted in the browser (assets/site.js).
+  Wrong code = nothing to decrypt. To change the code or the PDFs, run tools/encrypt-advent.mjs
+  and paste the printed salt into data-salt below.
   Uses the 404 page styles (section 14 in styles.css).
 {%- endcomment -%}
-<main class="notfound advent" data-advent data-code="Mama+Tochter+Advent">
+<main class="notfound advent" data-advent data-salt="nA5hiddcyRXaKZ26CLx77A==" data-dir="/assets/downloads/advent2026/">
   <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
   <p class="nf-eyebrow">Für die Warteliste</p>
   <h1>Mama-Tochter-Adventskalender</h1>
@@ -55,8 +57,8 @@ calendars:
         <p class="nf-eyebrow">{{ cal.who }}</p>
         <h2>{{ cal.title }}</h2>
         <p>{{ cal.text }}</p>
-        <a class="btn" href="{{ cal.a4 }}" download>A4 herunterladen</a>
-        <a class="ghost light" href="{{ cal.a5 }}" download>A5 (2 Seiten pro A4-Blatt)</a>
+        <button class="btn" type="button" data-file="{{ cal.a4 }}" data-name="{{ cal.file }}_A4.pdf">A4 herunterladen</button>
+        <button class="ghost light" type="button" data-file="{{ cal.a5 }}" data-name="{{ cal.file }}_A5_2-pro-A4.pdf">A5 (2 Seiten pro A4-Blatt)</button>
       </div>
       {%- endfor %}
     </div>

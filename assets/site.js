@@ -242,27 +242,75 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 })();
 
 // ---------- Advent calendar page: unlock with the code from the waitlist email ----------
-// Browser-only check (keeps casual visitors out, not real protection). Remembered on this device.
+// The PDFs are encrypted with the code (tools/encrypt-advent.mjs), so they are useless without it.
+// The code is checked by decrypting a tiny test file; it is remembered on this device.
 (function () {
   const page = document.querySelector("[data-advent]");
-  if (!page) return;
-  const clean = (v) => v.toLowerCase().replace(/[\s+]/g, "");
-  const code = clean(page.dataset.code);
+  if (!page || !window.crypto || !crypto.subtle) return;
+  const dir = page.dataset.dir;
+  const salt = Uint8Array.from(atob(page.dataset.salt), c => c.charCodeAt(0));
   const form = page.querySelector(".advent-form");
   const error = page.querySelector(".advent-error");
-  function unlock() {
-    page.querySelector(".advent-lock").hidden = true;
-    page.querySelector(".advent-open").hidden = false;
+  let key;
+
+  async function deriveKey(code) {
+    const clean = code.toLowerCase().replace(/[\s+]/g, "");
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(clean), "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: 250000, hash: "SHA-256" },
+      base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
   }
-  try { if (localStorage.getItem("advent2026") === "1") unlock(); } catch (e) {}
-  form.addEventListener("submit", (e) => {
+  async function open(name, k) {
+    const buf = await (await fetch(dir + name + ".bin")).arrayBuffer();
+    return crypto.subtle.decrypt({ name: "AES-GCM", iv: buf.slice(0, 12) }, k, buf.slice(12));
+  }
+  async function tryCode(code) {
+    try {
+      const k = await deriveKey(code);
+      await open("check", k);   // throws if the code is wrong
+      key = k;
+      page.querySelector(".advent-lock").hidden = true;
+      page.querySelector(".advent-open").hidden = false;
+      return true;
+    } catch (e) { return false; }
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem("advent2026"); } catch (e) {}
+  if (saved) tryCode(saved);
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (clean(form.code.value) === code) {
-      try { localStorage.setItem("advent2026", "1"); } catch (e) {}
-      unlock();
+    error.hidden = true;
+    const button = form.querySelector("button");
+    button.disabled = true;
+    if (await tryCode(form.code.value)) {
+      try { localStorage.setItem("advent2026", form.code.value); } catch (e) {}
     } else {
       error.hidden = false;
     }
+    button.disabled = false;
+  });
+
+  page.querySelectorAll("[data-file]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      if (!key || btn.disabled) return;
+      const label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Wird geladen …";
+      try {
+        const pdf = await open(btn.dataset.file, key);
+        const url = URL.createObjectURL(new Blob([pdf], { type: "application/pdf" }));
+        const a = document.createElement("a");
+        a.href = url; a.download = btn.dataset.name;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+        btn.textContent = label;
+      } catch (e) {
+        btn.textContent = "Fehler, bitte noch mal versuchen";
+        setTimeout(() => { btn.textContent = label; }, 4000);
+      }
+      btn.disabled = false;
+    });
   });
 })();
 

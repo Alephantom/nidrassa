@@ -46,6 +46,7 @@ defaults:
       author: Nidrassa
 
 exclude:
+  - tools
   - Gemfile
   - Gemfile.lock
   - README.md

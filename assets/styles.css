@@ -783,7 +783,10 @@ a { color: inherit; }
 .advent-cal .nf-eyebrow { margin-top: 14px; }
 .advent-cal h2 { font-family: var(--display); font-weight: 400; font-size: 26px; color: var(--beige); }
 .notfound .advent-cal p:not(.nf-eyebrow) { margin-top: 0; }
-.advent-cal .btn, .advent-cal .ghost { width: 100%; text-align: center; border-radius: 999px; }
+.advent-cal .btn, .advent-cal .ghost { width: 100%; text-align: center; border-radius: 999px; font-family: var(--sans); cursor: pointer; }
+.advent-cal .ghost { background: transparent; justify-content: center; }
+.advent-cal .btn { border: 0; }
+.advent-cal [disabled] { opacity: .7; cursor: progress; }
 .advent-cal .btn { margin-top: 6px; }
 @media (max-width: 640px) { .advent-cals { grid-template-columns: minmax(0, 320px); } }
 .advent .advent-hint a { color: var(--beige); }
