@@ -241,6 +241,31 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
   tick();
 })();
 
+// ---------- Advent calendar page: unlock with the code from the waitlist email ----------
+// Browser-only check (keeps casual visitors out, not real protection). Remembered on this device.
+(function () {
+  const page = document.querySelector("[data-advent]");
+  if (!page) return;
+  const clean = (v) => v.toLowerCase().replace(/[\s+]/g, "");
+  const code = clean(page.dataset.code);
+  const form = page.querySelector(".advent-form");
+  const error = page.querySelector(".advent-error");
+  function unlock() {
+    page.querySelector(".advent-lock").hidden = true;
+    page.querySelector(".advent-open").hidden = false;
+  }
+  try { if (localStorage.getItem("advent2026") === "1") unlock(); } catch (e) {}
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (clean(form.code.value) === code) {
+      try { localStorage.setItem("advent2026", "1"); } catch (e) {}
+      unlock();
+    } else {
+      error.hidden = false;
+    }
+  });
+})();
+
 // ---------- Forms: retreat waitlist ----------
 // Sends to the matching endpoint in CONFIG (form data-form="waitlist" → waitlistUrl).
 // The newsletter form posts straight to Brevo (see index.html) and is not handled here.

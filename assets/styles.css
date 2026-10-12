@@ -772,6 +772,10 @@ a { color: inherit; }
 .cd-num { display: block; font-family: var(--display); font-size: clamp(30px, 5vw, 42px); line-height: 1; color: var(--beige); font-variant-numeric: tabular-nums; }
 .cd-name { display: block; margin-top: 6px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
 @media (max-width: 380px) { .cd-units { gap: 8px; } .cd-units > div { min-width: 64px; } }
+.advent .notify { max-width: 460px; margin: 24px auto 0; }
+.notfound.advent p.advent-error { margin: 12px auto 0; color: #F3DCC9; }
+.advent .advent-hint { font-size: 14px; }
+.advent .advent-hint a { color: var(--beige); }
 .nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
 .nf-actions .btn { border-radius: 999px; }
 @media (prefers-reduced-motion: reduce) { .rt-scroll, .notfound .breathe { animation: none; } }

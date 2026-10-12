@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Mama-Tochter-Adventskalender"
+description: "Der Mama-Tochter-Adventskalender für die Warteliste von „Eine Frage weiter“."
+permalink: /uebungen/advent2026/
+footer: false
+noindex: true
+sitemap: false
+pdf: /assets/downloads/mama-tochter-adventskalender-2026.pdf
+---
+{%- comment -%}
+  Download page for the waitlist gift. Linked from the waitlist confirmation email (Brevo/warteliste-bestaetigung.html),
+  which also contains the code. The code check runs in the browser only: it keeps casual visitors out,
+  it is not real protection (the PDF address is in this file).
+  Code: set in data-code below. Compared without upper/lower case, spaces and "+".
+  PDF: put the file at the path in `pdf` above.
+  Uses the 404 page styles (section 14 in styles.css).
+{%- endcomment -%}
+<main class="notfound advent" data-advent data-code="Mama+Tochter+Advent">
+  <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
+  <p class="nf-eyebrow">Für die Warteliste</p>
+  <h1>Mama-Tochter-Adventskalender</h1>
+
+  <div class="advent-lock">
+    <p>Gib hier den Code aus deiner Bestätigungsmail ein.</p>
+    <form class="notify advent-form" novalidate>
+      <div class="notify-row">
+        <label class="visually-hidden" for="advent-code">Code</label>
+        <input type="text" id="advent-code" name="code" required placeholder="Dein Code" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button class="btn" type="submit">Öffnen</button>
+      </div>
+      <p class="advent-error" role="alert" hidden>Der Code passt leider nicht. Schau noch mal in deine Mail.</p>
+    </form>
+    <p class="advent-hint">Noch nicht auf der Warteliste? <a href="/shop/">Hier eintragen</a></p>
+  </div>
+
+  <div class="advent-open" hidden>
+    <p>Schön, dass du da bist. Hier ist dein Kalender für die Adventszeit mit deiner Tochter.</p>
+    <div class="nf-actions">
+      <a class="btn" href="{{ page.pdf }}" download>Kalender herunterladen</a>
+      <a class="ghost light" href="/uebungen/">Zu den Übungen</a>
+    </div>
+  </div>
+</main>
