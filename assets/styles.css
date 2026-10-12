@@ -777,6 +777,15 @@ a { color: inherit; }
 .advent .notify .btn { background: var(--deep-copper); }
 .advent .notify .btn:hover { background: #6F3C30; }
 .advent .advent-hint { font-size: 14px; }
+.advent-cals { display: grid; grid-template-columns: repeat(2, minmax(0, 280px)); justify-content: center; gap: 28px; margin-top: 36px; }
+.advent-cal { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.advent-cal img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 30px rgba(0, 0, 0, .25); }
+.advent-cal .nf-eyebrow { margin-top: 14px; }
+.advent-cal h2 { font-family: var(--display); font-weight: 400; font-size: 26px; color: var(--beige); }
+.notfound .advent-cal p:not(.nf-eyebrow) { margin-top: 0; }
+.advent-cal .btn, .advent-cal .ghost { width: 100%; text-align: center; border-radius: 999px; }
+.advent-cal .btn { margin-top: 6px; }
+@media (max-width: 640px) { .advent-cals { grid-template-columns: minmax(0, 320px); } }
 .advent .advent-hint a { color: var(--beige); }
 .nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
 .nf-actions .btn { border-radius: 999px; }

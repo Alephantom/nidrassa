@@ -6,14 +6,26 @@ permalink: /uebungen/advent2026/
 footer: false
 noindex: true
 sitemap: false
-pdf: /assets/downloads/mama-tochter-adventskalender-2026.pdf
+calendars:
+  - title: "Mein stiller Advent"
+    who: "Für dich, Mama"
+    text: "24 kleine Pausen für volle Tage"
+    cover: /assets/downloads/advent2026/cover-mama.jpg
+    a4: /assets/downloads/advent2026/nidrassa-mein-stiller-advent-mama-a4.pdf
+    a5: /assets/downloads/advent2026/nidrassa-mein-stiller-advent-mama-a5.pdf
+  - title: "Mein strahlender Advent"
+    who: "Für deine Tochter"
+    text: "24 kleine Mutmacher"
+    cover: /assets/downloads/advent2026/cover-tochter.jpg
+    a4: /assets/downloads/advent2026/nidrassa-mein-strahlender-advent-tochter-a4.pdf
+    a5: /assets/downloads/advent2026/nidrassa-mein-strahlender-advent-tochter-a5.pdf
 ---
 {%- comment -%}
   Download page for the waitlist gift. Linked from the waitlist confirmation email (Brevo/warteliste-bestaetigung.html),
   which also contains the code. The code check runs in the browser only: it keeps casual visitors out,
-  it is not real protection (the PDF address is in this file).
+  it is not real protection (the PDF addresses are in this file).
   Code: set in data-code below. Compared without upper/lower case, spaces and "+".
-  PDF: put the file at the path in `pdf` above.
+  PDFs and covers: assets/downloads/advent2026/, listed in `calendars` above.
   Uses the 404 page styles (section 14 in styles.css).
 {%- endcomment -%}
 <main class="notfound advent" data-advent data-code="Mama+Tochter+Advent">
@@ -35,9 +47,21 @@ pdf: /assets/downloads/mama-tochter-adventskalender-2026.pdf
   </div>
 
   <div class="advent-open" hidden>
-    <p>Schön, dass du da bist. Hier ist dein Kalender für die Adventszeit mit deiner Tochter.</p>
+    <p>Schön, dass du da bist. Hier sind eure zwei Kalender: einer für dich und einer für deine Tochter. Druck sie aus, hängt sie nebeneinander und öffnet jeden Tag ein Fenster.</p>
+    <div class="advent-cals">
+      {%- for cal in page.calendars %}
+      <div class="advent-cal">
+        <img src="{{ cal.cover }}" alt="Titelseite des Adventskalenders „{{ cal.title }}“" width="368" height="520" loading="lazy">
+        <p class="nf-eyebrow">{{ cal.who }}</p>
+        <h2>{{ cal.title }}</h2>
+        <p>{{ cal.text }}</p>
+        <a class="btn" href="{{ cal.a4 }}" download>A4 herunterladen</a>
+        <a class="ghost light" href="{{ cal.a5 }}" download>A5 (2 Seiten pro A4-Blatt)</a>
+      </div>
+      {%- endfor %}
+    </div>
+    <p class="advent-hint">Jede Datei ist etwa 15 MB groß. Am besten lädst du sie im WLAN herunter.</p>
     <div class="nf-actions">
-      <a class="btn" href="{{ page.pdf }}" download>Kalender herunterladen</a>
       <a class="ghost light" href="/uebungen/">Zu den Übungen</a>
     </div>
   </div>
