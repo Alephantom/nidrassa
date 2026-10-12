@@ -12,7 +12,7 @@
         Brevo then redirects to /fast-geschafft/ and, after the click in the email, to /danke/.
         Field names (EMAIL, OPT_IN, email_address_check, locale) must stay as Brevo expects them.
       {%- endcomment %}
-      <form class="notify" method="POST" action="https://1e4bd713.sibforms.com/serve/MUIFAEEAQTFrYpL0Xe2CPBpHADPEKnXaoQUdgti4ZH_vlM_FsgUGCfxNYIFhY_XSgnUMgVCHsJZLrW-Z9wR_XF_V6Y5wJoPf6xbmp-b2OfspmoP_vrOjTc8o5VZphM6nnrwF4o2sg7U6TkoG25yplAUg5NyN0Y8LqvLMFjzcTyFM7VBdFTWegg31umtnyyn8BUnAVtBA-8TpHAjTNQ==">
+      <form class="notify" method="POST" action="{{ site.newsletter_action }}">
         <div class="notify-row">
           <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
           <input type="email" id="news-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">

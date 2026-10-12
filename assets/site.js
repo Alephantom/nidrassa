@@ -237,3 +237,37 @@ document.querySelectorAll("form[data-form]").forEach(form => {
     form.parentElement.querySelector(".notify-done").hidden = false;
   });
 });
+
+
+// ---------- Forms: Brevo forms with data-redirect ----------
+// Posting straight to Brevo shows its raw {"success":true} reply unless a redirect is set in Brevo.
+// So we send the form in the background and open our own "check your inbox" page.
+// If the request fails, the form is submitted the normal way.
+document.querySelectorAll("form[data-redirect]").forEach(form => {
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const button = form.querySelector("button[type=submit]");
+    if (button) button.disabled = true;
+    const fields = new FormData(form);
+    const wantsNewsletter = fields.get("newsletter") === "1";
+    fields.delete("newsletter");
+    try {
+      // Optional newsletter tick: separate sign-up through the newsletter form (its own opt-in email).
+      if (wantsNewsletter && form.dataset.newsletter) {
+        const news = new FormData();
+        news.append("EMAIL", fields.get("EMAIL"));
+        news.append("OPT_IN", "1");
+        news.append("email_address_check", "");
+        news.append("locale", "de");
+        await fetch(form.dataset.newsletter, { method: "POST", body: news }).catch(() => {});
+      }
+      const res = await fetch(form.action, { method: "POST", body: fields });
+      if (!res.ok) throw new Error(res.status);
+      const data = await res.json().catch(() => ({}));
+      if (data.success === false) throw new Error("rejected");
+      window.location.href = form.dataset.redirect;
+    } catch (err) {
+      form.submit();
+    }
+  });
+});

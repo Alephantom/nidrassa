@@ -54,6 +54,8 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
         Card waitlist: posts straight to Brevo, like the newsletter form.
         Brevo then redirects to /karten-fast-geschafft/ and, after the click in the email, to /karten-danke/.
         Field names (VORNAME, EMAIL, OPT_IN, email_address_check, locale) must match the Brevo form.
+        The "newsletter" tick is not sent to the waitlist; if ticked, assets/site.js also signs the email up
+        via the newsletter form (site.newsletter_action), which sends its own double opt-in email.
       {%- endcomment %}
       <div class="shop-waitlist" id="warteliste">
         <h3>Warteliste</h3>
@@ -63,7 +65,7 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
           <li>{{ perk }}</li>
           {%- endfor %}
         </ul>
-        <form class="notify" method="POST" action="{{ page.waitlist_action }}">
+        <form class="notify" method="POST" action="{{ page.waitlist_action }}" data-redirect="/karten-fast-geschafft/" data-newsletter="{{ site.newsletter_action }}">
           <div class="notify-row">
             <label class="visually-hidden" for="wl-name">Dein Vorname</label>
             <input type="text" id="wl-name" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
@@ -73,6 +75,10 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
           <label class="notify-consent">
             <input type="checkbox" name="OPT_IN" value="1" required>
             <span>Ich möchte per E-Mail den Adventskalender, meinen Rabattcode und die Info zum Shopstart bekommen und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
+          </label>
+          <label class="notify-consent">
+            <input type="checkbox" name="newsletter" value="1">
+            <span>Ich möchte auch den <a href="/newsletter/">Sunday Reset Newsletter</a> erhalten (optional, eigene Bestätigungsmail).</span>
           </label>
           <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" name="locale" value="de">
