@@ -5,3 +5,19 @@ open_at: "2026-11-15T00:00:00+01:00"   # countdown on /karten-danke/ (Spanish/Ge
 perks:
   - "Den Mama-Tochter-Adventskalender als kostenlosen Download"
   - "10 % auf „Eine Frage weiter“"
+
+# Digital products already live on Etsy, shown on /shop/ below "Eine Frage weiter".
+# No prices here on purpose (they change on Etsy). Images: 1200 px webp in /assets/.
+etsy:
+  - name: "Mein stiller Advent"
+    eyebrow: "Adventskalender für Mamas"
+    desc: "Gönne dir an 24 Tagen eine kleine Pause nur für dich, auch wenn der Dezember voll ist."
+    image: /assets/shop-etsy-advent.webp
+    alt: "Adventskalender „Mein stiller Advent“: Cover mit gemaltem Kranz aus Zweigen und kleinen Adventsdingen"
+    url: "https://www.etsy.com/listing/4598280320"
+  - name: "Ein Satz, der bleibt"
+    eyebrow: "24 Affirmationskarten fürs Glas"
+    desc: "Rolle die Karten, lege sie ins Glas und ziehe morgens einen Satz, der dich durch den Tag trägt."
+    image: /assets/shop-etsy-affirmationen.webp
+    alt: "Gerollte Affirmationskarten in olivgrün und gold in einem Glas, daneben zwei offene Karten und Tee"
+    url: "https://www.etsy.com/listing/4598963310"
