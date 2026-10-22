@@ -28,7 +28,7 @@ kramdown:
 plugins:
   - jekyll-seo-tag   # title, description, social preview, structured data
   - jekyll-sitemap   # /sitemap.xml
-  - jekyll-feed      # /blog/feed.xml (can be connected to Pinterest for auto-pins)
+  - jekyll-feed      # /blog/feed.xml (Atom). Pinterest uses the RSS feed /blog/feed.rss
 
 feed:
   path: blog/feed.xml
