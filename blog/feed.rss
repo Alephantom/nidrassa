@@ -1,0 +1,34 @@
+---
+layout: null
+permalink: /blog/feed.rss
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{%- comment -%}
+  RSS 2.0 feed for Pinterest auto-pins (Pinterest only accepts RSS, not the Atom feed /blog/feed.xml).
+  Images: Pinterest gets a JPG twin of each post image (.webp -> .jpg), created in the build workflow.
+{%- endcomment %}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Nidrassa Blog</title>
+    <link>{{ site.url }}/blog/</link>
+    <atom:link href="{{ site.url }}/blog/feed.rss" rel="self" type="application/rss+xml" />
+    <description>Kleine Pausen für Frauen und Mamas mit vollem Alltag: Meditation, Atemübungen und Journaling.</description>
+    <language>de-de</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    {%- for post in site.posts limit: 25 %}
+    {%- assign img = post.image | default: site.image | replace: '.webp', '.jpg' %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ post.url | absolute_url }}</link>
+      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <description>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 400 | xml_escape }}</description>
+      {%- if img %}
+      <enclosure url="{{ img | absolute_url }}" type="image/jpeg" length="0" />
+      <media:content url="{{ img | absolute_url }}" medium="image" type="image/jpeg" />
+      {%- endif %}
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

@@ -33,6 +33,15 @@ jobs:
         env:
           JEKYLL_ENV: production
           TZ: Europe/Berlin
+      - name: JPG copies of the images (Pinterest RSS feed)
+        run: |
+          python3 -m pip install --quiet --user --break-system-packages pillow || python3 -m pip install --quiet --user pillow
+          python3 - <<'PY'
+          import glob
+          from PIL import Image
+          for f in glob.glob('_site/assets/*.webp'):
+              Image.open(f).convert('RGB').save(f[:-5] + '.jpg', quality=88)
+          PY
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
