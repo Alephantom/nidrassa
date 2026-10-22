@@ -891,3 +891,4 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .waitlist-box .wl-text h3 { font-size: clamp(30px, 3.4vw, 40px); }
 @media (max-width: 860px) { .shop-waitlist.waitlist-box { grid-template-columns: 1fr; gap: 24px; padding: 40px 24px; } }
 .waitlist-box .wl-text h3 { line-height: 1; margin-top: 4px; }  /* heading on the same line as the name/e-mail fields */
+.waitlist-box .wl-text h3 + p { margin-top: 16px; }
