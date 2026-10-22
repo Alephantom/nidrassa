@@ -72,7 +72,16 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
         Brevo list IDs: 11 = Vorbestellung Journaling Karten (always sent), 9 = Sunday Reset (newsletter tick).
         One double opt-in email confirms both.
       {%- endcomment %}
-      <div class="shop-waitlist" id="warteliste">
+
+    </div>
+  </div>
+  <p class="wrap shop-next">Weitere Kartensets und Begleiter sind in Arbeit.</p>
+</section>
+
+<!-- Waitlist: full width like the footer -->
+<section class="waitlist-shell">
+  <div class="shop-waitlist waitlist-box" id="warteliste">
+    <div class="wl-text">
         <h3>Warteliste</h3>
         <p>Der Shop öffnet am {{ site.data.shop.open_date }}. Trag dich ein, dann bekommst du:</p>
         <ul class="perks">
@@ -80,7 +89,9 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
           <li>{{ perk }}</li>
           {%- endfor %}
         </ul>
-        <form class="notify" method="POST" action="{{ page.waitlist_action }}" data-redirect="/karten-fast-geschafft/">
+    </div>
+    <div class="wl-form">
+      <form class="notify" method="POST" action="{{ page.waitlist_action }}" data-redirect="/karten-fast-geschafft/">
           <div class="notify-row">
             <label class="visually-hidden" for="wl-name">Dein Vorname</label>
             <input type="text" id="wl-name" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
@@ -101,10 +112,9 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
           <button class="btn" type="submit">Auf die Warteliste</button>
         </form>
         <p class="notify-hint">Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>
-      </div>
     </div>
   </div>
-  <p class="wrap shop-next">Weitere Kartensets und Begleiter sind in Arbeit.</p>
 </section>
+
 
 

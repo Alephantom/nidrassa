@@ -880,3 +880,13 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 @media (max-width: 380px) {
   .nav .brand { font-size: 12px; letter-spacing: .16em; gap: 8px; }
 }
+
+/* Waitlist on /shop/: own full-width box, same width and radius as the footer */
+.waitlist-shell { padding: 0 16px 64px; }
+.shop-waitlist.waitlist-box {
+  max-width: 1120px; margin: 0 auto; padding: 56px clamp(24px, 6vw, 88px);
+  background: var(--paper); border: 1px solid var(--sand); border-radius: 32px;
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center;
+}
+.waitlist-box .wl-text h3 { font-size: clamp(30px, 3.4vw, 40px); }
+@media (max-width: 860px) { .shop-waitlist.waitlist-box { grid-template-columns: 1fr; gap: 24px; padding: 40px 24px; } }
