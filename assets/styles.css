@@ -545,6 +545,15 @@ a { color: inherit; }
 .gfm-consent a { color: inherit; }
 .fund-widget { max-width: 440px; margin: 44px auto 0; border-radius: 20px; overflow: hidden; }
 .shop-next { margin-top: 64px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--moss); }
+.etsy-shop { border-top: 1px solid var(--sand); }
+.etsy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 920px; margin: 44px auto 0; }
+.etsy-card { padding: 22px 22px 28px; border-radius: 28px; background: var(--paper); border: 1px solid var(--sand); display: flex; flex-direction: column; }
+.etsy-card .photo { aspect-ratio: 1 / 1; border-radius: 20px; }
+.etsy-card .eyebrow { margin-top: 20px; }
+.etsy-card h3 { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1.15; color: var(--olive); margin-top: 8px; }
+.etsy-card p:not(.eyebrow) { margin-top: 8px; font-size: 16px; color: #4a463f; flex: 1; }
+.etsy-card .btn { margin-top: 20px; align-self: flex-start; border-radius: 999px; }
+@media (max-width: 760px) { .etsy-grid { grid-template-columns: 1fr; } .etsy-card .btn { align-self: stretch; text-align: center; } }
 
 .btn {
   display: inline-block; text-decoration: none;
