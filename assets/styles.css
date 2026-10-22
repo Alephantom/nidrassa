@@ -545,7 +545,9 @@ a { color: inherit; }
 .gfm-consent a { color: inherit; }
 .fund-widget { max-width: 440px; margin: 44px auto 0; border-radius: 20px; overflow: hidden; }
 .shop-next { margin-top: 64px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--moss); }
-.etsy-shop { border-top: 1px solid var(--sand); }
+.etsy-shop { border-bottom: 1px solid var(--sand); }
+#eine-frage-weiter { scroll-margin-top: 90px; }
+body.page-shop { background: var(--beige); }  /* same beige behind the footer as the shop sections */
 .etsy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 920px; margin: 44px auto 0; }
 .etsy-card { padding: 22px 22px 28px; border-radius: 28px; background: var(--paper); border: 1px solid var(--sand); display: flex; flex-direction: column; }
 .etsy-card .photo { aspect-ratio: 1 / 1; border-radius: 20px; }

@@ -3,6 +3,7 @@ layout: default
 title: "Shop"
 description: "Eine Frage weiter: 31 Journaling-Karten. Der Shop öffnet am 15. November, Versand Anfang Dezember. Auf der Warteliste gibt es einen Adventskalender und 10 % Rabatt."
 nav: shop
+body_class: "page-shop"
 image: /assets/shop-flatlay.webp
 # Product photos for the gallery (shuffled and rotated by assets/site.js)
 gallery:
@@ -16,6 +17,28 @@ permalink: /shop/
 # Brevo form URL for the card waitlist (Brevo → Formulare → Waitlist form → "Teilen" / HTML code, the action="…" link)
 waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4Xc_A1nKYF7Jri_t3_iVACCxgNS0AlTTH5Rql0ZbS-ia1qFXl1P--BccIv3_ju9qOYew-Ud4DlN-MerliOYCR3_WpOkXONsKxcQryI4JXvjOnTWlqvZA2OAKbQSG71QvavqB0xyY0M0Bx58-lEI0WJFvTC1Eb10R5Cxmb0MeG3J_Y4cAbWbQvONG2Q=="
 ---
+<!-- Digital products already on Etsy (data: _data/shop.yml → etsy) -->
+<section class="shop etsy-shop" id="auf-etsy">
+  <div class="wrap">
+    <div class="fund-head">
+      <p class="eyebrow">Schon jetzt auf Etsy</p>
+      <h2>Zum Ausdrucken, sofort bei dir</h2>
+      <p>Zwei stille Begleiter als digitaler Download. Drucke sie zu Hause aus und nimm dir die Zeit, die gerade passt.</p>
+    </div>
+    <div class="etsy-grid">
+      {%- for item in site.data.shop.etsy %}
+      <article class="etsy-card">
+        <div class="photo"><img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy" width="1200" height="1200"></div>
+        <p class="eyebrow">{{ item.eyebrow }}</p>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.desc }}</p>
+        <a class="btn" href="{{ item.url }}" target="_blank" rel="noopener">Auf Etsy ansehen</a>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="shop" id="eine-frage-weiter">
   <div class="wrap product">
     <div class="gallery" id="gallery" role="group" aria-label="Produktfotos">
@@ -81,28 +104,7 @@ waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4X
       </div>
     </div>
   </div>
-</section>
-
-<!-- Digital products already on Etsy (data: _data/shop.yml → etsy) -->
-<section class="shop etsy-shop" id="auf-etsy">
-  <div class="wrap">
-    <div class="fund-head">
-      <p class="eyebrow">Schon jetzt auf Etsy</p>
-      <h2>Zum Ausdrucken, sofort bei dir</h2>
-      <p>Zwei stille Begleiter als digitaler Download. Drucke sie zu Hause aus und nimm dir die Zeit, die gerade passt.</p>
-    </div>
-    <div class="etsy-grid">
-      {%- for item in site.data.shop.etsy %}
-      <article class="etsy-card">
-        <div class="photo"><img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy" width="1200" height="1200"></div>
-        <p class="eyebrow">{{ item.eyebrow }}</p>
-        <h3>{{ item.name }}</h3>
-        <p>{{ item.desc }}</p>
-        <a class="btn" href="{{ item.url }}" target="_blank" rel="noopener">Auf Etsy ansehen</a>
-      </article>
-      {%- endfor %}
-    </div>
-  </div>
   <p class="wrap shop-next">Weitere Kartensets und Begleiter sind in Arbeit.</p>
 </section>
+
 
