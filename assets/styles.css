@@ -198,7 +198,9 @@ a { color: inherit; }
   display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
 }
 .hero .scroll::after {
-  content: ""; width: 1px; height: 40px; background: var(--sage);
+  content: ""; width: 9px; height: 44px; background: var(--sage);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 44'%3E%3Cpath d='M4.5 0V43M.5 39l4 4 4-4' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 44'%3E%3Cpath d='M4.5 0V43M.5 39l4 4 4-4' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
   animation: drop 2.4s ease-in-out infinite;
   transform-origin: top;
 }
