@@ -13,7 +13,7 @@ Built with [Jekyll](https://jekyllrb.com) (static site, no database). Language: 
 | `/uebungen/` | `uebungen.html` | All companion practices by format (from `_data/`) |
 | `/blog/` | `blog.html` | Latest 3 posts, all posts with topic filter, 12 at a time |
 | `/blog/<slug>/` | `_posts/*.md` | Blog articles (layout `_layouts/post.html`) |
-| `/shop/` | `shop.html` | Card deck "Eine Frage weiter" (pre-order) + GoFundMe fundraiser |
+| `/shop/` | `shop.html` | Card deck "Eine Frage weiter" (pre-order) |
 | `/retreat/` | `retreat.html` | Public retreat page for now: hero + waitlist only (blue theme) |
 | `/retreat1/` | `retreat1.html` | **Hidden** full retreat one-pager (not linked, not in sitemap, `noindex`): Retreats · Ablauf · Ort · Warteliste · Stimmen, with section navigation |
 | `/impressum/`, `/datenschutz/` | `impressum.html`, `datenschutz.html` | Legal pages (**templates: fill in the highlighted placeholders**) |
