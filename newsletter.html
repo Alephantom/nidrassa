@@ -1,13 +1,22 @@
 ---
-layout: default
-title: "Newsletter: Sunday Reset"
-description: "Jeden Sonntag eine kurze Übung in deinem Postfach, für 2, 5 oder 15 Minuten. Melde dich für den Sunday Reset von Nidrassa an."
-image: /assets/sunset-mudra.webp
+layout: null
 permalink: /newsletter/
+sitemap: false
 ---
 {%- comment -%}
-  Short link for Instagram & co: nidrassa.com/newsletter shows the sign-up form directly.
+  The „Sunday Reset“ newsletter is paused (27.10.2026). The old short link nidrassa.com/newsletter
+  now forwards to the club waitlist /mamatequiero/ (no jekyll-redirect-from, so a meta refresh).
 {%- endcomment -%}
-<main class="newsletter-page">
-{% include newsletter.html %}
-</main>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Weiter zu Mamá te quiero</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ site.url }}/mamatequiero/">
+<meta http-equiv="refresh" content="0; url=/mamatequiero/">
+</head>
+<body>
+<p><a href="/mamatequiero/">Weiter zu Mamá te quiero</a></p>
+</body>
+</html>

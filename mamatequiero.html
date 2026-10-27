@@ -1,0 +1,146 @@
+---
+layout: default
+title: "Mamá te quiero – Brief-Club für Mamas"
+description: "Einmal im Monat ein handgemalter Brief per Post für erschöpfte Mamas. Der erste Brief kommt im Januar 2027. Trag dich kostenlos auf die Warteliste ein."
+image: /assets/mamatequiero/og.jpg
+body_class: "page-mtq"
+permalink: /mamatequiero/
+---
+{%- comment -%}
+  Waitlist page for the letter club „Mamá te quiero“.
+  All texts (enclosures, themes, FAQ) live in _data/mamatequiero.yml.
+  Form: the existing Brevo newsletter form (_includes/newsletter.html, site.newsletter_action), only shown here.
+  Brevo redirects to /fast-geschafft/ and /danke/.
+  Do NOT name a price, a start date other than „Januar 2027“ or the poem's author here.
+{%- endcomment -%}
+{%- assign club = site.data.mamatequiero -%}
+<main class="mtq">
+
+  <!-- Hero -->
+  <section class="mtq-hero">
+    <div class="wrap mtq-hero-grid">
+      <div class="mtq-hero-text">
+        <p class="eyebrow">Snail Mail Club · Brief-Club für Mamas</p>
+        <h1>Mamá<br> te quiero</h1>
+        <p class="mtq-sub">Letters from busy mom to busy moms, <span class="nowrap">by Nidrassa</span></p>
+        <p class="mtq-question">Wann hat dir zuletzt jemand einen Brief geschrieben? Einfach so, nur für dich?</p>
+        <p class="mtq-lead">Einmal im Monat ein handgemalter Brief in deinem Briefkasten, für erschöpfte und überreizte Mamas. Mit einem Thema zur Selbstfürsorge, einer Atemübung und kleinen Dingen, die dich erinnern, dass auch du zählst. Der erste Brief kommt im Januar 2027.</p>
+        <div class="mtq-actions">
+          <a class="btn" href="#warteliste">Auf die Warteliste</a>
+          <a class="mtq-link" href="#beilagen">Was im Umschlag ist</a>
+        </div>
+      </div>
+      <figure class="mtq-envelope">
+        <img src="/assets/mamatequiero/umschlag.webp" width="1400" height="700" alt="Brauner Kraftpapier-Umschlag mit dem Stempel „Mamá te quiero – Snail Mail Club by Nidrassa“ und der Handschrift „Für dich, liebe Mama. Du bist nicht allein. Und du bist genug.“">
+        {%- comment -%} Gold wax seal with the Nidrassa star (drawn in code, no image) {%- endcomment %}
+        <svg class="mtq-seal" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <radialGradient id="seal-gold" cx="38%" cy="32%" r="75%">
+              <stop offset="0" stop-color="#E9D39A"/><stop offset=".45" stop-color="#C6A25C"/><stop offset="1" stop-color="#8E6E34"/>
+            </radialGradient>
+          </defs>
+          <path fill="url(#seal-gold)" d="M50 4C70 3 90 16 95 38c4 20-2 40-18 51-9 6-19 8-29 7C30 95 12 86 6 66 1 49 4 30 16 17 25 8 37 4 50 4z"/>
+          <circle cx="50" cy="50" r="29" fill="none" stroke="#8E6E34" stroke-width="1.2" opacity=".55"/>
+          <g transform="translate(50 50) scale(.42) translate(-50 -50)" fill="#9C7A3C" opacity=".85">
+            <polygon points="82,18 82,36.745 95.255,50 82,63.255 82,82 63.255,82 50,95.255 36.745,82 18,82 18,63.255 4.745,50 18,36.745 18,18 36.745,18 50,4.745 63.255,18"/>
+          </g>
+          <g transform="translate(50 50) scale(.42) translate(-50 -50)" fill="#E4C987" opacity=".9">
+            <polygon points="66,34 66,43.373 72.627,50 66,56.627 66,66 56.627,66 50,72.627 43.373,66 34,66 34,56.627 27.373,50 34,43.373 34,34 43.373,34 50,27.373 56.627,34"/>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  {% include mtq-divider.html %}
+
+  <!-- Invitation -->
+  <section class="mtq-invite">
+    <div class="wrap">
+      <p class="mtq-big">Lasse dir einmal im Monat etwas schicken, das nur für dich ist. Öffne den Umschlag, wenn dein Kind schläft, koche dir einen Tee und lies langsam. Spüre, wie gut es tut, dass jemand an dich gedacht hat.</p>
+    </div>
+  </section>
+
+  <!-- Enclosures -->
+  <section class="mtq-section" id="beilagen">
+    <div class="wrap">
+      <div class="mtq-head">
+        <p class="eyebrow">Was dich erwartet</p>
+        <h2>Ein Umschlag voller kleiner Pausen</h2>
+        <p>Außen schlichtes Kraftpapier, innen handgemalt. Jeden Monat ein neues Thema zur Selbstfürsorge, und zu jeder Beilage ein Grund, warum sie dabei ist.</p>
+      </div>
+      <ul class="mtq-items">
+        {%- for b in club.beilagen %}
+        <li>
+          <svg class="star-dark" aria-hidden="true"><use href="#star"/></svg>
+          <h3>{{ b.name }}</h3>
+          <p>{{ b.warum }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+
+  {% include mtq-divider.html %}
+
+  <!-- Year preview -->
+  <section class="mtq-section mtq-year" id="themen">
+    <div class="wrap">
+      <div class="mtq-head">
+        <p class="eyebrow">Ein Jahr in Briefen</p>
+        <h2>Zwölf Monate, zwölf Themen</h2>
+        <p>Jeder Brief hat sein eigenes Thema. Hier sind die ersten vier für 2027.</p>
+      </div>
+      <ol class="mtq-themes">
+        {%- for t in club.themen %}
+        <li>
+          <span class="mtq-month">{{ t.monat }}</span>
+          <h3>{{ t.titel }}</h3>
+          <p>{{ t.satz }}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+      <p class="mtq-more">… und acht weitere Briefe bis Dezember.</p>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section class="waitlist-shell mtq-waitlist-shell">
+    <div class="shop-waitlist waitlist-box mtq-waitlist" id="warteliste">
+      <div class="wl-text">
+        <p class="eyebrow">Warteliste</p>
+        <h3>Sei dabei, wenn der erste Brief verschickt wird</h3>
+        <p>Trag dich auf die Warteliste ein und erfahre als Erste, wann die Anmeldung für Mamá te quiero öffnet. Lasse dir Zeit mit der Entscheidung: Die Warteliste ist kostenlos und unverbindlich.</p>
+      </div>
+      <div class="wl-form">
+        {% include newsletter.html %}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mtq-section mtq-faq" id="faq">
+    <div class="wrap">
+      <div class="mtq-head">
+        <p class="eyebrow">Fragen</p>
+        <h2>Was du wissen möchtest</h2>
+      </div>
+      <div class="mtq-faq-list">
+        {%- for f in club.faq %}
+        <details>
+          <summary>{{ f.frage }}</summary>
+          <p>{{ f.antwort }}</p>
+        </details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="mtq-end">
+    <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
+    <p class="mtq-end-line">Du bist nicht allein.<br>Und du bist genug.</p>
+    <p class="mtq-end-sign">Mamá te quiero</p>
+    <a class="mtq-insta" href="https://www.instagram.com/{{ club.instagram }}/" rel="noopener" target="_blank">@{{ club.instagram }} auf Instagram</a>
+  </section>
+</main>

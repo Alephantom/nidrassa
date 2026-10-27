@@ -316,7 +316,7 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 
 // ---------- Forms: retreat waitlist ----------
 // Sends to the matching endpoint in CONFIG (form data-form="waitlist" → waitlistUrl).
-// The newsletter form posts straight to Brevo (see index.html) and is not handled here.
+// The club waitlist form (_includes/newsletter.html, /mamatequiero/) posts straight to Brevo and is not handled here.
 // While the endpoint is empty NOTHING is sent; the thank-you note still shows for testing.
 document.querySelectorAll("form[data-form]").forEach(form => {
   form.addEventListener("submit", async e => {

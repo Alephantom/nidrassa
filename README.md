@@ -19,7 +19,8 @@ Built with [Jekyll](https://jekyllrb.com) (static site, no database). Language: 
 | `/impressum/`, `/datenschutz/` | `impressum.html`, `datenschutz.html` | Legal pages (**templates: fill in the highlighted placeholders**) |
 | `/fast-geschafft/` | `fast-geschafft.html` | Shown after the newsletter form is sent ("Fast geschafft", check your inbox), `noindex`, not in sitemap. Set `https://nidrassa.com/fast-geschafft/` as the page after submitting in the newsletter tool |
 | `/danke/` | `danke.html` | Shown after the click on the confirmation link ("Willkommen beim Sunday Reset"), `noindex`, not in sitemap. YouTube link of the candle video goes in `video_url` in its front matter. Set `https://nidrassa.com/danke/` as the page after confirming in the newsletter tool |
-| `/newsletter/` | `newsletter.html` | Newsletter sign-up page (link for Instagram etc.). The form itself is `_includes/newsletter.html`, also used on the home page |
+| `/mamatequiero/` | `mamatequiero.html` | Waitlist for the letter club „Mamá te quiero“. Texts in `_data/mamatequiero.yml`, form = `_includes/newsletter.html` (Brevo). Other pages show `_includes/club-teaser.html`. |
+| `/newsletter/` | `newsletter.html` | Redirect to `/mamatequiero/` (newsletter paused 27.10.2026). |
 | `/opt-in/` | `opt-in.html` | Old address, forwards to `/danke/` |
 | `/404.html` | `404.html` | "Seite nicht gefunden" |
 

@@ -1,0 +1,50 @@
+# Brief-Club „Mamá te quiero“ – Inhalte für /mamatequiero/ (mamatequiero.html)
+# Das Formular ist das bestehende Brevo-Formular (_includes/newsletter.html, _config.yml → newsletter_action).
+
+instagram: mamatequiero.club
+
+# „Was dich erwartet“: jede Beilage mit einem Satz „warum“
+beilagen:
+  - name: Ein handgemalter Brief
+    warum: Weil es guttut, wenn jemand an dich denkt. Langsam, mit Papier und Farbe, nur für dich.
+  - name: Ein Gedicht
+    warum: Weil manche Gefühle erst in wenigen Zeilen Platz finden.
+  - name: Eine Atemübung
+    warum: Damit du in zwei Minuten zu dir zurückfindest, auch wenn dein Kind gerade nach dir ruft.
+  - name: Drei Nidrassa-Karten
+    warum: Jeden Monat kommen drei dazu. Nach zwölf Monaten hältst du ein ganzes Set in deinen Händen.
+  - name: Die Lochstanz-Karte
+    warum: Für jede kleine Pause, die du dir nimmst, ein Loch. So siehst du, wie oft du schon für dich da warst.
+  - name: Sticker
+    warum: Kleine Erinnerungen für Kalender, Kühlschrank oder Trinkflasche, dort, wo dein Blick jeden Tag landet.
+  - name: Ein Lesezeichen
+    warum: Damit du weiterlesen kannst, wo du aufgehört hast. In deinem Buch und bei dir.
+  - name: Eine Postkarte
+    warum: Schreibe sie an eine andere Mama und erinnere sie daran, sich Zeit für sich zu nehmen.
+
+# „Ein Jahr in Briefen“: Vorschau auf die ersten Themen 2027
+themen:
+  - monat: Januar
+    titel: Du musst kein besseres Du werden
+    satz: Nur du sein und dich umsorgen. Der erste Brief.
+  - monat: Februar
+    titel: Sanft mit dir
+    satz: Sprich mit dir so, wie du mit deinem Kind sprichst.
+  - monat: März
+    titel: Du musst nicht alles tragen
+    satz: Über den Mental Load und das Abgeben.
+  - monat: April
+    titel: Kleine Pausen, große Wirkung
+    satz: Zwei Minuten zählen. Auch heute.
+
+faq:
+  - frage: Wann kommt der erste Brief?
+    antwort: Im Januar 2027. Wer auf der Warteliste steht, erfährt als Erste, wann die Anmeldung öffnet.
+  - frage: Wohin wird geliefert?
+    antwort: Der Brief kommt ganz klassisch per Post zu dir nach Hause. In welche Länder wir versenden, erfährst du zuerst über die Warteliste.
+  - frage: Kostet die Warteliste etwas?
+    antwort: Nein. Die Warteliste ist kostenlos und unverbindlich. Du kannst dich jederzeit mit einem Klick wieder abmelden.
+  - frage: Muss ich mich jetzt schon für ein Abo entscheiden?
+    antwort: Nein. Du bekommst alle Infos in Ruhe per E-Mail und entscheidest dann.
+  - frage: In welcher Sprache sind die Briefe?
+    antwort: Auf Deutsch, mit kleinen spanischen und englischen Akzenten. So wie bei Mamá te quiero.

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Willkommen beim Sunday Reset"
-description: "Deine Anmeldung zum Sunday Reset ist bestätigt. Am Sonntag bekommst du deine erste kleine Übung."
+title: "Du stehst auf der Warteliste"
+description: "Deine Anmeldung zur Warteliste für den Brief-Club Mamá te quiero ist bestätigt."
 permalink: /danke/
 footer: false
 noindex: true
@@ -10,18 +10,19 @@ sitemap: false
 video_url: "https://www.youtube.com/watch?v=yiAKGDb5ONY"
 ---
 {%- comment -%}
-  Page after the click on the confirmation link in the double opt-in email.
-  Enter https://nidrassa.com/danke/ as the "page after confirming" in the newsletter tool.
+  Page after the click on the confirmation link in the double opt-in email
+  (waitlist „Mamá te quiero“, Brevo form = former newsletter form).
+  Enter https://nidrassa.com/danke/ as the "page after confirming" in Brevo.
   Uses the 404 page styles (section 14 in styles.css).
 {%- endcomment -%}
 <main class="notfound">
   <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
-  <p class="nf-eyebrow">Anmeldung bestätigt</p>
-  <h1>Willkommen beim Sunday Reset! 🤍</h1>
-  <p>Deine Anmeldung ist bestätigt. Am Sonntag bekommst du deine erste kleine Übung.</p>
+  <p class="nf-eyebrow">Mamá te quiero · Anmeldung bestätigt</p>
+  <h1>Du stehst auf der Warteliste. 🤍</h1>
+  <p>Danke, dass du dir diesen Platz nimmst. Wir schreiben dir, sobald die Anmeldung für den ersten Brief im Januar 2027 öffnet.</p>
   <p class="nf-breathe">Bis dahin: Nimm dir 20 Minuten mit der Kerze. 🕯️</p>
   <div class="nf-actions">
     {% if page.video_url != "" %}<a class="btn" href="{{ page.video_url }}" target="_blank" rel="noopener">Zum Video auf YouTube</a>{% endif %}
-    <a class="ghost light" href="/">Zur Startseite</a>
+    <a class="ghost light" href="/mamatequiero/">Zurück zu Mamá te quiero</a>
   </div>
 </main>

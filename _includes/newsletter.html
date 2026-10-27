@@ -1,31 +1,23 @@
 {%- comment -%}
-  Newsletter sign-up (Brevo). Used on the home page and on /newsletter/.
+  Waitlist form for the letter club „Mamá te quiero“ (Brevo). Used ONLY on /mamatequiero/.
+  This is the former „Sunday Reset“ newsletter form: same Brevo form (site.newsletter_action), same list.
+  The newsletter is paused (decision Anna-Lena, 27.10.2026); the list now collects the club waitlist.
+  Sends straight to Brevo (no Brevo script, fonts or styles are loaded).
+  Brevo then redirects to /fast-geschafft/ and, after the click in the email, to /danke/.
+  Field names (EMAIL, OPT_IN, email_address_check, locale) must stay as Brevo expects them.
+  All other pages show the small teaser _includes/club-teaser.html instead.
 {%- endcomment -%}
-<section class="newsletter" id="newsletter">
-  <div class="wrap">
-    <div class="news-card">
-      <p class="eyebrow">Newsletter</p>
-      <h2>Sunday Reset</h2>
-      <p>Jeden Sonntag eine kurze Übung in deinem Postfach, für 2, 5 oder 15 Minuten. Damit du dranbleibst, auch wenn die Woche voll ist.</p>
-      {%- comment -%}
-        Sends straight to Brevo (no Brevo script, fonts or styles are loaded).
-        Brevo then redirects to /fast-geschafft/ and, after the click in the email, to /danke/.
-        Field names (EMAIL, OPT_IN, email_address_check, locale) must stay as Brevo expects them.
-      {%- endcomment %}
-      <form class="notify" method="POST" action="{{ site.newsletter_action }}">
-        <div class="notify-row">
-          <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
-          <input type="email" id="news-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
-          <button class="btn" type="submit">Anmelden</button>
-        </div>
-        <label class="notify-consent">
-          <input type="checkbox" name="OPT_IN" value="1" required>
-          <span>Ich möchte den Newsletter erhalten (inkl. Auswertung von Öffnungen und Klicks) und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
-        </label>
-        <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="locale" value="de">
-      </form>
-      <p class="notify-hint">Kein Spam, Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>
-    </div>
+<form class="notify" method="POST" action="{{ site.newsletter_action }}">
+  <div class="notify-row">
+    <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
+    <input type="email" id="news-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
+    <button class="btn" type="submit">Auf die Warteliste</button>
   </div>
-</section>
+  <label class="notify-consent">
+    <input type="checkbox" name="OPT_IN" value="1" required>
+    <span>Ich möchte per E-Mail Infos zum Brief-Club „Mamá te quiero“ und zum Start der Anmeldung bekommen (inkl. Auswertung von Öffnungen und Klicks) und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</span>
+  </label>
+  <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="locale" value="de">
+</form>
+<p class="notify-hint">Nach dem Absenden bekommst du eine E-Mail mit einem Bestätigungslink (Double-Opt-in). Erst nach deinem Klick stehst du auf der Liste. Kostenlos, unverbindlich, Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>
