@@ -928,7 +928,9 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .mtq-envelope { position: relative; margin: 0; padding-top: 4%; }
 .mtq-env { position: relative; z-index: 1; transform-origin: 50% 100%; transform: rotate(-1.2deg); }
 .mtq-env img { display: block; width: 100%; height: auto; box-shadow: 0 22px 34px -24px rgba(27, 25, 22, .5), 0 4px 10px -6px rgba(27, 25, 22, .22); }
-.mtq-wax { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 5px rgba(60, 20, 28, .35)); }
+.mtq-stamp { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.mtq-stamp-paper { filter: drop-shadow(1px 3px 2.5px rgba(40, 30, 18, .28)); }
+.mtq-wax { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(2px 4px 3.5px rgba(45, 24, 16, .38)); }
 .mtq-sill { position: relative; height: 16px; margin: -5px -5% 0; border-radius: 3px; background: linear-gradient(#F6F0E5, #E1D5BF); border-top: 1px solid var(--sage); box-shadow: 0 16px 22px -14px rgba(27, 25, 22, .35); }
 .mtq-sill::before { content: ""; position: absolute; left: 10%; right: 10%; top: -7px; height: 10px; border-radius: 50%; background: radial-gradient(closest-side, rgba(27, 25, 22, .28), transparent); }
 .mtq-envelope.is-waiting .mtq-env { opacity: 0; transform: translate(-12%, -34%) rotate(-12deg); }
