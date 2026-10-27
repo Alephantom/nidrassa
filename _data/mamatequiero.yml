@@ -1,0 +1,15 @@
+# Brief-Club „Mamá te quiero“ – Texte für /mamatequiero/ (mamatequiero.html)
+# Das Formular ist das bestehende Brevo-Formular (_includes/newsletter.html, _config.yml → newsletter_action).
+# Noch KEINE Inhalte versprechen (keine Beilagen, Themen oder Mengen nennen).
+
+instagram: mamatequiero.club
+
+faq:
+  - frage: Wann geht es los?
+    antwort: Der erste Brief kommt im Januar 2027. Auf der Warteliste erfährst du als Erste, wann die Anmeldung öffnet.
+  - frage: Kostet die Warteliste etwas?
+    antwort: Nein. Die Warteliste ist kostenlos und unverbindlich.
+  - frage: Kann ich mich wieder austragen?
+    antwort: Ja, jederzeit. In jeder E-Mail findest du einen Link, mit dem du dich mit einem Klick austragen kannst.
+  - frage: Wohin liefert ihr?
+    antwort: Der Brief kommt ganz klassisch per Post zu dir nach Hause. In welche Länder wir versenden, erfährst du zuerst auf der Warteliste.

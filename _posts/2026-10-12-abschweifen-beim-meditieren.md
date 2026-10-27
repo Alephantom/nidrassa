@@ -103,7 +103,7 @@ Und wenn du einen ruhigen Fokuspunkt magst: Probier meine [20-minütige Kerzen-M
 
 Bei Nidrassa glaube ich nicht an die perfekte Stunde Stille. Ich glaube an kleine Momente, die in echte Tage passen. Mit der [2-5-15-Methode](/#methode) wählst du einfach die Zeit, die du gerade hast: 2, 5 oder 15 Minuten.
 
-Jeden Sonntag schicke ich dir im „Sunday Reset“ eine kleine Übung für deine Woche. Kostenlos, kurz und machbar. [Hier kannst du dich eintragen.](/newsletter/)
+Ab Januar 2027 kommt „Mamá te quiero“ zu dir nach Hause: einmal im Monat ein handgemalter Brief mit einer kleinen Atemübung und einem Thema zur Selbstfürsorge. [Hier kannst du dich auf die Warteliste eintragen.](/mamatequiero/)
 
 Von Herzen,<br>
 Anna-Lena

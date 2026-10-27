@@ -1,0 +1,165 @@
+---
+layout: default
+title: "Mamá te quiero – Brief-Club für Mamas"
+description: "Einmal im Monat ein Brief per Post, nur für dich: von einer Mama an Mamas. Der erste Brief kommt im Januar 2027. Trag dich kostenlos auf die Warteliste ein."
+image: /assets/mamatequiero/og.jpg
+body_class: "page-mtq"
+permalink: /mamatequiero/
+---
+{%- comment -%}
+  Waitlist page for the letter club „Mamá te quiero“.
+  FAQ texts live in _data/mamatequiero.yml.
+  Do NOT promise contents (enclosures, themes, quantities) yet: Anna-Lena reveals them later via the waitlist.
+  Form: the existing Brevo newsletter form (_includes/newsletter.html, site.newsletter_action), only shown here.
+  Brevo redirects to /fast-geschafft/ and /danke/.
+  Do NOT name a price, a start date other than „Januar 2027“ or the poem's author here.
+{%- endcomment -%}
+{%- assign club = site.data.mamatequiero -%}
+<main class="mtq">
+
+  <!-- Hero -->
+  <section class="mtq-hero">
+    <div class="wrap mtq-hero-grid">
+      <div class="mtq-hero-text">
+        <p class="eyebrow">Snail Mail Club · Brief-Club für Mamas</p>
+        <h1>Mamá<br> te quiero</h1>
+        <p class="mtq-sub">Letters from busy mom to busy moms, <span class="nowrap">by Nidrassa</span></p>
+        <p class="mtq-question">Wann hat dir zuletzt jemand einen Brief geschrieben? Einfach so, nur für dich?</p>
+        <p class="mtq-lead">Einmal im Monat ein Brief per Post, nur für dich. Von einer Mama an Mamas, die erschöpft sind und so viel tragen. Der erste Brief kommt im Januar 2027.</p>
+        <div class="mtq-actions">
+          <a class="btn" href="#warteliste">Auf die Warteliste</a>
+        </div>
+      </div>
+      <figure class="mtq-envelope">
+        {%- comment -%}
+          Envelope (image) + Nidrassa stamp with postmark (SVG) + photo twine + photoreal berry-red wax seal with the embossed Nidrassa star,
+          resting on a cream windowsill. Leaf-fall animation (2.5 s, once) when it scrolls into view;
+          only transform/opacity, so no layout shift. Reduced motion: static end state.
+        {%- endcomment %}
+        <div class="mtq-env">
+          <img src="/assets/mamatequiero/umschlag.webp" width="1400" height="700" alt="Kraftpapier-Umschlag mit dem Stempel „Mamá te quiero – Snail Mail Club by Nidrassa“, einer Nidrassa-Briefmarke mit dem Stern, mit Schnur und rotem Wachssiegel verschlossen, darauf in Handschrift „Für dich, liebe Mama. Du bist nicht allein. Und du bist genug.“">
+          <svg class="mtq-stamp" viewBox="0 0 1400 700" aria-hidden="true">
+            <defs>
+              <mask id="stamp-perf" maskUnits="userSpaceOnUse" x="-120" y="-140" width="240" height="280">
+                <rect x="-98.0" y="-115.0" width="196" height="230" fill="#fff"/>
+                <g fill="#000"><circle cx="-98.0" cy="-115.0" r="6.2"/><circle cx="-98.0" cy="115.0" r="6.2"/><circle cx="-81.7" cy="-115.0" r="6.2"/><circle cx="-81.7" cy="115.0" r="6.2"/><circle cx="-65.3" cy="-115.0" r="6.2"/><circle cx="-65.3" cy="115.0" r="6.2"/><circle cx="-49.0" cy="-115.0" r="6.2"/><circle cx="-49.0" cy="115.0" r="6.2"/><circle cx="-32.7" cy="-115.0" r="6.2"/><circle cx="-32.7" cy="115.0" r="6.2"/><circle cx="-16.3" cy="-115.0" r="6.2"/><circle cx="-16.3" cy="115.0" r="6.2"/><circle cx="0.0" cy="-115.0" r="6.2"/><circle cx="0.0" cy="115.0" r="6.2"/><circle cx="16.3" cy="-115.0" r="6.2"/><circle cx="16.3" cy="115.0" r="6.2"/><circle cx="32.7" cy="-115.0" r="6.2"/><circle cx="32.7" cy="115.0" r="6.2"/><circle cx="49.0" cy="-115.0" r="6.2"/><circle cx="49.0" cy="115.0" r="6.2"/><circle cx="65.3" cy="-115.0" r="6.2"/><circle cx="65.3" cy="115.0" r="6.2"/><circle cx="81.7" cy="-115.0" r="6.2"/><circle cx="81.7" cy="115.0" r="6.2"/><circle cx="98.0" cy="-115.0" r="6.2"/><circle cx="98.0" cy="115.0" r="6.2"/><circle cx="-98.0" cy="-98.6" r="6.2"/><circle cx="98.0" cy="-98.6" r="6.2"/><circle cx="-98.0" cy="-82.1" r="6.2"/><circle cx="98.0" cy="-82.1" r="6.2"/><circle cx="-98.0" cy="-65.7" r="6.2"/><circle cx="98.0" cy="-65.7" r="6.2"/><circle cx="-98.0" cy="-49.3" r="6.2"/><circle cx="98.0" cy="-49.3" r="6.2"/><circle cx="-98.0" cy="-32.9" r="6.2"/><circle cx="98.0" cy="-32.9" r="6.2"/><circle cx="-98.0" cy="-16.4" r="6.2"/><circle cx="98.0" cy="-16.4" r="6.2"/><circle cx="-98.0" cy="0.0" r="6.2"/><circle cx="98.0" cy="0.0" r="6.2"/><circle cx="-98.0" cy="16.4" r="6.2"/><circle cx="98.0" cy="16.4" r="6.2"/><circle cx="-98.0" cy="32.9" r="6.2"/><circle cx="98.0" cy="32.9" r="6.2"/><circle cx="-98.0" cy="49.3" r="6.2"/><circle cx="98.0" cy="49.3" r="6.2"/><circle cx="-98.0" cy="65.7" r="6.2"/><circle cx="98.0" cy="65.7" r="6.2"/><circle cx="-98.0" cy="82.1" r="6.2"/><circle cx="98.0" cy="82.1" r="6.2"/><circle cx="-98.0" cy="98.6" r="6.2"/><circle cx="98.0" cy="98.6" r="6.2"/></g>
+              </mask>
+              <linearGradient id="stamp-paper" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFDF8"/><stop offset="1" stop-color="#F1ECE0"/>
+              </linearGradient>
+              <filter id="stamp-ink" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.62" result="holes"/>
+                <feComposite in="SourceGraphic" in2="holes" operator="in"/>
+              </filter>
+            </defs>
+            <!-- Nidrassa stamp: perforated white paper, cream panel, olive/gold 8-point star -->
+            <g class="mtq-stamp-paper" transform="translate(1246 158) rotate(4.5)">
+              <rect x="-98.0" y="-115.0" width="196" height="230" fill="url(#stamp-paper)" mask="url(#stamp-perf)"/>
+              <rect x="-82" y="-99" width="164" height="198" fill="#F2E8D0"/>
+              <rect x="-82" y="-99" width="164" height="198" fill="none" stroke="#B8954F" stroke-width="2"/>
+              <rect x="-76" y="-93" width="152" height="186" fill="none" stroke="#4B4E2A" stroke-width=".8" opacity=".55"/>
+              <text x="0" y="-70" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#4B4E2A">Mamá te quiero</text>
+              <g transform="translate(0 -6) scale(.98) translate(-50 -50)">
+                <polygon points="82,18 82,36.745 95.255,50 82,63.255 82,82 63.255,82 50,95.255 36.745,82 18,82 18,63.255 4.745,50 18,36.745 18,18 36.745,18 50,4.745 63.255,18" fill="#6B7040"/>
+                <polygon points="82,18 82,36.745 95.255,50 82,63.255 82,82 63.255,82 50,95.255 36.745,82 18,82 18,63.255 4.745,50 18,36.745 18,18 36.745,18 50,4.745 63.255,18" fill="none" stroke="#B8954F" stroke-width="1.4" transform="translate(50 50) scale(.86) translate(-50 -50)"/>
+                <polygon points="66,34 66,43.373 72.627,50 66,56.627 66,66 56.627,66 50,72.627 43.373,66 34,66 34,56.627 27.373,50 34,43.373 34,34 43.373,34 50,27.373 56.627,34" fill="#C9A65A"/>
+                <circle cx="50" cy="50" r="5" fill="#F2E8D0"/>
+              </g>
+              <path d="M-34 66h68" stroke="#B8954F" stroke-width="1"/>
+              <text x="0" y="84" text-anchor="middle" font-family="Marcellus, serif" font-size="11.5" letter-spacing="2.6" fill="#4B4E2A">NIDRASSA · 2027</text>
+            </g>
+            <!-- fine postmark arc over the stamp's top-left corner, same ink as the round stamp -->
+            <g class="mtq-postmark" filter="url(#stamp-ink)" fill="none" stroke="#2A2620" opacity=".72">
+              <path id="pm-arc" d="M1100 100a38 38 0 0 1 76 0" stroke="none"/>
+              <path d="M1186 100a48 48 0 1 0-6 23" stroke-width="2.2"/>
+              <path d="M1176 100a38 38 0 1 0-4 17" stroke-width="1.2"/>
+              <text font-family="Jost, sans-serif" font-size="9.5" letter-spacing="2.4" fill="#2A2620" stroke="none"><textPath href="#pm-arc" startOffset="50%" text-anchor="middle">SNAIL MAIL</textPath></text>
+              <text x="1138" y="117" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="1.5" fill="#2A2620" stroke="none">2027</text>
+              <path d="M1080 84c-10-6-20 6-30 0s-20-6-30 0-20 6-30 0" stroke-width="1.8"/>
+              <path d="M1080 98c-10-6-20 6-30 0s-20-6-30 0-20 6-30 0" stroke-width="1.8"/>
+              <path d="M1080 112c-10-6-20 6-30 0s-20-6-30 0-20 6-30 0" stroke-width="1.8"/>
+            </g>
+          </svg>
+          <svg class="mtq-wax" viewBox="0 0 1400 700" aria-hidden="true">
+            <defs>
+              <pattern id="mtq-rope" patternUnits="userSpaceOnUse" x="490.35" y="0" width="23.52" height="16.58">
+                <image href="/assets/mamatequiero/schnur.webp" width="23.52" height="16.58" preserveAspectRatio="none"/>
+              </pattern>
+            </defs>
+            <!-- twine: photo rope tile (cut from the seal photo), wrapped around the envelope -->
+            <g class="mtq-twine" transform="rotate(.64 502 455)">
+              <rect x="490.35" y="-10" width="23.52" height="720" fill="url(#mtq-rope)"/>
+            </g>
+            <!-- wax seal: photoreal seal (ChatGPT image, cut out, transparent), light from top left -->
+            <image class="mtq-seal" href="/assets/mamatequiero/siegel.webp" x="396.72" y="350.17" width="216.83" height="213.47" transform="rotate(-5 502 455)"/>
+          </svg>
+        </div>
+        <div class="mtq-sill" aria-hidden="true"></div>
+      </figure>
+      <script>
+        (function () {
+          var f = document.currentScript.previousElementSibling;
+          if (!f || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          f.classList.add('is-waiting');
+          var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { f.classList.add('is-in'); io.disconnect(); } });
+          }, { threshold: .35 });
+          io.observe(f);
+        })();
+      </script>
+    </div>
+  </section>
+
+  {% include mtq-divider.html %}
+
+  <!-- Invitation -->
+  <section class="mtq-invite">
+    <div class="wrap">
+      <p class="mtq-big">Lasse dir einmal im Monat etwas schicken, das nur für dich ist. Öffne den Umschlag, wenn dein Kind schläft, koche dir einen Tee und lies langsam. Spüre, wie gut es tut, dass jemand an dich gedacht hat.</p>
+      <p class="mtq-soon">Was genau im Umschlag liegt, verraten wir bald.<br>Auf der Warteliste erfährst du es zuerst.</p>
+    </div>
+  </section>
+
+  {% include mtq-divider.html %}
+
+  <!-- Waitlist -->
+  <section class="waitlist-shell mtq-waitlist-shell">
+    <div class="shop-waitlist waitlist-box mtq-waitlist" id="warteliste">
+      <div class="wl-text">
+        <p class="eyebrow">Warteliste</p>
+        <h3>Sei dabei, wenn der erste Brief verschickt wird</h3>
+        <p>Trag dich auf die Warteliste ein und erfahre als Erste, wann die Anmeldung für Mamá te quiero öffnet. Lasse dir Zeit mit der Entscheidung: Die Warteliste ist kostenlos und unverbindlich.</p>
+      </div>
+      <div class="wl-form">
+        {% include newsletter.html %}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mtq-section mtq-faq" id="faq">
+    <div class="wrap">
+      <div class="mtq-head">
+        <p class="eyebrow">Fragen</p>
+        <h2>Was du wissen möchtest</h2>
+      </div>
+      <div class="mtq-faq-list">
+        {%- for f in club.faq %}
+        <details>
+          <summary>{{ f.frage }}</summary>
+          <p>{{ f.antwort }}</p>
+        </details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="mtq-end">
+    <svg class="star star-lite breathe" aria-hidden="true"><use href="#star"/></svg>
+    <p class="mtq-end-line">Du bist nicht allein.<br>Und du bist genug.</p>
+    <p class="mtq-end-sign">Mamá te quiero</p>
+    <a class="mtq-insta" href="https://www.instagram.com/{{ club.instagram }}/" rel="noopener" target="_blank">@{{ club.instagram }} auf Instagram</a>
+  </section>
+</main>
