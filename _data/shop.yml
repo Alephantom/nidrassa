@@ -9,6 +9,18 @@ perks:
 # Digital products already live on Etsy, shown on /shop/ below "Eine Frage weiter".
 # No prices here on purpose (they change on Etsy). Images: 1200 px webp in /assets/.
 etsy:
+  - name: "Blütenjahr 2027"
+    eyebrow: "Wandkalender mit Blumen oder deinen Fotos"
+    desc: "Zwölf Monate, zwölf Blüten. Tausche die Blumen in Canva gegen deine liebsten Familienfotos oder lasse sie, wie sie sind."
+    image: /assets/shop-etsy-bluetenjahr-2027.webp
+    alt: "Kalender Blütenjahr 2027: zwei Juniseiten nebeneinander, links mit Lotusblüte, rechts mit Kinderhänden, die einen Blumenstrauß halten"
+    url: "https://nidrassa.etsy.com/listing/4604139786/wandkalender-2027-editierbarer-blumen"
+  - name: "Unser Familienjahr 2027"
+    eyebrow: "Familienplaner für bis zu 4 Personen"
+    desc: "Schreibe alle Termine deiner Familie an einen Ort, damit dein Kopf frei sein darf. Das Cover-Foto passt du in Canva an."
+    image: /assets/shop-etsy-familienjahr-2027.webp
+    alt: "Familienplaner Unser Familienjahr 2027 auf einem Schreibtisch, Cover mit Familie von hinten auf einer Sommerwiese"
+    url: "https://nidrassa.etsy.com/listing/4604203930/familienplaner-2027-12-monatsseiten-4"
   - name: "Mein stiller Advent"
     eyebrow: "Adventskalender für Mamas"
     desc: "Gönne dir an 24 Tagen eine kleine Pause nur für dich, auch wenn der Dezember voll ist."
