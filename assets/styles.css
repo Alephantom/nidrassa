@@ -924,11 +924,31 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .mtq-lead { margin-top: 14px; max-width: 520px; color: #4a463f; }
 .mtq-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 32px; }
 .mtq-actions .btn { border-radius: 999px; }
-.mtq-link { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--olive); text-decoration: none; border-bottom: 1px solid var(--sage); padding-bottom: 3px; }
-.mtq-envelope { position: relative; margin: 0; }
-.mtq-envelope img { width: 100%; height: auto; transform: rotate(-2.5deg); box-shadow: 0 30px 50px -28px rgba(27, 25, 22, .55), 0 6px 14px -8px rgba(27, 25, 22, .25); }
+/* Envelope with twine + wax seal, resting on a windowsill; leaf-fall animation (see mamatequiero.html) */
+.mtq-envelope { position: relative; margin: 0; padding-top: 4%; }
+.mtq-env { position: relative; z-index: 1; transform-origin: 50% 100%; transform: rotate(-1.2deg); }
+.mtq-env img { display: block; width: 100%; height: auto; box-shadow: 0 22px 34px -24px rgba(27, 25, 22, .5), 0 4px 10px -6px rgba(27, 25, 22, .22); }
+.mtq-wax { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 5px rgba(60, 20, 28, .35)); }
+.mtq-sill { position: relative; height: 16px; margin: -5px -5% 0; border-radius: 3px; background: linear-gradient(#F6F0E5, #E1D5BF); border-top: 1px solid var(--sage); box-shadow: 0 16px 22px -14px rgba(27, 25, 22, .35); }
+.mtq-sill::before { content: ""; position: absolute; left: 10%; right: 10%; top: -7px; height: 10px; border-radius: 50%; background: radial-gradient(closest-side, rgba(27, 25, 22, .28), transparent); }
+.mtq-envelope.is-waiting .mtq-env { opacity: 0; transform: translate(-12%, -34%) rotate(-12deg); }
+.mtq-envelope.is-waiting .mtq-sill::before { opacity: 0; }
+.mtq-envelope.is-in .mtq-env { animation: mtq-leaf 2.5s cubic-bezier(.22, .61, .36, 1) both; }
+.mtq-envelope.is-in .mtq-sill::before { animation: mtq-land 2.5s ease-out both; }
+@keyframes mtq-leaf {
+  0%   { opacity: 0; transform: translate(-12%, -34%) rotate(-12deg); }
+  14%  { opacity: 1; }
+  36%  { transform: translate(8%, -20%) rotate(6deg); animation-timing-function: ease-in-out; }
+  62%  { transform: translate(-4%, -8%) rotate(-4deg); animation-timing-function: ease-in-out; }
+  84%  { transform: translate(1.2%, -1.5%) rotate(.8deg); animation-timing-function: ease-out; }
+  100% { opacity: 1; transform: translate(0, 0) rotate(-1.2deg); }
+}
+@keyframes mtq-land { 0%, 70% { opacity: 0; transform: scaleX(.6); } 100% { opacity: 1; transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .mtq-envelope .mtq-env { animation: none !important; opacity: 1 !important; transform: rotate(-1.2deg) !important; }
+  .mtq-envelope .mtq-sill::before { animation: none !important; opacity: 1 !important; }
+}
 .nowrap { white-space: nowrap; }
-.mtq-seal { position: absolute; width: 19%; left: 7%; bottom: -10%; filter: drop-shadow(0 6px 8px rgba(60, 45, 20, .35)); transform: rotate(8deg); }
 
 /* Star divider: thin gold lines with the Nidrassa star */
 .mtq-divider { display: flex; align-items: center; justify-content: center; gap: 18px; max-width: 420px; margin: 24px auto; padding: 0 24px; }
@@ -937,25 +957,12 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 
 .mtq-invite { padding: 40px 0 24px; }
 .mtq-big { max-width: 760px; margin: 0 auto; text-align: center; font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.45; color: var(--olive); }
+.mtq-soon { max-width: 560px; margin: 32px auto 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--deep-copper); }
 
 .mtq-section { padding: 88px 0; }
 .mtq-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
 .mtq-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; color: var(--olive); margin-top: 14px; }
 .mtq-head p:not(.eyebrow) { margin-top: 14px; color: #4a463f; }
-
-.mtq-items { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.mtq-items li { background: var(--beige); border: 1px solid var(--sand); border-radius: 24px; padding: 28px 24px; }
-.mtq-items svg { width: 22px; height: 22px; }
-.mtq-items h3 { font-family: var(--display); font-weight: 400; font-size: 21px; line-height: 1.25; color: var(--olive); margin-top: 14px; }
-.mtq-items p { font-size: 15px; line-height: 1.6; color: #4a463f; margin-top: 8px; }
-
-.mtq-themes { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--sage); }
-.mtq-themes li { padding: 28px 24px 8px; border-left: 1px solid rgba(167, 167, 123, .45); }
-.mtq-themes li:first-child { border-left: 0; }
-.mtq-month { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--deep-copper); }
-.mtq-themes h3 { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 25px; line-height: 1.25; color: var(--olive); margin-top: 10px; }
-.mtq-themes p { font-size: 15px; color: #4a463f; margin-top: 8px; }
-.mtq-more { text-align: center; margin-top: 40px; font-family: var(--serif); font-style: italic; font-size: 20px; color: #4a463f; }
 
 .mtq-waitlist-shell { padding-top: 8px; }
 .mtq-waitlist .wl-text h3 { line-height: 1.15; margin-top: 12px; }
@@ -980,16 +987,10 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 
 @media (max-width: 900px) {
   .mtq-hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .mtq-items { grid-template-columns: repeat(2, 1fr); }
-  .mtq-themes { grid-template-columns: repeat(2, 1fr); }
-  .mtq-themes li:nth-child(3) { border-left: 0; }
 }
 @media (max-width: 560px) {
   .mtq-hero { padding: 120px 0 56px; }
   .mtq-hero h1 br { display: none; }
-  .mtq-envelope img { transform: rotate(-1.5deg); }
-  .mtq-items, .mtq-themes { grid-template-columns: 1fr; }
-  .mtq-themes li { border-left: 0; border-bottom: 1px solid rgba(167, 167, 123, .45); padding: 22px 4px 18px; }
   .mtq-section { padding: 64px 0; }
   .mtq-actions .btn { width: 100%; justify-content: center; }
   .club-card { border-radius: 28px; flex-wrap: wrap; padding: 24px; gap: 16px; }
