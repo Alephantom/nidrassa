@@ -999,3 +999,11 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .club-cta { margin-left: 60px; }
   .club-teaser + .blog { padding-top: 64px; }
 }
+
+/* Shop: first section starts below the floating nav (mobile overlap fix) */
+.page-shop .etsy-shop { padding-top: 140px; }
+@media (max-width: 760px) { .page-shop .etsy-shop { padding-top: 120px; } }
+
+/* EU legal guarantee notice: show unchanged, legible at default size */
+.eu-notice { margin: 32px 0; max-width: 595px; }
+.eu-notice img { display: block; width: 100%; height: auto; }
