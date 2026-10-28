@@ -10,6 +10,9 @@ main:
   - title: Retreat
     url: /retreat/
     nav: retreat
+  - title: Snail Mail
+    url: /mamatequiero/
+    nav: mamatequiero
 
 # Links in the footer.
 footer:
