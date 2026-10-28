@@ -8,10 +8,10 @@ image: /assets/cards-mockup.webp
 image_alt: "Journaling-Karten neben einem aufgeschlagenen Notizbuch"
 lead: "Das Notizbuch liegt da, der Stift auch. Und im Kopf ist es plötzlich leer. Eine leere Seite kann ganz schön laut sein."
 cta:
-  title: "31 Fragen für dein Journal"
-  text: "Drei Fragen vorne, ein Satz zum Mitnehmen hinten. Für 2, 5 oder 15 Minuten."
-  url: /shop/
-  label: "Eine Frage weiter ansehen"
+  title: "Fragen, die per Post kommen"
+  text: "Im Brief-Club Mamá te quiero bekommst du einmal im Monat einen Brief, nur für dich. Mit Fragen zum Schreiben und einem Satz zum Mitnehmen. Ab Januar 2027."
+  url: /mamatequiero/
+  label: "Zur Warteliste"
 ---
 
 ## Warum eine Frage leichter ist als eine leere Seite
@@ -27,7 +27,7 @@ cta:
 
 ## Drei Fragen für den Anfang
 
-Diese Fragen stammen aus unserem Kartenset „Eine Frage weiter“, Thema Wertschätzung & Selbstachtung:
+Hier sind drei Fragen zum Thema Wertschätzung & Selbstachtung:
 
 1. Was hast du in letzter Zeit getragen oder bewältigt, ohne dass es jemand bemerkt hat?
 2. Welche Stärke in dir hat das möglich gemacht?

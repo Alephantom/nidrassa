@@ -8,10 +8,10 @@ image: /assets/shop-notebook.webp
 image_alt: "Ein Kartenset liegt neben einem Notizbuch mit Leineneinband"
 lead: "Manche Tage lassen sich nicht schönreden. Zu wenig Schlaf, ein Streit, eine Nachricht, die dich umgehauen hat. Schreiben macht das nicht weg. Aber es kann ein bisschen Ordnung in das Durcheinander bringen."
 cta:
-  title: "Eine Frage weiter"
-  text: "31 Journaling-Karten mit je drei Fragen vorne und einem Satz hinten. Für 2, 5 oder 15 Minuten."
-  url: /shop/
-  label: "Zum Kartenset"
+  title: "Fragen, die per Post kommen"
+  text: "Im Brief-Club Mamá te quiero bekommst du einmal im Monat einen Brief, nur für dich. Mit Fragen zum Schreiben und einem Satz zum Mitnehmen. Ab Januar 2027."
+  url: /mamatequiero/
+  label: "Zur Warteliste"
 ---
 
 An schweren Tagen fällt es oft am schwersten, die Gedanken zu ordnen. Alles ist gleichzeitig da: Ärger, Müdigkeit, Traurigkeit, die To-do-Liste. Journaling Fragen können helfen, einen Faden zu finden. Nicht, um das Gefühl wegzumachen, sondern um es anzuschauen, statt nur darin zu stecken.

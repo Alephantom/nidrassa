@@ -8,10 +8,10 @@ image: /assets/shop-notebook.webp
 image_alt: "Kartenset mit Journaling-Fragen neben einem Notizbuch mit Leineneinband"
 lead: "Die Monate rauschen vorbei. Plötzlich ist wieder Ostern, dann Sommer, dann schon wieder Adventskalender. Eine Frage pro Monat kann helfen, zwischendurch kurz stehen zu bleiben."
 cta:
-  title: "Eine Frage weiter"
-  text: "31 Journaling-Karten mit je drei Fragen vorne und einem Satz hinten. Für 2, 5 oder 15 Minuten."
-  url: /shop/
-  label: "Zum Kartenset"
+  title: "Fragen, die per Post kommen"
+  text: "Im Brief-Club Mamá te quiero bekommst du einmal im Monat einen Brief, nur für dich. Mit Fragen zum Schreiben und einem Satz zum Mitnehmen. Ab Januar 2027."
+  url: /mamatequiero/
+  label: "Zur Warteliste"
 ---
 
 Einmal im Monat zwanzig Minuten für dich. Keine lange Morgenroutine, kein dickes Tagebuch. Nur ein Kaffee, ein Stift und eine Frage. **Fragen zur Selbstreflexion** sind wie ein kleines Geländer: Sie geben dem Schreiben eine Richtung, ohne dich einzuengen.

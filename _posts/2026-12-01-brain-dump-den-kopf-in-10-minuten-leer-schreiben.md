@@ -8,10 +8,10 @@ image: /assets/shop-flatlay.webp
 image_alt: "Kartenset mit Fragekarten auf olivgrünem Leinen"
 lead: "Zahnarzttermin, Geburtstagsgeschenk für Paul, Winterstiefel zu klein, war da nicht noch was mit dem Elternabend? Wenn alles gleichzeitig im Kopf kreist, hilft oft nur eins: raus damit."
 cta:
-  title: "Wenn du nach dem Leeren Lust auf mehr hast"
-  text: "31 Journaling-Karten mit je drei Fragen vorne und einem Satz hinten. Für 2, 5 oder 15 Minuten."
-  url: /shop/
-  label: "Zum Kartenset „Eine Frage weiter“"
+  title: "Fragen, die per Post kommen"
+  text: "Im Brief-Club Mamá te quiero bekommst du einmal im Monat einen Brief, nur für dich. Mit Fragen zum Schreiben und einem Satz zum Mitnehmen. Ab Januar 2027."
+  url: /mamatequiero/
+  label: "Zur Warteliste"
 ---
 
 Ein Brain Dump ist die einfachste Form von Journaling, die es gibt. Du schreibst alles auf, was gerade in deinem Kopf ist. Ungeordnet, ungefiltert, in Stichworten oder halben Sätzen. Es geht nicht um schöne Gedanken oder tiefe Einsichten. Es geht ums Ausleeren.
