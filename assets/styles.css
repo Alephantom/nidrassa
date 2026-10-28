@@ -900,6 +900,8 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 /* Small teaser that replaced the newsletter section (_includes/club-teaser.html) */
 .club-teaser { padding: 0 0 24px; }
 .club-teaser + .blog { padding-top: 96px; }
+.hero + .club-teaser { padding-top: 64px; }
+.club-teaser + .intro { padding-top: 104px; }
 .club-card {
   max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 24px;
   padding: 26px 32px; text-decoration: none; color: inherit;
