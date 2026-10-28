@@ -16,7 +16,7 @@
             <div class="foot-group">
               <p class="foot-h">{{ gk[1] }}</p>
               {%- for link in site.data.navigation.footer %}{% if link.group == gk[0] %}
-              <a class="pill" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.title }}</a>
+              <a class="pill{% if link.mobile_hidden %} foot-desk-only{% endif %}" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.title }}</a>
               {%- endif %}{% endfor %}
             </div>
             {%- endfor %}

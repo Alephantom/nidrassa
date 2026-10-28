@@ -851,6 +851,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .foot-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding-top: 24px; }
   .foot-h { display: block; flex-basis: 100%; margin: 0 0 4px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); }
   footer nav .pill { min-height: 40px; }
+  footer nav .pill.foot-desk-only { display: none; }
   footer small { margin-top: 36px; line-height: 1.8; }
   .foot-legal { display: inline; }
   .foot-legal a { color: var(--beige); text-decoration: underline; text-decoration-color: rgba(201, 199, 166, 0.5); text-underline-offset: 3px; }

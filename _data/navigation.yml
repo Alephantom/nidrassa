@@ -41,9 +41,11 @@ footer:
   - title: Impressum
     group: rechtliches
     url: /impressum/
+    mobile_hidden: true  # steht mobil schon in der ©-Zeile
   - title: Datenschutz
     group: rechtliches
     url: /datenschutz/
+    mobile_hidden: true  # steht mobil schon in der ©-Zeile
   - title: Deine Gewährleistungsrechte
     group: rechtliches
     url: /gewaehrleistung/
