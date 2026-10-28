@@ -963,6 +963,36 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .mtq-big { max-width: 760px; margin: 0 auto; text-align: center; font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.45; color: var(--olive); }
 .mtq-soon { max-width: 560px; margin: 32px auto 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--deep-copper); }
 
+/* Letter section: contents + founding price */
+.mtq-letter .wrap { max-width: 680px; text-align: center; }
+.mtq-letter-title { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.25; color: var(--olive); }
+.mtq-letter-sub { margin-top: 12px; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--deep-copper); }
+.mtq-letter-p { margin-top: 22px; font-family: var(--serif); font-size: 21px; line-height: 1.55; color: #3d3a34; }
+.mtq-letter-p strong { font-weight: 600; color: var(--olive); }
+.mtq-price a { color: inherit; text-decoration: underline; text-decoration-color: var(--sage); text-underline-offset: 3px; }
+.mtq-list { list-style: none; display: inline-block; text-align: left; margin: 18px auto 0; padding: 0; }
+.mtq-list li { display: flex; align-items: center; gap: 14px; padding: 7px 0; font-family: var(--serif); font-size: 21px; line-height: 1.35; color: #3d3a34; }
+.mtq-li-star { width: 16px; height: 16px; flex: none; }
+.mtq-founding-badge { margin-top: 30px; }
+.mtq-founding-badge span, .mtq-badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--sage); border-radius: 999px; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--olive); background: var(--beige); }
+.mtq-badge { margin-left: 10px; padding: 3px 10px; font-size: 10px; vertical-align: 1px; }
+.mtq-founding-badge + .mtq-price { margin-top: 14px; }
+.mtq-letter-bye { margin-top: 30px; font-family: var(--serif); font-size: 21px; color: #3d3a34; }
+.mtq-letter-sign { margin-top: 6px; font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--deep-copper); }
+@media (max-width: 560px) {
+  .mtq-letter-p, .mtq-list li, .mtq-letter-bye { font-size: 19px; }
+  .mtq-badge { display: table; margin: 10px 0 0; }
+}
+
+/* /versand/ */
+.ship-table { width: 100%; margin-top: 28px; border-collapse: collapse; font-size: 16px; }
+.ship-table th, .ship-table td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--sand); vertical-align: top; }
+.ship-table th { font-family: var(--sans); font-weight: 500; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--moss); }
+.ship-table td:last-child, .ship-table th:last-child { text-align: right; white-space: nowrap; }
+.ship-table small { display: block; color: #6b665c; font-size: 13px; }
+.legal ul.ship-notes { margin-top: 12px; padding-left: 20px; color: #3d3a34; }
+.legal ul.ship-notes li { margin-top: 6px; }
+
 .mtq-section { padding: 88px 0; }
 .mtq-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
 .mtq-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.15; color: var(--olive); margin-top: 14px; }

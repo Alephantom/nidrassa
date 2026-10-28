@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Mamá te quiero – Brief-Club für Mamas"
-description: "Einmal im Monat ein Brief per Post, nur für dich: von einer Mama an Mamas. Der erste Brief kommt im Januar 2027. Trag dich kostenlos auf die Warteliste ein."
+description: "Einmal im Monat ein Brief per Post, nur für dich: persönlicher Brief, Gedicht, Journaling-Karten, Kunstdruck und mehr. Erster Brief im Januar 2027. Nur 20 Founding-Plätze: 11 € im Monat zzgl. Versand."
 image: /assets/mamatequiero/og.jpg
 body_class: "page-mtq"
 permalink: /mamatequiero/
@@ -10,10 +10,11 @@ nav: mamatequiero
 {%- comment -%}
   Waitlist page for the letter club „Mamá te quiero“.
   FAQ texts live in _data/mamatequiero.yml.
-  Do NOT promise contents (enclosures, themes, quantities) yet: Anna-Lena reveals them later via the waitlist.
+  Contents + founding price were approved by Anna-Lena on 28.10.2026 (text in the „Letter“ section, keep it word for word).
+  Do NOT add quantities (e.g. „drei Karten“) or a live countdown of the 20 founding places.
   Form: the existing Brevo newsletter form (_includes/newsletter.html, site.newsletter_action), only shown here.
   Brevo redirects to /fast-geschafft/ and /danke/.
-  Do NOT name a price, a start date other than „Januar 2027“ or the poem's author here.
+  Price: 11 € im Monat zzgl. Versand (shipping costs on /versand/). Do NOT name a start date other than „Januar 2027“ or the poem's author here.
 {%- endcomment -%}
 {%- assign club = site.data.mamatequiero -%}
 <main class="mtq">
@@ -114,11 +115,27 @@ nav: mamatequiero
 
   {% include mtq-divider.html %}
 
-  <!-- Invitation -->
-  <section class="mtq-invite">
+  <!-- Letter: contents + founding price (approved by Anna-Lena 28.10.2026, keep word for word) -->
+  <section class="mtq-invite mtq-letter" id="brief">
     <div class="wrap">
-      <p class="mtq-big">Lasse dir einmal im Monat etwas schicken, das nur für dich ist. Öffne den Umschlag, wenn dein Kind schläft, koche dir einen Tee und lies langsam. Spüre, wie gut es tut, dass jemand an dich gedacht hat.</p>
-      <p class="mtq-soon">Was genau im Umschlag liegt, verraten wir bald.<br>Auf der Warteliste erfährst du es zuerst.</p>
+      <h2 class="mtq-letter-title">Ich schicke dir einmal im Monat einen Brief per Post. Nur für dich.</h2>
+      <p class="mtq-letter-sub">Von einer gestressten Mama zur anderen.</p>
+      <p class="mtq-letter-p">Wir tragen so viele Dinge gleichzeitig und geben trotz Erschöpfung alles. Jetzt ist Zeit für dich. Gönn dir eine kleine Pause.</p>
+      <p class="mtq-letter-p">Mit Mamá te quiero bekommst du einmal im Monat:</p>
+      <ul class="mtq-list">
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>einen persönlichen Brief</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>ein ausgewähltes Gedicht</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>Nidrassa-Journaling-Karten</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>einen handgemalten Kunstdruck</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>ein Rubbellos, das immer gewinnt</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>schöne, ausgewählte Sticker</li>
+        <li><svg class="mtq-li-star star-dark" aria-hidden="true"><use href="#star"/></svg>und eine kleine Überraschung</li>
+      </ul>
+      <p class="mtq-letter-p">Der erste Brief kommt im <strong>Januar 2027</strong>.</p>
+      <p class="mtq-founding-badge"><span>Nur 20 Founding-Plätze</span></p>
+      <p class="mtq-letter-p mtq-price">Schreibe dich jetzt auf die Warteliste und werde eine der <strong>ersten 20 Founding Members</strong>: für <strong>11 € im Monat <a href="/versand/">zzgl. Versand</a></strong>, als fester Preis für deine gesamte Mitgliedschaft.</p>
+      <p class="mtq-letter-bye">Ich freu mich auf dich!</p>
+      <p class="mtq-letter-sign">Anna-Lena</p>
     </div>
   </section>
 
@@ -128,7 +145,7 @@ nav: mamatequiero
   <section class="waitlist-shell mtq-waitlist-shell">
     <div class="shop-waitlist waitlist-box mtq-waitlist" id="warteliste">
       <div class="wl-text">
-        <p class="eyebrow">Warteliste</p>
+        <p class="eyebrow">Warteliste <span class="mtq-badge">Nur 20 Founding-Plätze</span></p>
         <h3>Sei dabei, wenn der erste Brief verschickt wird</h3>
         <p>Trag dich auf die Warteliste ein und erfahre als Erste, wann die Anmeldung für Mamá te quiero öffnet. Lasse dir Zeit mit der Entscheidung: Die Warteliste ist kostenlos und unverbindlich.</p>
       </div>
