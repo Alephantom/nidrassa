@@ -1,0 +1,25 @@
+{%- comment -%}
+  Waitlist form for the letter club „Mamá te quiero“ (Brevo, list 11 „Warteliste“). Used ONLY on /mamatequiero/.
+  Repurposed Brevo form: action = site.waitlist_action (site.newsletter_action stays unchanged for other uses).
+  Sends straight to Brevo (no Brevo script, fonts or styles are loaded).
+  Field names (VORNAME, EMAIL, lists_28[], OPT_IN, email_address_check, locale) must stay exactly as Brevo expects them.
+  VORNAME is required because Brevo lists it as a mandatory field.
+  Layout: Vorname + E-Mail side by side, button below across both (desktop/tablet); stacked on phones. All 52px high, flush.
+{%- endcomment -%}
+<form class="notify notify-wl" method="POST" action="{{ site.waitlist_action }}">
+  <div class="notify-row notify-row-wl">
+    <label class="visually-hidden" for="wl-vorname">Dein Vorname</label>
+    <input type="text" id="wl-vorname" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
+    <label class="visually-hidden" for="wl-email">Deine E-Mail-Adresse</label>
+    <input type="email" id="wl-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
+    <button class="btn" type="submit">Auf die Warteliste</button>
+  </div>
+  <input type="hidden" name="lists_28[]" value="11">
+  <label class="notify-consent">
+    <input type="checkbox" name="OPT_IN" value="1" required>
+    <span>Ich möchte Infos zu Mamá te quiero und gelegentlich kleine Impulse von Nidrassa per E-Mail erhalten und akzeptiere die <a href="/datenschutz/">Datenschutzerklärung</a>. Abmeldung jederzeit.</span>
+  </label>
+  <input type="text" name="email_address_check" value="" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="locale" value="de">
+</form>
+<p class="notify-hint">Nach dem Absenden bekommst du eine E-Mail mit einem Bestätigungslink (Double-Opt-in). Erst nach deinem Klick stehst du auf der Liste. Kostenlos, unverbindlich, Abmeldung jederzeit mit einem Klick. Der Versand läuft über Brevo.</p>

@@ -13,6 +13,9 @@ timezone: Europe/Berlin
 # Brevo form (used by _includes/newsletter.html). Since 27.10.2026 = waitlist „Mamá te quiero“ on /mamatequiero/ (newsletter paused)
 newsletter_action: "https://1e4bd713.sibforms.com/serve/MUIFAEEAQTFrYpL0Xe2CPBpHADPEKnXaoQUdgti4ZH_vlM_FsgUGCfxNYIFhY_XSgnUMgVCHsJZLrW-Z9wR_XF_V6Y5wJoPf6xbmp-b2OfspmoP_vrOjTc8o5VZphM6nnrwF4o2sg7U6TkoG25yplAUg5NyN0Y8LqvLMFjzcTyFM7VBdFTWegg31umtnyyn8BUnAVtBA-8TpHAjTNQ=="
 
+# Waitlist „Mamá te quiero“ (repurposed Brevo form, list 11 „Warteliste“), used by _includes/waitlist.html on /mamatequiero/.
+waitlist_action: "https://1e4bd713.sibforms.com/serve/MUIFAMhTxOOAzFJSB67AX7bd4Xc_A1nKYF7Jri_t3_iVACCxgNS0AlTTH5Rql0ZbS-ia1qFXl1P--BccIv3_ju9qOYew-Ud4DlN-MerliOYCR3_WpOkXONsKxcQryI4JXvjOnTWlqvZA2OAKbQSG71QvavqB0xyY0M0Bx58-lEI0WJFvTC1Eb10R5Cxmb0MeG3J_Y4cAbWbQvONG2Q=="
+
 # Blog posts live at /blog/<slug>/ (slug = file name without the date).
 permalink: /blog/:title/
 

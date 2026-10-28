@@ -12,7 +12,7 @@ nav: mamatequiero
   FAQ texts live in _data/mamatequiero.yml.
   Contents + founding price were approved by Anna-Lena on 28.10.2026 (text in the „Letter“ section, keep it word for word).
   Do NOT add quantities (e.g. „drei Karten“) or a live countdown of the 20 founding places.
-  Form: the existing Brevo newsletter form (_includes/newsletter.html, site.newsletter_action), only shown here.
+  Form: repurposed Brevo waitlist form (_includes/waitlist.html, site.waitlist_action, list 11), only shown here.
   Brevo redirects to /fast-geschafft/ and /danke/.
   Price: 11 € im Monat zzgl. Versand (shipping costs on /versand/). Do NOT name a start date other than „Januar 2027“ or the poem's author here.
 {%- endcomment -%}
@@ -150,7 +150,7 @@ nav: mamatequiero
         <p>Trag dich auf die Warteliste ein und erfahre als Erste, wann die Anmeldung für Mamá te quiero öffnet. Lasse dir Zeit mit der Entscheidung: Die Warteliste ist kostenlos und unverbindlich.</p>
       </div>
       <div class="wl-form">
-        {% include newsletter.html %}
+        {% include waitlist.html %}
       </div>
     </div>
   </section>
