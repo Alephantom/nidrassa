@@ -825,6 +825,39 @@ footer nav .pill:hover { background: rgba(242, 234, 223, 0.1); color: var(--beig
 .footer-note { margin: 18px auto 0; max-width: 520px; font-size: 14px; color: var(--stone); }
 .footer-note a { color: var(--beige); }
 footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--stone); letter-spacing: .06em; }
+/* Footer link groups: flat row on desktop (wrappers vanish), collapsible on phones */
+.foot-group { display: contents; }
+.foot-h, .foot-toggle, .foot-legal { display: none; }
+@media (max-width: 560px) {
+  footer { padding: 56px 20px 28px; }
+  .foot-toggle:not([hidden]) {
+    display: inline-flex; align-items: center; gap: 10px; margin: 28px auto 0; min-height: 44px; padding: 0 18px;
+    background: none; border: 1px solid rgba(201, 199, 166, 0.35); border-radius: 999px; cursor: pointer;
+    font: 400 12px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--beige);
+  }
+  .foot-toggle:focus-visible { outline: 1px solid var(--sage); outline-offset: 3px; }
+  .foot-chev {
+    width: 10px; height: 10px; background: var(--sage);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.5 3.5 5 7l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.5 3.5 5 7l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: transform .25s ease;
+  }
+  .foot-toggle[aria-expanded="true"] .foot-chev { transform: rotate(180deg); }
+  .foot-links { display: grid; grid-template-rows: 1fr; }
+  .foot-ready .foot-links { transition: grid-template-rows .25s ease, visibility .25s; }
+  .foot-links.is-collapsed { grid-template-rows: 0fr; visibility: hidden; }
+  .foot-links-inner { min-height: 0; overflow: hidden; }
+  footer nav { display: block; margin-top: 8px; }
+  .foot-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding-top: 24px; }
+  .foot-h { display: block; flex-basis: 100%; margin: 0 0 4px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); }
+  footer nav .pill { min-height: 40px; }
+  footer small { margin-top: 36px; line-height: 1.8; }
+  .foot-legal { display: inline; }
+  .foot-legal a { color: var(--beige); text-decoration: underline; text-decoration-color: rgba(201, 199, 166, 0.5); text-underline-offset: 3px; }
+}
+@media (max-width: 560px) and (prefers-reduced-motion: reduce) {
+  .foot-ready .foot-links, .foot-chev { transition: none; }
+}
 
 /* ---------- 16. Responsive: tablet (≤900px) and phone (≤560px) ---------- */
 @media (max-width: 900px) {

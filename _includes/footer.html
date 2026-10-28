@@ -5,12 +5,25 @@
       <svg class="star star-lite" aria-hidden="true"><use href="#star"/></svg>
       <div class="word">NIDRASSA</div>
       <p class="footer-note">Ab Januar 2027: <a href="/mamatequiero/">Mamá te quiero</a>, Snail Mail von einer busy Mama zur anderen. Jetzt auf die Warteliste.</p>
-      <nav aria-label="Footer">
-        {%- for link in site.data.navigation.footer %}
-        <a class="pill" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.title }}</a>
-        {%- endfor %}
-      </nav>
-      <small>© {{ site.time | date: "%Y" }} Nidrassa</small>
+      {%- comment -%} Mobile (≤560px): site.js collapses the links behind this toggle. Without JS the button stays hidden and the links stay open; desktop never shows it. {%- endcomment %}
+      <button class="foot-toggle" type="button" aria-expanded="true" aria-controls="foot-links" hidden>Mehr entdecken<span class="foot-chev" aria-hidden="true"></span></button>
+      <div class="foot-links" id="foot-links">
+        <div class="foot-links-inner">
+          <nav aria-label="Footer">
+            {%- assign groups = "entdecken:Entdecken,rechtliches:Rechtliches" | split: "," %}
+            {%- for g in groups %}
+            {%- assign gk = g | split: ":" %}
+            <div class="foot-group">
+              <p class="foot-h">{{ gk[1] }}</p>
+              {%- for link in site.data.navigation.footer %}{% if link.group == gk[0] %}
+              <a class="pill" href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.title }}</a>
+              {%- endif %}{% endfor %}
+            </div>
+            {%- endfor %}
+          </nav>
+        </div>
+      </div>
+      <small>© {{ site.time | date: "%Y" }} Nidrassa<span class="foot-legal"> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></span></small>
     </div>
   </footer>
 </div>
