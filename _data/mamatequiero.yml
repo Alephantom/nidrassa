@@ -1,6 +1,7 @@
 # Brief-Club „Mamá te quiero“ – Texte für /mamatequiero/ (mamatequiero.html)
 # Das Formular ist das bestehende Brevo-Formular (_includes/newsletter.html, _config.yml → newsletter_action).
-# Noch KEINE Inhalte versprechen (keine Beilagen, Themen oder Mengen nennen).
+# Inhalte + Founding-Preis freigegeben am 28.10.2026 (11 € im Monat zzgl. Versand, erste 20 Founding Members).
+# Antworten dürfen HTML-Links enthalten (werden roh ausgegeben).
 
 instagram: mamatequiero.club
 
@@ -9,7 +10,9 @@ faq:
     antwort: Der erste Brief kommt im Januar 2027. Auf der Warteliste erfährst du als Erste, wann die Anmeldung öffnet.
   - frage: Kostet die Warteliste etwas?
     antwort: Nein. Die Warteliste ist kostenlos und unverbindlich.
+  - frage: Was kostet die Mitgliedschaft?
+    antwort: 'Für die ersten 20 Founding Members kostet Mamá te quiero 11 € im Monat zzgl. Versand, als fester Preis für deine gesamte Mitgliedschaft. Die Versandkosten pro Brief findest du unter <a href="/versand/">Versand</a>.'
   - frage: Kann ich mich wieder austragen?
     antwort: Ja, jederzeit. In jeder E-Mail findest du einen Link, mit dem du dich mit einem Klick austragen kannst.
   - frage: Wohin liefert ihr?
-    antwort: Der Brief kommt ganz klassisch per Post zu dir nach Hause. In welche Länder wir versenden, erfährst du zuerst auf der Warteliste.
+    antwort: 'Der Brief kommt ganz klassisch per Post zu dir nach Hause: nach Deutschland, Österreich und in die restliche EU. Für die Schweiz und alle anderen Länder schreibe mir gern an <a href="mailto:info@nidrassa.com">info@nidrassa.com</a>, dann sage ich dir die Versandkosten. Alle Beträge findest du unter <a href="/versand/">Versand</a>.'

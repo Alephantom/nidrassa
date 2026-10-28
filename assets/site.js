@@ -351,3 +351,21 @@ document.querySelectorAll("form[data-redirect]").forEach(form => {
     }
   });
 });
+
+/* Footer: collapsible link groups on phones (≤560px). Without JS everything stays open. */
+(function () {
+  var btn = document.querySelector('.foot-toggle');
+  var panel = document.getElementById('foot-links');
+  if (!btn || !panel || !window.matchMedia) return;
+  var mq = window.matchMedia('(max-width: 560px)');
+  function set(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.classList.toggle('is-collapsed', !open);
+  }
+  btn.hidden = false;
+  set(!mq.matches);
+  btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+  var onChange = function (e) { set(!e.matches); };
+  if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+  requestAnimationFrame(function () { requestAnimationFrame(function () { panel.parentNode.classList.add('foot-ready'); }); });
+})();

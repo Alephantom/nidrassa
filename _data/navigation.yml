@@ -17,23 +17,38 @@ main:
 # Links in the footer.
 footer:
   - title: Über
+    group: entdecken
     url: /#ueber
   - title: Übungen
+    group: entdecken
     url: /uebungen/
   - title: Blog
+    group: entdecken
     url: /blog/
   - title: Retreat
+    group: entdecken
     url: /retreat/
   - title: Shop
+    group: entdecken
     url: /shop/
   - title: Mamá te quiero
+    group: entdecken
     url: /mamatequiero/
   - title: Pinterest
+    group: entdecken
     url: https://www.pinterest.com/Nidrassa
     external: true
   - title: Impressum
+    group: rechtliches
     url: /impressum/
+    mobile_hidden: true  # steht mobil schon in der ©-Zeile
   - title: Datenschutz
+    group: rechtliches
     url: /datenschutz/
+    mobile_hidden: true  # steht mobil schon in der ©-Zeile
   - title: Deine Gewährleistungsrechte
+    group: rechtliches
     url: /gewaehrleistung/
+  - title: Versand
+    group: rechtliches
+    url: /versand/
