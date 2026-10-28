@@ -8,10 +8,10 @@ image: /assets/cards-journal.webp
 image_alt: "Eine Fragekarte liegt auf einem Notizbuch, eine Hand schreibt daneben"
 lead: "Du willst schreiben, aber jedes Mal, wenn du das Notizbuch aufschlägst, stellt sich dieselbe Frage: Worüber eigentlich? Eine Karte kann dir diese Frage abnehmen."
 cta:
-  title: "31 Karten, eine Frage weiter"
-  text: "Drei Fragen vorne, ein Satz zum Mitnehmen hinten. Für 2, 5 oder 15 Minuten."
-  url: /shop/
-  label: "Eine Frage weiter ansehen"
+  title: "Fragen, die per Post kommen"
+  text: "Im Brief-Club Mamá te quiero bekommst du einmal im Monat einen Brief, nur für dich. Mit Fragen zum Schreiben und einem Satz zum Mitnehmen. Ab Januar 2027."
+  url: /mamatequiero/
+  label: "Zur Warteliste"
 ---
 
 Das Schwierigste am Journaling ist selten das Schreiben selbst. Es ist der Anfang. **Journaling Karten** helfen genau dort: Du ziehst eine Karte, liest die Frage und hast plötzlich einen Einstieg. Keine leere Seite, kein langes Überlegen. Nur eine Frage, auf die du antworten kannst.

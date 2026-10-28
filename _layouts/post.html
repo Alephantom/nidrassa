@@ -26,9 +26,6 @@ layout: default
       <h2>{{ page.cta.title }}</h2>
       <p>{{ page.cta.text }}</p>
       <a class="btn" href="{{ page.cta.url }}">{{ page.cta.label }}</a>
-      {%- if page.cta.url contains "/shop/" %}
-      <p class="cta-note">Shop öffnet am {{ site.data.shop.open_date }}. Auf der Warteliste: Adventskalender gratis und 10 % Rabatt.</p>
-      {%- endif %}
     </div>
   </aside>
   {% endif %}
