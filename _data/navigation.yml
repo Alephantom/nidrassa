@@ -38,14 +38,7 @@ footer:
     group: entdecken
     url: https://www.pinterest.com/Nidrassa
     external: true
-  - title: Impressum
-    group: rechtliches
-    url: /impressum/
-    mobile_hidden: true  # steht mobil schon in der ©-Zeile
-  - title: Datenschutz
-    group: rechtliches
-    url: /datenschutz/
-    mobile_hidden: true  # steht mobil schon in der ©-Zeile
+  # Impressum + Datenschutz are not listed here: they sit in the © line on every screen size (_includes/footer.html).
   - title: Deine Gewährleistungsrechte
     group: rechtliches
     url: /gewaehrleistung/
