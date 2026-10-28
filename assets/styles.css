@@ -697,8 +697,15 @@ body.page-shop { background: var(--beige); }  /* same beige behind the footer as
 .notify input[type="email"]:focus, .notify input[type="text"]:focus { outline: 2px solid var(--moss); outline-offset: 2px; }
 .notify .btn { border: 0; cursor: pointer; border-radius: 999px; font-family: var(--sans); white-space: nowrap; background: var(--olive); color: var(--beige); }
 .notify .btn:hover { background: var(--moss); }
+.notify-row > input[type="email"], .notify-row > input[type="text"], .notify-row > .btn {
+  box-sizing: border-box; height: 52px; min-height: 52px; margin: 0; align-self: auto;
+}
+.notify-row-wl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.notify-row-wl > .btn { grid-column: 1 / -1; width: 100%; }
+@media (max-width: 560px) { .notify-row-wl { grid-template-columns: 1fr; } }
+.notify-row > .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 34px; line-height: 1; }
 .notify-consent { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; text-align: left; font-size: 14px; color: #4a463f; cursor: pointer; }
-.notify-consent input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--olive); }
+.notify-consent input { width: 18px; height: 18px; margin: 3px 0 0; flex: none; accent-color: var(--olive); }
 .notify-consent a { color: inherit; }
 .notify-hint { margin-top: 14px; font-size: 13px; color: #6a655b; }
 .notify-done { margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--olive); }
@@ -819,15 +826,18 @@ footer {
 }
 footer .star { width: 64px; height: 64px; margin: 0 auto; }
 footer .word { font-family: var(--display); font-size: 22px; letter-spacing: .3em; color: var(--beige); margin: 22px 0 0 .3em; }
-footer nav { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+footer nav { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-top: 40px; }
 footer nav .pill { color: var(--stone); border: 1px solid rgba(201, 199, 166, 0.35); }
 footer nav .pill:hover { background: rgba(242, 234, 223, 0.1); color: var(--beige); }
 .footer-note { margin: 18px auto 0; max-width: 520px; font-size: 14px; color: var(--stone); }
 .footer-note a { color: var(--beige); }
 footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--stone); letter-spacing: .06em; }
-/* Footer link groups: flat row on desktop (wrappers vanish), collapsible on phones */
-.foot-group { display: contents; }
-.foot-h, .foot-toggle, .foot-legal { display: none; }
+/* Footer link groups „Entdecken“ / „Rechtliches“ on every size (open on desktop/tablet, collapsible on phones).
+   Impressum · Datenschutz only in the © line. */
+.foot-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 760px; }
+.foot-h { display: block; flex-basis: 100%; margin: 0 0 4px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); }
+.foot-toggle { display: none; }
+.foot-legal a { color: var(--beige); text-decoration: underline; text-decoration-color: rgba(201, 199, 166, 0.5); text-underline-offset: 3px; }
 @media (max-width: 560px) {
   footer { padding: 56px 20px 28px; }
   .foot-toggle:not([hidden]) {
@@ -848,13 +858,9 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .foot-links.is-collapsed { grid-template-rows: 0fr; visibility: hidden; }
   .foot-links-inner { min-height: 0; overflow: hidden; }
   footer nav { display: block; margin-top: 8px; }
-  .foot-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding-top: 24px; }
-  .foot-h { display: block; flex-basis: 100%; margin: 0 0 4px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); }
+  .foot-group { gap: 8px; padding-top: 24px; max-width: none; }
   footer nav .pill { min-height: 40px; }
-  footer nav .pill.foot-desk-only { display: none; }
   footer small { margin-top: 36px; line-height: 1.8; }
-  .foot-legal { display: inline; }
-  .foot-legal a { color: var(--beige); text-decoration: underline; text-decoration-color: rgba(201, 199, 166, 0.5); text-underline-offset: 3px; }
 }
 @media (max-width: 560px) and (prefers-reduced-motion: reduce) {
   .foot-ready .foot-links, .foot-chev { transition: none; }
