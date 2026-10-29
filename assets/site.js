@@ -347,7 +347,19 @@ document.querySelectorAll("form[data-redirect]").forEach(form => {
       if (data.success === false) throw new Error("rejected");
       window.location.href = form.dataset.redirect;
     } catch (err) {
+      // fetch blocked (e.g. Safari privacy / content blocker): send the normal way,
+      // but into a hidden frame, so the visitor never sees Brevo's raw {"success":true} page.
+      let frame = document.getElementById("brevo-sink");
+      if (!frame) {
+        frame = document.createElement("iframe");
+        frame.name = frame.id = "brevo-sink";
+        frame.hidden = true;
+        document.body.appendChild(frame);
+      }
+      frame.onload = () => { window.location.href = form.dataset.redirect; };
+      form.target = "brevo-sink";
       form.submit();
+      setTimeout(() => { window.location.href = form.dataset.redirect; }, 6000);
     }
   });
 });
