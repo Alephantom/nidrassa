@@ -1,8 +1,8 @@
 {%- comment -%}
   Waitlist form for the letter club „Mamá te quiero“ (Brevo, list 11 „Warteliste“). Used ONLY on /mamatequiero/.
-  Repurposed Brevo form: action = site.waitlist_action (site.newsletter_action stays unchanged for other uses).
+  Brevo form „Snail Mail Warte Liste“ (list set in Brevo, no list field): action = site.waitlist_action (site.newsletter_action stays unchanged for other uses).
   Sends straight to Brevo (no Brevo script, fonts or styles are loaded).
-  Field names (VORNAME, EMAIL, lists_28[], OPT_IN, email_address_check, locale) must stay exactly as Brevo expects them.
+  Field names (VORNAME, EMAIL, OPT_IN, email_address_check, locale) must stay exactly as Brevo expects them.
   VORNAME is required because Brevo lists it as a mandatory field.
   Layout: Vorname + E-Mail side by side, button below across both (desktop/tablet); stacked on phones. All 52px high, flush.
 {%- endcomment -%}
@@ -14,7 +14,6 @@
     <input type="email" id="wl-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
     <button class="btn" type="submit">Auf die Warteliste</button>
   </div>
-  <input type="hidden" name="lists_28[]" value="11">
   <label class="notify-consent">
     <input type="checkbox" name="OPT_IN" value="1" required>
     <span>Ich möchte Infos zu Mamá te quiero und gelegentlich kleine Impulse von Nidrassa per E-Mail erhalten und akzeptiere die <a href="/datenschutz/">Datenschutzerklärung</a>. Abmeldung jederzeit.</span>
