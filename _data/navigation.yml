@@ -14,29 +14,23 @@ main:
     url: /mamatequiero/
     nav: mamatequiero
 
-# Links in the footer.
+# Links in the footer. Pages from the top navigation (Übungen, Blog, Retreat, Snail Mail) and Shop are not repeated here.
+# Groups (heading order in _includes/footer.html): nidrassa, folge (social profiles), rechtliches.
 footer:
   - title: Über
-    group: entdecken
+    group: nidrassa
     url: /#ueber
-  - title: Übungen
-    group: entdecken
-    url: /uebungen/
-  - title: Blog
-    group: entdecken
-    url: /blog/
-  - title: Retreat
-    group: entdecken
-    url: /retreat/
-  - title: Shop
-    group: entdecken
-    url: /shop/
-  - title: Mamá te quiero
-    group: entdecken
-    url: /mamatequiero/
   - title: Pinterest
-    group: entdecken
+    group: folge
     url: https://www.pinterest.com/Nidrassa
+    external: true
+  - title: Instagram
+    group: folge
+    url: https://www.instagram.com/nidrassa/
+    external: true
+  - title: YouTube
+    group: folge
+    url: https://www.youtube.com/@nidrassa
     external: true
   # Impressum + Datenschutz are not listed here: they sit in the © line on every screen size (_includes/footer.html).
   - title: Deine Gewährleistungsrechte
