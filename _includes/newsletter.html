@@ -7,7 +7,7 @@
   Field names (EMAIL, OPT_IN, email_address_check, locale) must stay as Brevo expects them.
   All other pages show the small teaser _includes/club-teaser.html instead.
 {%- endcomment -%}
-<form class="notify" method="POST" action="{{ site.newsletter_action }}">
+<form class="notify" method="POST" action="{{ site.newsletter_action }}" data-redirect="/fast-geschafft/">
   <div class="notify-row">
     <label class="visually-hidden" for="news-email">Deine E-Mail-Adresse</label>
     <input type="email" id="news-email" name="EMAIL" required placeholder="Deine E-Mail-Adresse" autocomplete="email">
