@@ -40,6 +40,8 @@ social:
   name: Nidrassa
   links:
     - https://www.pinterest.com/Nidrassa
+    - https://www.instagram.com/nidrassa/
+    - https://www.youtube.com/@nidrassa
 
 defaults:
   - scope: { type: posts }

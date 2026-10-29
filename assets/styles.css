@@ -1022,6 +1022,36 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .mtq-waitlist .wl-text p:not(.eyebrow) { color: #4a463f; }
 .mtq-waitlist .notify-row { margin-top: 0; }
 
+/* Waitlist tile in bordeaux, echoing the envelope in the hero photo (lit tone ≈ #6E1F2E) with cream text
+   and a silver badge like the silver NIDRASSA on the envelope. Fine inner line like a card. */
+.shop-waitlist.waitlist-box.mtq-waitlist {
+  --bdx: #6E1F2E; --bdx-deep: #5A1824; --cream: #F8F3E9; --silver: #D8D4CC;
+  position: relative; background: var(--bdx); border-color: var(--bdx-deep); color: var(--cream);
+  box-shadow: 0 24px 48px -28px rgba(58, 14, 22, 0.55);
+}
+.mtq-waitlist::before {
+  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(248, 243, 233, 0.22);
+  border-radius: 22px; pointer-events: none;
+}
+.mtq-waitlist > * { position: relative; }
+.mtq-waitlist .eyebrow { color: var(--silver); }
+.mtq-waitlist .mtq-badge { background: transparent; border-color: rgba(216, 212, 204, 0.7); color: var(--cream); }
+.mtq-waitlist .wl-text h3 { color: var(--cream); }
+.mtq-waitlist .wl-text p:not(.eyebrow) { color: rgba(248, 243, 233, 0.9); }
+.mtq-waitlist .notify input[type="email"], .mtq-waitlist .notify input[type="text"]:not(.visually-hidden) {
+  background: var(--cream); border-color: var(--cream); color: var(--ink);
+}
+.mtq-waitlist .notify input::placeholder { color: #6a655b; }
+.mtq-waitlist .notify input:focus { outline-color: var(--cream); }
+.mtq-waitlist .notify .btn { background: var(--cream); color: var(--bdx); font-weight: 500; }
+.mtq-waitlist .notify .btn:hover { background: #fff; color: var(--bdx-deep); }
+.mtq-waitlist .notify .btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+.mtq-waitlist .notify-consent { color: var(--cream); }
+.mtq-waitlist .notify-consent input { accent-color: var(--cream); }
+.mtq-waitlist .notify-consent a, .mtq-waitlist .notify-hint a { color: var(--cream); text-decoration: underline; text-underline-offset: 3px; }
+.mtq-waitlist .notify-hint { color: rgba(248, 243, 233, 0.85); }
+@media (max-width: 860px) { .mtq-waitlist::before { inset: 8px; border-radius: 24px; } }
+
 .mtq-faq { padding-top: 64px; }
 .mtq-faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--sand); }
 .mtq-faq details { border-bottom: 1px solid var(--sand); padding: 20px 4px; }
