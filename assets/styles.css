@@ -1025,7 +1025,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 /* Waitlist tile in bordeaux, echoing the envelope in the hero photo (lit tone ≈ #6E1F2E) with cream text
    and a silver badge like the silver NIDRASSA on the envelope. Fine inner line like a card. */
 .shop-waitlist.waitlist-box.mtq-waitlist {
-  --bdx: #6E1F2E; --bdx-deep: #5A1824; --cream: #F8F3E9; --silver: #D8D4CC;
+  --bdx: #8A3444; --bdx-deep: #742A38; --cream: #F8F3E9; --silver: #D8D4CC;
   position: relative; background: var(--bdx); border-color: var(--bdx-deep); color: var(--cream);
   box-shadow: 0 24px 48px -28px rgba(58, 14, 22, 0.55);
 }
