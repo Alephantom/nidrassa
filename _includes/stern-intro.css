@@ -1,22 +1,20 @@
-/* Startseite: Stern-Intro (PROTOTYP, Branch startseite-stern-intro, nicht live)
+/* Startseite: Stern-Intro (Variante A, läuft einmal beim allerersten Besuch).
    Ein Vorhang in Hero-Optik liegt über der Seite. Der Stern dreht und wächst,
    bis er an der Oberkante halbiert ist und mit der unteren Spitze auf NIDRASSA zeigt.
-   Danach hebt sich der Vorhang mit dem Stern und gibt den Inhalt frei. */
+   Danach hebt sich der Vorhang mit dem Stern und gibt den Inhalt frei.
+   Der Vorhang übernimmt Layout und Schrift von .hero (gleiche Position wie der echte Hero),
+   bewegt wird nur per transform: kein Layout-Shift, kein Scroll-Lock (kein Scrollbar-Sprung). */
 .si-curtain.hero {
-  min-height: 0; padding: 0; display: block;
   position: fixed; inset: 0; z-index: 9999;
-  background: var(--olive-deep); color: var(--beige);
-  text-align: center;
+  min-height: 0;
   will-change: transform;
   box-shadow: 0 18px 40px rgba(27, 25, 22, .28);
 }
-.si-curtain .hero-inner { position: absolute; display: flex; flex-direction: column; align-items: center; }
 .si-curtain .star {
   animation: none !important;
   transform-origin: 50% 50%;
   will-change: transform;
 }
-html.si-lock, html.si-lock body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .si-curtain { display: none !important; }
 }
