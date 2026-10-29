@@ -6,7 +6,7 @@
   VORNAME is required because Brevo lists it as a mandatory field.
   Layout: Vorname + E-Mail side by side, button below across both (desktop/tablet); stacked on phones. All 52px high, flush.
 {%- endcomment -%}
-<form class="notify notify-wl" method="POST" action="{{ site.waitlist_action }}">
+<form class="notify notify-wl" method="POST" action="{{ site.waitlist_action }}" data-redirect="/fast-geschafft/">
   <div class="notify-row notify-row-wl">
     <label class="visually-hidden" for="wl-vorname">Dein Vorname</label>
     <input type="text" id="wl-vorname" name="VORNAME" required placeholder="Dein Vorname" autocomplete="given-name">
