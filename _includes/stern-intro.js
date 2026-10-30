@@ -63,13 +63,35 @@
     var gap = Math.max(14, innerHeight * 0.025);           // Abstand Spitze → Oberkante NIDRASSA
     var target = (hr.top - gap) / TIP;                      // Größe, bei der die Spitze auf NIDRASSA zeigt
     geo = { k: target / size, dy: -cy };                     // Mitte wandert an die Oberkante (= halbiert)
+    bigStar(sr.left + sr.width / 2, cy, size * geo.k);
     syncScroll();
+  }
+
+  // Scharfer Stern: dieselben Ebenen (#star, Creme/Sage) gleich in Endgröße gezeichnet und per
+  // scale(<1) auf die Hero-Größe verkleinert. Er wird nie über seine native Größe vergrößert,
+  // die Kanten bleiben daher in jedem Frame scharf (auch 2560 px und Retina).
+  function bigStar(cx, cy, px) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var s = document.createElementNS(NS, 'svg'), u = document.createElementNS(NS, 'use');
+    s.setAttribute('class', 'star-lite si-star');
+    s.setAttribute('viewBox', '0 0 100 100');
+    s.setAttribute('aria-hidden', 'true');
+    u.setAttribute('href', '#star');
+    s.appendChild(u);
+    s.style.width = s.style.height = px + 'px';
+    s.style.transform = 'scale(' + (1 / geo.k) + ')';
+    star.parentNode.insertBefore(s, star.nextSibling);      // gleiche Zeichenreihenfolge wie der Hero-Stern
+    var r = s.getBoundingClientRect();                       // Ursprung des Bezugsrahmens ausgleichen
+    s.style.left = (cx - (r.left + r.width / 2)) + 'px';
+    s.style.top = (cy - (r.top + r.height / 2)) + 'px';
+    star.style.visibility = 'hidden';
+    star = s;
   }
 
   function render(t) {
     var g = inOut(clamp((t - T_GROW) / GROW));
     var l = lift(clamp((t - T_LIFT) / liftDur));
-    star.style.transform = 'translateY(' + (geo.dy * g) + 'px) rotate(' + (360 * g) + 'deg) scale(' + (1 + (geo.k - 1) * g) + ')';
+    star.style.transform = 'translateY(' + (geo.dy * g) + 'px) rotate(' + (360 * g) + 'deg) scale(' + (1 + (geo.k - 1) * g) / geo.k + ')';
     if (cue) cue.style.opacity = String(1 - clamp(g * 2.5));
     // ganz hoch inkl. Schatten (80 px), damit beim Entfernen nichts mehr zuckt
     curtain.style.transform = 'translateY(calc(' + (-100 * l) + '% - ' + (80 * l) + 'px))';
