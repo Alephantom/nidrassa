@@ -59,7 +59,7 @@
   function measure() {
     var sr = star.getBoundingClientRect();
     var hr = curtain.querySelector('h1').getBoundingClientRect();
-    var size = parseFloat(getComputedStyle(star).width), cy = sr.top + sr.height / 2;
+    var size = sr.width, cy = sr.top + sr.height / 2;
     var gap = Math.max(14, innerHeight * 0.025);           // Abstand Spitze → Oberkante NIDRASSA
     var target = (hr.top - gap) / TIP;                      // Größe, bei der die Spitze auf NIDRASSA zeigt
     geo = { k: target / size, dy: -cy };                     // Mitte wandert an die Oberkante (= halbiert)
