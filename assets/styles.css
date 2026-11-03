@@ -1164,3 +1164,9 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .method .pick { border-radius: 0 0 18px 18px; }
   .pick-top .when { font-size: 19px; }
 }
+
+/* quarter of the Nidrassa star as a soft shadow in the top-right corner */
+.method-card { position: relative; overflow: hidden; }
+.method-card > *:not(.mx-corner-star) { position: relative; z-index: 1; }
+.mx-corner-star { position: absolute; z-index: 0; width: 440px; height: 440px; top: -220px; right: -220px; --s1: rgba(0,0,0,.13); --s2: rgba(0,0,0,0); --s3: rgba(0,0,0,0); --s4: rgba(0,0,0,0); pointer-events: none; }
+@media (max-width: 900px) { .mx-corner-star { width: 260px; height: 260px; top: -130px; right: -130px; } }
