@@ -11,7 +11,7 @@ cta:
   title: "Schreiben in 2, 5 oder 15 Minuten"
   text: "Wähle die Länge, die heute passt. Auch zwei Minuten sind eine Routine."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Fast jede kennt das: Du startest mit Begeisterung, und nach ein paar Wochen ist die Luft raus. Das liegt selten an fehlender Disziplin. Meistens ist die **Journaling Routine** einfach zu groß für dein echtes Leben geplant. Die gute Nachricht: Sie darf kleiner werden.

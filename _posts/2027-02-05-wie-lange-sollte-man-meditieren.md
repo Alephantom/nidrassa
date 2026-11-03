@@ -11,7 +11,7 @@ cta:
   title: "Deine Zeit, deine Übung"
   text: "Wähle 2, 5 oder 15 Minuten und fang mit dem an, was heute reinpasst."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Die Frage, **wie lange meditieren** sinnvoll ist, stellen sich fast alle am Anfang. Und die ehrliche Antwort ist: kürzer, als du wahrscheinlich denkst. Es gibt keine Mindestzeit, ab der Meditation „zählt“. Es gibt nur die Zeit, die du heute wirklich hast.

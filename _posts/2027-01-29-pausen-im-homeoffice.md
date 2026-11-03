@@ -11,7 +11,7 @@ cta:
   title: "2, 5 oder 15 Minuten"
   text: "Such dir eine Übung aus, die genau in deine Lücke passt."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 **Pausen im Homeoffice** haben ein Problem: Sie sehen von außen aus wie freie Zeit, fühlen sich aber oft an wie Hausarbeit. Der Weg zur Kaffeemaschine führt an der Wäsche vorbei, am Paket für die Retoure, am Kinderzimmer. Und schwupps ist die Pause weg. Hier sind fünf Ideen, die kurz sind und nicht nach Aufgabe riechen.

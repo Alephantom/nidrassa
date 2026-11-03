@@ -9,9 +9,9 @@ image_alt: "Geschlossene Lotusknospe, im Hintergrund unscharf eine Buddha-Figur"
 lead: "Du willst meditieren, aber zwanzig Minuten Stille klingen nach einem Leben, das du gerade nicht hast. Gute Nachricht: Du musst nicht groß anfangen."
 cta:
   title: "Such dir deine Länge aus"
-  text: "Zwei, fünf oder fünfzehn Minuten: Die 2-5-15-Methode passt sich deinem Tag an."
+  text: "Zwei, fünf oder fünfzehn Minuten: Die 2-5-15-Prinzip passt sich deinem Tag an."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Viele denken bei Meditation für Anfänger an eine Stunde im Schneidersitz, an Räucherstäbchen und einen Kopf, der plötzlich still ist. So sieht es für die meisten nicht aus. Eher so: Du sitzt auf der Bettkante, das Handy liegt umgedreht neben dir, und nebenan läuft die Waschmaschine. Das ist ein völlig guter Ort, um anzufangen.

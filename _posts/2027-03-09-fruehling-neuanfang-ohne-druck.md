@@ -11,7 +11,7 @@ cta:
   title: "Klein anfangen"
   text: "Eine Übung für 2, 5 oder 15 Minuten. Mehr braucht ein Neuanfang nicht."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Im Frühling liegt ein **Neuanfang** in der Luft. Die Tage werden länger, das Licht ist heller, und mit ihm kommt oft der Wunsch nach Veränderung. Kleiderschrank ausmisten, mehr Sport, endlich meditieren. Das Problem: Aus dem Wunsch wird schnell eine Liste. Und eine Liste ist das Letzte, was eine müde Mutter noch braucht.

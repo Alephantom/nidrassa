@@ -1126,3 +1126,55 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .method .step-text { font-size: 15px; margin-top: 10px; }
   .mx-go { font-size: 9px; letter-spacing: .14em; margin-top: 12px; }
 }
+
+
+/* ---------- 2-5-15 card v2 (2026-11): desktop keeps the original layout, phones get notebook tabs ---------- */
+.mx-mobile { display: none; }
+.pick-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.pick-top .when { font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--moss); }
+.pick-top .tag { margin: 0; flex-shrink: 0; }
+@media (max-width: 900px) {
+  .mx-desktop { display: none !important; }
+  .mx-mobile { display: block; }
+  .method .mx-hint { order: 3; margin-top: 36px; font-size: 11px; letter-spacing: .16em; }
+  .method .method-grid { order: 4; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; max-width: none; align-self: stretch; align-items: end; margin-top: 18px; }
+  .method .step {
+    background: rgba(242, 234, 223, .12); border: 1px solid rgba(242, 234, 223, .22); border-bottom: 0;
+    border-radius: 16px 16px 0 0; color: var(--beige); padding: 10px 4px 8px; transform: none;
+  }
+  .method .step:hover { background: rgba(242, 234, 223, .2); transform: none; }
+  .method .step .step-num { font-size: 30px; color: var(--beige); }
+  .method .step .step-unit { color: var(--stone); margin-top: 6px; font-size: 10px; letter-spacing: .16em; }
+  .method .step[aria-pressed="true"] { background: var(--paper); border-color: var(--paper); padding-top: 16px; padding-bottom: 12px; position: relative; z-index: 2; }
+  .method .step[aria-pressed="true"] .step-num { font-size: 38px; color: var(--olive); }
+  .method .step[aria-pressed="true"] .step-unit { color: var(--olive); }
+  .method .pick { order: 5; width: 100%; max-width: none; align-self: stretch; box-sizing: border-box; margin: 0; border-radius: 0 0 18px 18px; position: relative; z-index: 1; box-shadow: 0 12px 28px rgba(0, 0, 0, .18); animation: none; }
+  .pick-top .when { font-size: 19px; }
+  .mx-tagline { order: 6; margin: 30px 0 0; text-align: center; font-family: var(--serif); font-size: 20px; color: var(--beige); }
+  .mx-star { order: 7; display: block; width: 18px; height: 18px; margin: 12px auto 0; fill: #C9A85C; color: #C9A85C; }
+  .method .mx-link { order: 8; margin-top: 8px; }
+}
+@media (min-width: 901px) {
+  .pick-top .when { display: none; }
+  .mx-star { display: block; width: 20px; height: 20px; margin: 44px auto 0; fill: #C9A85C; color: #C9A85C; }
+  .method .mx-link { margin-top: 12px; }
+}
+
+/* little gold stars scattered in the green card (variant A1, no glow) */
+.method-card { position: relative; overflow: hidden; }
+.method-card > *:not(.mx-sky) { position: relative; z-index: 1; }
+.method-card > .mx-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.mx-sky i { position: absolute; background: #D9B866; opacity: .9; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); }
+
+/* desktop: timer column on the right side of the practice card */
+@media (min-width: 901px) {
+  .method .pick { display: grid; grid-template-columns: 1fr 240px; column-gap: 48px; align-items: start; padding: 40px 44px; }
+  .method .pick > .pick-top, .method .pick > h3, .method .pick > .steps { grid-column: 1; }
+  .method .pick > .pick-actions { grid-column: 2; grid-row: 1 / span 3; align-self: stretch; margin: 0; padding-left: 44px; border-left: 1px solid rgba(75, 78, 42, .18); display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
+  .method .pick > .timer-done { grid-column: 2; }
+  .method .pick .timer-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; padding: 22px 18px; border-radius: 22px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  .method .pick .timer-btn .tsep { display: none; }
+  .method .pick .timer-btn #pick-time { display: block; font-family: var(--display); font-size: 46px; letter-spacing: 0; margin-top: 6px; }
+  .method .pick .ghost { justify-content: center; }
+}
+.method .mx-eyebrow { color: #D9B866; }

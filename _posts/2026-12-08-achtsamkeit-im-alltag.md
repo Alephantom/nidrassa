@@ -11,7 +11,7 @@ cta:
   title: "Wenn du mehr als einen Moment hast"
   text: "Übungen für 2, 5 oder 15 Minuten, je nachdem, was der Tag hergibt."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Achtsamkeit im Alltag bedeutet nicht, alles langsam und bedeutungsvoll zu machen. Es heißt nur: für einen Moment ganz bei dem sein, was du gerade tust. Nicht im Kopf schon beim nächsten Termin, nicht bei dem Streit von gestern. Hier, jetzt, mit dem, was ist.

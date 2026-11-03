@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/mamatequiero.rss
+sitemap: false
+feed: mamatequiero
+---
+{%- include pin-feed.rss feed=page.feed -%}

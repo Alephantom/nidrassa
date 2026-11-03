@@ -1,0 +1,44 @@
+# Pinterest-Pins für die RSS-Feeds /pins/<feed>.rss  (Anleitung: PINTEREST_RSS_ANLEITUNG.md bei Cleo/nidrassa/pinterest)
+#
+# Ein Eintrag = ein Pin. Felder:
+#   id:           eindeutig, nie wiederverwenden (wird zur guid; Pinterest erkennt daran neue Pins)
+#   feed:         advent | kalender | mamatequiero  (= Board, siehe _data/pin_feeds.yml)
+#   datum:        "JJJJ-MM-TT HH:MM" Uhrzeit Granada. Der Pin erscheint im Feed ab dem ersten Build danach
+#                 (täglich 06:00 Granada oder bei jedem Merge); Pinterest holt ihn dann innerhalb von 24 h.
+#   titel:        max. 100 Zeichen
+#   beschreibung: max. ca. 420 Zeichen OHNE Rabattcode. Bei Etsy-Zielen hängt der Feed den Satz mit PINTEREST26 selbst an.
+#   bild:         Dateiname unter /assets/pinterest/ (JPG, 1000×1500, muss im Repo liegen)
+#   ziel:         advent | bluetenjahr | familienjahr (= /etsy/<ziel>/, siehe _data/etsy_links.yml)
+#                 oder ein Pfad auf nidrassa.com, z. B. /mamatequiero/
+#   aktiv:        true = wird veröffentlicht, false = bleibt draußen
+#
+# Woche 1 (Paket 1, 04.–11.11.) wurde per CSV hochgeladen und kommt NICHT in die Feeds.
+# Die drei Einträge unten sind nur Beispiele aus Paket 1 und bleiben dauerhaft aktiv: false.
+# Die Feeds starten mit Paket 2 (Pins ab 12.11.).
+
+- id: p1-k27g-01
+  feed: kalender
+  datum: "2026-11-08 13:00"
+  titel: "Fotokalender für Mama 2027 – mit Blüten oder euren Familienfotos"
+  beschreibung: "Ein Fotokalender für Mama, ganz ohne Fotobuch-Stress: Tausche in Canva die zwölf Blütenfotos gegen eure Familienmomente, drucke den Kalender in A4 aus und rahme ihn ein. Mit Feiertagen 2027 und Platz für das, was ihr guttut."
+  bild: k27g-01-fotokalender-mama.jpg
+  ziel: bluetenjahr
+  aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)
+
+- id: p1-adv-b3-05
+  feed: advent
+  datum: "2026-11-10 20:30"
+  titel: "Fünf Minuten am Tag: achtsamer Adventskalender für Frauen zum Ausdrucken"
+  beschreibung: "Gönne dir fünf Minuten nur für dich: Jeden Tag im Advent ein Impuls, eine Frage, ein Satz. Mehr braucht es nicht. 24 Tagesseiten mit Stickern für deinen Kranz, als PDF in A4 und A5, sofort zum Ausdrucken."
+  bild: adv-b3-05-fuenf-minuten.jpg
+  ziel: advent
+  aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)
+
+- id: p1-adv-z2
+  feed: advent
+  datum: "2026-11-11 20:30"
+  titel: "„Nicht alles muss heute.“ Ein Satz für die volle Adventszeit"
+  beschreibung: "Die Liste wird im Dezember jeden Tag länger. Lies diesen Satz langsam und lasse eine Sache bis morgen liegen. Solche kleinen Pausen schenkt dir „Mein stiller Advent“: 24 Tage, jeden Tag 2–5 Minuten nur für dich, als PDF zum Ausdrucken."
+  bild: adv-z2-nicht-alles-heute.jpg
+  ziel: advent
+  aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)

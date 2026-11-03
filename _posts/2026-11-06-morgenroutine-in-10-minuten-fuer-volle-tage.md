@@ -9,9 +9,9 @@ image_alt: "Eine Frau streckt im Wald die Arme ins Sonnenlicht"
 lead: "Der Wecker klingelt, und drei Minuten später suchst du schon einen zweiten Socken und die Turnbeutel. Wo soll da eine Morgenroutine hinpassen? Vielleicht in zehn Minuten."
 cta:
   title: "Zehn Minuten sind zu viel?"
-  text: "Mit der 2-5-15-Methode findest du auch für zwei Minuten eine passende Übung."
+  text: "Mit dem 2-5-15-Prinzip findest du auch für zwei Minuten eine passende Übung."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Im Netz sehen Morgenroutinen oft aus wie ein zweistündiges Programm: Journaling, Yoga, grüner Smoothie, kalte Dusche. Wer Kinder hat oder um halb acht im Büro sein muss, kann darüber nur lachen. Eine Morgenroutine kann auch ganz klein sein. Wichtig ist nur, dass der Tag nicht mit dem Handy beginnt, sondern mit dir.

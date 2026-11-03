@@ -45,39 +45,27 @@ permalink: /
 <section class="method" id="methode">
   <div class="wrap">
     <div class="method-card">
+      <div class="mx-sky" aria-hidden="true"><i style="left:82%;top:4%;width:20px;height:20px"></i><i style="left:90%;top:12%;width:12px;height:12px"></i><i style="left:70%;top:9%;width:10px;height:10px"></i><i style="left:12%;top:18%;width:12px;height:12px"></i><i style="left:94%;top:30%;width:14px;height:14px"></i><i style="left:6%;top:46%;width:10px;height:10px"></i><i style="left:88%;top:52%;width:10px;height:10px"></i><i style="left:15%;top:92%;width:14px;height:14px"></i><i style="left:78%;top:95%;width:12px;height:12px"></i><i style="left:50%;top:3%;width:8px;height:8px"></i><i style="left:30%;top:7%;width:10px;height:10px"></i><i style="left:60%;top:97%;width:10px;height:10px"></i></div>
       <div class="mx-head">
-        <p class="eyebrow mx-eyebrow">Die 2-5-15-Methode</p>
+        <p class="eyebrow mx-eyebrow">Das 2-5-15-Prinzip</p>
         <h2 class="stop">Stop Scrolling.</h2>
-        <p class="stop-sub">Nutze den Moment. Du brauchst keine Stunde.</p>
+        <p class="stop-sub">Nutze diesen Moment.</p>
       </div>
-      <div class="mx-row">
+      <div class="mx-row mx-desktop">
         <p class="mx-body">Unter der Dusche, auf dem Weg zur Arbeit, in der Schlange an der Kasse: Genau diese Momente reichen für eine kleine Übung. Meditation ist mehr als still sitzen und an nichts denken. Du kannst sie überall üben, jederzeit.</p>
-        <p class="mx-hi">Wähle deine Zeit.<br><em>Du bekommst sofort die passende Übung.</em></p>
+        <p class="mx-hi">Du brauchst keine Stunde.<br><em>Du bekommst sofort die passende Übung.</em></p>
       </div>
-      <p class="mx-hint">Wie viel Zeit hast du gerade?</p>
-      <div class="method-grid">
-        <button class="step" type="button" data-min="2">
-          <span class="step-num">2</span>
-          <span class="step-unit">Minuten</span>
-          <span class="step-text">Für zwischendurch</span>
-          <span class="mx-go">Übung zeigen</span>
-        </button>
-        <button class="step" type="button" data-min="5">
-          <span class="step-num">5</span>
-          <span class="step-unit">Minuten</span>
-          <span class="step-text">Für eine kleine Pause</span>
-          <span class="mx-go">Übung zeigen</span>
-        </button>
-        <button class="step" type="button" data-min="15">
-          <span class="step-num">15</span>
-          <span class="step-unit">Minuten</span>
-          <span class="step-text">Für Zeit nur mit dir</span>
-          <span class="mx-go">Übung zeigen</span>
-        </button>
+      <p class="mx-hint">Wähle, wie viel Zeit du gerade hast.</p>
+      <div class="method-grid" role="group" aria-label="Zeit wählen">
+        <button class="step" type="button" data-min="2" data-label="Zwischendurch"><span class="step-num">2</span><span class="step-unit">Minuten</span><span class="step-text mx-desktop">Für zwischendurch</span></button>
+        <button class="step" type="button" data-min="5" data-label="Kleine Pause"><span class="step-num">5</span><span class="step-unit">Minuten</span><span class="step-text mx-desktop">Für eine kleine Pause</span></button>
+        <button class="step" type="button" data-min="15" data-label="Zeit für dich"><span class="step-num">15</span><span class="step-unit">Minuten</span><span class="step-text mx-desktop">Für Zeit nur mit dir</span></button>
       </div>
       <div class="pick" id="pick" aria-live="polite" hidden></div>
       {%- comment -%} Practice data for the random picker in assets/site.js {%- endcomment -%}
       <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}}</script>
+      <p class="mx-tagline mx-mobile">Eine kleine Pause. Mitten im Alltag.</p>
+      <svg class="mx-star" aria-hidden="true"><use href="#star"/></svg>
       <a class="mx-link" href="/uebungen/">Alle Übungen ansehen →</a>
     </div>
   </div>
