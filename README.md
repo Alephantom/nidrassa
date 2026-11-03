@@ -9,11 +9,11 @@ Built with [Jekyll](https://jekyllrb.com) (static site, no database). Language: 
 
 | Address | File | Content |
 |---|---|---|
-| `/` | `index.html` | Home: hero, pain point, 2-5-15 method with random practice + timer, Warum Meditation, Über Nidrassa, newsletter, latest 3 posts |
+| `/` | `index.html` | Home: hero, pain point, 2-5-15-Prinzip: notebook tabs on phones (practice opens with 2 min), three boxes on desktop, timer on the right, Warum Meditation, Über Nidrassa, newsletter, latest 3 posts |
 | `/uebungen/` | `uebungen.html` | All companion practices by format (from `_data/`) |
 | `/blog/` | `blog.html` | Latest 3 posts, all posts with topic filter, 12 at a time |
 | `/blog/<slug>/` | `_posts/*.md` | Blog articles (layout `_layouts/post.html`) |
-| `/shop/` | `shop.html` | Card deck "Eine Frage weiter" (pre-order) |
+| `/shop/` | `shop.html` | Etsy products only (data: `_data/shop.yml` → `etsy`). The card deck „Eine Frage weiter“ is no longer sold here (only inside the letter club). |
 | `/retreat/` | `retreat.html` | Public retreat page for now: hero + waitlist only (blue theme) |
 | `/retreat1/` | `retreat1.html` | **Hidden** full retreat one-pager (not linked, not in sitemap, `noindex`): Retreats · Ablauf · Ort · Warteliste · Stimmen, with section navigation |
 | `/impressum/`, `/datenschutz/` | `impressum.html`, `datenschutz.html` | Legal pages (**templates: fill in the highlighted placeholders**) |

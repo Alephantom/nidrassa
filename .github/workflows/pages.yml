@@ -23,8 +23,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94 # v1
         with:
           ruby-version: "3.3"
           bundler-cache: true
@@ -35,14 +37,14 @@ jobs:
           TZ: Europe/Berlin
       - name: JPG copies of the images (Pinterest RSS feed)
         run: |
-          python3 -m pip install --quiet --user --break-system-packages pillow || python3 -m pip install --quiet --user pillow
+          python3 -m pip install --quiet --user --break-system-packages "pillow==11.*" || python3 -m pip install --quiet --user "pillow==11.*"
           python3 - <<'PY'
           import glob
           from PIL import Image
           for f in glob.glob('_site/assets/*.webp'):
               Image.open(f).convert('RGB').save(f[:-5] + '.jpg', quality=88)
           PY
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: _site
   deploy:
@@ -53,4 +55,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

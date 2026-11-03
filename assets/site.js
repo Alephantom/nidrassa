@@ -7,8 +7,7 @@
 
 // ---------- Settings: paste the real links here once the tools are set up ----------
 const CONFIG = {
-  preorderUrl: "",    // checkout link for "Eine Frage weiter" (e.g. Stripe payment link or Shopify)
-  waitlistUrl: ""     // form endpoint for the retreat waitlist
+  waitlistUrl: ""     // form endpoint for the retreat waitlist (empty = the form opens an e-mail to info@nidrassa.com)
 };
 
 
@@ -153,105 +152,6 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 })();
 
 
-// ---------- Shop: edition switch (Deutsch / English deck) ----------
-(function () {
-  const title = document.getElementById("p-title");
-  const sub = document.getElementById("p-sub");
-  const buttons = document.querySelectorAll(".edition button");
-  if (!title || !buttons.length) return;
-
-  buttons.forEach(btn => btn.addEventListener("click", () => {
-    buttons.forEach(b => b.setAttribute("aria-pressed", b === btn));
-    title.textContent = btn.dataset.title;
-    sub.textContent = btn.dataset.sub;
-  }));
-})();
-
-
-// ---------- Shop: photo gallery (shuffled order, changes every 5 seconds) ----------
-(function () {
-  const gallery = document.getElementById("gallery");
-  if (!gallery) return;
-
-  const main = document.getElementById("gallery-main");
-  const thumbs = [...gallery.querySelectorAll(".gallery-thumbs button")];
-  // Shuffle the thumbnails once per visit.
-  thumbs.sort(() => Math.random() - 0.5).forEach(t => t.parentElement.appendChild(t));
-
-  let idx = 0, timer = null;
-  const show = i => {
-    idx = (i + thumbs.length) % thumbs.length;
-    const t = thumbs[idx];
-    main.classList.remove("in");
-    requestAnimationFrame(() => {
-      main.src = t.dataset.src;
-      main.alt = t.dataset.alt;
-      requestAnimationFrame(() => main.classList.add("in"));
-    });
-    thumbs.forEach((b, n) => b.setAttribute("aria-current", n === idx));
-  };
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const start = () => { if (!reduced) { clearInterval(timer); timer = setInterval(() => show(idx + 1), 5000); } };
-
-  thumbs.forEach((b, n) => b.addEventListener("click", () => { show(n); start(); }));
-  gallery.addEventListener("mouseenter", () => clearInterval(timer));
-  gallery.addEventListener("mouseleave", start);
-  show(0);
-  start();
-})();
-
-
-// ---------- Shop: pre-order button ----------
-// Without a checkout link the button reads "opens soon" instead of being a dead link.
-(function () {
-  const btn = document.getElementById("preorder");
-  if (!btn) return;
-  if (CONFIG.preorderUrl) {
-    btn.href = CONFIG.preorderUrl;
-  } else {
-    btn.removeAttribute("href");
-    btn.setAttribute("aria-disabled", "true");
-    btn.textContent = "Shop öffnet am 15. November";
-  }
-})();
-
-
-// ---------- Shop: GoFundMe widget, loaded only after a click ----------
-// Nothing is sent to GoFundMe before the visitor clicks "Fundraiser anzeigen" (privacy).
-(function () {
-  const btn = document.getElementById("gfm-load");
-  if (!btn) return;
-  btn.addEventListener("click", () => {
-    document.getElementById("gfm-box").innerHTML =
-      '<div class="gfm-embed" data-url="https://www.gofundme.com/f/eine-karte-weiter-journaling-karten-fur-unterwegs/widget/large?attribution_id=sl%3Aa3dfc4ff-5131-4358-acee-48593e322d81"></div>';
-    const script = document.createElement("script");
-    script.src = "https://www.gofundme.com/static/js/embed.js";
-    // GoFundMe's script only builds widgets on DOMContentLoaded, which has already passed.
-    script.onload = () => document.dispatchEvent(new Event("DOMContentLoaded"));
-    document.body.appendChild(script);
-  });
-})();
-
-
-// ---------- Card waitlist confirmation: countdown to the shop launch ----------
-// Target date comes from _data/shop.yml (open_at). Hidden once the shop is open.
-(function () {
-  const box = document.querySelector("[data-countdown]");
-  if (!box) return;
-  const target = new Date(box.dataset.countdown).getTime();
-  const units = { d: 86400, h: 3600, m: 60, s: 1 };
-  function tick() {
-    let left = Math.floor((target - Date.now()) / 1000);
-    if (isNaN(left) || left <= 0) { box.hidden = true; clearInterval(timer); return; }
-    for (const [unit, size] of Object.entries(units)) {
-      box.querySelector(`[data-unit="${unit}"]`).textContent = String(Math.floor(left / size)).padStart(unit === "d" ? 1 : 2, "0");
-      left %= size;
-    }
-  }
-  const timer = setInterval(tick, 1000);
-  tick();
-})();
-
 // ---------- Advent calendar page: unlock with the code from the waitlist email ----------
 // The PDFs are encrypted with the code (tools/encrypt-advent.mjs), so they are useless without it.
 // The code is checked by decrypting a tiny test file; it is remembered on this device.
@@ -326,18 +226,28 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 })();
 
 // ---------- Forms: retreat waitlist ----------
-// Sends to the matching endpoint in CONFIG (form data-form="waitlist" → waitlistUrl).
-// The club waitlist form (_includes/newsletter.html, /mamatequiero/) posts straight to Brevo and is not handled here.
-// While the endpoint is empty NOTHING is sent; the thank-you note still shows for testing.
+// With an endpoint in CONFIG the form is posted there. Without one NOTHING could be stored,
+// so instead of a fake "Danke" the visitor's mail app opens with a ready e-mail to info@nidrassa.com.
 document.querySelectorAll("form[data-form]").forEach(form => {
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const url = CONFIG[form.dataset.form + "Url"];
+    const done = form.parentElement.querySelector(".notify-done");
     if (url) {
-      try { await fetch(url, { method: "POST", body: new FormData(form) }); } catch (err) { /* keep the note friendly */ }
+      try {
+        const res = await fetch(url, { method: "POST", body: new FormData(form) });
+        if (!res.ok) throw new Error(res.status);
+        form.hidden = true;
+        done.hidden = false;
+        return;
+      } catch (err) { /* fall through to the e-mail fallback */ }
     }
-    form.hidden = true;
-    form.parentElement.querySelector(".notify-done").hidden = false;
+    const data = new FormData(form);
+    const picks = data.getAll("retreat").join(", ") || "alle";
+    const body = "Hallo Anna-Lena,\n\nbitte setz mich auf die Retreat-Warteliste.\nRetreats: " + picks + "\nE-Mail: " + (data.get("email") || "") + "\n";
+    window.location.href = "mailto:info@nidrassa.com?subject=" + encodeURIComponent("Retreat-Warteliste") + "&body=" + encodeURIComponent(body);
+    done.textContent = "Dein E-Mail-Programm öffnet sich. Schick die Nachricht ab, dann setzen wir dich auf die Warteliste.";
+    done.hidden = false;
   });
 });
 
