@@ -1177,3 +1177,4 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .method .pick .timer-btn #pick-time { display: block; font-family: var(--display); font-size: 46px; letter-spacing: 0; margin-top: 6px; }
   .method .pick .ghost { justify-content: center; }
 }
+.method .mx-eyebrow { color: #D9B866; }
