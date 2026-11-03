@@ -108,6 +108,12 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
     left = 0;
     document.querySelectorAll(".step").forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.min) === minutes));
     render();
+    // bring the exercise into view (on phones it sits below the fold)
+    const r = box.getBoundingClientRect();
+    if (r.top < 90 || r.bottom > innerHeight) {
+      const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: scrollY + r.top - 100, behavior: reduce ? "auto" : "smooth" });
+    }
   }
 
   document.querySelectorAll(".step").forEach(b => {

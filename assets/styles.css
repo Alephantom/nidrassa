@@ -302,8 +302,8 @@ a { color: inherit; }
 .method { padding: 0 0 130px; }
 .method-card {
   background: var(--olive-deep); color: var(--beige);
-  border-radius: 32px; text-align: center;
-  padding: 88px 48px 80px;
+  border-radius: 32px; text-align: left;
+  padding: 84px 72px 72px;
   box-shadow: 0 24px 48px -24px rgba(27, 25, 22, 0.5);
 }
 .method .eyebrow { color: var(--stone); }
@@ -1093,3 +1093,36 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 /* EU legal guarantee notice: show unchanged, legible at default size */
 .eu-notice { margin: 32px 0; max-width: 595px; }
 .eu-notice img { display: block; width: 100%; height: auto; }
+
+/* Stop Scrolling: editorial reading order (eyebrow, headline, subline, body left + highlight right) */
+.mx-eyebrow { letter-spacing: .32em; }
+.method .stop { margin-top: 18px; font-size: clamp(52px, 9vw, 112px); }
+.method .stop-sub { margin-top: 14px; }
+.mx-row { display: grid; grid-template-columns: 1.25fr .9fr; gap: 48px; align-items: center; margin-top: 44px; }
+.mx-body { color: var(--stone); font-size: 16px; line-height: 1.75; max-width: 520px; margin: 0; }
+.mx-hi { margin: 0; padding-left: 28px; border-left: 1.5px solid #B07A5A; font-family: var(--serif); font-size: 30px; line-height: 1.25; color: var(--beige); }
+.mx-hi em { color: #E3B9A8; font-style: italic; }
+.mx-hint { margin-top: 64px; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--stone); text-align: center; }
+.method .method-grid { margin-top: 20px; }
+.mx-go { margin-top: 18px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--beige); border-bottom: 1px solid rgba(242, 234, 223, .5); padding-bottom: 3px; }
+.step[aria-pressed="true"] .mx-go { color: var(--olive); border-color: var(--olive); }
+.mx-link { display: block; width: max-content; margin: 40px auto 0; color: var(--beige); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(242, 234, 223, .45); padding-bottom: 4px; }
+.mx-link:hover { border-color: var(--beige); }
+.method .pick { text-align: left; }
+.method .step { text-align: center; }
+@media (max-width: 760px) {
+  .method-card { padding: 56px 22px 48px; display: flex; flex-direction: column; }
+  .mx-row { display: contents; }
+  .mx-head { order: 1; }
+  .mx-hi { order: 2; margin-top: 30px; font-size: 25px; padding-left: 18px; }
+  .mx-hint { order: 3; margin-top: 44px; }
+  .method .method-grid { order: 4; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .method .pick { order: 5; }
+  .mx-body { order: 6; margin-top: 34px; }
+  .mx-link { order: 7; }
+  .method .step { padding: 22px 6px 20px; border-radius: 18px; }
+  .method .step-num { font-size: 44px; }
+  .method .step-unit { font-size: 10px; letter-spacing: .18em; }
+  .method .step-text { font-size: 15px; margin-top: 10px; }
+  .mx-go { font-size: 9px; letter-spacing: .14em; margin-top: 12px; }
+}
