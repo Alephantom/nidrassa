@@ -1,0 +1,29 @@
+# Etsy-Angebote, zu denen die Weiterleitungsseiten /etsy/<schlüssel>/ führen.
+# Pinterest-Pins verlinken NIE direkt auf Etsy, sondern immer auf https://nidrassa.com/etsy/<schlüssel>/
+# (Pinterest verlangt Links auf der bestätigten Domain). Ändert sich ein Etsy-Link, nur hier ändern.
+# Neues Produkt: Eintrag hier + Seite etsy/<schlüssel>.html (3 Zeilen Front Matter, siehe etsy/advent.html).
+advent:
+  name: "Mein stiller Advent"
+  untertitel: "Adventskalender für Mamas zum Ausdrucken"
+  bild: /assets/shop-etsy-advent.webp
+  alt: "Adventskalender „Mein stiller Advent“: Cover mit gemaltem Kranz aus Zweigen und kleinen Adventsdingen"
+  url: "https://nidrassa.etsy.com/listing/4598280320/advent-calendar-for-women-and-mothers-24"
+
+bluetenjahr:
+  name: "Blütenjahr 2027"
+  untertitel: "Wandkalender mit Blumen oder deinen Fotos"
+  bild: /assets/shop-etsy-bluetenjahr-2027.webp
+  alt: "Kalender Blütenjahr 2027: zwei Juniseiten nebeneinander, links mit Lotusblüte, rechts mit Kinderhänden, die einen Blumenstrauß halten"
+  url: "https://nidrassa.etsy.com/listing/4604139786/wandkalender-2027-editierbarer-blumen"
+
+familienjahr:
+  name: "Unser Familienjahr 2027"
+  untertitel: "Familienplaner für bis zu 4 Personen"
+  bild: /assets/shop-etsy-familienjahr-2027.webp
+  alt: "Familienplaner Unser Familienjahr 2027 auf einem Schreibtisch, Cover mit Familie von hinten auf einer Sommerwiese"
+  url: "https://nidrassa.etsy.com/listing/4604203930/familienplaner-2027-12-monatsseiten-4"
+
+# Rabattcode für Pinterest (nur Text, nie im Bild)
+_code:
+  code: "PINTEREST26"
+  rabatt: "10 %"

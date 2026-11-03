@@ -11,7 +11,7 @@ cta:
   title: "Eine Pause statt Scrollen"
   text: "Finde eine Übung für 2, 5 oder 15 Minuten, die du statt des Handys nehmen kannst."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Das Handy ist Einkaufsliste, Kalender, Kita-Kommunikation und Fotoalbum in einem. Es einfach wegzulegen, klingt schön und ist im echten Leben selten möglich. **Digital Detox** muss deshalb nicht heißen, dass du ein Wochenende offline gehst. Es kann auch heißen, dass du dir ein paar Stunden am Tag zurückholst.

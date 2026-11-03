@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{%- comment -%}
+  Pinterest pin feed (RSS 2.0; Pinterest does not read Atom). Used by pins/<feed>.rss with include.feed.
+  Data: _data/pins.yml (pins), _data/pin_feeds.yml (board per feed), _data/etsy_links.yml (Etsy targets).
+  An item is published only if aktiv: true AND datum <= build time (the site rebuilds daily at 05:00 UTC).
+  Local preview of inactive pins: build with an extra config containing  pins_vorschau: true
+  Every <link> points to nidrassa.com (Etsy targets go via /etsy/<schlüssel>/), ?pin=<id> keeps each link unique.
+{%- endcomment %}
+{%- assign f = site.data.pin_feeds[include.feed] %}
+{%- assign code = site.data.etsy_links._code %}
+{%- assign jetzt = site.time | date: '%s' | plus: 0 %}
+{%- assign pins = site.data.pins | where: 'feed', include.feed | sort: 'datum' | reverse %}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ f.titel | xml_escape }}</title>
+    <link>{{ site.url }}/</link>
+    <atom:link href="{{ site.url }}/pins/{{ include.feed }}.rss" rel="self" type="application/rss+xml" />
+    <description>{{ f.beschreibung | xml_escape }}</description>
+    <language>de-de</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    {%- assign n = 0 %}
+    {%- for pin in pins %}
+    {%- if n >= 100 %}{% break %}{% endif %}
+    {%- unless pin.aktiv == true or site.pins_vorschau %}{% continue %}{% endunless %}
+    {%- assign t = pin.datum | date: '%s' | plus: 0 %}
+    {%- if t > jetzt and site.pins_vorschau != true %}{% continue %}{% endif %}
+    {%- assign img = '/assets/pinterest/' | append: pin.bild %}
+    {%- assign bytes = img | file_size %}
+    {%- if bytes == '0' %}{% continue %}{% endif %}
+    {%- assign etsy = site.data.etsy_links[pin.ziel] %}
+    {%- if etsy %}
+      {%- assign ziel = '/etsy/' | append: pin.ziel | append: '/' %}
+      {%- capture text %}{{ pin.beschreibung | strip }} 🌿 Mit dem Code {{ code.code }} sparst du {{ code.rabatt }} im Nidrassa-Shop auf Etsy.{% endcapture %}
+    {%- else %}
+      {%- assign ziel = pin.ziel %}
+      {%- assign text = pin.beschreibung | strip %}
+    {%- endif %}
+    {%- assign n = n | plus: 1 %}
+    <item>
+      <title>{{ pin.titel | xml_escape }}</title>
+      <link>{{ ziel | absolute_url }}?pin={{ pin.id | uri_escape }}</link>
+      <guid isPermaLink="false">nidrassa-pin-{{ pin.id | xml_escape }}</guid>
+      <pubDate>{{ pin.datum | date_to_rfc822 }}</pubDate>
+      <description>{{ text | normalize_whitespace | xml_escape }}</description>
+      <enclosure url="{{ img | absolute_url }}" type="image/jpeg" length="{{ bytes }}" />
+      <media:content url="{{ img | absolute_url }}" medium="image" type="image/jpeg" fileSize="{{ bytes }}" />
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

@@ -11,7 +11,7 @@ cta:
   title: "Kleine Pausen, die passen"
   text: "Zwei, fünf oder fünfzehn Minuten. Such dir aus, was heute geht."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Selbstfürsorge als Mama wird oft so verkauft, als bräuchte man dafür einen freien Samstag und ein Spa. Das kann schön sein. Aber im echten Alltag geht es meist um etwas viel Kleineres: dass du zwischen all den Bedürfnissen um dich herum auch deine eigenen noch spürst.

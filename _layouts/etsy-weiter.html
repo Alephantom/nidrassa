@@ -1,0 +1,61 @@
+{%- comment -%}
+  Kurze, sichtbare Weiterleitungsseite nidrassa.com/etsy/<produkt>/ → genaues Etsy-Angebot.
+  Für Pinterest-Pins (RSS), weil Pinterest nur Links auf nidrassa.com erlaubt.
+  Kein verdeckter Redirect: Bild, Produktname, Code und Button sind sichtbar, Weiterleitung nach 1 s.
+  Front matter: produkt (Schlüssel in _data/etsy_links.yml), permalink, noindex: true, sitemap: false.
+{%- endcomment -%}
+{%- assign p = site.data.etsy_links[page.produkt] -%}
+{%- assign c = site.data.etsy_links._code -%}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="1;url={{ p.url }}">
+<title>{{ p.name }} · weiter zu Etsy · Nidrassa</title>
+<meta name="description" content="{{ p.untertitel }}. Du wirst zum Nidrassa-Shop auf Etsy weitergeleitet. Mit dem Code {{ c.code }} sparst du {{ c.rabatt }}.">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ p.name }} · Nidrassa">
+<meta property="og:image" content="{{ p.bild | replace: '.webp', '.jpg' | absolute_url }}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Jost"; src: url("/assets/fonts/jost.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("/assets/fonts/cormorant.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+:root { --olive: #4B4E2A; --olive-deep: #42452A; --sage: #A7A77B; --sand: #E4D6C3; --paper: #ECE2D2; --cream: #F8F3E9; --text: #4a463f; }
+* { box-sizing: border-box; margin: 0; }
+html, body { min-height: 100%; }
+body { background: var(--paper); color: var(--text); font: 300 17px/1.55 "Jost", system-ui, sans-serif;
+  display: flex; align-items: center; justify-content: center; padding: 28px 20px; min-height: 100vh; }
+.weiter { width: 100%; max-width: 440px; text-align: center; background: var(--cream); border: 1px solid var(--sand);
+  border-radius: 28px; padding: 24px 24px 30px; }
+.weiter img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; }
+.marke { margin-top: 22px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+h1 { margin-top: 6px; font: 500 30px/1.15 "Cormorant Garamond", Georgia, serif; color: var(--olive); }
+.unter { margin-top: 4px; font-size: 15px; }
+.hinweis { margin-top: 16px; font-size: 15px; }
+.code { margin: 14px auto 0; display: inline-block; border: 1px dashed var(--sage); border-radius: 12px; padding: 8px 16px; font-size: 15px; }
+.code b { font-weight: 600; letter-spacing: .12em; color: var(--olive); }
+.btn { display: block; margin-top: 20px; text-decoration: none; background: var(--olive); color: var(--cream);
+  font-size: 13px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; padding: 17px 24px; border-radius: 999px; }
+.btn:hover, .btn:focus-visible { background: var(--olive-deep); }
+.linie { display: block; width: 0; height: 1px; margin: 18px auto 0; background: var(--sage); animation: lauf 1s linear forwards; }
+@keyframes lauf { to { width: 60%; } }
+@media (prefers-reduced-motion: reduce) { .linie { animation: none; width: 60%; } }
+</style>
+</head>
+<body>
+<main class="weiter">
+  <img src="{{ p.bild }}" alt="{{ p.alt }}" width="1200" height="1200">
+  <p class="marke">Nidrassa</p>
+  <h1>{{ p.name }}</h1>
+  <p class="unter">{{ p.untertitel }}</p>
+  <p class="hinweis">Du wirst zu Etsy weitergeleitet …</p>
+  <p class="code">Mit dem Code <b>{{ c.code }}</b> sparst du {{ c.rabatt }}</p>
+  <a class="btn" href="{{ p.url }}" rel="noopener">Jetzt zu Etsy</a>
+  <span class="linie" aria-hidden="true"></span>
+</main>
+<script>setTimeout(function () { location.replace({{ p.url | jsonify }}); }, 1200);</script>
+</body>
+</html>

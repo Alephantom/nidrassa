@@ -11,7 +11,7 @@ cta:
   title: "Jetzt fünf Minuten"
   text: "Wähl die Zeit, die du gerade hast, und bekomm eine passende Übung."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 ## Such dir einen festen Moment

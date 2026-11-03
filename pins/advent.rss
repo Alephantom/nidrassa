@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/advent.rss
+sitemap: false
+feed: advent
+---
+{%- include pin-feed.rss feed=page.feed -%}

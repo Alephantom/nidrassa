@@ -1,0 +1,15 @@
+# Pinterest-Feeds (RSS 2.0): ein Feed = ein Pinterest-Board.
+# Pinterest verbindet jeden Feed mit genau EINEM Board (Einstellungen → Pins in großer Menge erstellen → Auto-Publish).
+# Neues Board: hier einen Eintrag + Datei pins/<schlüssel>.rss (Kopie von pins/advent.rss, nur "feed:" ändern).
+advent:
+  board: "Achtsamer Advent"
+  titel: "Nidrassa · Achtsamer Advent"
+  beschreibung: "Kleine Pausen für Mamas im Advent: Adventskalender zum Ausdrucken, ruhige Sätze und Journaling."
+kalender:
+  board: "Kalender 2027 zum Ausdrucken"
+  titel: "Nidrassa · Kalender 2027 zum Ausdrucken"
+  beschreibung: "Wandkalender und Familienplaner 2027 zum Ausdrucken, mit Blüten oder euren Familienfotos."
+mamatequiero:
+  board: "Mamá te quiero"
+  titel: "Nidrassa · Mamá te quiero"
+  beschreibung: "Mamá te quiero: der Brief-Club für Mamas. Echte Post mit kleinen Pausen, einmal im Monat."

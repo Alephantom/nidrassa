@@ -65,6 +65,8 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
   const { formats, practices } = JSON.parse(dataEl.textContent);
   const clock = sec => Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
   let current = null, timer = null, left = 0;
+  const labels = {};
+  document.querySelectorAll(".step").forEach(b => { labels[Number(b.dataset.min)] = b.dataset.label || ""; });
 
   const stopTimer = () => { clearInterval(timer); timer = null; };
 
@@ -88,7 +90,7 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
   function render() {
     const p = current;
     box.innerHTML =
-      '<span class="tag">' + formats[p.format].name + " · " + p.minutes + " Min.</span>" +
+      '<div class="pick-top"><span class="when">' + (labels[p.minutes] || "") + '</span><span class="tag">' + formats[p.format].name + "</span></div>" +
       "<h3>" + p.title + "</h3>" +
       '<ol class="steps">' + p.steps.map(s => "<li>" + s + "</li>").join("") + "</ol>" +
       '<div class="pick-actions">' +
@@ -101,13 +103,14 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
     document.getElementById("pick-timer").addEventListener("click", () => toggleTimer(p.minutes * 60));
   }
 
-  function choose(minutes) {
+  function choose(minutes, quiet) {
     const pool = practices.filter(p => p.minutes === minutes && p !== current);
     current = pool[Math.floor(Math.random() * pool.length)];
     stopTimer();
     left = 0;
     document.querySelectorAll(".step").forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.min) === minutes));
     render();
+    if (quiet) return;
     // bring the exercise into view (on phones it sits below the fold)
     const r = box.getBoundingClientRect();
     if (r.top < 90 || r.bottom > innerHeight) {
@@ -120,6 +123,8 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
     b.setAttribute("aria-pressed", "false");
     b.addEventListener("click", () => choose(Number(b.dataset.min)));
   });
+  // open with 2 minutes so visitors see an exercise right away
+  choose(2, true);
 })();
 
 

@@ -101,7 +101,7 @@ Und wenn du einen ruhigen Fokuspunkt magst: Probier meine [20-minütige Kerzen-M
 
 ## Kleine Pausen für volle Tage
 
-Bei Nidrassa glaube ich nicht an die perfekte Stunde Stille. Ich glaube an kleine Momente, die in echte Tage passen. Mit der [2-5-15-Methode](/#methode) wählst du einfach die Zeit, die du gerade hast: 2, 5 oder 15 Minuten.
+Bei Nidrassa glaube ich nicht an die perfekte Stunde Stille. Ich glaube an kleine Momente, die in echte Tage passen. Mit dem [2-5-15-Prinzip](/#methode) wählst du einfach die Zeit, die du gerade hast: 2, 5 oder 15 Minuten.
 
 Ab Januar 2027 kommt „Mamá te quiero“ zu dir nach Hause: einmal im Monat ein handgemalter Brief mit einer kleinen Atemübung und einem Thema zur Selbstfürsorge. [Hier kannst du dich auf die Warteliste eintragen.](/mamatequiero/)
 

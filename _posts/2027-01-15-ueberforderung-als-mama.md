@@ -11,7 +11,7 @@ cta:
   title: "Kleine Pausen für große Tage"
   text: "Übungen für 2, 5 oder 15 Minuten, auch für die Tage, an denen fast nichts geht."
   url: /#methode
-  label: "Zur 2-5-15-Methode"
+  label: "Zur 2-5-15-Prinzip"
 ---
 
 Überforderung als Mama fühlt sich oft an wie eine Welle, die über dir zusammenschlägt. Es ist nicht ein einzelnes Ding. Es ist alles gleichzeitig. Und das Gemeine ist: Genau in diesen Momenten hast du keine Zeit, dich um dich selbst zu kümmern. Deshalb braucht es etwas, das schnell geht und überall funktioniert.
