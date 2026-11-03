@@ -123,8 +123,8 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
     b.setAttribute("aria-pressed", "false");
     b.addEventListener("click", () => choose(Number(b.dataset.min)));
   });
-  // open with 2 minutes so visitors see an exercise right away
-  choose(2, true);
+  // on phones open with 2 minutes so visitors see an exercise right away (desktop: click first)
+  if (window.matchMedia && matchMedia("(max-width: 900px)").matches) choose(2, true);
 })();
 
 

@@ -1128,42 +1128,33 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 }
 
 
-/* ---------- 2-5-15 card v2: notebook tabs + open practice (2026-11) ---------- */
-.method .mx-hint { margin-top: 48px; }
-.method .method-grid { max-width: 900px; margin: 18px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: end; }
-.method .step {
-  background: rgba(242, 234, 223, .12); border: 1px solid rgba(242, 234, 223, .22); border-bottom: 0;
-  border-radius: 18px 18px 0 0; color: var(--beige);
-  padding: 14px 6px 12px; transform: none;
-}
-.method .step:hover { background: rgba(242, 234, 223, .2); transform: none; }
-.method .step .step-num { font-size: 40px; color: var(--beige); }
-.method .step .step-unit { color: var(--stone); margin-top: 6px; }
-.method .step[aria-pressed="true"] { background: var(--paper); border-color: var(--paper); padding-top: 22px; padding-bottom: 16px; position: relative; z-index: 2; }
-.method .step[aria-pressed="true"] .step-num { font-size: 50px; color: var(--olive); }
-.method .step[aria-pressed="true"] .step-unit { color: var(--olive); }
-.method .pick { max-width: 900px; margin: 0 auto; border-radius: 0 0 24px 24px; position: relative; z-index: 1; box-shadow: 0 12px 28px rgba(0, 0, 0, .18); animation: none; }
+/* ---------- 2-5-15 card v2 (2026-11): desktop keeps the original layout, phones get notebook tabs ---------- */
+.mx-mobile { display: none; }
 .pick-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .pick-top .when { font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--moss); }
 .pick-top .tag { margin: 0; flex-shrink: 0; }
-.mx-tagline { margin: 40px 0 0; text-align: center; font-family: var(--serif); font-size: 22px; color: var(--beige); }
-.mx-star { display: block; width: 18px; height: 18px; margin: 12px auto 0; fill: #C9A85C; color: #C9A85C; }
-.method .mx-link { margin-top: 8px; }
 @media (max-width: 900px) {
+  .mx-desktop { display: none !important; }
+  .mx-mobile { display: block; }
   .method .mx-hint { order: 3; margin-top: 36px; font-size: 11px; letter-spacing: .16em; }
-  .method .method-grid { order: 4; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; max-width: none; align-self: stretch; }
-  .method .pick { order: 5; width: 100%; max-width: none; align-self: stretch; box-sizing: border-box; }
-  .mx-tagline { order: 6; margin-top: 30px; font-size: 20px; }
-  .mx-star { order: 7; }
-  .method .mx-link { order: 8; }
-  .method .step { padding: 10px 4px 8px; border-radius: 16px 16px 0 0; }
-  .method .step .step-num { font-size: 30px; }
-  .method .step[aria-pressed="true"] { padding-top: 16px; padding-bottom: 12px; }
-  .method .step[aria-pressed="true"] .step-num { font-size: 38px; }
-  .method .step-unit { font-size: 10px; letter-spacing: .16em; }
-  .method .pick { border-radius: 0 0 18px 18px; }
+  .method .method-grid { order: 4; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; max-width: none; align-self: stretch; align-items: end; margin-top: 18px; }
+  .method .step {
+    background: rgba(242, 234, 223, .12); border: 1px solid rgba(242, 234, 223, .22); border-bottom: 0;
+    border-radius: 16px 16px 0 0; color: var(--beige); padding: 10px 4px 8px; transform: none;
+  }
+  .method .step:hover { background: rgba(242, 234, 223, .2); transform: none; }
+  .method .step .step-num { font-size: 30px; color: var(--beige); }
+  .method .step .step-unit { color: var(--stone); margin-top: 6px; font-size: 10px; letter-spacing: .16em; }
+  .method .step[aria-pressed="true"] { background: var(--paper); border-color: var(--paper); padding-top: 16px; padding-bottom: 12px; position: relative; z-index: 2; }
+  .method .step[aria-pressed="true"] .step-num { font-size: 38px; color: var(--olive); }
+  .method .step[aria-pressed="true"] .step-unit { color: var(--olive); }
+  .method .pick { order: 5; width: 100%; max-width: none; align-self: stretch; box-sizing: border-box; margin: 0; border-radius: 0 0 18px 18px; position: relative; z-index: 1; box-shadow: 0 12px 28px rgba(0, 0, 0, .18); animation: none; }
   .pick-top .when { font-size: 19px; }
+  .mx-tagline { order: 6; margin: 30px 0 0; text-align: center; font-family: var(--serif); font-size: 20px; color: var(--beige); }
+  .mx-star { order: 7; display: block; width: 18px; height: 18px; margin: 12px auto 0; fill: #C9A85C; color: #C9A85C; }
+  .method .mx-link { order: 8; margin-top: 8px; }
 }
+@media (min-width: 901px) { .pick-top .when { display: none; } }
 
 /* quarter of the Nidrassa star as a soft shadow in the top-right corner */
 .method-card { position: relative; overflow: hidden; }
