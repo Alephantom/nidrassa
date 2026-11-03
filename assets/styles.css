@@ -1160,8 +1160,20 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .method .mx-link { margin-top: 12px; }
 }
 
-/* quarter of the Nidrassa star as a soft shadow in the top-right corner */
+/* little gold stars scattered in the green card (variant A1, no glow) */
 .method-card { position: relative; overflow: hidden; }
-.method-card > *:not(.mx-corner-star) { position: relative; z-index: 1; }
-.mx-corner-star { position: absolute; z-index: 0; width: 520px; height: 520px; top: -170px; right: -170px; --s1: rgba(0,0,0,.24); --s2: rgba(0,0,0,0); --s3: rgba(0,0,0,0); --s4: rgba(0,0,0,0); pointer-events: none; }
-@media (max-width: 900px) { .mx-corner-star { width: 300px; height: 300px; top: -100px; right: -100px; } }
+.method-card > *:not(.mx-sky) { position: relative; z-index: 1; }
+.method-card > .mx-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.mx-sky i { position: absolute; background: #D9B866; opacity: .9; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); }
+
+/* desktop: timer column on the right side of the practice card */
+@media (min-width: 901px) {
+  .method .pick { display: grid; grid-template-columns: 1fr 240px; column-gap: 48px; align-items: start; padding: 40px 44px; }
+  .method .pick > .pick-top, .method .pick > h3, .method .pick > .steps { grid-column: 1; }
+  .method .pick > .pick-actions { grid-column: 2; grid-row: 1 / span 3; align-self: stretch; margin: 0; padding-left: 44px; border-left: 1px solid rgba(75, 78, 42, .18); display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 12px; }
+  .method .pick > .timer-done { grid-column: 2; }
+  .method .pick .timer-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; padding: 22px 18px; border-radius: 22px; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  .method .pick .timer-btn .tsep { display: none; }
+  .method .pick .timer-btn #pick-time { display: block; font-family: var(--display); font-size: 46px; letter-spacing: 0; margin-top: 6px; }
+  .method .pick .ghost { justify-content: center; }
+}

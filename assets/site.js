@@ -72,9 +72,9 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 
   function toggleTimer(total) {
     const btn = document.getElementById("pick-timer");
-    if (timer) { stopTimer(); btn.firstChild.textContent = "Weiter · "; return; }
+    if (timer) { stopTimer(); btn.querySelector(".tlbl").textContent = "Weiter"; return; }
     if (!left) left = total;
-    btn.firstChild.textContent = "Pause · ";
+    btn.querySelector(".tlbl").textContent = "Pause";
     timer = setInterval(() => {
       left--;
       document.getElementById("pick-time").textContent = clock(left);
@@ -94,7 +94,7 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
       "<h3>" + p.title + "</h3>" +
       '<ol class="steps">' + p.steps.map(s => "<li>" + s + "</li>").join("") + "</ol>" +
       '<div class="pick-actions">' +
-        '<button class="btn timer-btn" type="button" id="pick-timer">Timer starten · <span id="pick-time">' + clock(p.minutes * 60) + "</span></button>" +
+        '<button class="btn timer-btn" type="button" id="pick-timer"><span class="tlbl">Timer starten</span><span class="tsep"> · </span><span id="pick-time">' + clock(p.minutes * 60) + "</span></button>" +
         '<button class="ghost" type="button" id="pick-again">Andere Übung</button>' +
       "</div>" +
       '<p class="timer-done" id="timer-done" hidden>Geschafft. Wie fühlst du dich jetzt?</p>';
