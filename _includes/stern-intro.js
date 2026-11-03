@@ -15,10 +15,10 @@
   try { if (!force && localStorage.getItem(KEY)) return; } catch (e) { return; }
   if (!force && (location.hash || window.scrollY > 0)) return;
 
-  var HOLD = 300, GROW = 1700, STILL = 400, LIFT = 1000, SKIP_LIFT = 300, FONT_WAIT = 2000;
+  var HOLD = 300, GROW = 1700, STILL = 400, LIFT = 1800, SKIP_LIFT = 300, FONT_WAIT = 2000;
   var T_GROW = HOLD, T_STILL = HOLD + GROW, T_LIFT = T_STILL + STILL, TOTAL = T_LIFT + LIFT;
   var TIP = 0.45255;   // untere Spitze liegt 45,255 % der Sterngröße unter der Mitte (viewBox 0..100)
-  var GAP = 32;        // Luft zwischen Header und Brief-Club-Kachel im Endzustand (px)
+  var GAP = 64;        // Luft zwischen Header und Brief-Club-Kachel im Endzustand (px)
   var EVENTS = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
 
   var curtain, star, cue, geo, liftDur = LIFT, start = 0, running = false, finished = false;
