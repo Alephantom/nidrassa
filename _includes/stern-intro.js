@@ -1,5 +1,5 @@
 /* Startseite: Stern-Intro (Variante A, freigegeben 29.10.2026).
-   - läuft nur beim allerersten Besuch (localStorage), ?intro=1 erzwingt sie
+   - läuft einmal pro Besuch (sessionStorage: neuer Tab oder neuer Tag = neu), ?intro=1 erzwingt sie
    - prefers-reduced-motion, Anker-Link oder Zurück-Button: keine Animation
    - Klick, Taste, Wheel oder Touch: Vorhang hebt sich sofort (300 ms)
    - Zeitstrahl render(t) in ms: 0,3 s Start · 1,7 s Drehen+Wachsen · 0,4 s halbiert · 1,0 s Hochziehen
@@ -12,7 +12,7 @@
   var KEY = 'nidrassa-stern-intro';
   var force = /[?&]intro=1/.test(location.search);
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  try { if (!force && localStorage.getItem(KEY)) return; } catch (e) { return; }
+  try { if (!force && sessionStorage.getItem(KEY)) return; } catch (e) { return; }
   if (!force && (location.hash || window.scrollY > 0)) return;
 
   var HOLD = 300, GROW = 1700, STILL = 400, LIFT = 1800, SKIP_LIFT = 300, FONT_WAIT = 2000;
@@ -128,7 +128,7 @@
   window.sternIntro = { cover: cover, measure: measure, render: render, done: done, TOTAL: TOTAL };
   if (window.__sternIntroManual) return;                   // Storyboard-Modus: Bilder per render(t)
   cover();
-  try { localStorage.setItem(KEY, '1'); } catch (e) {}     // auch bei Abbruch oder Reload nur einmal
+  try { sessionStorage.setItem(KEY, '1'); } catch (e) {}     // auch bei Abbruch oder Reload nur einmal
   EVENTS.forEach(function (e) { addEventListener(e, skip, { passive: true }); });
   var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
   Promise.race([fontsReady, new Promise(function (r) { setTimeout(r, FONT_WAIT); })]).then(begin);
