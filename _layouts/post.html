@@ -19,7 +19,7 @@ layout: default
   {% endif %}
   {%- comment -%}
     Genau EIN Glas-Banner pro Artikel (_data/blog_banner.yml → artikel.<slug>): Produkt/Empfehlung oder Lese-Tipp.
-    Er steht nach ca. der Hälfte der H2-Abschnitte, immer direkt vor einer Zwischenüberschrift (nie mitten im Text).
+    Er steht immer am Ende des Artikels (Wunsch Anna-Lena 04.11.).
   {%- endcomment -%}
   {%- assign bbe = site.data.blog_banner.artikel[page.slug] -%}
   {%- assign bkey = bbe.banner | default: "lesetipp" -%}
@@ -29,13 +29,9 @@ layout: default
     {%- if tipps.size == 0 -%}{%- assign tipps = site.posts | where: "topic", page.topic | where_exp: "p", "p.url != page.url" | slice: 0, 2 -%}{%- endif -%}
   {%- endif -%}
   {%- capture bbhtml -%}{% if bkey == "lesetipp" %}{% include blog-lesetipp.html posts=tipps %}{% else %}{% include blog-banner.html key=bkey %}{% endif %}{%- endcapture -%}
-  {%- assign parts = content | split: "<h2" -%}
-  {%- assign nh2 = parts.size | minus: 1 -%}
-  {%- assign cut = nh2 | plus: 1 | divided_by: 2 | plus: 1 -%}
   <div class="wrap prose">
-{% if nh2 >= 2 %}{% for part in parts %}{% if forloop.index0 == cut %}{{ bbhtml }}
-{% endif %}{% if forloop.index0 > 0 %}<h2{% endif %}{{ part }}{% endfor %}{% else %}{{ content }}
-{{ bbhtml }}{% endif %}
+{{ content }}
+{{ bbhtml }}
   </div>
   {% if page.cta %}
   <aside class="wrap article-cta">
