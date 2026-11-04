@@ -1,0 +1,23 @@
+---
+layout: default
+title: "Merkliste"
+description: "Deine gemerkten Übungen von Nidrassa."
+permalink: /merkliste/
+app_page: true
+app_tab: none
+sitemap: false
+noindex: true
+---
+{%- comment -%}
+  Merkliste: Übungen, die auf der Auszeit-Karte mit dem Lesezeichen gemerkt wurden.
+  Nur im Browser gespeichert (localStorage "nidrassa-merkliste"), kein Konto. Logik: assets/site.js.
+{%- endcomment -%}
+<main class="app-view app-solo app-merk">
+  <div class="app-backrow"><a class="app-back" href="/" data-back>← Zurück</a></div>
+  <p class="app-eyebrow">Merkliste</p>
+  <h1 class="app-h1">Deine <em>gemerkten Übungen.</em></h1>
+  <p class="app-lead">Gespeichert nur auf diesem Gerät.</p>
+  <div class="merk-list" id="merk-list"></div>
+  <p class="merk-empty" id="merk-empty">Noch nichts gemerkt. Tippe in der <a href="/">Auszeit</a> auf das Lesezeichen einer Übung, dann findest du sie hier wieder.</p>
+  <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}}</script>
+</main>

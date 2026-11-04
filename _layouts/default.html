@@ -6,15 +6,18 @@
     body_class                 → extra class on <body>, e.g. "theme-blue" for the retreat page
     subnav                     → list of page sections for the second navigation (see _includes/subnav.html)
     footer: false              → hide the footer (404 page)
+    app_page: true             → page has its own app view (≤1024 px): app colours, dark mode, gold stars
+    app_tab                    → active tab in the app tab bar (_includes/app-shell.html), if not derived from nav
 {%- endcomment -%}
 <!DOCTYPE html>
 <html lang="de">
 <head>
 {% include head.html %}
 </head>
-<body class="{{ page.body_class }}{% if page.subnav %} has-subnav{% endif %}">
+<body class="{{ page.body_class }}{% if page.subnav %} has-subnav{% endif %}{% if page.app_page %} app-page{% endif %}">
 {% include star-sprite.html %}
 {% include header.html %}
+{% include app-shell.html %}
 {% if page.subnav %}{% include subnav.html %}{% endif %}
 {{ content }}
 {% unless page.footer == false %}{% include footer.html %}{% endunless %}

@@ -14,7 +14,7 @@ const CONFIG = {
 
 // ---------- Burger menus (screens up to 900px) ----------
 // Used for the main navigation and for the retreat page's section navigation.
-function setupMenu(buttonId, menuId, containerId, openLabel, closeLabel) {
+function setupMenu(buttonId, menuId, containerId, openLabel, closeLabel, maxWidth = 900) {
   const button = document.getElementById(buttonId);
   const menu = document.getElementById(menuId);
   if (!button || !menu) return;
@@ -28,10 +28,11 @@ function setupMenu(buttonId, menuId, containerId, openLabel, closeLabel) {
   menu.addEventListener("click", e => { if (e.target.closest("a")) setOpen(false); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { setOpen(false); button.focus(); } });
   document.addEventListener("click", e => { if (!menu.hidden && !e.target.closest("#" + containerId)) setOpen(false); });
-  window.addEventListener("resize", () => { if (window.innerWidth > 900 && !menu.hidden) setOpen(false); });
+  window.addEventListener("resize", () => { if (window.innerWidth > maxWidth && !menu.hidden) setOpen(false); });
 }
 setupMenu("burger", "menu", "site-nav", "Menü öffnen", "Menü schließen");
 setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte schließen");
+setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließen", 1024);   // app view (≤1024 px)
 
 
 // ---------- Section navigation: highlight the section currently in view ----------
@@ -141,8 +142,9 @@ setupMenu("subnav-burger", "subnav-menu", "subnav", "Inhalte öffnen", "Inhalte 
 
   function render() {
     const match = cards.filter(c => filter === "all" || c.dataset.topic === filter);
-    cards.forEach(c => { c.hidden = true; });
+    cards.forEach(c => { c.hidden = true; c.classList.remove("is-first"); });
     match.slice(0, shown).forEach(c => { c.hidden = false; });
+    if (match[0]) match[0].classList.add("is-first");   // app view (≤1024 px): first article shown large
     more.hidden = match.length <= shown;
     buttons.forEach(b => b.setAttribute("aria-pressed", b.dataset.f === filter));
   }
@@ -391,4 +393,196 @@ document.querySelectorAll("form[data-redirect]").forEach(form => {
   var onChange = function (e) { set(!e.matches); };
   if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
   requestAnimationFrame(function () { requestAnimationFrame(function () { panel.parentNode.classList.add('foot-ready'); }); });
+})();
+
+
+// =====================================================================================
+// App view (screens up to 1024 px, approved 04.11.2026). Markup: _includes/app-shell.html,
+// index.html (Auszeit), shop.html (slider), lernen.html, ueber.html, merkliste.html.
+// Nothing here is sent anywhere: bookmarks and course progress stay in localStorage.
+// =====================================================================================
+const appStore = {
+  get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (e) { return fallback; } },
+  set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* private mode: no saving */ } }
+};
+const MERK_KEY = "nidrassa-merkliste";
+const appReduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---------- „Zurück“ (top right): previous page on this site, else the home page ----------
+document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click", e => {
+  if (document.referrer.indexOf(location.origin) === 0 && history.length > 1) { e.preventDefault(); history.back(); }
+}));
+
+// ---------- Auszeit: 2/5/15 segment, practice card, timer, bookmark ----------
+// The first practice is already in the HTML (no layout shift); this only swaps it on click.
+(function () {
+  const card = document.getElementById("az-card");
+  const dataEl = document.getElementById("practice-data");
+  if (!card || !dataEl) return;
+  const { formats, practices } = JSON.parse(dataEl.textContent);
+  const NUM = ["Null", "Ein", "Zwei", "Drei", "Vier", "Fünf", "Sechs", "Sieben"];
+  const PAUSE = { atmung: "Atempause", meditation: "Meditation", journaling: "Schreibpause", dehnen: "Bewegungspause", alltag: "Pause" };
+  const clock = sec => Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+  const segs = [...document.querySelectorAll(".az-seg button")];
+  const btn = document.getElementById("az-timer");
+  const mark = card.querySelector(".az-mark");
+  let current = practices.find(p => p.title === card.dataset.title) || practices[0];
+  let timer = null, left = 0;
+
+  const stop = () => { clearInterval(timer); timer = null; };
+  const syncMark = () => {
+    const on = appStore.get(MERK_KEY, []).includes(current.title);
+    mark.setAttribute("aria-pressed", on);
+    mark.setAttribute("aria-label", on ? "Von der Merkliste nehmen" : "Auf die Merkliste setzen");
+  };
+
+  function show(p) {
+    current = p; stop(); left = 0;
+    card.dataset.title = p.title;
+    card.querySelector(".az-tag").textContent = formats[p.format].name + " · " + p.minutes + " Min.";
+    card.querySelector(".az-title").textContent = p.title;
+    card.querySelector(".az-sub").textContent = (NUM[p.steps.length] || p.steps.length) + " Schritte für deine " + (PAUSE[p.format] || "Pause") + ".";
+    const ol = card.querySelector(".az-steps");
+    ol.textContent = "";
+    p.steps.forEach((s, i) => {
+      const li = document.createElement("li"), b = document.createElement("b"), t = document.createElement("span");
+      b.textContent = i + 1; t.textContent = s; li.append(b, t); ol.appendChild(li);
+    });
+    btn.hidden = false;
+    btn.querySelector(".tlbl").textContent = "Timer starten";
+    btn.querySelector(".az-time").textContent = clock(p.minutes * 60);
+    card.querySelector(".az-done").hidden = true;
+    segs.forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.min) === p.minutes));
+    syncMark();
+  }
+  function choose(minutes) {
+    const pool = practices.filter(p => p.minutes === minutes && p !== current);
+    show(pool[Math.floor(Math.random() * pool.length)] || current);
+  }
+
+  segs.forEach(b => b.addEventListener("click", () => choose(Number(b.dataset.min))));
+  document.getElementById("az-other").addEventListener("click", () => choose(current.minutes));
+  document.querySelectorAll(".az-picks [data-title]").forEach(t => t.addEventListener("click", () => {
+    const p = practices.find(x => x.title === t.dataset.title);
+    if (!p) return;
+    show(p);
+    const r = card.getBoundingClientRect();
+    if (r.top < 70) window.scrollTo({ top: scrollY + r.top - 80, behavior: appReduced ? "auto" : "smooth" });
+  }));
+  btn.addEventListener("click", () => {
+    if (timer) { stop(); btn.querySelector(".tlbl").textContent = "Weiter"; return; }
+    if (!left) left = current.minutes * 60;
+    btn.querySelector(".tlbl").textContent = "Pause";
+    timer = setInterval(() => {
+      left--;
+      btn.querySelector(".az-time").textContent = clock(left);
+      if (left <= 0) { stop(); left = 0; btn.hidden = true; card.querySelector(".az-done").hidden = false; }
+    }, 1000);
+  });
+  mark.addEventListener("click", () => {
+    const list = appStore.get(MERK_KEY, []);
+    const i = list.indexOf(current.title);
+    if (i < 0) list.push(current.title); else list.splice(i, 1);
+    appStore.set(MERK_KEY, list);
+    syncMark();
+  });
+  syncMark();
+})();
+
+// ---------- Merkliste page ----------
+(function () {
+  const box = document.getElementById("merk-list");
+  const dataEl = document.getElementById("practice-data");
+  if (!box || !dataEl) return;
+  const { formats, practices } = JSON.parse(dataEl.textContent);
+  function render() {
+    const titles = appStore.get(MERK_KEY, []);
+    const items = titles.map(t => practices.find(p => p.title === t)).filter(Boolean);
+    box.textContent = "";
+    items.forEach(p => {
+      const d = document.createElement("details"), s = document.createElement("summary"), ol = document.createElement("ol");
+      const tag = document.createElement("span"), rm = document.createElement("button");
+      d.className = "merk-item";
+      tag.className = "merk-tag"; tag.textContent = formats[p.format].name + " · " + p.minutes + " Min.";
+      s.append(tag, document.createTextNode(p.title));
+      p.steps.forEach(x => { const li = document.createElement("li"); li.textContent = x; ol.appendChild(li); });
+      rm.type = "button"; rm.className = "merk-rm"; rm.textContent = "Von der Merkliste nehmen";
+      rm.addEventListener("click", () => { appStore.set(MERK_KEY, appStore.get(MERK_KEY, []).filter(t => t !== p.title)); render(); });
+      d.append(s, ol, rm);
+      box.appendChild(d);
+    });
+    document.getElementById("merk-empty").hidden = items.length > 0;
+  }
+  render();
+})();
+
+// ---------- Shop: highlight slider (swipe; auto-advance only without reduced motion) ----------
+(function () {
+  const track = document.getElementById("hl-track");
+  if (!track) return;
+  const dots = [...document.querySelectorAll("#hl-dots i")];
+  const slides = [...track.children];
+  let idx = 0, timer = null, paused = false;
+  const visible = () => track.offsetParent !== null;   // hidden on desktop: do nothing
+  track.addEventListener("scroll", () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i !== idx) { idx = i; dots.forEach((d, n) => d.classList.toggle("on", n === idx)); }
+  }, { passive: true });
+  const go = i => track.scrollTo({ left: ((i + slides.length) % slides.length) * track.clientWidth, behavior: "smooth" });
+  const start = () => {
+    if (appReduced) return;
+    clearInterval(timer);
+    timer = setInterval(() => { if (!paused && !document.hidden && visible()) go(idx + 1); }, 6000);
+  };
+  ["pointerdown", "touchstart", "focusin", "mouseenter"].forEach(e => track.addEventListener(e, () => { paused = true; }, { passive: true }));
+  ["mouseleave", "focusout"].forEach(e => track.addEventListener(e, () => { paused = false; }));
+  track.addEventListener("touchend", () => { paused = false; start(); }, { passive: true });
+  start();
+})();
+
+// ---------- Lernen: course progress (episodes, flash cards, quiz), only on this device ----------
+(function () {
+  const page = document.querySelector("[data-kurs]");
+  if (!page) return;
+  const KEY = "nidrassa-kurs-" + page.dataset.kurs;
+  const st = Object.assign({ heard: [], cards: [], quiz: {} }, appStore.get(KEY, {}));
+  const save = () => appStore.set(KEY, st);
+  const total = Number(page.dataset.total) || 1;
+
+  function paint() {
+    document.getElementById("k-heard").textContent = st.heard.length;
+    document.getElementById("k-bar").style.width = Math.round(100 * st.heard.length / total) + "%";
+    document.querySelectorAll(".k-ep").forEach(li => li.classList.toggle("done", st.heard.includes(Number(li.dataset.n))));
+    document.getElementById("k-cards-seen").textContent = st.cards.length;
+    const qs = document.querySelectorAll(".k-q");
+    let answered = 0, right = 0;
+    qs.forEach(f => {
+      const a = st.quiz[f.dataset.i];
+      if (a === undefined) return;
+      answered++;
+      const ok = Number(a) === Number(f.dataset.answer);
+      if (ok) right++;
+      const input = f.querySelector('input[value="' + a + '"]');
+      if (input) input.checked = true;
+      f.classList.toggle("ok", ok); f.classList.toggle("no", !ok);
+      f.querySelectorAll("label").forEach((l, n) => l.classList.toggle("right", n === Number(f.dataset.answer)));
+      f.querySelector(".k-why").hidden = false;
+    });
+    document.getElementById("k-quiz-score").textContent = answered ? right + " von " + answered + " richtig." : "";
+  }
+
+  // Episodes count as heard only when an audio file exists and was played to the end.
+  document.querySelectorAll(".k-ep audio").forEach(au => au.addEventListener("ended", () => {
+    const n = Number(au.closest(".k-ep").dataset.n);
+    if (!st.heard.includes(n)) { st.heard.push(n); save(); paint(); }
+  }));
+  document.querySelectorAll(".k-card").forEach(d => d.addEventListener("toggle", () => {
+    const i = Number(d.dataset.i);
+    if (d.open && !st.cards.includes(i)) { st.cards.push(i); save(); paint(); }
+  }));
+  document.querySelectorAll(".k-q input").forEach(inp => inp.addEventListener("change", () => {
+    st.quiz[inp.closest(".k-q").dataset.i] = Number(inp.value); save(); paint();
+  }));
+  st.heard = st.heard.filter(n => document.querySelector('.k-ep[data-n="' + n + '"] audio'));   // no audio yet = not heard
+  paint();
 })();
