@@ -14,6 +14,7 @@ app_page: true
 {%- endcomment -%}
 {%- assign advent = site.data.shop.etsy | where: "name", "Mein stiller Advent" | first -%}
 {%- assign bluete = site.data.shop.etsy | where: "name", "Blütenjahr 2027" | first -%}
+{%- assign familie = site.data.shop.etsy | where: "name", "Unser Familienjahr 2027" | first -%}
 <section class="app-only app-view app-shop" aria-labelledby="shop-h">
   <p class="app-eyebrow">Shop</p>
   <h2 class="app-h1" id="shop-h">Kleine Dinge, <em>große Pausen.</em></h2>
@@ -24,15 +25,19 @@ app_page: true
         <span class="hl-ov"><span class="app-eyebrow">Highlight · Advent</span><b>Mein stiller Advent</b><span class="hl-txt">24 kleine Pausen für dich, zum Ausdrucken</span><span class="hl-go">Ansehen</span></span>
       </a>
       <a class="hl-slide" href="{{ bluete.url }}" target="_blank" rel="noopener" aria-label="Blütenjahr 2027 auf Etsy ansehen">
-        <img src="/assets/app/slide-kalender.webp" alt="Kalender Blütenjahr 2027, zwei Monatsseiten" width="900" height="600" loading="lazy">
+        <img src="/assets/app/slide-kalender.webp" alt="Kalender Blütenjahr 2027 an einer Pinnwand, daneben Pfingstrosen" width="900" height="600" loading="lazy">
         <span class="hl-ov"><span class="app-eyebrow">Neu · Kalender 2027</span><b>Blütenjahr 2027</b><span class="hl-txt">Wandkalender mit Blumen oder deinen Fotos</span><span class="hl-go">Ansehen</span></span>
+      </a>
+      <a class="hl-slide" href="{{ familie.url }}" target="_blank" rel="noopener" aria-label="Unser Familienjahr 2027 auf Etsy ansehen">
+        <img src="/assets/app/slide-familienjahr.webp" alt="Familienplaner Unser Familienjahr 2027 an einer Pinnwand, Cover mit Familie von hinten auf einer Sommerwiese" width="900" height="600" loading="lazy">
+        <span class="hl-ov"><span class="app-eyebrow">Neu · Familienplaner 2027</span><b>Unser Familienjahr 2027</b><span class="hl-txt">Alle Termine deiner Familie an einem Ort</span><span class="hl-go">Ansehen</span></span>
       </a>
       <a class="hl-slide" href="/mamatequiero/" aria-label="Mamá te quiero: zur Warteliste">
         <img src="/assets/app/slide-snailmail.webp" alt="Bordeauxfarbener Umschlag mit einer Karte „Mamá te quiero“" width="900" height="600" loading="lazy">
         <span class="hl-ov"><span class="app-eyebrow">Snail Mail · ab Januar 2027</span><b>Mamá te quiero</b><span class="hl-txt">Briefe von einer busy Mama zur anderen</span><span class="hl-go">Zur Warteliste</span></span>
       </a>
     </div>
-    <div class="hl-dots" id="hl-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    <div class="hl-dots" id="hl-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
   </div>
   <p class="app-sub">Entdecken</p>
   <div class="app-cats">
@@ -41,6 +46,7 @@ app_page: true
     <a class="app-tile" href="/mamatequiero/"><img src="/assets/app/cat-snailmail.webp" alt="" width="420" height="480" loading="lazy"><span>Snail Mail<small>Warteliste · ab Jan. 2027</small></span></a>
     <a class="app-tile" href="/retreat/"><img src="/assets/app/cat-retreat.webp" alt="" width="420" height="480" loading="lazy"><span>Retreat<small>2027 · bald</small></span></a>
   </div>
+  {% include app-fill.html banner="mtq" %}
 </section>
 <!-- Digital products already on Etsy (data: _data/shop.yml → etsy) -->
 <section class="shop etsy-shop" id="auf-etsy">

@@ -1186,13 +1186,20 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
    front matter app_page: true (Start/Auszeit, Shop, Lernen, Blog, Über, Merkliste). Logik: assets/site.js.
    Über 1024 px ist alles hier ausgeblendet; der Desktop bleibt wie er ist.
    Dark Mode nur automatisch (prefers-color-scheme), nur auf den App-Seiten, ohne Schalter.
-   Goldene Sterne nur in den Seitenrändern, nie über Text. */
+   Goldene Sterne nur in den Seitenrändern und in der Kopfzeile, nie über Text.
+   v2 (04.11.2026, mockup_final): Glas NUR auf Übungskarte, Werbe-Bannern und Menü-Karte; Kopfzeile niedriger;
+   Tablet: Banner + „Aus dem Blog“ unter Auszeit und Shop; Goldsterne als 4-Zack-Funkelsterne. */
 :root {
   --a-bg: #F2EADF; --a-card: #EBE3D3; --a-chip: #DCD9BC; --a-ink: #2A2A1E; --a-ol: #42452A;
   --a-dc: #8A4E3E; --a-eb: #8A4E3E; --a-muted: #5B5A45; --a-line: rgba(66, 69, 42, .22);
   --a-tabs: #F2EADF; --a-on-bg: #42452A; --a-on-fg: #F2EADF; --a-pill: #DCD9BC; --a-menu: #F5EFE6;
+  --a-toph: 52px;
+  /* Glas (mockup_final .card/.banner) */
+  --a-glass: linear-gradient(135deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .28));
+  --a-glass-line: rgba(255, 255, 255, .8);
+  --a-glass-sh: inset 0 1px 0 rgba(255, 255, 255, .9), 0 14px 32px -16px rgba(60, 55, 30, .4);
 }
-.app-top, .app-tabs, .app-only { display: none; }
+.app-top, .app-tabs, .app-only, .app-scrim { display: none; }
 
 /* Bausteine (auch für Lernen/Über/Merkliste auf dem Desktop) */
 .app-solo { max-width: 760px; margin: 0 auto; padding: 150px 24px 110px; }
@@ -1219,6 +1226,25 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .app-backrow { display: flex; justify-content: flex-end; margin: -6px 0 6px; }   /* Zurück rechts (Wunsch Anna-Lena) */
 .app-back { font: 500 11.5px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--a-ol); text-decoration: none; padding: 10px 0 10px 14px; }
 
+/* Glas: nur Übungskarte, Werbe-Banner, Menü-Karte */
+.az-card, .app-banner, .app-menu {
+  background: var(--a-glass); border: 1px solid var(--a-glass-line); box-shadow: var(--a-glass-sh);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
+}
+/* Werbe-Banner + „Aus dem Blog“ (nur Tablet, füllt den Leerraum) */
+.app-fill { display: none; }
+.app-banner { display: flex; align-items: center; gap: 16px; margin-top: 26px; padding: 12px 16px 12px 12px; border-radius: 20px; color: var(--a-ink); text-decoration: none; }
+.app-banner img { flex: none; width: 64px; height: 64px; border-radius: 14px; object-fit: cover; }
+.app-banner b { display: block; font: 500 20px/1.2 var(--serif); color: var(--a-ink); }
+.app-banner span { font-size: 12.5px; line-height: 1.4; color: var(--a-muted); }
+.app-banner .go { margin-left: auto; flex: none; font: 500 11px/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--a-dc); white-space: nowrap; }
+.app-blog3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+.app-bcard { display: block; overflow: hidden; border-radius: 20px; background: var(--a-card); color: var(--a-ink); text-decoration: none; }
+.app-bcard img { display: block; width: 100%; height: 130px; object-fit: cover; }
+.app-bcard div { padding: 12px 14px 14px; }
+.app-bcard p { margin-bottom: 5px; font: 500 9.5px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--a-muted); }
+.app-bcard h3 { font: 500 18px/1.15 var(--serif); color: var(--a-ink); }
+
 /* Auszeit */
 .az-grid { display: flex; flex-direction: column; }
 .az-left { display: contents; }
@@ -1226,7 +1252,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .az-seg button { border: 0; background: transparent; padding: 13px 0; font: 500 22px/1.2 var(--serif); color: var(--a-ol); cursor: pointer; }
 .az-seg button + button { border-left: 1.5px solid var(--a-bg); }
 .az-seg button[aria-pressed="true"] { background: var(--a-on-bg); color: var(--a-on-fg); }
-.az-card { order: 2; margin-top: 16px; padding: 22px 20px; background: var(--a-card); border-radius: 22px; }
+.az-card { order: 2; margin-top: 16px; padding: 22px 20px; border-radius: 22px; }
 .az-note { order: 3; margin-top: 16px; text-align: center; }
 .az-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
 .az-tag { color: var(--a-eb); }
@@ -1337,13 +1363,13 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
   body.app-page { background: var(--a-bg); color: var(--a-ink); }
   .app-only { display: block; }
-  .app-view, .app-solo { max-width: none; margin: 0; padding: 82px 20px 28px; }
+  .app-view, .app-solo { max-width: none; margin: 0; padding: calc(var(--a-toph) + 22px) 20px 28px; }
 
   /* oben: Logo links, ☰ rechts (die schwebende Navigation und ihr Burger entfallen) */
   body:not(.has-subnav) #site-nav { display: none; }
   body:not(.has-subnav) .app-top {
     display: flex; align-items: center; justify-content: space-between;
-    position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: 60px; padding: 0 20px;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--a-toph); padding: 0 20px;
     background: var(--a-tabs); border-bottom: 1px solid var(--a-line);
   }
   .app-brand { display: flex; align-items: center; gap: 10px; font: 400 17px/1 var(--display); letter-spacing: .32em; color: var(--a-ol); text-decoration: none; }
@@ -1354,11 +1380,13 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .app-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
   .app-menu {
     position: absolute; top: calc(100% + 6px); right: 14px; width: min(270px, calc(100vw - 28px));
-    padding: 4px 0; border-radius: 20px; background: var(--a-menu);
-    box-shadow: 0 0 0 100vmax rgba(27, 25, 22, .28), 0 20px 50px -12px rgba(27, 25, 22, .4);
+    padding: 4px 0; border-radius: 20px;
+    box-shadow: var(--a-glass-sh), 0 0 0 100vmax rgba(27, 25, 22, .28), 0 20px 50px -12px rgba(27, 25, 22, .4);
     animation: rise .2s ease-out;
   }
   .app-menu[hidden] { display: none; }
+  /* hinter der offenen Menü-Karte: Seite leicht verschwommen (abgedunkelt wird über den Schatten der Karte) */
+  .app-top:has(.app-menu:not([hidden])) + .app-scrim { display: block; position: fixed; inset: 0; z-index: 58; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
   .app-menu > a { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-bottom: 1px solid var(--a-line); font-size: 15px; font-weight: 500; color: var(--a-ink); text-decoration: none; }
   .app-menu > a svg { flex: none; width: 20px; height: 20px; stroke: var(--a-ol); fill: none; stroke-width: 1.5; }
   .app-menu-legal { padding: 12px 18px 10px; font-size: 12px; color: var(--a-muted); }
@@ -1379,7 +1407,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .app-page > section.why, .app-page > #ueber, .app-page > #blog { display: none; }
 
   /* Shop: Etsy-Liste unter den Kategorien */
-  .page-shop.app-page .etsy-shop { padding: 36px 0 56px; border: 0; }
+  .page-shop.app-page .etsy-shop { padding: 36px 0 56px; border: 0; background: none; }
   .page-shop .etsy-shop .wrap { padding: 0 20px; }
   .page-shop .etsy-card { background: var(--a-card); border-color: transparent; scroll-margin-top: 80px; }
   .page-shop .etsy-card h3 { color: var(--a-ink); }
@@ -1415,8 +1443,11 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 
 /* Tablet (zweispaltig wie Mockup V2_C) */
 @media (min-width: 700px) and (max-width: 1024px) {
-  .app-view, .app-solo { padding: 92px 34px 34px; }
+  :root { --a-toph: 56px; }
+  .app-view, .app-solo { padding: calc(var(--a-toph) + 30px) 34px 34px; }
   body:not(.has-subnav) .app-top { padding: 0 34px; }
+  .app-fill { display: block; }
+  .app-fill .app-sub { margin-top: 30px; }
   .app-tabs { padding-left: max(6px, calc(50% - 300px)); padding-right: max(6px, calc(50% - 300px)); }
   .az-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 26px; align-items: start; margin-top: 22px; }
   .az-left { display: block; }
@@ -1446,26 +1477,34 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
     --a-bg: #22231A; --a-card: #2E2F22; --a-chip: #3A3C2A; --a-ink: #EFE7DA; --a-ol: #E6DDCB;
     --a-dc: #B5615A; --a-eb: #E3A89A; --a-muted: #B8B29C; --a-line: rgba(230, 221, 203, .14);
     --a-tabs: #1C1D15; --a-on-bg: #C9C7A6; --a-on-fg: #22231A; --a-pill: #3A3C2A; --a-menu: #2E2F22;
+    --a-glass: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+    --a-glass-line: rgba(255, 255, 255, .16);
+    --a-glass-sh: inset 0 1px 0 rgba(255, 255, 255, .16), 0 14px 32px -16px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
   .app-page .app-brand svg { --s1: var(--lite-1); --s2: var(--lite-2); --s3: var(--lite-3); --s4: var(--lite-4); }
-  .app-page .app-menu { box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .45), 0 20px 50px -12px rgba(0, 0, 0, .6); }
+  .app-page .app-menu { box-shadow: var(--a-glass-sh), 0 0 0 100vmax rgba(0, 0, 0, .45), 0 20px 50px -12px rgba(0, 0, 0, .6); }
   .app-page .etsy-card .eyebrow, .app-page .fund-head .eyebrow { color: var(--a-eb); }
   .app-page .fund-head h1 { color: var(--a-ink); }
   .app-page .etsy-card .btn { background: #C9C7A6; color: #22231A; }
-  /* Goldsterne nur in den Seitenrändern (nie über Text) */
+  /* Goldsterne: 4-Zack-Funkelsterne (Verlauf #F6E3A1→#D4AF37→#A8822A, leichter Glow), nur Seitenränder + Kopfzeile, nie über Text */
   body.app-page::before, body.app-page::after {
-    content: ""; position: fixed; top: 60px; bottom: 78px; z-index: 0; width: 16px; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='560'%3E%3Cg stroke='%23D9B76A' stroke-width='.8' fill='%23E9CF8E'%3E%3Cg opacity='.55'%3E%3Cpath d='M8 36v10M3 41h10'/%3E%3Ccircle cx='8' cy='41' r='1.1'/%3E%3C/g%3E%3Cg opacity='.35'%3E%3Cpath d='M5 148v6M2 151h6'/%3E%3Ccircle cx='5' cy='151' r='.8'/%3E%3C/g%3E%3Cg opacity='.5'%3E%3Cpath d='M10 262v8M6 266h8'/%3E%3Ccircle cx='10' cy='266' r='1'/%3E%3C/g%3E%3Cg opacity='.3'%3E%3Cpath d='M7 371v12M1 377h12'/%3E%3Ccircle cx='7' cy='377' r='1.2'/%3E%3C/g%3E%3Cg opacity='.45'%3E%3Cpath d='M9 478v6M6 481h6'/%3E%3Ccircle cx='9' cy='481' r='.8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat-y;
+    content: ""; position: fixed; top: var(--a-toph); bottom: 78px; z-index: 0; width: 16px; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='560'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F6E3A1'/%3E%3Cstop offset='.55' stop-color='%23D4AF37'/%3E%3Cstop offset='1' stop-color='%23A8822A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url%28%23g%29'%3E%3Cpolygon opacity='0.85' points='8.00,35.50 9.21,39.79 13.50,41.00 9.21,42.21 8.00,46.50 6.79,42.21 2.50,41.00 6.79,39.79'/%3E%3Cpolygon opacity='0.6' points='5.00,147.50 5.77,150.23 8.50,151.00 5.77,151.77 5.00,154.50 4.23,151.77 1.50,151.00 4.23,150.23'/%3E%3Cpolygon opacity='0.75' points='10.00,261.50 10.99,265.01 14.50,266.00 10.99,266.99 10.00,270.50 9.01,266.99 5.50,266.00 9.01,265.01'/%3E%3Cpolygon opacity='0.6' points='7.00,370.50 8.43,375.57 13.50,377.00 8.43,378.43 7.00,383.50 5.57,378.43 0.50,377.00 5.57,375.57'/%3E%3Cpolygon opacity='0.7' points='9.00,477.00 9.88,480.12 13.00,481.00 9.88,481.88 9.00,485.00 8.12,481.88 5.00,481.00 8.12,480.12'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat-y; filter: drop-shadow(0 0 3px rgba(232, 196, 104, .75));
   }
   body.app-page::before { left: 2px; }
   body.app-page::after { right: 2px; background-position: 0 230px; transform: scaleX(-1); }
+  body.app-page .app-top::before {
+    content: ""; position: absolute; top: calc(50% - 20px); left: 214px; width: 100px; height: 40px; pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F6E3A1'/%3E%3Cstop offset='.55' stop-color='%23D4AF37'/%3E%3Cstop offset='1' stop-color='%23A8822A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url%28%23g%29'%3E%3Cpolygon opacity='0.8' points='8.00,8.50 8.77,11.23 11.50,12.00 8.77,12.77 8.00,15.50 7.23,12.77 4.50,12.00 7.23,11.23'/%3E%3Cpolygon opacity='0.65' points='36.00,24.50 36.99,28.01 40.50,29.00 36.99,29.99 36.00,33.50 35.01,29.99 31.50,29.00 35.01,28.01'/%3E%3Cpolygon opacity='0.55' points='66.00,6.00 66.66,8.34 69.00,9.00 66.66,9.66 66.00,12.00 65.34,9.66 63.00,9.00 65.34,8.34'/%3E%3Cpolygon opacity='0.85' points='90.00,19.00 91.10,22.90 95.00,24.00 91.10,25.10 90.00,29.00 88.90,25.10 85.00,24.00 88.90,22.90'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    filter: drop-shadow(0 0 3px rgba(232, 196, 104, .75));
+  }
 }
 @media (min-width: 700px) and (max-width: 1024px) and (prefers-color-scheme: dark) {
-  body.app-page::before, body.app-page::after { width: 16px; }
   body.app-page::before { left: 9px; }
   body.app-page::after { right: 9px; }
+  body.app-page .app-top::before { left: calc(50% - 50px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .app-menu, .hl-dots i, .k-prog i, .app-burger span { animation: none; transition: none; }
