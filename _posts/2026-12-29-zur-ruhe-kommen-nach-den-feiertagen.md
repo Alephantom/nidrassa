@@ -11,7 +11,7 @@ cta:
   title: "Kleine Pausen für zwischen den Jahren"
   text: "Übungen für 2, 5 oder 15 Minuten, damit du langsam wieder bei dir ankommst."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Nach Weihnachten zur Ruhe kommen klingt eigentlich logisch. Die Feiertage sind vorbei, der Druck ist raus. Trotzdem fühlen sich viele Frauen zwischen den Jahren leer und gereizt statt entspannt. Das ist kein Zeichen von Undankbarkeit. Es ist schlicht die Rechnung für Wochen voller Planung, Organisation und Gastgeberinnen-Rolle.

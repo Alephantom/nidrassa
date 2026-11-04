@@ -11,7 +11,7 @@ cta:
   title: "Eine kleine Pause für dich"
   text: "Für zwei, fünf oder fünfzehn Minuten. Du entscheidest, wie viel heute geht."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Der Mental Load ist die Arbeit, die niemand sieht. Nicht das Einkaufen selbst, sondern das Wissen, dass die Milch fast leer ist. Nicht der Kinderarzttermin, sondern das Daran-Denken, dass die U-Untersuchung fällig ist, dass der Impfpass in der blauen Mappe liegt und dass an dem Tag auch Turnen wäre.

@@ -11,7 +11,7 @@ cta:
   title: "Deine Zeit, deine Übung"
   text: "Ob 2, 5 oder 15 Minuten: Such dir eine Übung für deine Auszeit aus."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Muttertag ist oft ein Tag, an dem du trotzdem alles organisierst. Den Besuch bei der Oma, das Essen, die Geschenke der Kinder für die Großmütter. Dabei wäre das der perfekte Anlass für eine **Auszeit für Mütter**. Nicht als Belohnung für ein Jahr Leistung. Einfach, weil du auch ein Mensch mit Bedürfnissen bist.

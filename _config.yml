@@ -48,6 +48,7 @@ defaults:
     values:
       layout: post
       nav: blog        # highlights "Blog" in the navigation
+      body_class: dark-ok   # automatic dark mode on phones (see styles.css, end of file)
       author: Nidrassa
 
 exclude:
