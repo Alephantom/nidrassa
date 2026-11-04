@@ -134,6 +134,7 @@ setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließe
   if (!list) return;
 
   const cards = [...list.querySelectorAll(".post")];
+  const banners = [...list.querySelectorAll(".bb-list")];   // Glas-Banner nach jedem 4. Artikel (blog.html)
   const more = document.getElementById("blog-more");
   const buttons = document.querySelectorAll("#blog-filter button");
   const STEP = 12;
@@ -144,6 +145,7 @@ setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließe
     cards.forEach(c => { c.hidden = true; c.classList.remove("is-first"); });
     match.slice(0, shown).forEach(c => { c.hidden = false; });
     if (match[0]) match[0].classList.add("is-first");   // app view (≤1024 px): first article shown large
+    banners.forEach(b => { b.hidden = filter !== "all" || +b.dataset.after >= shown; });
     more.hidden = match.length <= shown;
     buttons.forEach(b => b.setAttribute("aria-pressed", b.dataset.f === filter));
   }

@@ -37,7 +37,15 @@ app_page: true
       {% for f in site.data.formats %}<button type="button" data-f="{{ f[0] }}">{{ f[1].name }}</button>{% endfor %}
     </div>
     <div class="posts" id="blog-list">
-      {% for post in site.posts %}{% if forloop.first %}{% include post-card.html post=post cls="is-first" eager=true %}{% else %}{% include post-card.html post=post %}{% endif %}{% endfor %}
+      {%- comment -%} Nach jedem 4. Artikel ein Glas-Banner, höchstens 2 pro Seite à 12 Artikel (nach 4 und 8). Reihenfolge: _data/blog_banner.yml → uebersicht. Ab Seite 2 versteckt, site.js blendet sie mit „Mehr Artikel“ ein; bei Themen-Filter ausgeblendet. {%- endcomment -%}
+      {%- assign ub = site.data.blog_banner.uebersicht -%}{%- assign bi = 0 -%}
+      {% for post in site.posts %}{% if forloop.first %}{% include post-card.html post=post cls="is-first" eager=true %}{% else %}{% include post-card.html post=post %}{% endif %}
+      {%- assign pos = forloop.index | modulo: 12 -%}
+      {%- if forloop.last == false and pos == 4 or forloop.last == false and pos == 8 -%}
+        {%- assign bslot = bi | modulo: ub.size -%}{%- assign bi = bi | plus: 1 -%}{%- assign ukey = ub[bslot] -%}
+        {%- if forloop.index > 12 %}{% include blog-banner.html key=ukey cls="bb-list" after=forloop.index hidden=true %}{% else %}{% include blog-banner.html key=ukey cls="bb-list" after=forloop.index %}{% endif -%}
+      {%- endif -%}
+      {% endfor %}
     </div>
     <div class="blog-more"><button class="ghost" type="button" id="blog-more" hidden>Mehr Artikel anzeigen</button></div>
   </div>

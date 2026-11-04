@@ -17,8 +17,21 @@ layout: default
   {% if page.image %}
   <figure class="wrap article-photo"><div class="photo"><img src="{{ page.image }}" alt="{{ page.image_alt }}"></div></figure>
   {% endif %}
+  {%- comment -%}
+    Genau EIN Glas-Banner pro Artikel (_data/blog_banner.yml → artikel.<slug>): Produkt/Empfehlung oder Lese-Tipp.
+    Er steht immer am Ende des Artikels (Wunsch Anna-Lena 04.11.).
+  {%- endcomment -%}
+  {%- assign bbe = site.data.blog_banner.artikel[page.slug] -%}
+  {%- assign bkey = bbe.banner | default: "lesetipp" -%}
+  {%- assign tipps = "" | split: "" -%}
+  {%- if bkey == "lesetipp" -%}
+    {%- for s in bbe.lesetipp -%}{%- assign q = site.posts | where: "slug", s | first -%}{%- if q and q.url != page.url -%}{%- assign tipps = tipps | push: q -%}{%- endif -%}{%- endfor -%}
+    {%- if tipps.size == 0 -%}{%- assign tipps = site.posts | where: "topic", page.topic | where_exp: "p", "p.url != page.url" | slice: 0, 2 -%}{%- endif -%}
+  {%- endif -%}
+  {%- capture bbhtml -%}{% if bkey == "lesetipp" %}{% include blog-lesetipp.html posts=tipps %}{% else %}{% include blog-banner.html key=bkey %}{% endif %}{%- endcapture -%}
   <div class="wrap prose">
 {{ content }}
+{{ bbhtml }}
   </div>
   {% if page.cta %}
   <aside class="wrap article-cta">
@@ -30,12 +43,17 @@ layout: default
   </aside>
   {% endif %}
 
-  {% assign related = site.posts | where: "topic", page.topic | where_exp: "p", "p.url != page.url" %}
-  {% if related.size > 0 %}
+  {%- comment -%} Weiterlesen: 3 Artikel mit gleichem Thema (neueste zuerst), sonst die neuesten; ohne die aus dem Lese-Tipp. Normale Karten. {%- endcomment -%}
+  {%- assign skip = tipps | map: "url" | join: "|" | prepend: "|" | append: "|" | append: page.url | append: "|" -%}
+  {%- assign weiter = "" | split: "" -%}
+  {%- assign same = site.posts | where: "topic", page.topic -%}
+  {%- for p in same -%}{%- assign pk = "|" | append: p.url | append: "|" -%}{%- if weiter.size < 3 -%}{%- unless skip contains pk -%}{%- assign weiter = weiter | push: p -%}{%- assign skip = skip | append: p.url | append: "|" -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+  {%- for p in site.posts -%}{%- assign pk = "|" | append: p.url | append: "|" -%}{%- if weiter.size < 3 -%}{%- unless skip contains pk -%}{%- assign weiter = weiter | push: p -%}{%- assign skip = skip | append: p.url | append: "|" -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+  {% if weiter.size > 0 %}
   <section class="wrap related">
-    <h2 class="list-title">Das könnte dich auch interessieren</h2>
+    <h2 class="list-title">Weiterlesen</h2>
     <div class="posts">
-      {% for post in related limit: 3 %}{% include post-card.html post=post %}{% endfor %}
+      {% for post in weiter %}{% include post-card.html post=post %}{% endfor %}
     </div>
   </section>
   {% endif %}

@@ -1,0 +1,264 @@
+# Blog-Banner: ein dezenter Glas-Banner pro Artikel + Banner in der Blog-Übersicht (freigegeben: Anna-Lena, 04.11.2026).
+# Markup: _includes/blog-banner.html (Banner), _layouts/post.html (Einfügen nach ca. der Hälfte, nach einem H2-Abschnitt),
+# blog.html (Übersicht). Styles: assets/styles.css, Abschnitt 19.
+#
+# So wählt die Seite den Banner:
+#   - artikel.<slug>.banner = Schlüssel aus „banner“ unten (Produkt/Empfehlung) oder „lesetipp“.
+#   - lesetipp = kleine Glas-Karte „Passt dazu“ mit 1–2 Artikeln aus artikel.<slug>.lesetipp
+#     (nur Artikel, die schon online sind; sonst neueste Artikel mit gleichem Thema).
+#   - Artikel ohne Eintrag bekommen automatisch einen Lese-Tipp.
+#   - bis/danach: ab dem Tag nach „bis“ zeigt der Banner automatisch das Produkt „danach“
+#     (die Seite wird jeden Morgen neu gebaut).
+# Themen-Regeln (welches Thema welches Produkt bekommt, Abwechseln bei Artikeln mit gleichem Thema)
+# stehen in tools/blog_banner.py. Neue Artikel eintragen: python3 tools/blog_banner.py (ergänzt nur fehlende Einträge).
+# Einzelne Einträge darfst du von Hand ändern; das Skript überschreibt sie nicht (außer mit --alle).
+# Der Pinterest-Rabattcode kommt NIE in einen Banner.
+
+banner:
+  familienjahr:
+    label: "Aus dem Shop"
+    titel: "Unser Familienjahr 2027"
+    zeile: "Alle Termine der Familie auf einen Blick"
+    bild: /assets/app/ban-familienjahr.webp
+    url: /etsy/familienjahr/
+    los: "Ansehen →"
+  kalender:
+    label: "Aus dem Shop"
+    titel: "Blütenjahr 2027"
+    zeile: "Wandkalender mit Blumen oder deinen Fotos"
+    bild: /assets/app/ban-kalender.webp
+    url: /etsy/bluetenjahr/
+    los: "Ansehen →"
+  advent:
+    label: "Aus dem Shop"
+    titel: "Mein stiller Advent"
+    zeile: "24 kleine Pausen für dich"
+    bild: /assets/app/ban-advent.webp
+    url: /etsy/advent/
+    los: "Ansehen →"
+    bis: "2026-12-24"
+    danach: kalender
+  affirmationen:
+    label: "Aus dem Shop"
+    titel: "Ein Satz, der bleibt"
+    zeile: "24 Affirmationskarten fürs Glas"
+    bild: /assets/app/ban-affirmationen.webp
+    url: "https://nidrassa.etsy.com/listing/4598963310/perfect-for-christmas-affirmation-cards"
+    extern: true
+    los: "Ansehen →"
+  mamatequiero:
+    label: "Empfehlung"
+    titel: "Mamá te quiero"
+    zeile: "Ein Brief im Monat · nur 20 Founding-Plätze"
+    bild: /assets/app/ban-mtq.webp
+    url: /mamatequiero/
+    los: "Warteliste →"
+  lernen:
+    label: "Empfehlung"
+    titel: "Stress im Mama-Alltag"
+    zeile: "Kostenloser Kurs, ohne Anmeldung"
+    bild: /assets/app/ban-lernen.webp
+    url: /lernen/
+    los: "Ansehen →"
+
+# Blog-Übersicht: nach jedem 4. Artikel ein Banner, höchstens 2 pro Seite (12 Artikel), der Reihe nach:
+uebersicht: [advent, mamatequiero, lernen]
+
+# --- artikel (von tools/blog_banner.py erzeugt, Hand-Änderungen erlaubt) ---
+artikel:
+  abgeschweift-gut-so:
+    banner: lesetipp   # Thema: -
+    lesetipp: [abschweifen-beim-meditieren, klang-als-anker]
+  fuenf-minuten-pause:
+    banner: lesetipp   # Thema: -
+    lesetipp: [meditieren-mit-kindern-im-haus, ruhe-ist-keine-belohnung]
+  wenn-du-nicht-weisst-was-du-schreiben-sollst:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [fragekarten-fuers-journaling, journaling-fuer-anfaenger]
+  langes-ausatmen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [box-atmung-eine-einfache-atemuebung-gegen-stress, der-lange-seufzer]
+  meditieren-mit-kindern-im-haus:
+    banner: lesetipp   # Thema: -
+    lesetipp: [fuenf-minuten-pause, achtsamkeit-im-alltag]
+  dehnen-am-abend:
+    banner: lesetipp   # Thema: -
+    lesetipp: [dehnen-im-bett, ruecken-entspannen-nach-langem-sitzen]
+  klang-als-anker:
+    banner: lesetipp   # Thema: -
+    lesetipp: [abgeschweift-gut-so, klangschalen-meditation-zu-hause]
+  ruhe-ist-keine-belohnung:
+    banner: lesetipp   # Thema: -
+    lesetipp: [fuenf-minuten-pause, meditieren-mit-kindern-im-haus]
+  meditation-fuer-anfaenger:
+    banner: lesetipp   # Thema: -
+    lesetipp: [klang-als-anker, abgeschweift-gut-so]
+  mental-load-warum-du-so-muede-bist-obwohl-du-nichts-besonderes-gemacht-hast:
+    banner: familienjahr   # Thema: planung
+  box-atmung-eine-einfache-atemuebung-gegen-stress:
+    banner: lernen   # Thema: stress
+  tanzpause-ein-song-fuer-einen-klaren-kopf:
+    banner: lesetipp   # Thema: -
+    lesetipp: [ruhe-ist-keine-belohnung, fuenf-minuten-pause]
+  journaling-fuer-anfaenger:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [wenn-du-nicht-weisst-was-du-schreiben-sollst, fragekarten-fuers-journaling]
+  abschweifen-beim-meditieren:
+    banner: lesetipp   # Thema: -
+    lesetipp: [abgeschweift-gut-so, meditation-fuer-anfaenger]
+  body-scan-eine-anleitung-fuer-zu-hause:
+    banner: lesetipp   # Thema: -
+    lesetipp: [abschweifen-beim-meditieren, meditation-fuer-anfaenger]
+  nacken-verspannt-3-sanfte-dehnuebungen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [dehnen-am-abend, dehnuebungen-am-schreibtisch]
+  wie-sitze-ich-beim-meditieren-stuhl-kissen-oder-bett:
+    banner: lesetipp   # Thema: -
+    lesetipp: [body-scan-eine-anleitung-fuer-zu-hause, abschweifen-beim-meditieren]
+  dankbarkeitstagebuch:
+    banner: affirmationen   # Thema: journaling
+  atemuebung-zum-einschlafen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [box-atmung-eine-einfache-atemuebung-gegen-stress, langes-ausatmen]
+  selbstfuersorge-fuer-muetter-ohne-schlechtes-gewissen:
+    banner: mamatequiero   # Thema: mama
+  metta-meditation:
+    banner: lesetipp   # Thema: -
+    lesetipp: [wie-sitze-ich-beim-meditieren-stuhl-kissen-oder-bett, body-scan-eine-anleitung-fuer-zu-hause]
+  morgenroutine-in-10-minuten-fuer-volle-tage:
+    banner: kalender   # Thema: planung
+  winterblues-kleine-rituale-fuer-dunkle-tage:
+    banner: advent   # Thema: advent
+  journaling-fragen-fuer-schwere-tage:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [journaling-fuer-anfaenger, wenn-du-nicht-weisst-was-du-schreiben-sollst]
+  ruecken-entspannen-nach-langem-sitzen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [dehnen-am-abend, nacken-verspannt-3-sanfte-dehnuebungen]
+  bauchatmung-lernen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [atemuebung-zum-einschlafen, box-atmung-eine-einfache-atemuebung-gegen-stress]
+  advent-ohne-stress:
+    banner: advent   # Thema: advent
+  gedankenkarussell-stoppen:
+    banner: lesetipp   # Thema: stress
+    lesetipp: [abschweifen-beim-meditieren, abgeschweift-gut-so]
+  brain-dump-den-kopf-in-10-minuten-leer-schreiben:
+    banner: lesetipp   # Thema: planung
+    lesetipp: [journaling-fragen-fuer-schwere-tage, journaling-fuer-anfaenger]
+  schultern-entspannen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [nacken-verspannt-3-sanfte-dehnuebungen, ruecken-entspannen-nach-langem-sitzen]
+  achtsamkeit-im-alltag:
+    banner: lesetipp   # Thema: -
+    lesetipp: [meditieren-mit-kindern-im-haus, fuenf-minuten-pause]
+  nein-sagen-lernen-ohne-schuldgefuehle:
+    banner: kalender   # Thema: planung
+  jahresrueckblick-schreiben:
+    banner: familienjahr   # Thema: planung
+  klangschalen-meditation-zu-hause:
+    banner: lesetipp   # Thema: -
+    lesetipp: [klang-als-anker, gedankenkarussell-stoppen]
+  intentionen-statt-vorsaetze-fuer-das-neue-jahr:
+    banner: kalender   # Thema: planung
+  meditieren-am-morgen-oder-am-abend:
+    banner: lesetipp   # Thema: -
+    lesetipp: [klangschalen-meditation-zu-hause, gedankenkarussell-stoppen]
+  zur-ruhe-kommen-nach-den-feiertagen:
+    banner: advent   # Thema: advent
+  atempause-im-auto:
+    banner: lesetipp   # Thema: -
+    lesetipp: [box-atmung-eine-einfache-atemuebung-gegen-stress, langes-ausatmen]
+  journaling-am-abend:
+    banner: affirmationen   # Thema: journaling
+  gehmeditation:
+    banner: lesetipp   # Thema: -
+    lesetipp: [klang-als-anker, abgeschweift-gut-so]
+  huefte-dehnen-sanfte-uebungen-fuer-zu-hause:
+    banner: lesetipp   # Thema: -
+    lesetipp: [nacken-verspannt-3-sanfte-dehnuebungen, schultern-entspannen]
+  ueberforderung-als-mama:
+    banner: lernen   # Thema: stress
+  selbstmitgefuehl:
+    banner: affirmationen   # Thema: mama
+  wechselatmung-einfach-erklaert:
+    banner: lesetipp   # Thema: -
+    lesetipp: [atempause-im-auto, atemuebung-zum-einschlafen]
+  fragekarten-fuers-journaling:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [wenn-du-nicht-weisst-was-du-schreiben-sollst, journaling-fuer-anfaenger]
+  pausen-im-homeoffice:
+    banner: familienjahr   # Thema: planung
+  yoga-nidra-was-ist-das-und-wie-fuehlt-es-sich-an:
+    banner: lesetipp   # Thema: -
+    lesetipp: [wie-sitze-ich-beim-meditieren-stuhl-kissen-oder-bett, body-scan-eine-anleitung-fuer-zu-hause]
+  wie-lange-sollte-man-meditieren:
+    banner: lesetipp   # Thema: -
+    lesetipp: [gedankenkarussell-stoppen, yoga-nidra-was-ist-das-und-wie-fuehlt-es-sich-an]
+  atemuebung-bei-wut:
+    banner: lesetipp   # Thema: stress
+    lesetipp: [box-atmung-eine-einfache-atemuebung-gegen-stress, atemuebung-zum-einschlafen]
+  werte-finden-journaling-fragen-fuer-mehr-klarheit:
+    banner: affirmationen   # Thema: journaling
+  dehnen-im-bett:
+    banner: lesetipp   # Thema: -
+    lesetipp: [dehnen-am-abend, huefte-dehnen-sanfte-uebungen-fuer-zu-hause]
+  achtsam-essen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [achtsamkeit-im-alltag, meditieren-mit-kindern-im-haus]
+  atemzuege-zaehlen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [meditation-fuer-anfaenger, wie-lange-sollte-man-meditieren]
+  journaling-routine:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [fragekarten-fuers-journaling, journaling-fuer-anfaenger]
+  sanftes-yoga-am-morgen:
+    banner: lesetipp   # Thema: -
+    lesetipp: [dehnen-im-bett, huefte-dehnen-sanfte-uebungen-fuer-zu-hause]
+  perfektionismus-loslassen:
+    banner: kalender   # Thema: planung
+  fruehling-neuanfang-ohne-druck:
+    banner: familienjahr   # Thema: planung
+  meditation-bei-innerer-unruhe:
+    banner: lernen   # Thema: stress
+  der-lange-seufzer:
+    banner: lesetipp   # Thema: -
+    lesetipp: [box-atmung-eine-einfache-atemuebung-gegen-stress, langes-ausatmen]
+  gefuehle-aufschreiben:
+    banner: affirmationen   # Thema: journaling
+  digital-detox-im-familienalltag:
+    banner: kalender   # Thema: planung
+  achtsamkeitsmeditation-einfach-erklaert:
+    banner: lesetipp   # Thema: -
+    lesetipp: [gehmeditation, meditation-fuer-anfaenger]
+  dehnuebungen-am-schreibtisch:
+    banner: lesetipp   # Thema: -
+    lesetipp: [nacken-verspannt-3-sanfte-dehnuebungen, ruecken-entspannen-nach-langem-sitzen]
+  mini-meditation:
+    banner: lesetipp   # Thema: -
+    lesetipp: [wie-lange-sollte-man-meditieren, achtsamkeitsmeditation-einfach-erklaert]
+  atemuebungen-mit-kindern:
+    banner: lesetipp   # Thema: -
+    lesetipp: [atemuebung-bei-wut, atemuebung-zum-einschlafen]
+  fragen-zur-selbstreflexion-fuer-jeden-monat:
+    banner: lesetipp   # Thema: journaling
+    lesetipp: [werte-finden-journaling-fragen-fuer-mehr-klarheit, fragekarten-fuers-journaling]
+  nachts-gruebeln:
+    banner: lesetipp   # Thema: stress
+    lesetipp: [gedankenkarussell-stoppen, meditation-bei-innerer-unruhe]
+  energie-atmung:
+    banner: lesetipp   # Thema: -
+    lesetipp: [der-lange-seufzer, atemuebung-zum-einschlafen]
+  kiefer-und-stirn-entspannen:
+    banner: lernen   # Thema: stress
+  frauenkreis-warum-gemeinschaft-guttut:
+    banner: mamatequiero   # Thema: mama
+  dankbarkeit-im-familienalltag:
+    banner: affirmationen   # Thema: journaling
+  der-innere-kritiker:
+    banner: affirmationen   # Thema: mama
+  achtsamkeit-in-der-natur:
+    banner: lesetipp   # Thema: -
+    lesetipp: [gehmeditation, achtsamkeitsmeditation-einfach-erklaert]
+  muttertag-eine-auszeit-nur-fuer-dich:
+    banner: mamatequiero   # Thema: mama
