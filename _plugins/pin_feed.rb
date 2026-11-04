@@ -5,8 +5,10 @@ module Nidrassa
   module PinFeedFilters
     def file_size(path)
       site = @context.registers[:site]
-      file = File.join(site.source, path.to_s.sub(%r{\A/}, ""))
-      if File.file?(file)
+      root = File.expand_path(site.source)
+      file = File.expand_path(path.to_s.sub(%r{\A/}, ""), root)
+      # only files inside the site folder (no ../ outside of it)
+      if file.start_with?(root + File::SEPARATOR) && File.file?(file)
         File.size(file).to_s
       else
         Jekyll.logger.warn "Pin-Feed:", "Bild fehlt, Pin wird übersprungen: #{path}"

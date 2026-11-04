@@ -1,0 +1,9 @@
+# Weekly update PRs for the pinned GitHub Actions and the Ruby gems (Jekyll and plugins).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly }
+  - package-ecosystem: bundler
+    directory: /
+    schedule: { interval: weekly }
