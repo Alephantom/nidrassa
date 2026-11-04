@@ -22,3 +22,7 @@
 <link rel="preload" as="image" href="/assets/app/pick-schultern.webp" media="(min-width: 700px) and (max-width: 1024px)">
 {%- endif %}
 <link rel="stylesheet" href="/assets/styles.css?v={{ site.time | date: '%s' }}">
+{%- if page.app_page %}
+{%- comment -%} Wisch-Gesten (App-Ansicht): Richtung des Tab-Wechsels für den View-Transition-Übergang, sonst kurzes Fade. Logik: site.js. {%- endcomment %}
+<script>(function(){var f=null,d=document.documentElement;try{f=JSON.parse(sessionStorage.getItem("nidrassa-swipe"));sessionStorage.removeItem("nidrassa-swipe")}catch(e){}if(!f||f.to!==location.pathname||Date.now()-f.t>5000)f=null;addEventListener("pagereveal",function(e){var v=e.viewTransition;if(!v)return;if(!f){v.skipTransition();return}d.classList.add("sw-vt");if(v.types)v.types.add(f.dir>0?"sw-next":"sw-prev");v.finished.then(function(){d.classList.remove("sw-vt")});f=null});if(f&&!f.vt)d.classList.add("sw-in")})();</script>
+{%- endif %}
