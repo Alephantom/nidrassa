@@ -1,0 +1,106 @@
+# Lernen: Audio-Kurs „Stress im Mama-Alltag“ (Kapitel 4). Quelle: nidrassa/studien/kurs/kap04/
+# audio: leer = Folge noch nicht aufgenommen (Seite zeigt „bald“). Sobald eine MP3 da ist, URL eintragen.
+# Lernkarte zu Waters 2014 (Mütter/Babys) fehlt bewusst: im Kursplan als „noch prüfen“ markiert.
+title: "Stress im Mama-Alltag"
+episodes:
+  - n: 1
+    title: "Was Stress mit uns macht"
+    desc: "Was Stress ist, warum der Alltag mit Kindern so viele kleine Stöße hat und was dabei in deinem Körper passiert."
+    minutes: 10
+    audio: ""
+  - n: 2
+    title: "Es liegt nicht nur an dir"
+    desc: "Warum Selbstoptimierung nicht reicht und was helfen kann, ohne dass du alles allein trägst."
+    minutes: 10
+    audio: ""
+  - n: 3
+    title: "Was helfen kann, und wann du Hilfe holst"
+    desc: "Was kurzfristig helfen kann, was die Forschung noch nicht weiß und wann du dir Unterstützung holst."
+    minutes: 10
+    audio: ""
+cards:
+  - q: "Was ist der Unterschied zwischen Stressor und Stressreaktion?"
+    a: "Der Stressor ist, was passiert, zum Beispiel Schreien oder Termindruck. Die Stressreaktion ist, was in dir passiert, etwa Herzklopfen, Anspannung oder Gedankenkreisen."
+  - q: "Wann entsteht Stress nach Lazarus und Folkman (1984)?"
+    a: "Wenn eine Anforderung die eigenen Mittel zu übersteigen scheint. Fehlender Schlaf, Unterstützung oder Geld sind dabei reale Belastungen, keine Denkfehler."
+  - q: "Welche fünf kleinen Stöße prägen Mütterstress oft?"
+    a: "Unterbrechungen, Lärm und Reize, Mental Load, wenig Schlaf und kein Feierabend."
+  - q: "Was zeigte die große deutsche Langzeitstudie zum Schlaf nach der Geburt?"
+    a: "Mütter schliefen nach der Geburt deutlich weniger als vorher. Väter nur wenig weniger."
+  - q: "Was beschrieb Hans Selye 1936, und woher kommt das Wort „stress“?"
+    a: "Selye beschrieb ein gemeinsames Reaktionsmuster des Körpers auf ganz verschiedene Belastungen. Das Wort kommt aus Physik und Technik und bedeutet dort mechanische Spannung, Kraft pro Fläche."
+  - q: "Was zeigte die Auswertung von 208 Laborstudien zu Cortisol?"
+    a: "Besonders deutliche Cortisolreaktionen gab es, wenn Menschen wenig Kontrolle hatten und eine negative Bewertung durch andere befürchten mussten."
+  - q: "Macht kurzer, akuter Stress leistungsfähiger?"
+    a: "Nicht automatisch. Eine Meta-Analyse fand im Mittel ein schlechteres Arbeitsgedächtnis und flexibles Umdenken, bei der Selbstkontrolle gemischte Effekte."
+  - q: "Was ist allostatische Last, und gibt es einen Test dafür?"
+    a: "Die Belastung durch ständige Anpassung des Körpers, die bei lange anhaltendem Stress die Gesundheit beeinträchtigen kann. Einen einheitlichen Index oder Bluttest für dich gibt es nicht."
+  - q: "Was ist elterlicher Burnout, und welche zwei Stellschrauben gibt es?"
+    a: "Ein Forschungsbegriff (keine eigene Diagnose): Erschöpfung in der Elternrolle, emotionale Distanz zum Kind und das Gefühl, nicht mehr die Person von früher zu sein. Stellschrauben: Belastungen verringern, Unterstützung aufbauen."
+  - q: "Wie groß war der Gender Care Gap in Deutschland 2022, und wer wird verglichen?"
+    a: "Frauen leisteten rund 44 % mehr unbezahlte Arbeit als Männer (Destatis, Zeitverwendungserhebung). Verglichen werden Frauen und Männer in der Bevölkerung, nicht nur Mütter und Väter."
+  - q: "Was bedeutet „Tend and befriend“?"
+    a: "Die Hypothese von Shelley Taylor und Team: Viele reagieren auf Bedrohung auch, indem sie sich kümmern und sich mit anderen zusammentun. Eine allgemeine Regel für Geschlechterunterschiede folgt daraus nicht."
+  - q: "Woraus entsteht Resilienz?"
+    a: "Aus ganz gewöhnlichen Schutzfaktoren wie verlässlichen Beziehungen und einem unterstützenden Umfeld. Sie ist häufiger als gedacht."
+  - q: "Was sagt die Forschung zu kleinen Pausen bis zehn Minuten?"
+    a: "An Arbeitsplätzen und im Labor brachten sie etwas mehr Energie und etwas weniger Müdigkeit, mit kleinen Effekten. Ob sie bei Müttern genauso wirken, ist offen."
+  - q: "Was gilt bei plötzlicher Verwirrtheit, kaum Schlaf trotz Gelegenheit oder ungewöhnlichen Wahrnehmungen nach der Geburt?"
+    a: "Das kann auf eine Wochenbettpsychose hinweisen und ist ein Notfall: Notruf 112."
+quiz:
+  - q: "Was ist nach Lazarus und Folkman die Bedingung, unter der Stress entsteht?"
+    options:
+      - "Wenn ein großes Lebensereignis eintritt"
+      - "Wenn eine Anforderung die eigenen Mittel zu übersteigen scheint"
+      - "Wenn der Cortisolwert über einen Grenzwert steigt"
+    answer: 1
+    why: "Die Anforderung muss die eigenen Mittel zu übersteigen *scheinen*; fehlender Schlaf oder fehlendes Geld sind dabei reale Belastungen."
+  - q: "Was zeigte die Studie zu Unterbrechungen?"
+    options:
+      - "Unterbrochene Menschen arbeiteten langsamer und entspannter"
+      - "Unterbrechungen hatten keinen messbaren Effekt"
+      - "Unterbrochene Menschen arbeiteten schneller, aber mit mehr Stress und Frust"
+    answer: 2
+    why: "Unterbrochene Menschen arbeiteten in einer Studie schneller, aber mit mehr Stress und Frust (Mark, Gudith & Klocke, 2008)."
+  - q: "In welchen Situationen gab es laut einer Auswertung von 208 Laborstudien besonders deutliche Cortisolreaktionen?"
+    options:
+      - "Bei wenig Kontrolle und befürchteter negativer Bewertung durch andere"
+      - "Bei körperlicher Anstrengung"
+      - "Bei Lärm ohne Publikum"
+    answer: 0
+    why: "Wenig Kontrolle plus befürchtete negative Bewertung gab die deutlichsten Cortisolreaktionen (Dickerson & Kemeny, 2004), im Alltag etwa an der Kasse."
+  - q: "Was stimmt über elterlichen Burnout?"
+    options:
+      - "Er ist in der ICD-11 eine eigene Diagnose"
+      - "Er ist ein Forschungsbegriff und entsteht nach Mikolajczak und Roskam aus einem anhaltenden Ungleichgewicht zwischen Belastungen und Ressourcen"
+      - "Er lässt sich mit einem Bluttest feststellen"
+    answer: 1
+    why: "Elterlicher Burnout ist ein Forschungsbegriff ohne eigene Diagnose; einen Bluttest gibt es nicht."
+  - q: "Rund wie viel mehr unbezahlte Arbeit leisteten Frauen in Deutschland 2022 als Männer?"
+    options:
+      - "rund 14 %"
+      - "rund 44 %"
+      - "rund 84 %"
+    answer: 1
+    why: "Rund 44 % (Destatis, 44,3 %), verglichen werden Frauen und Männer in der Bevölkerung, nicht nur Eltern."
+  - q: "Was folgt aus der Forschung zu „Tend and befriend“?"
+    options:
+      - "Nur Frauen reagieren auf Stress mit Kümmern"
+      - "Männer reagieren immer mit Kampf oder Flucht"
+      - "Viele reagieren auch mit Kümmern und Zusammentun; eine allgemeine Regel für Geschlechterunterschiede lässt sich nicht ableiten"
+    answer: 2
+    why: "Auch Männer zeigten nach sozialem Stress mehr Vertrauen; manche suchen Nähe, andere zunächst Rückzug."
+  - q: "Was sagt die Forschung zu achtwöchigen Achtsamkeitskursen (MBSR) bei Eltern?"
+    options:
+      - "Der Elternstress sank etwas, aber nur wenige Studien hatten Kontrollgruppen und das Verzerrungsrisiko war hoch"
+      - "Sie wirken sicher und stark"
+      - "Sie belegen auch die Wirkung kurzer Übungen zwischendurch"
+    answer: 0
+    why: "Für Eltern ist die Evidenz noch schwach, und für kurze Übungen zwischendurch belegt sie nichts."
+  - q: "Welche Aussage zum Hilfe-Kasten ist richtig?"
+    options:
+      - "Erschreckende, ungewollte Gedanken ohne Absicht sind immer ein Notfall"
+      - "Plötzliche Verwirrtheit nach der Geburt kann auf eine Wochenbettpsychose hinweisen und ist ein Notfall (112)"
+      - "Bei schwerer Atemnot wählt man zuerst 116 117"
+    answer: 1
+    why: "Ungewollte Gedanken ohne Absicht sind nicht automatisch ein Notfall; bei schwerer Atemnot gilt sofort 112."

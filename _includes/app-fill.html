@@ -1,0 +1,18 @@
+{%- comment -%}
+  Nur Tablet (700–1024 px, styles.css Abschnitt 18): Glas-Banner + „Aus dem Blog“ (3 neueste Beiträge).
+  Auf Telefon und Desktop ausgeblendet; die Bilder sind lazy und werden dort nicht geladen.
+  Usage: {% include app-fill.html banner="advent|mtq" %}
+{%- endcomment -%}
+<div class="app-fill">
+  {%- if include.banner == "advent" %}
+  <a class="app-banner" href="/etsy/advent/"><img src="/assets/app/ban-advent.webp" alt="" width="128" height="128" loading="lazy"><span><b>Mein stiller Advent</b>24 kleine Pausen für dich</span><span class="go">Ansehen →</span></a>
+  {%- else %}
+  <a class="app-banner" href="/mamatequiero/"><img src="/assets/app/ban-mtq.webp" alt="" width="128" height="128" loading="lazy"><span><b>Mamá te quiero</b>Ein Brief im Monat · nur 20 Founding-Plätze</span><span class="go">Warteliste →</span></a>
+  {%- endif %}
+  <p class="app-sub">Aus dem Blog</p>
+  <div class="app-blog3">
+    {%- for p in site.posts limit: 3 %}
+    <a class="app-bcard" href="{{ p.url }}"><img src="{{ p.image }}" alt="" loading="lazy"><div><p>{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.</p><h3>{{ p.title }}</h3></div></a>
+    {%- endfor %}
+  </div>
+</div>

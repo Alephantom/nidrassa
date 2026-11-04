@@ -14,4 +14,10 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin>
+{%- if page.url == "/" %}
+{%- comment -%} App-Ansicht Tablet (700–1024 px): die Kacheln „Für dich ausgewählt“ stehen dort im ersten Bild (LCP). {%- endcomment %}
+<link rel="preload" as="image" href="/assets/app/pick-abend.webp" media="(min-width: 700px) and (max-width: 1024px)">
+<link rel="preload" as="image" href="/assets/app/pick-atmung.webp" media="(min-width: 700px) and (max-width: 1024px)">
+<link rel="preload" as="image" href="/assets/app/pick-schultern.webp" media="(min-width: 700px) and (max-width: 1024px)">
+{%- endif %}
 <link rel="stylesheet" href="/assets/styles.css?v={{ site.time | date: '%s' }}">

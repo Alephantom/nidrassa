@@ -4,7 +4,52 @@ title: "Halte inne und komm zurück zu dir"
 image: /assets/arms-raised.webp
 description: "Nidrassa: Meditation, Journaling und ruhige Momente für Frauen mit vollen Tagen."
 permalink: /
+app_page: true
 ---
+{%- comment -%}
+  App-Ansicht (≤1024 px): Start = „Auszeit“. Die Desktop-Abschnitte darunter sind dort ausgeblendet
+  (styles.css, Abschnitt 18). Die erste Übung steht fertig im HTML (kein Layout-Sprung), assets/site.js
+  tauscht sie nur bei Klick aus. Daten: _data/practices.yml und _data/formats.yml.
+{%- endcomment -%}
+{%- assign p0 = site.data.practices | where: "title", "Der lange Seufzer" | first -%}
+{%- assign nums = "Null,Ein,Zwei,Drei,Vier,Fünf,Sechs,Sieben" | split: "," -%}
+<section class="app-only app-view app-auszeit" aria-labelledby="az-h">
+  <p class="app-eyebrow">Deine kleine Auszeit</p>
+  <h1 class="app-h1" id="az-h">Ein Moment <em>für dich.</em></h1>
+  <p class="app-lead">Wie viel Zeit hast du gerade?</p>
+  <div class="az-grid">
+    <div class="az-left">
+      <div class="az-seg" role="group" aria-label="Zeit wählen">
+        <button type="button" data-min="2" aria-pressed="true">2 Min.</button>
+        <button type="button" data-min="5" aria-pressed="false">5 Min.</button>
+        <button type="button" data-min="15" aria-pressed="false">15 Min.</button>
+      </div>
+      <p class="app-muted az-note">In deinem Tempo. Ohne Leistungsdruck.</p>
+    </div>
+    <article class="az-card" id="az-card" data-title="{{ p0.title }}" aria-live="polite">
+      <div class="az-card-top">
+        <p class="app-eyebrow az-tag">{{ site.data.formats[p0.format].name }} · {{ p0.minutes }} Min.</p>
+        <button class="az-mark" type="button" aria-pressed="false" aria-label="Auf die Merkliste setzen"><svg aria-hidden="true"><use href="#t-mark"/></svg></button>
+      </div>
+      <h2 class="az-title">{{ p0.title }}</h2>
+      <p class="az-sub">{{ nums[p0.steps.size] }} Schritte für deine Atempause.</p>
+      <ol class="az-steps">{% for s in p0.steps %}<li><b>{{ forloop.index }}</b><span>{{ s }}</span></li>{% endfor %}</ol>
+      <button class="az-cta" type="button" id="az-timer"><span class="tlbl">Timer starten</span><i aria-hidden="true"></i><span class="az-time">{{ p0.minutes }}:00</span></button>
+      <p class="az-done" hidden>Geschafft. Wie fühlst du dich jetzt?</p>
+      <button class="az-other" type="button" id="az-other"><span aria-hidden="true">⇄</span> Andere Übung</button>
+    </article>
+  </div>
+  {%- comment -%} „Für dich ausgewählt“ nur auf dem Tablet (Mockup V2_C); Kleine Bilder (q50), lazy: auf Telefon und Desktop werden sie nicht geladen. {%- endcomment %}
+  <p class="app-sub az-picks-h">Für dich ausgewählt</p>
+  <div class="az-picks">
+    {%- assign picks = "Der Atem als Anker|/assets/app/pick-abend.webp,4-6-Atmung|/assets/app/pick-atmung.webp,Schultern lösen|/assets/app/pick-schultern.webp" | split: "," %}
+    {%- for pk in picks %}{% assign pp = pk | split: "|" %}{% assign pr = site.data.practices | where: "title", pp[0] | first %}
+    <button class="app-tile" type="button" data-title="{{ pr.title }}"><img src="{{ pp[1] }}" alt="" width="480" height="400" loading="lazy"><span>{{ pr.title }}<small>{{ site.data.formats[pr.format].name }} · {{ pr.minutes }} Min.</small></span></button>
+    {%- endfor %}
+  </div>
+  <a class="app-more" href="/uebungen/">Alle Übungen ansehen →</a>
+  {% include app-fill.html banner="advent" %}
+</section>
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-inner">

@@ -1,7 +1,9 @@
 # Digital products already live on Etsy, shown on /shop/.
+# anchor: id of the card, used by the category tiles of the app view (shop.html).
 # No prices here on purpose (they change on Etsy). Images: 1200 px webp in /assets/.
 etsy:
   - name: "Blütenjahr 2027"
+    anchor: kalender
     eyebrow: "Wandkalender mit Blumen oder deinen Fotos"
     desc: "Zwölf Monate, zwölf Blüten. Tausche die Blumen in Canva gegen deine liebsten Familienfotos oder lasse sie, wie sie sind."
     image: /assets/shop-etsy-bluetenjahr-2027.webp
@@ -20,6 +22,7 @@ etsy:
     alt: "Adventskalender „Mein stiller Advent“: Cover mit gemaltem Kranz aus Zweigen und kleinen Adventsdingen"
     url: "https://nidrassa.etsy.com/listing/4598280320/advent-calendar-for-women-and-mothers-24"
   - name: "Ein Satz, der bleibt"
+    anchor: affirmationskarten
     eyebrow: "24 Affirmationskarten fürs Glas"
     desc: "Rolle die Karten, lege sie ins Glas und ziehe morgens einen Satz, der dich durch den Tag trägt."
     image: /assets/shop-etsy-affirmationen.webp

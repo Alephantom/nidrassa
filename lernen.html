@@ -1,0 +1,88 @@
+---
+layout: default
+title: "Lernen: Stress im Mama-Alltag"
+description: "Kostenloser Audio-Kurs in drei Folgen: was Stress mit uns macht, warum es nicht nur an dir liegt und was helfen kann. Ohne Anmeldung."
+nav: lernen
+permalink: /lernen/
+app_page: true
+---
+{%- comment -%}
+  Lernen (App-Ansicht, Phase 1): Audio-Kurs Kapitel 4 „Stress“. Daten: _data/kurs_stress.yml.
+  Kein Login. Fortschritt nur im Browser (localStorage "nidrassa-kurs-stress"), Logik in assets/site.js.
+  Folgen ohne audio-URL zeigen „bald“ und zählen nicht als gehört.
+{%- endcomment -%}
+{%- assign k = site.data.kurs_stress -%}
+<main class="app-view app-solo app-lernen" data-kurs="stress" data-total="{{ k.episodes.size }}">
+  <p class="app-eyebrow">Lernen</p>
+  <h1 class="app-h1">Verstehen, <em>was dich stresst.</em></h1>
+
+  <div class="k-feat">
+    <img src="/assets/app/lernen-kurs.webp" alt="" width="900" height="560">
+    <div class="k-ov">
+      <p class="app-eyebrow">Audio-Kurs · {{ k.episodes.size }} Folgen</p>
+      <h2>{{ k.title }}</h2>
+      <p>Mit Anna-Lena · je ca. 10 Min. · kostenlos, ohne Anmeldung</p>
+    </div>
+  </div>
+  <div class="k-prog" aria-hidden="true"><i id="k-bar" style="width:0"></i></div>
+  <p class="app-muted k-prog-txt"><span id="k-heard">0</span> von {{ k.episodes.size }} Folgen gehört · gespeichert nur auf diesem Gerät</p>
+
+  <ol class="k-eps">
+    {%- for e in k.episodes %}
+    <li class="k-ep" data-n="{{ e.n }}">
+      <span class="k-n">{{ e.n }}</span>
+      <div class="k-ep-body">
+        <h3>{{ e.title }}</h3>
+        <p>Folge {{ e.n }} · {{ e.desc }}</p>
+        {%- if e.audio != "" %}
+        <audio controls preload="none" src="{{ e.audio }}"></audio>
+        {%- endif %}
+      </div>
+      {%- if e.audio == "" %}<span class="k-soon">bald</span>{% else %}<span class="k-time">{{ e.minutes }} Min.</span>{% endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+  <p class="app-muted k-note">Die Audios kommen bald. Bis dahin kannst du mit den Lernkarten und dem Quiz anfangen.</p>
+
+  <p class="app-sub">Dazu</p>
+  <div class="app-chips">
+    <a href="#lernkarten">Lernkarten</a><a href="#quiz">Quiz</a><a href="#hilfe">Hilfe</a>
+  </div>
+
+  <section class="k-sec" id="lernkarten" aria-labelledby="k-cards-h">
+    <h2 class="k-h" id="k-cards-h">Lernkarten</h2>
+    <p class="app-muted">Tippe auf eine Frage, um die Antwort zu sehen. <span id="k-cards-seen">0</span> von {{ k.cards.size }} angeschaut.</p>
+    <div class="k-cards">
+      {%- for c in k.cards %}
+      <details class="k-card" data-i="{{ forloop.index0 }}"><summary>{{ c.q }}</summary><p>{{ c.a }}</p></details>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="k-sec" id="quiz" aria-labelledby="k-quiz-h">
+    <h2 class="k-h" id="k-quiz-h">Quiz</h2>
+    <p class="app-muted">{{ k.quiz.size }} Fragen, je eine Antwort ist richtig. <span id="k-quiz-score"></span></p>
+    <form class="k-quiz" id="k-quiz" onsubmit="return false">
+      {%- for q in k.quiz %}{% assign qi = forloop.index0 %}
+      <fieldset class="k-q" data-answer="{{ q.answer }}" data-i="{{ qi }}">
+        <legend><b>{{ forloop.index }}.</b> {{ q.q }}</legend>
+        {%- for o in q.options %}
+        <label><input type="radio" name="q{{ qi }}" value="{{ forloop.index0 }}"> <span>{{ o }}</span></label>
+        {%- endfor %}
+        <p class="k-why" hidden>{{ q.why }}</p>
+      </fieldset>
+      {%- endfor %}
+    </form>
+  </section>
+
+  <section class="k-sec k-help" id="hilfe" aria-labelledby="k-help-h">
+    {%- comment -%} Nummern laut Kursplan vor dem Livegang offiziell prüfen (Stand der Übernahme: 04.11.2026). {%- endcomment %}
+    <h2 class="k-h" id="k-help-h">Wann du dir Hilfe holst</h2>
+    <p>Dieser Kurs ersetzt keine Beratung, Untersuchung oder Behandlung.</p>
+    <p>Wenn du über Wochen erschöpft, niedergeschlagen, ängstlich oder gereizt bist, kaum schläfst, obwohl du könntest, oder dich deinem Kind fern fühlst, lohnt sich professionelle Unterstützung: zum Beispiel in deiner Hausarzt- oder Frauenarztpraxis, bei deiner Hebamme oder einer Familien- und Erziehungsberatung.</p>
+    <p>Außerhalb der Sprechzeiten ist in Deutschland der ärztliche Bereitschaftsdienst zuständig: <a href="tel:116117">116 117</a>. Bei plötzlich starken Brustschmerzen, schwerer Atemnot oder Bewusstlosigkeit: sofort Notruf <a href="tel:112">112</a>.</p>
+    <p>Wenn du befürchtest, dir oder jemand anderem etwas anzutun, konkrete Absichten hast oder die Sicherheit nicht gewährleisten kannst: Bleib dann möglichst nicht allein. Auch plötzliche Verwirrtheit, kaum Schlaf trotz Gelegenheit oder ungewöhnliche Wahrnehmungen nach der Geburt können auf eine Wochenbettpsychose hinweisen; das ist ein Notfall. Notruf <a href="tel:112">112</a>.</p>
+    <p>Erschreckende, ungewollte Gedanken ohne Absicht, sie umzusetzen, sind nicht automatisch ein Notfall. Auch damit darfst du dir zeitnah Unterstützung holen.</p>
+    <p class="k-nums">TelefonSeelsorge Deutschland <a href="tel:08001110111">0800 111 0 111</a> (kostenlos, rund um die Uhr) · Spanien <a href="tel:024">024</a> · Österreich <a href="tel:142">142</a> · Schweiz <a href="tel:143">143</a></p>
+  </section>
+</main>
