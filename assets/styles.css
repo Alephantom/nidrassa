@@ -1125,7 +1125,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .app-back { font: 500 11.5px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--a-ol); text-decoration: none; padding: 10px 0 10px 14px; }
 
 /* Glas: nur Übungskarte, Werbe-Banner, Menü-Karte */
-.az-card, .app-banner, .app-menu {
+.az-card, .app-banner, .app-menu, .bb-glass {
   background: var(--a-glass); border: 1px solid var(--a-glass-line); box-shadow: var(--a-glass-sh);
   -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
 }
@@ -1440,4 +1440,38 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   body.dark-ok .lib-index a { color: #EFE7DA; border-color: rgba(230, 221, 203, .2); }
   body.dark-ok .lib-index a:hover { background: #3A3C2A; }
   body.dark-ok .article-photo img, body.dark-ok .post .thumb img, body.dark-ok .lib-photo img { filter: brightness(.88); }
+}
+
+/* ---------- 19. Blog: Glas-Banner (Empfehlung / Aus dem Shop / Passt dazu), 04.11.2026 ----------
+   Stil = App-Banner (Glas, Bild links, Titel, eine Zeile, „Ansehen →“), auf allen Größen.
+   Artikel: genau einer pro Artikel, in der Breite der Artikelspalte (_layouts/post.html).
+   Übersicht: nach jedem 4. Artikel, höchstens 2 pro Seite (blog.html). Daten: _data/blog_banner.yml.
+   Farben über die App-Tokens --a-*, dadurch Dark Mode wie in der App. Bilder lazy mit width/height. */
+.bb { margin: 40px 0 6px; }
+.bb[hidden] { display: none; }
+.bb .app-banner { margin-top: 0; }
+body .bb a { color: var(--a-ink); text-decoration: none; }
+.bb .app-banner:hover b, .bb-row:hover b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.bb-tag { display: block; margin-bottom: 3px; font: 500 10.5px/1.3 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--a-eb); }
+.bb .app-banner > span:not(.go) { min-width: 0; }
+/* Lese-Tipp „Passt dazu“: 1–2 Artikel in einer Glas-Karte */
+.bb-glass { padding: 14px 16px 6px; border-radius: 20px; }
+.bb-row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-top: 1px solid var(--a-line); }
+.bb-glass .bb-tag + .bb-row { border-top: 0; padding-top: 6px; }
+.bb-row img { flex: none; width: 56px; height: 56px; border-radius: 12px; object-fit: cover; }
+.bb-row > span:not(.go) { min-width: 0; font-size: 12.5px; line-height: 1.4; color: var(--a-muted); }
+.bb-row b { display: block; margin-bottom: 2px; font: 500 18px/1.25 var(--serif); color: var(--a-ink); }
+.bb-row .go { margin-left: auto; flex: none; font: 500 11px/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--a-dc); white-space: nowrap; }
+/* Übersicht: ganze Zeile im Raster; nachfolgende Karten füllen die Lücke davor (dense), Banner max. Artikelbreite */
+#blog-list { grid-auto-flow: row dense; }
+.bb-list { grid-column: 1 / -1; width: 100%; max-width: 760px; margin: 4px auto; justify-self: center; }
+@media (max-width: 1024px) {
+  .app-page #blog-list .bb-list { margin: 18px auto 4px; }
+}
+@media (max-width: 560px) {
+  .bb { margin-top: 34px; }
+  .bb .app-banner { gap: 14px; padding: 10px 14px 10px 10px; }
+  .bb .app-banner b { font-size: 18px; }
+  .bb-row b { font-size: 16.5px; }
+  .bb .go { letter-spacing: .14em; }
 }

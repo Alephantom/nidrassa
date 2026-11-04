@@ -1,0 +1,13 @@
+{%- comment -%}
+  Glas-Banner (Empfehlung / Aus dem Shop) im Stil der App-Banner. Daten: _data/blog_banner.yml → banner.
+  Aufruf: {% include blog-banner.html key="advent" cls="bb-list" after=4 hidden=true %}
+  bis/danach: nach dem Datum „bis“ wird automatisch das Produkt „danach“ gezeigt (Build-Datum).
+{%- endcomment -%}
+{%- assign bd = site.data.blog_banner -%}
+{%- assign b = bd.banner[include.key] -%}
+{%- if b.bis -%}{%- assign heute = site.time | date: "%Y-%m-%d" -%}{%- if heute > b.bis -%}{%- assign b = bd.banner[b.danach] -%}{%- endif -%}{%- endif -%}
+{%- if b -%}
+<aside class="bb{% if include.cls %} {{ include.cls }}{% endif %}" aria-label="{{ b.label }}"{% if include.after %} data-after="{{ include.after }}"{% endif %}{% if include.hidden %} hidden{% endif %}>
+  <a class="app-banner" href="{{ b.url }}"{% if b.extern %} target="_blank" rel="noopener"{% endif %}><img src="{{ b.bild }}" alt="" width="128" height="128" loading="lazy" decoding="async"><span><small class="bb-tag">{{ b.label }}</small><b>{{ b.titel }}</b>{{ b.zeile }}</span><span class="go">{{ b.los }}</span></a>
+</aside>
+{%- endif -%}

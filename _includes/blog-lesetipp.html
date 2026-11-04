@@ -1,0 +1,14 @@
+{%- comment -%}
+  Lese-Tipp „Passt dazu“: kleine Glas-Karte mit 1–2 Artikeln (kein Werbe-Banner).
+  Aufruf: {% include blog-lesetipp.html posts=tipps %}
+{%- endcomment -%}
+{%- if include.posts.size > 0 -%}
+<aside class="bb bb-tipp" aria-label="Passt dazu">
+  <div class="bb-glass">
+    <small class="bb-tag">Passt dazu</small>
+    {%- for p in include.posts limit: 2 %}
+    <a class="bb-row" href="{{ p.url }}"><img src="{{ p.image }}" alt="" width="128" height="128" loading="lazy" decoding="async"><span><b>{{ p.title }}</b>{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.</span><span class="go">Lesen →</span></a>
+    {%- endfor %}
+  </div>
+</aside>
+{%- endif -%}
