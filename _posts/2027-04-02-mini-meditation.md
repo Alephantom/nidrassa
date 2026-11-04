@@ -11,7 +11,7 @@ cta:
   title: "2, 5 oder 15 Minuten"
   text: "Wenn aus einer Minute mehr werden darf: Such dir eine Übung passend zu deiner Zeit aus."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Viele fangen gar nicht erst an zu meditieren, weil sie glauben, es müsse lang sein. Dabei ist eine **Mini Meditation** von einer Minute ein echter Anfang. Sie verlangt kein Kissen, keine Stille und keinen freien Abend. Nur sechzig Sekunden, in denen du bewusst da bist.

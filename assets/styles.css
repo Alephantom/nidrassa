@@ -1510,3 +1510,36 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .app-menu, .hl-dots i, .k-prog i, .app-burger span { animation: none; transition: none; }
   .hl-track { scroll-behavior: auto; }
 }
+
+/* ---------- Dark Mode (auto) also for blog articles + Übungen, ≤1024 px (2026-11) ----------
+   Same palette as the app pages. Opt-in per page via body class "dark-ok"
+   (post layout + uebungen.html). Mamá te quiero, retreat and legal pages stay light on purpose. */
+@media (max-width: 1024px) and (prefers-color-scheme: dark) {
+  body.dark-ok {
+    --paper: #22231A; --sand: rgba(230, 221, 203, .14); --ink: #EFE7DA; --deep-copper: #E3A89A;
+    --star-1: #F2EADF; --star-2: #E4D6C3; --star-3: #C9C7A6; --star-4: #A7A77B;
+    background: #22231A; color: #EFE7DA; color-scheme: dark;
+    /* app shell (top bar, tab bar, menu) like the app pages */
+    --a-bg: #22231A; --a-card: #2E2F22; --a-chip: #3A3C2A; --a-ink: #EFE7DA; --a-ol: #E6DDCB;
+    --a-dc: #B5615A; --a-eb: #E3A89A; --a-muted: #B8B29C; --a-line: rgba(230, 221, 203, .14);
+    --a-tabs: #1C1D15; --a-on-bg: #C9C7A6; --a-on-fg: #22231A; --a-pill: #3A3C2A; --a-menu: #2E2F22;
+    --a-glass: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+    --a-glass-line: rgba(255, 255, 255, .16);
+    --a-glass-sh: inset 0 1px 0 rgba(255, 255, 255, .16), 0 14px 32px -16px rgba(0, 0, 0, .7);
+  }
+  body.dark-ok .app-brand svg { --s1: var(--lite-1); --s2: var(--lite-2); --s3: var(--lite-3); --s4: var(--lite-4); }
+  body.dark-ok .post, body.dark-ok .ex, body.dark-ok .prose blockquote, body.dark-ok .prose .note,
+  body.dark-ok .article-cta > div, body.dark-ok .page-hero { background: #2E2F22; }
+  body.dark-ok .prose .note { border-color: rgba(201, 199, 166, .4); }
+  body.dark-ok .article-head h1, body.dark-ok .prose h2, body.dark-ok .prose strong, body.dark-ok .prose blockquote,
+  body.dark-ok .post h3, body.dark-ok .lib-group h2, body.dark-ok .ex summary, body.dark-ok .related h2 { color: #E6DDCB; }
+  body.dark-ok .prose { color: #DDD5C6; }
+  body.dark-ok .post p, body.dark-ok .lib-body > p { color: #B8B29C; }
+  body.dark-ok .prose a { color: #E3A89A; }
+  body.dark-ok .article-cta .btn, body.dark-ok .page-hero .btn { background: #C9C7A6; color: #22231A; }
+  body.dark-ok .ex .dur { background: #3A3C2A; color: #EFE7DA; }
+  body.dark-ok .ex summary::after { color: #C9C7A6; }
+  body.dark-ok .lib-index a { color: #EFE7DA; border-color: rgba(230, 221, 203, .2); }
+  body.dark-ok .lib-index a:hover { background: #3A3C2A; }
+  body.dark-ok .article-photo img, body.dark-ok .post .thumb img, body.dark-ok .lib-photo img { filter: brightness(.88); }
+}

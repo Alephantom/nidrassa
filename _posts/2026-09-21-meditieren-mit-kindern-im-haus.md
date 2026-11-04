@@ -11,7 +11,7 @@ cta:
   title: "Zwei Minuten reichen"
   text: "Such dir eine kurze Übung aus, die zwischen zwei „Mama!“ passt."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 ## Verabschiede dich von der perfekten Stille

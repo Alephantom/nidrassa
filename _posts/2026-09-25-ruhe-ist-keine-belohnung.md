@@ -11,7 +11,7 @@ cta:
   title: "Fang heute an"
   text: "Fünf Minuten, nur für dich. Such dir eine Übung aus."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 ## Die Pause, die nie kommt

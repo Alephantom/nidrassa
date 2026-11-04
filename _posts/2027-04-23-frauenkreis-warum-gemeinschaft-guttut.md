@@ -11,7 +11,7 @@ cta:
   title: "Eine Pause für dich"
   text: "Zwischen zwei Treffen: Wähle eine Übung für 2, 5 oder 15 Minuten."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Mütter reden viel. Über Schlafzeiten, Schuhgrößen, den Elternabend. Selten darüber, was darunter liegt. Ein **Frauenkreis** ist ein Ort, an dem genau das Platz hat. Es gibt dort kein Thema, das zu klein ist, und keinen Satz, der erklärt werden muss.

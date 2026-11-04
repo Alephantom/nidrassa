@@ -11,7 +11,7 @@ cta:
   title: "Kleine Pausen für den Dezember"
   text: "Übungen für 2, 5 oder 15 Minuten, je nachdem, wie viel Luft der Tag gerade hat."
   url: /#methode
-  label: "Zur 2-5-15-Prinzip"
+  label: "Zum 2-5-15-Prinzip"
 ---
 
 Advent ohne Stress: Das klingt schön und ein bisschen unrealistisch, wenn du gerade um 22 Uhr noch Bastelmaterial für den Adventskranz der Grundschule suchst. Die Adventszeit soll besinnlich sein. Für viele Mütter ist sie vor allem voll. Voller Termine, voller Erwartungen, voller Listen im Kopf.
