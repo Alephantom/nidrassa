@@ -373,7 +373,75 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
   }
 
   segs.forEach(b => b.addEventListener("click", () => choose(Number(b.dataset.min))));
-  document.getElementById("az-other").addEventListener("click", () => choose(current.minutes));
+  // „Andere Übung“: per Button oder seitlichem Wischen auf der Karte (Touch, App-Ansicht).
+  // Die Karte gleitet in Wischrichtung hinaus, die neue Übung kommt von der anderen Seite.
+  let sliding = false;
+  function another(dir, from = 0) {
+    if (sliding) return;
+    if (appReduced || !card.animate) { card.style.transform = card.style.opacity = ""; choose(current.minutes); return; }
+    sliding = true;
+    const w = card.offsetWidth;
+    card.animate([{ transform: `translateX(${from}px)`, opacity: Math.max(.4, 1 - Math.abs(from) / w) },
+                  { transform: `translateX(${dir * w * 1.1}px)`, opacity: 0 }],
+                 { duration: 190, easing: "cubic-bezier(.4,0,1,1)" }).onfinish = () => {
+      card.style.transform = card.style.opacity = "";
+      choose(current.minutes);
+      card.animate([{ transform: `translateX(${-dir * w * .5}px)`, opacity: 0 }, { transform: "none", opacity: 1 }],
+                   { duration: 280, easing: "cubic-bezier(.2,.7,.2,1)" }).onfinish = () => { sliding = false; };
+    };
+  }
+  document.getElementById("az-other").addEventListener("click", () => another(-1));
+  {
+    let x0 = 0, y0 = 0, dx = 0, dy = 0, mode = "";   // mode: "" | "wait" | "drag" | "off"
+    card.addEventListener("touchstart", e => {
+      if (e.touches.length > 1 || sliding) { mode = "off"; return; }
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; dx = dy = 0; mode = "wait";
+    }, { passive: true });
+    card.addEventListener("touchmove", e => {
+      if (mode === "off" || !mode) return;
+      if (e.touches.length > 1) { mode = "off"; card.style.transform = card.style.opacity = ""; return; }
+      dx = e.touches[0].clientX - x0; dy = e.touches[0].clientY - y0;
+      if (mode === "wait") {
+        if (Math.abs(dy) > 10 && Math.abs(dy) >= Math.abs(dx)) { mode = "off"; return; }   // vertikal scrollen hat Vorrang
+        if (Math.abs(dx) > 10 && Math.abs(dx) > 1.8 * Math.abs(dy)) mode = "drag"; else return;
+      }
+      if (appReduced) return;
+      card.style.transition = "none";
+      card.style.transform = `translateX(${dx}px)`;
+      card.style.opacity = Math.max(.4, 1 - Math.abs(dx) / card.offsetWidth);
+    }, { passive: true });
+    const end = () => {
+      if (mode === "drag" && Math.abs(dx) > 60 && Math.abs(dx) > 1.8 * Math.abs(dy)) {
+        hideHint(); another(Math.sign(dx), appReduced ? 0 : dx);
+      } else if (mode === "drag" && !appReduced) {
+        card.style.transition = "transform .25s cubic-bezier(.2,.7,.2,1), opacity .25s";
+        card.style.transform = card.style.opacity = "";
+        setTimeout(() => { card.style.transition = ""; }, 260);
+      }
+      mode = "";
+    };
+    card.addEventListener("touchend", end, { passive: true });
+    card.addEventListener("touchcancel", () => { dx = 0; end(); }, { passive: true });
+  }
+  // Einmaliger, dezenter Hinweis (nur Touch, App-Ansicht); danach in localStorage gemerkt.
+  const HINT_KEY = "nidrassa-wisch-hinweis";
+  let hint = null;
+  function hideHint() { if (hint) { hint.classList.remove("on"); hint = null; } }
+  if (matchMedia("(pointer: coarse) and (max-width: 1024px)").matches && card.offsetParent && !appStore.get(HINT_KEY, false)) {
+    appStore.set(HINT_KEY, true);
+    hint = document.createElement("p");
+    hint.className = "az-hint"; hint.setAttribute("aria-hidden", "true");
+    hint.textContent = "← Wischen für eine andere Übung →";
+    card.appendChild(hint);
+    setTimeout(() => {
+      if (!hint) return;
+      hint.classList.add("on");
+      if (!appReduced && card.animate && !sliding) card.animate(
+        [{ transform: "none" }, { transform: "translateX(-14px)" }, { transform: "translateX(8px)" }, { transform: "none" }],
+        { duration: 900, easing: "ease-in-out" });
+      setTimeout(hideHint, 7000);
+    }, 900);
+  }
   document.querySelectorAll(".az-picks [data-title]").forEach(t => t.addEventListener("click", () => {
     const p = practices.find(x => x.title === t.dataset.title);
     if (!p) return;
@@ -497,4 +565,135 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
   }));
   st.heard = st.heard.filter(n => document.querySelector('.k-ep[data-n="' + n + '"] audio'));   // no audio yet = not heard
   paint();
+})();
+
+
+// ---------- App-Ansicht: Wisch-Gesten (Touch, ≤1024 px, freigegeben 04.11.2026) ----------
+// Tabs: links wischen = nächster Tab, rechts = vorheriger (Auszeit · Blog · Lernen · Shop), nur auf
+// den 4 Tab-Hauptseiten. Die Seite folgt dem Finger, dann normale Navigation (URL + Zurück bleiben).
+// Übergang: View Transitions (styles.css Abschnitt 19 + Inline-Skript in head.html), sonst kurzes Fade.
+// Nur Touch-Events (Maus/Desktop unberührt), alle Listener passive, keine Bibliothek.
+(function () {
+  const tabs = [...document.querySelectorAll(".app-tabs a")];
+  const here = tabs.findIndex(a => a.pathname === location.pathname);
+  const root = document.documentElement;
+  // Andere Navigationen (Links, Zurück) bekommen keinen Übergang, nur das Wischen (gilt auf allen Seiten)
+  window.addEventListener("pageswap", e => { if (e.viewTransition && !root.classList.contains("sw-vt")) e.viewTransition.skipTransition(); });
+  if (here < 0 || !("ontouchstart" in window)) return;
+  const appView = matchMedia("(max-width: 1024px)");
+  const menu = document.getElementById("app-menu");
+  const vtNav = "CSSViewTransitionRule" in window;    // seitenübergreifende View Transitions
+  const EDGE = 24, START = 12, GO = 70, RATIO = 1.8;
+  // Eigene Wisch-/Eingabe-Elemente: dort wischt die Seite nicht mit.
+  const OWN = ".hl-track, .az-card, .az-picks, .blog-filter, .app-chips, form, input, textarea, select, label, " +
+              "audio, video, iframe, [contenteditable], .app-top, .app-tabs, .app-menu, [data-noswipe]";
+  const ownSwipe = el => {
+    if (!el.closest || el.closest(OWN)) return true;
+    for (let n = el; n && n !== document.body; n = n.parentElement) {
+      if (n.scrollWidth > n.clientWidth + 2 && /auto|scroll/.test(getComputedStyle(n).overflowX)) return true;
+    }
+    return false;
+  };
+
+  // Nachbar-Tabs vorladen, damit der Wechsel sofort wirkt
+  if (appView.matches) {
+    const urls = [tabs[here - 1], tabs[here + 1]].filter(Boolean).map(a => a.href);
+    if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports("speculationrules")) {
+      const sr = document.createElement("script");
+      sr.type = "speculationrules";
+      sr.textContent = JSON.stringify({ prefetch: [{ source: "list", urls }] });
+      document.body.appendChild(sr);
+    } else urls.forEach(u => { const l = document.createElement("link"); l.rel = "prefetch"; l.href = u; document.head.appendChild(l); });
+  }
+
+  let x0 = 0, y0 = 0, sy = 0, dx = 0, dy = 0, mode = "", leaving = false;
+  const setX = x => root.style.setProperty("--sw-x", x.toFixed(1) + "px");
+  const reset = () => { root.classList.remove("sw-drag", "sw-anim", "sw-leave"); root.style.removeProperty("--sw-x"); mode = ""; leaving = false; };
+  const back = () => {
+    if (appReduced) { reset(); return; }
+    root.classList.add("sw-anim"); setX(0);
+    setTimeout(() => { if (!leaving) reset(); }, 300);
+  };
+  function go(dir) {
+    const a = tabs[here + dir];
+    leaving = true;
+    if (appReduced) { location.href = a.href; return; }       // ohne Bewegung: sofortiger Wechsel
+    try { sessionStorage.setItem("nidrassa-swipe", JSON.stringify({ to: a.pathname, dir, vt: vtNav, t: Date.now() })); } catch (e) { /* ok */ }
+    // Seite gleitet weiter hinaus und blendet aus, dann Navigation; die neue Seite gleitet per
+    // View Transition nach (oder blendet ein, wo es die nicht gibt). Erst nach dem Ausblenden
+    // navigieren: sonst friert die halb verschobene Seite ein, bis die neue gezeichnet ist.
+    root.classList.add("sw-anim", "sw-leave"); setX(-dir * innerWidth * .5);
+    if (vtNav) root.classList.add("sw-vt");
+    setTimeout(() => { location.href = a.href; }, 170);
+  }
+
+  document.addEventListener("touchstart", e => {
+    mode = "";
+    if (leaving || !appView.matches || e.touches.length > 1) return;
+    const t = e.touches[0];
+    if (t.clientX < EDGE || t.clientX > innerWidth - EDGE) return;                 // System-Zurück-Geste
+    if ((window.visualViewport && visualViewport.scale > 1.01) || (menu && !menu.hidden)) return;
+    if (document.querySelector(".si-curtain") || ownSwipe(e.target)) return;
+    x0 = t.clientX; y0 = t.clientY; sy = scrollY; dx = dy = 0; mode = "wait";
+  }, { passive: true });
+
+  document.addEventListener("touchmove", e => {
+    if (!mode || mode === "off") return;
+    if (e.touches.length > 1) { mode = "off"; back(); return; }
+    dx = e.touches[0].clientX - x0; dy = e.touches[0].clientY - y0;
+    if (mode === "wait") {
+      if (Math.abs(dy) > 8 && Math.abs(dy) >= Math.abs(dx)) { mode = "off"; return; }   // vertikal: Browser scrollt
+      if (Math.abs(dx) > START && Math.abs(dx) > RATIO * Math.abs(dy)) { mode = "drag"; root.classList.remove("sw-anim"); root.classList.add("sw-drag"); }
+      else return;
+    }
+    if (Math.abs(scrollY - sy) > 6) { mode = "off"; back(); return; }               // Seite scrollt doch: abbrechen
+    if (appReduced) return;
+    const dir = dx < 0 ? 1 : -1, x = dx - Math.sign(dx) * START;
+    // am Rand (Auszeit/Shop): Gummiband, sonst folgt die Seite dem Finger
+    setX(tabs[here + dir] ? x : Math.sign(x) * 44 * (1 - Math.exp(-Math.abs(x) / 140)));
+  }, { passive: true });
+
+  const end = () => {
+    if (mode !== "drag") { mode = ""; return; }
+    const dir = dx < 0 ? 1 : -1;
+    if (Math.abs(dx) > GO && Math.abs(dx) > RATIO * Math.abs(dy) && tabs[here + dir]) go(dir); else back();
+    mode = "";
+  };
+  document.addEventListener("touchend", end, { passive: true });
+  document.addEventListener("touchcancel", () => { if (mode === "drag") back(); mode = ""; }, { passive: true });
+  // Zurück-Button (bfcache): Seite wieder gerade hinstellen
+  window.addEventListener("pageshow", e => { if (e.persisted) { reset(); root.classList.remove("sw-vt"); } });
+})();
+
+// ---------- Menü-Karte (☰): nach oben oder unten wischen schließt sie ----------
+(function () {
+  const menu = document.getElementById("app-menu"), btn = document.getElementById("app-burger");
+  if (!menu || !btn) return;
+  let x0 = 0, y0 = 0, dx = 0, dy = 0, on = false;
+  const clear = () => { menu.style.transition = menu.style.transform = menu.style.opacity = ""; };
+  menu.addEventListener("touchstart", e => {
+    on = e.touches.length === 1; dx = dy = 0;
+    if (on) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; menu.style.transition = "none"; }
+  }, { passive: true });
+  menu.addEventListener("touchmove", e => {
+    if (!on) return;
+    dx = e.touches[0].clientX - x0; dy = e.touches[0].clientY - y0;
+    if (appReduced || Math.abs(dy) < Math.abs(dx)) return;
+    menu.style.transform = `translateY(${dy * .6}px)`;
+    menu.style.opacity = Math.max(.3, 1 - Math.abs(dy) / 220);
+  }, { passive: true });
+  menu.addEventListener("touchend", () => {
+    if (!on) return;
+    on = false;
+    if (Math.abs(dy) > 50 && Math.abs(dy) > 1.5 * Math.abs(dx)) {
+      if (appReduced || !menu.animate) { clear(); btn.click(); return; }
+      menu.style.transition = "transform .16s ease-in, opacity .16s";
+      menu.style.transform = `translateY(${Math.sign(dy) * 60}px)`; menu.style.opacity = 0;
+      setTimeout(() => { btn.click(); clear(); }, 160);
+    } else {
+      menu.style.transition = "transform .22s cubic-bezier(.2,.7,.2,1), opacity .22s";
+      menu.style.transform = menu.style.opacity = "";
+      setTimeout(clear, 230);
+    }
+  }, { passive: true });
 })();
