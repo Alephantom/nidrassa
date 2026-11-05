@@ -55,6 +55,29 @@ setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließe
 })();
 
 
+// ---------- Practice extras: italic intro + small links (Instagram for atmung, sources) ----------
+// Mirrors _includes/practice-links.html. video = site.practice_video_default from the practice-data JSON.
+function practiceLinks(p, video) {
+  const box = document.createElement("p");
+  box.className = "px-links";
+  if (p.format === "atmung") {
+    const v = document.createElement("a");
+    v.href = p.video_url || video; v.target = "_blank"; v.rel = "noopener";
+    v.textContent = "Mit Video mitatmen → Instagram";
+    box.appendChild(v);
+  }
+  const q = document.createElement("a");
+  q.href = "/quellen/#" + p.slug; q.textContent = "Warum das wirkt – Quellen →";
+  box.appendChild(q);
+  return box;
+}
+function practiceIntro(p) {
+  const el = document.createElement("p");
+  el.className = "px-intro"; el.textContent = p.intro || "";
+  return el;
+}
+
+
 // ---------- 2-5-15 method: random practice + timer (home page) ----------
 // Data comes from _data/formats.yml and _data/practices.yml, embedded in index.html.
 (function () {
@@ -62,7 +85,7 @@ setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließe
   const box = document.getElementById("pick");
   if (!dataEl || !box) return;
 
-  const { formats, practices } = JSON.parse(dataEl.textContent);
+  const { formats, practices, video } = JSON.parse(dataEl.textContent);
   const clock = sec => Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
   let current = null, timer = null, left = 0;
   const labels = {};
@@ -93,11 +116,14 @@ setupMenu("app-burger", "app-menu", "app-top", "Menü öffnen", "Menü schließe
       '<div class="pick-top"><span class="when">' + (labels[p.minutes] || "") + '</span><span class="tag">' + formats[p.format].name + "</span></div>" +
       "<h3>" + p.title + "</h3>" +
       '<ol class="steps">' + p.steps.map(s => "<li>" + s + "</li>").join("") + "</ol>" +
+      '<span class="px-slot"></span>' +
       '<div class="pick-actions">' +
         '<button class="btn timer-btn" type="button" id="pick-timer"><span class="tlbl">Timer starten</span><span class="tsep"> · </span><span id="pick-time">' + clock(p.minutes * 60) + "</span></button>" +
         '<button class="ghost" type="button" id="pick-again">Andere Übung</button>' +
       "</div>" +
       '<p class="timer-done" id="timer-done" hidden>Geschafft. Wie fühlst du dich jetzt?</p>';
+    box.querySelector("h3").after(practiceIntro(p));
+    box.querySelector(".px-slot").replaceWith(practiceLinks(p, video));
     box.hidden = false;
     document.getElementById("pick-again").addEventListener("click", () => choose(p.minutes));
     document.getElementById("pick-timer").addEventListener("click", () => toggleTimer(p.minutes * 60));
@@ -331,7 +357,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
   const card = document.getElementById("az-card");
   const dataEl = document.getElementById("practice-data");
   if (!card || !dataEl) return;
-  const { formats, practices } = JSON.parse(dataEl.textContent);
+  const { formats, practices, video } = JSON.parse(dataEl.textContent);
   const NUM = ["Null", "Ein", "Zwei", "Drei", "Vier", "Fünf", "Sechs", "Sieben"];
   const PAUSE = { atmung: "Atempause", meditation: "Meditation", journaling: "Schreibpause", dehnen: "Bewegungspause", alltag: "Pause" };
   const clock = sec => Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
@@ -353,6 +379,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
     card.dataset.title = p.title;
     card.querySelector(".az-tag").textContent = formats[p.format].name + " · " + p.minutes + " Min.";
     card.querySelector(".az-title").textContent = p.title;
+    card.querySelector(".az-intro").textContent = p.intro || "";
     card.querySelector(".az-sub").textContent = (NUM[p.steps.length] || p.steps.length) + " Schritte für deine " + (PAUSE[p.format] || "Pause") + ".";
     const ol = card.querySelector(".az-steps");
     ol.textContent = "";
@@ -360,6 +387,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
       const li = document.createElement("li"), b = document.createElement("b"), t = document.createElement("span");
       b.textContent = i + 1; t.textContent = s; li.append(b, t); ol.appendChild(li);
     });
+    card.querySelector(".px-links").replaceWith(practiceLinks(p, video));
     btn.hidden = false;
     btn.querySelector(".tlbl").textContent = "Timer starten";
     btn.querySelector(".az-time").textContent = clock(p.minutes * 60);
@@ -421,7 +449,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
   const box = document.getElementById("merk-list");
   const dataEl = document.getElementById("practice-data");
   if (!box || !dataEl) return;
-  const { formats, practices } = JSON.parse(dataEl.textContent);
+  const { formats, practices, video } = JSON.parse(dataEl.textContent);
   function render() {
     const titles = appStore.get(MERK_KEY, []);
     const items = titles.map(t => practices.find(p => p.title === t)).filter(Boolean);
@@ -435,7 +463,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
       p.steps.forEach(x => { const li = document.createElement("li"); li.textContent = x; ol.appendChild(li); });
       rm.type = "button"; rm.className = "merk-rm"; rm.textContent = "Von der Merkliste nehmen";
       rm.addEventListener("click", () => { appStore.set(MERK_KEY, appStore.get(MERK_KEY, []).filter(t => t !== p.title)); render(); });
-      d.append(s, ol, rm);
+      d.append(s, practiceIntro(p), ol, practiceLinks(p, video), rm);
       box.appendChild(d);
     });
     document.getElementById("merk-empty").hidden = items.length > 0;

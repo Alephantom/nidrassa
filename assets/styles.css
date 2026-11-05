@@ -1556,3 +1556,39 @@ body .bb a { color: var(--a-ink); text-decoration: none; }
 @media (max-width: 1024px) and (prefers-color-scheme: dark) {
   html:has(> body.app-page), html:has(> body.dark-ok) { background: #1C1D15; }
 }
+
+/* ---------- 20. Übungen: kursives Intro + kleine Links (Quellen, Instagram), Seite /quellen/, 05.11.2026 ----------
+   Intro sits between title and steps on every practice surface: desktop 2-5-15 box (.pick), app card (.az-card),
+   /uebungen/ (.ex) and /merkliste/ (.merk-item). Colours: --moss (light) / app tokens (--a-muted, --a-ol). */
+.px-intro { font: italic 400 19px/1.45 var(--serif); color: var(--moss); margin-top: 10px; max-width: 62ch; }
+.px-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13.5px; letter-spacing: .02em; }
+.px-links a { color: var(--moss); text-decoration: none; border-bottom: 1px solid rgba(110, 112, 64, .35); padding-bottom: 1px; }
+.px-links a:hover { color: var(--olive); border-color: var(--olive); }
+.method .pick > .px-intro, .method .pick > .px-links { grid-column: 1; }
+.method .pick > .pick-actions { grid-row: 1 / span 5; }
+.ex .px-intro { margin: 0 22px 0 22px; }
+.ex .steps { margin-top: 12px; }
+.ex .px-links { margin: 0 22px 20px 22px; }
+.lib-quellen { margin-top: -40px; text-align: center; font-size: 14px; }
+.lib-quellen a { color: var(--moss); }
+.az-intro { font-size: 17.5px; line-height: 1.42; color: var(--a-muted); margin-top: 8px; }
+.az-intro + .az-sub { margin-top: 12px; }
+.az-card .px-links a, .merk-item .px-links a { color: var(--a-ol); border-bottom-color: var(--a-line); }
+.merk-item .px-intro { font-size: 17px; color: var(--a-muted); margin: 0 0 4px; }
+.merk-item .px-links { margin: 10px 0 0; }
+@media (prefers-color-scheme: dark) {
+  body.dark-ok .ex .px-intro { color: #C9C7A6; }
+  body.dark-ok .ex .px-links a, body.dark-ok .lib-quellen a { color: #E6DDCB; border-bottom-color: rgba(230, 221, 203, .25); }
+}
+
+/* /quellen/ */
+.q-intro { font: italic 400 21px/1.5 var(--serif); color: var(--moss) !important; }
+.q-group { scroll-margin-top: 110px; }
+.q-group h2 .q-min { font-family: var(--sans); font-size: 13px; letter-spacing: .08em; color: var(--moss); margin-left: 8px; white-space: nowrap; }
+.q-group .px-intro { font-size: 18px; max-width: none; }
+.q-list { list-style: none; margin-top: 12px; }
+.q-list li { margin-top: 10px; padding-left: 14px; border-left: 1px solid var(--sage); font-size: 15.5px; line-height: 1.55; color: #3d3a34; }
+.q-list a { color: var(--moss); overflow-wrap: anywhere; }
+.q-group:target h2 { color: var(--deep-copper); }
+.q-back { margin-top: 40px !important; }
+

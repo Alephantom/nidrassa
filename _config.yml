@@ -57,3 +57,6 @@ exclude:
   - Gemfile.lock
   - README.md
   - vendor
+
+# Atmung practices without their own video_url link here („Mit Video mitatmen → Instagram“).
+practice_video_default: "https://www.instagram.com/nidrassa/reels/"
