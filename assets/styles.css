@@ -1682,13 +1682,11 @@ body .sp .sp-open a:hover { text-decoration: underline; text-underline-offset: 3
 .nx-timer .nx-t-reset { margin-top: 6px; }
 .nx-timer .nx-t-reset[hidden], .nx-timer .az-done[hidden] { display: none; }
 
-/* „Nidrassa empfiehlt“: nur der goldene Stern oben rechts neben der Headline (h1/h3.nx-hl = Titel + Stern-Spalte) */
+/* „Nidrassa empfiehlt“: in der Meta-Zeile „… · Lesevorschlag ✦“ mit goldenem Stern */
 .nx-star { --s1: #A8822A; --s2: #C9A13F; --s3: #E2C068; --s4: #F3DFA0; flex: none; width: 18px; height: 18px; }
-.nx-hl { --nx-s: 17px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 10px; align-items: start; }
-.nx-hl > .nx-rec { display: block; margin-top: calc((1.15em - var(--nx-s)) / 2); margin-top: calc((1lh - var(--nx-s)) / 2); }
-.nx-hl .nx-star { display: block; width: var(--nx-s); height: var(--nx-s); }
-.article-head h1.nx-hl { --nx-s: 24px; column-gap: 16px; }
-.app-bcard h3.nx-hl { --nx-s: 16px; column-gap: 8px; }
+.nx-rec, .nx-nw { white-space: nowrap; }
+@media (max-width: 600px) { .article-head .eyebrow:has(.nx-rec) { letter-spacing: .16em; } }
+.nx-rec .nx-star { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.28em; margin-left: .3em; }
 /* Reihe in der Blog-Übersicht (erst ab 3 markierten Artikeln, blog.html) */
 .blog-rec-section { padding: 0 0 72px; }
 .nx-rec-title { display: flex; align-items: center; gap: 10px; }

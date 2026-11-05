@@ -12,7 +12,7 @@
   <p class="app-sub">Aus dem Blog</p>
   <div class="app-blog3">
     {%- for p in site.posts limit: 3 %}
-    <a class="app-bcard" href="{{ p.url }}"><img src="{{ p.image }}" alt="" loading="lazy"><div><p>{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.</p>{% if p.empfehlung %}<h3 class="nx-hl"><span>{{ p.title }}</span>{% include empfehlung.html %}</h3>{% else %}<h3>{{ p.title }}</h3>{% endif %}</div></a>
+    <a class="app-bcard" href="{{ p.url }}"><img src="{{ p.image }}" alt="" loading="lazy"><div><p><span class="nx-nw">{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.{% if p.empfehlung %} ·{% endif %}</span>{% if p.empfehlung %} {% include empfehlung.html %}{% endif %}</p><h3>{{ p.title }}</h3></div></a>
     {%- endfor %}
   </div>
 </div>

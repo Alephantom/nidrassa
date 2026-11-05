@@ -1,7 +1,7 @@
 {%- comment -%}
-  „Nidrassa empfiehlt“: nur der Nidrassa-Stern in Gold (Sprite #star), oben rechts neben der Headline.
-  Steht IN der Überschrift als 2. Spalte: <h1|h3 class="nx-hl"><span>Titel</span>{% include empfehlung.html %}</h1|h3>
+  „Nidrassa empfiehlt“: nur der Nidrassa-Stern in Gold (Sprite #star), in der Meta-Zeile: „Meditation · 8 Min. · Lesevorschlag ✦“ (Wunsch Anna-Lena 05.11.).
+  Steht am Ende der Meta-Zeile (eyebrow/meta).
   Erscheint bei front matter empfehlung: true: Artikelkopf (_layouts/post.html), Blogkarten (post-card.html),
   „Aus dem Blog“ (app-fill.html). Stil: styles.css Abschnitt 21. Name für Screenreader/Tooltip: aria-label + title.
 {%- endcomment -%}
-<span class="nx-rec" role="img" aria-label="Nidrassa empfiehlt" title="Nidrassa empfiehlt"><svg class="nx-star" aria-hidden="true"><use href="#star"/></svg></span>
+<span class="nx-rec">Lesevorschlag <svg class="nx-star" role="img" aria-label="Nidrassa empfiehlt"><title>Nidrassa empfiehlt</title><use href="#star"/></svg></span>
