@@ -37,6 +37,8 @@ Wer regelmäßig übt, bemerkt Gedankenschleifen auch im Alltag schneller. Zum B
 
 Stell dir einen Timer auf drei Minuten. Setz dich bequem hin und spür deinen Atem an der Nase oder am Bauch. Wenn du abschweifst, sag innerlich „Denken“ und kehr zurück. Wenn du magst, zähl mit, wie oft du zurückgekommen bist. Je öfter, desto mehr hast du geübt.
 
+{% include timer.html minuten=3 titel="Abschweifen und zurückkommen" %}
+
 Wenn es dir hilft, zähl deine Atemzüge bis zehn und fang dann wieder bei eins an. Wer sich verzählt, ist abgeschweift. Auch das ist in Ordnung.
 
 > Abschweifen ist kein Fehler. Es ist die Gelegenheit zurückzukommen.

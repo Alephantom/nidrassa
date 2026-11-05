@@ -1,0 +1,8 @@
+{%- comment -%}
+  Label „Nidrassa empfiehlt“ mit dem Original-Nidrassa-Stern (Sprite #star, hell oliv, im Dark Mode gold).
+  Erscheint, wenn ein Artikel im Front Matter empfehlung: true hat: Artikelkarten (post-card.html,
+  app-fill.html) und Artikelkopf (_layouts/post.html). Stil: styles.css Abschnitt 21.
+  Usage: {% include empfehlung.html tag="p|span" cls="…" %}
+{%- endcomment -%}
+{%- assign etag = include.tag | default: "span" -%}
+<{{ etag }} class="nx-rec{% if include.cls %} {{ include.cls }}{% endif %}"><svg class="nx-star" aria-hidden="true"><use href="#star"/></svg>Nidrassa empfiehlt</{{ etag }}>

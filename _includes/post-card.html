@@ -6,6 +6,7 @@
 <a class="post{% if include.cls %} {{ include.cls }}{% endif %}" href="{{ p.url }}" data-topic="{{ p.topic }}">
   <div class="thumb"><img src="{{ p.image }}" alt="{{ p.image_alt }}" {% if include.eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %}></div>
   <div class="body">
+    {% if p.empfehlung %}{% include empfehlung.html tag="p" %}{% endif %}
     <p class="meta">{{ site.data.formats[p.topic].name }} · {{ p.content | number_of_words | divided_by: 180 | plus: 1 }} Min.</p>
     <h3>{{ p.title }}</h3>
     <p>{{ p.description }}</p>
