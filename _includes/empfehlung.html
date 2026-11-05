@@ -1,8 +1,7 @@
 {%- comment -%}
-  Label „Nidrassa empfiehlt“ mit dem Original-Nidrassa-Stern (Sprite #star, hell oliv, im Dark Mode gold).
-  Erscheint, wenn ein Artikel im Front Matter empfehlung: true hat: Artikelkarten (post-card.html,
-  app-fill.html) und Artikelkopf (_layouts/post.html). Stil: styles.css Abschnitt 21.
-  Usage: {% include empfehlung.html tag="p|span" cls="…" %}
+  „Nidrassa empfiehlt“: nur der Nidrassa-Stern in Gold (Sprite #star), oben rechts neben der Headline.
+  Steht IN der Überschrift als 2. Spalte: <h1|h3 class="nx-hl"><span>Titel</span>{% include empfehlung.html %}</h1|h3>
+  Erscheint bei front matter empfehlung: true: Artikelkopf (_layouts/post.html), Blogkarten (post-card.html),
+  „Aus dem Blog“ (app-fill.html). Stil: styles.css Abschnitt 21. Name für Screenreader/Tooltip: aria-label + title.
 {%- endcomment -%}
-{%- assign etag = include.tag | default: "span" -%}
-<{{ etag }} class="nx-rec{% if include.cls %} {{ include.cls }}{% endif %}"><svg class="nx-star" aria-hidden="true"><use href="#star"/></svg>Nidrassa empfiehlt</{{ etag }}>
+<span class="nx-rec" role="img" aria-label="Nidrassa empfiehlt" title="Nidrassa empfiehlt"><svg class="nx-star" aria-hidden="true"><use href="#star"/></svg></span>

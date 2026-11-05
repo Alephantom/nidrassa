@@ -4,7 +4,7 @@ layout: default
 {%- comment -%}
   Blog article. Front matter of a post (see README):
   title, description, date, topic, keywords, image, image_alt, lead, cta {title, text, url, label},
-  empfehlung: true (Label „Nidrassa empfiehlt“ mit Stern, Karte + Artikelkopf)
+  empfehlung: true (goldener Stern „Nidrassa empfiehlt“ oben rechts neben Headline und Kartentitel)
   Reading time is calculated from the word count (about 180 words per minute).
 {%- endcomment -%}
 {% assign minutes = content | number_of_words | divided_by: 180 | plus: 1 %}
@@ -15,8 +15,7 @@ layout: default
       <button class="nx-share" type="button" data-share aria-label="Artikel teilen"><svg aria-hidden="true"><use href="#t-share"/></svg></button>
     </div>
     <p class="eyebrow">{{ site.data.formats[page.topic].name }} · {{ minutes }} Min. Lesezeit</p>
-    {% if page.empfehlung %}{% include empfehlung.html tag="p" cls="nx-rec-head" %}{% endif %}
-    <h1>{{ page.title }}</h1>
+    {% if page.empfehlung %}<h1 class="nx-hl"><span>{{ page.title }}</span>{% include empfehlung.html %}</h1>{% else %}<h1>{{ page.title }}</h1>{% endif %}
     {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
   </header>
   {% if page.image %}
