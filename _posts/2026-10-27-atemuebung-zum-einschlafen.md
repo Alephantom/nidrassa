@@ -36,6 +36,9 @@ Leg dich so hin, wie du normalerweise einschläfst. Die Decke bis zum Kinn, wenn
 Wenn dir schwindelig wird oder du das Gefühl hast, nicht genug Luft zu bekommen, atme einfach wieder normal weiter. Mach die Zahlen kürzer, bis es sich leicht anfühlt.
 {: .note}
 
+**Lieber mit Video?** Atme die 4-7-8-Atmung mit dem Nidrassa-Stern mit: 4 Sekunden ein, 7 halten, 8 langsam aus. [Mit dem Stern mitatmen → Instagram](https://www.instagram.com/reel/DeJ3U2xIqUA/){: target="_blank" rel="noopener"}
+{: .note}
+
 ## Wenn die Gedanken trotzdem kommen
 
 Sie kommen. Die Einkaufsliste, die Mail, die du nicht beantwortet hast. Du musst sie nicht wegschieben. Bemerk sie und kehr zum Zählen zurück. Manchen hilft es, vor dem Hinlegen noch kurz alles aufzuschreiben, was morgen erledigt werden muss. Dann liegt es auf dem Nachttisch und nicht mehr im Kopf.

@@ -89,6 +89,20 @@
     - "Atme langsam aus und zähle bis 6."
     - "Bleib fünf Minuten in diesem Rhythmus."
     - "Das längere Ausatmen hilft vielen, ruhiger zu werden."
+- format: atmung
+  minutes: 5
+  title: "4-7-8 zum Einschlafen"
+  slug: 4-7-8-einschlafen
+  intro: "Ein langes, langsames Ausatmen verlangsamt deinen Atem und kann deinem Körper helfen, vom Tag auf Ruhe umzuschalten. Gut im Bett, wenn dein Kind schläft und dein Kopf noch nicht."
+  sources: [laborde2022, zaccaro2018]
+  video_url: "https://www.instagram.com/reel/DeJ3U2xIqUA/"
+  steps:
+    - "Lege dich bequem hin und lasse deine Schultern schwer werden."
+    - "Atme durch die Nase ein und zähle bis 4."
+    - "Halte den Atem sanft an und zähle bis 7."
+    - "Atme langsam durch den Mund aus und zähle bis 8, als würdest du sanft auf eine Kerze pusten."
+    - "Wiederhole das vier Runden lang, dann atme wieder ganz natürlich weiter."
+    - "Wenn dir das Anhalten schwerfällt, zähle kürzer, so dass es sich leicht anfühlt."
 - format: journaling
   minutes: 5
   title: "Drei gute Dinge"
