@@ -28,8 +28,11 @@ Viele Haltungen im Alltag ziehen den Kopf nach vorn und die Schultern nach oben.
 Setz dich aufrecht auf einen Stuhl, beide Füße am Boden. Atme ruhig weiter, während du dehnst.
 
 1. **Ohr zur Schulter:** Lass den Kopf langsam zur rechten Seite sinken, das rechte Ohr Richtung Schulter. Die linke Schulter bleibt unten. Wenn du magst, lass den linken Arm schwer nach unten hängen. Bleib fünf Atemzüge, dann komm langsam zur Mitte und wechsle die Seite.
+   <img class="prose-fig" src="/assets/blog/nacken-uebung-1.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Linienzeichnung: Frau im Schneidersitz neigt das Ohr zur Schulter">
 2. **Blick in die Achsel:** Dreh den Kopf ein wenig nach rechts und senke dann das Kinn Richtung rechte Achsel. Du spürst die Dehnung hinten links im Nacken. Fünf Atemzüge, dann die andere Seite.
+   <img class="prose-fig" src="/assets/blog/nacken-uebung-2.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Linienzeichnung: Frau im Schneidersitz dreht den Kopf und senkt das Kinn Richtung Achsel">
 3. **Schulterkreisen mit Ausatmen:** Zieh beim Einatmen beide Schultern hoch zu den Ohren. Beim Ausatmen lässt du sie nach hinten und unten fallen. Fünf- bis achtmal, ganz langsam.
+   <img class="prose-fig" src="/assets/blog/nacken-uebung-3.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Linienzeichnung: Frau im Schneidersitz zieht die Schultern hoch und lässt sie nach hinten unten sinken">
 
 Zum Schluss leg die Hände auf die Oberschenkel und spür ein paar Atemzüge nach.
 
