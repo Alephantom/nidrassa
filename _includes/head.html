@@ -15,6 +15,12 @@
 {% if page.url == "/" %}<meta name="p:domain_verify" content="9490e4a3044cdabfb4b9b9d7b125525f"/>{% endif %}
 {% feed_meta %}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{%- comment -%} App vom Startbildschirm (PWA): Manifest + scharfe PNG-Icons. Splash (background_color) = Olive des Stern-Intros, Icons: tools/pwa_icons.py {%- endcomment %}
+<link rel="icon" href="/assets/app-icon/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/assets/app-icon/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/app-icon/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Nidrassa">
 <link rel="preload" href="/assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin>
 {%- if page.url == "/" %}
