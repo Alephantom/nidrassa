@@ -717,7 +717,7 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
       const id = b.dataset.playlist;
       btns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
       const f = document.createElement("iframe");
-      f.src = "https://open.spotify.com/embed/playlist/" + id + "?utm_source=generator";
+      f.src = "https://open.spotify.com/embed/playlist/" + id + "?utm_source=generator&theme=0";
       f.title = "Spotify-Playlist: " + b.dataset.name;
       f.width = "100%"; f.height = "152";
       f.setAttribute("frameborder", "0");
