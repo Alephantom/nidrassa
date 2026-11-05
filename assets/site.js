@@ -703,3 +703,31 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
     a.target = "_blank"; a.rel = "noopener";
   }, true);
 })();
+
+/* Spotify-Musikauswahl (Blog, _includes/spotify-musik.html): 2-Klick-Lösung.
+   Vor dem Klick gibt es keinen Request an Spotify. Der Klick fügt den Player ein; Umschalten ersetzt den iframe
+   (neues Element statt neuer src, damit der Zurück-Button nicht im iframe hängen bleibt). */
+(function () {
+  document.querySelectorAll(".sp").forEach(box => {
+    const btns = [...box.querySelectorAll(".sp-seg button")];
+    const player = box.querySelector(".sp-player");
+    const open = box.querySelector(".sp-open");
+    btns.forEach(b => b.addEventListener("click", () => {
+      if (b.getAttribute("aria-pressed") === "true") return;
+      const id = b.dataset.playlist;
+      btns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      const f = document.createElement("iframe");
+      f.src = "https://open.spotify.com/embed/playlist/" + id + "?utm_source=generator&theme=0";
+      f.title = "Spotify-Playlist: " + b.dataset.name;
+      f.width = "100%"; f.height = "152";
+      f.setAttribute("frameborder", "0");
+      f.setAttribute("allow", "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
+      f.setAttribute("allowfullscreen", "");
+      f.loading = "lazy";
+      player.hidden = false;
+      player.replaceChildren(f);
+      open.querySelector("a").href = "https://open.spotify.com/playlist/" + id;
+      open.hidden = false;
+    }));
+  });
+})();

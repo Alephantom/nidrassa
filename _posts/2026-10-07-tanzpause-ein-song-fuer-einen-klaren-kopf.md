@@ -5,6 +5,13 @@ date: 2026-10-07 07:00:00 +0200
 topic: alltag
 keywords: [Tanzpause, Bewegungspause, Konzentration steigern, Nachmittagstief, Stress abschütteln, Tanzen gegen Stress]
 image: /assets/arms-raised.webp
+musik:   # Musikauswahl (2-Klick, _includes/spotify-musik.html)
+  - name: Modern
+    zeile: "Pop zum Tanzen und Loslassen"
+    playlist: 0VKJJt7x8AzPwb5gyGBcVJ
+  - name: Meditativ
+    zeile: "Weich und fließend, mit Atem"
+    playlist: 6qzueOGeWADT5AUvRc7atW
 image_alt: "Frau mit langen Haaren streckt die Arme zwischen Bäumen dem Sonnenlicht entgegen"
 lead: "Du liest denselben Absatz zum dritten Mal und der Kaffee wirkt nicht mehr? Steh auf, mach einen Song an und tanz. Zweieinhalb Minuten reichen."
 cta:
@@ -26,6 +33,8 @@ An solchen Tagen hilft uns kein weiteres Durchhalten. Was hilft: ein Song, laut 
 Nach Stunden im Sitzen kommt durch Bewegung dein Kreislauf wieder in Gang. Musik, die du magst, hebt oft schon nach wenigen Takten die Stimmung. Und ein Song hat einen Anfang und ein Ende. Du musst nicht auf die Uhr schauen oder überlegen, wie lange du noch machst. Wenn das Lied vorbei ist, ist die Pause vorbei.
 
 Dazu kommt etwas, das schwerer zu messen ist: Beim Tanzen darf der Ärger vom Vormittag raus. Die Mail, die dich genervt hat, das Telefonat, der volle Kalender. Du schüttelst es wortwörtlich ab.
+
+{% include spotify-musik.html %}
 
 ## Der Tanz-Flow in sieben Teilen
 

@@ -1125,7 +1125,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 .app-back { font: 500 11.5px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--a-ol); text-decoration: none; padding: 10px 0 10px 14px; }
 
 /* Glas: nur Übungskarte, Werbe-Banner, Menü-Karte */
-.az-card, .app-banner, .app-menu, .bb-glass {
+.az-card, .app-banner, .app-menu, .bb-glass, .sp {
   background: var(--a-glass); border: 1px solid var(--a-glass-line); box-shadow: var(--a-glass-sh);
   -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
 }
@@ -1476,6 +1476,36 @@ body .bb a { color: var(--a-ink); text-decoration: none; }
   .bb .go { letter-spacing: .14em; }
 }
 
+
+/* ---------- 20. Blog: Musikauswahl mit Spotify (Tanzpause), 05.11.2026 ----------
+   Glas-Karte wie die Blog-Banner, Umschalter im Stil des 2/5/15-Pickers (.az-seg), Farben über --a-* (Dark Mode wie App).
+   2-Klick-Lösung: der iframe entsteht erst nach Klick (site.js). .sp-player reserviert dann sofort 152 px. */
+.sp { margin: 40px 0 8px; padding: 18px 18px 14px; border-radius: 20px; color: var(--a-ink); }
+.prose .sp p { margin-top: 0; }
+.sp-title { font: 500 23px/1.2 var(--serif); color: var(--a-ink); }
+.sp-seg { display: grid; grid-template-columns: 1fr 1fr; margin-top: 14px; background: var(--a-chip); border-radius: 18px; overflow: hidden; }
+.sp-seg button { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border: 0; background: transparent; padding: 12px 10px 13px; color: var(--a-ol); font: inherit; text-align: center; cursor: pointer; transition: background .2s, color .2s; }
+.sp-seg button + button { border-left: 1.5px solid var(--a-bg); }
+.sp-seg button b { display: block; font: 500 20px/1.2 var(--serif); }
+.sp-seg button span { display: block; margin-top: 3px; font: 400 13px/1.35 var(--sans); opacity: .85; text-wrap: balance; }
+.sp-seg button[aria-pressed="true"] { background: var(--a-on-bg); color: var(--a-on-fg); }
+.sp-seg button:focus-visible { outline: 2px solid var(--a-ol); outline-offset: -4px; border-radius: 16px; }
+.prose .sp .sp-note { margin-top: 10px; font-size: 12.5px; line-height: 1.45; color: var(--a-muted); }
+body .sp .sp-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.sp-player { margin-top: 14px; height: 152px; border-radius: 12px; background: var(--a-card); overflow: hidden; }
+.sp-player[hidden] { display: none; }
+.sp-player iframe { display: block; width: 100%; height: 152px; border: 0; border-radius: 12px; }
+.prose .sp .sp-open { margin-top: 8px; text-align: right; }
+.sp-open[hidden] { display: none; }
+body .sp .sp-open a { font: 500 11px/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--a-dc); text-decoration: none; }
+body .sp .sp-open a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 560px) {
+  .sp { margin-top: 34px; padding: 16px 14px 12px; }
+  .sp-seg button { padding: 11px 8px 12px; }
+  .sp-seg button b { font-size: 18.5px; }
+  .sp-seg button span { font-size: 11.5px; }
+  .prose .sp .sp-note { font-size: 12px; }
+}
 
 /* =====================================================================================
    19. App-Ansicht: Wisch-Gesten (≤1024 px, Touch). Logik: site.js „Wisch-Gesten“,

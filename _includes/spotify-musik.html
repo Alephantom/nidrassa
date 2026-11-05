@@ -1,0 +1,20 @@
+{%- comment -%}
+  Musikauswahl mit Spotify-Playlists, 2-Klick-Lösung (Datenschutz): Vor dem Klick wird nichts von Spotify geladen.
+  Erst der Klick auf einen Button fügt den Player-iframe ein (assets/site.js, „Spotify-Musikauswahl“).
+  Daten aus dem Front Matter des Artikels:
+    musik:
+      - name: Modern
+        zeile: "Pop zum Tanzen und Loslassen"
+        playlist: <Spotify-Playlist-ID>
+  Aufruf im Artikel: include-Tag mit spotify-musik.html (eigene Zeile, Leerzeilen davor/danach).   Stil: styles.css Abschnitt 20.
+{%- endcomment -%}
+{%- if page.musik -%}
+<aside class="sp" aria-labelledby="sp-title">
+<p class="sp-title" id="sp-title">Wähle deine Musik</p>
+<div class="sp-seg" role="group" aria-label="Playlist wählen">{% for m in page.musik %}<button type="button" aria-pressed="false" data-playlist="{{ m.playlist }}" data-name="{{ m.name }}"><b>{{ m.name }}</b><span>{{ m.zeile }}</span></button>{% endfor %}</div>
+<p class="sp-note">Beim Klick wird der Spotify-Player geladen. Dabei werden Daten an Spotify übertragen. <a href="/datenschutz/#spotify">Datenschutzerklärung</a></p>
+<div class="sp-player" hidden></div>
+<p class="sp-open" hidden><a href="https://open.spotify.com/" target="_blank" rel="noopener">In Spotify öffnen →</a></p>
+<noscript><p class="sp-open">{% for m in page.musik %}<a href="https://open.spotify.com/playlist/{{ m.playlist }}" target="_blank" rel="noopener">{{ m.name }}: In Spotify öffnen →</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p></noscript>
+</aside>
+{%- endif -%}
