@@ -5,7 +5,9 @@
   ?v= busts the browser cache on every build.
 {%- endcomment -%}
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F2EADF" media="(max-width: 1024px) and (prefers-color-scheme: light)">
+<meta name="theme-color" content="{% if page.app_page or page.body_class contains "dark-ok" %}#1C1D15{% else %}#F2EADF{% endif %}" media="(max-width: 1024px) and (prefers-color-scheme: dark)">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 {% seo %}
 {% if page.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
