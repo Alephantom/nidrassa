@@ -658,6 +658,8 @@ body.page-shop { background: var(--beige); }  /* same beige behind the footer as
   font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; color: var(--olive);
 }
 .prose .note { padding: 14px 18px; border-radius: 16px; background: var(--beige); border: 1px dashed var(--sage); font-size: 16px; }
+.prose .prose-fig { display: block; width: 100%; max-width: 480px; height: auto; margin: 16px auto 10px;
+  border-radius: 20px; background: #F2E7DC; }
 .article-cta { margin-top: 64px; }
 .article-cta > div { padding: 40px 36px; border-radius: 28px; background: var(--olive-deep); color: var(--beige); text-align: center; }
 .article-cta h2 { font-family: var(--display); font-weight: 400; font-size: 30px; }
@@ -1439,7 +1441,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   body.dark-ok .ex summary::after { color: #C9C7A6; }
   body.dark-ok .lib-index a { color: #EFE7DA; border-color: rgba(230, 221, 203, .2); }
   body.dark-ok .lib-index a:hover { background: #3A3C2A; }
-  body.dark-ok .article-photo img, body.dark-ok .post .thumb img, body.dark-ok .lib-photo img { filter: brightness(.88); }
+  body.dark-ok .article-photo img, body.dark-ok .post .thumb img, body.dark-ok .lib-photo img, body.dark-ok .prose .prose-fig { filter: brightness(.88); }
 }
 
 /* ---------- 19. Blog: Glas-Banner (Empfehlung / Aus dem Shop / Passt dazu), 04.11.2026 ----------
