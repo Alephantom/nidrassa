@@ -731,3 +731,175 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
     }));
   });
 })();
+
+// =====================================================================================
+// Teilen + Timer-Karte (Telegram-Wünsche Anna-Lena 05.11.2026)
+// =====================================================================================
+
+// ---------- Kurzer Hinweis unten („Link kopiert“) ----------
+function nxToast(msg) {
+  let t = document.getElementById("nx-toast");
+  if (!t) {
+    t = document.createElement("div");
+    t.id = "nx-toast"; t.className = "nx-toast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add("is-on");
+  clearTimeout(nxToast.h);
+  nxToast.h = setTimeout(() => t.classList.remove("is-on"), 2200);
+}
+
+// ---------- Teilen: ☰-Menü „Seite teilen“, Artikel, Übungskarte (alles mit data-share) ----------
+// navigator.share öffnet auf dem Handy (auch in der installierten App ohne Adressleiste) das
+// Teilen-Menü des Systems. Ohne Web Share (meist Desktop): Link kopieren + „Link kopiert“.
+// share() muss direkt im Klick laufen (Nutzer-Geste), deshalb vorher nichts Asynchrones.
+(function () {
+  const meta = sel => { const m = document.querySelector(sel); return m ? (m.content || m.href || "") : ""; };
+  const pageData = () => ({
+    title: (meta('meta[property="og:title"]') || document.title).trim(),
+    text: meta('meta[name="description"]'),
+    url: meta('link[rel="canonical"]') || location.href
+  });
+  function practiceData(btn) {
+    const card = btn.closest("#az-card"), el = document.getElementById("practice-data");
+    if (!card || !el) return pageData();
+    const title = card.dataset.title;
+    let p = null;
+    try { p = JSON.parse(el.textContent).practices.find(x => x.title === title); } catch (e) { /* nur Titel */ }
+    return {
+      title: title + " · Nidrassa",
+      text: "„" + title + "“, eine kleine Pause für dich" + (p ? " (" + p.minutes + " Min.)" : "") + ".",
+      url: location.origin + "/uebungen/" + (p ? "#fmt-" + p.format : "")
+    };
+  }
+  function copy(url) {
+    const done = () => nxToast("Link kopiert");
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(done, () => legacy(url) && done());
+    } else if (legacy(url)) done();
+    else nxToast(url);
+  }
+  function legacy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    ta.remove();
+    return ok;
+  }
+  document.addEventListener("click", e => {
+    const btn = e.target.closest("[data-share]");
+    if (!btn) return;
+    e.preventDefault();
+    const d = btn.hasAttribute("data-share-practice") ? practiceData(btn) : pageData();
+    if (navigator.share && (!navigator.canShare || navigator.canShare(d))) {
+      navigator.share(d).catch(err => { if (err && err.name !== "AbortError") copy(d.url); });
+    } else {
+      copy(d.url);
+    }
+    // ☰-Menü nach dem Antippen schließen (setupMenu schließt sonst nur bei Links)
+    const menu = btn.closest("#app-menu"), burger = document.getElementById("app-burger");
+    if (menu && burger && !menu.hidden) burger.click();
+  });
+})();
+
+// ---------- Timer-Karte im Artikel (_includes/timer.html) ----------
+// Gleiche Bedienung wie der Timer der Übungskarte (Timer starten · Pause · Weiter), dazu „Neu“,
+// leiser Gong (Web Audio, keine Datei) + Vibration am Ende, Wake Lock während er läuft,
+// Zähler „Zurückgekommen +1“. Die Zeit läuft über die Uhr (Date.now), nicht über gezählte Ticks,
+// damit sie auch bei gedrosselten Hintergrund-Tabs stimmt.
+(function () {
+  const cards = document.querySelectorAll(".nx-timer");
+  if (!cards.length) return;
+  const clock = sec => Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+  let ac = null;
+  function audioOn() {   // im Klick auf „Start“ entsperren (iOS spielt sonst später keinen Ton)
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if (ac.state === "suspended") ac.resume();
+      const o = ac.createOscillator(), g = ac.createGain();
+      g.gain.value = 0; o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime + .02);
+    } catch (e) { ac = null; }
+  }
+  function gong() {      // Klangschale: Grundton + zwei leise Obertöne, langes Ausklingen
+    if (!ac) return;
+    try {
+      const t = ac.currentTime, out = ac.createGain();
+      out.gain.value = .5; out.connect(ac.destination);
+      [[196, .32, 6], [529, .12, 3.5], [1058, .05, 2]].forEach(([f, v, d]) => {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = "sine"; o.frequency.value = f;
+        g.gain.setValueAtTime(.0001, t);
+        g.gain.exponentialRampToValueAtTime(v, t + .03);
+        g.gain.exponentialRampToValueAtTime(.0001, t + d);
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + d + .1);
+      });
+    } catch (e) { /* kein Ton, nur Vibration */ }
+  }
+
+  cards.forEach(card => {
+    const total = Number(card.dataset.sec) || 180;
+    const go = card.querySelector(".nx-t-go"), lbl = go.querySelector(".tlbl"), time = go.querySelector(".az-time");
+    const reset = card.querySelector(".nx-t-reset"), done = card.querySelector(".nx-t-done");
+    const count = card.querySelector(".nx-t-count"), num = count && count.querySelector(".nx-t-n");
+    let left = total, end = 0, tick = null, lock = null, n = 0;
+
+    async function wake(on) {
+      try {
+        if (on && !lock && "wakeLock" in navigator && document.visibilityState === "visible") {
+          lock = await navigator.wakeLock.request("screen");
+          lock.addEventListener("release", () => { lock = null; });
+        } else if (!on && lock) { const l = lock; lock = null; await l.release(); }
+      } catch (e) { lock = null; }
+    }
+    const paint = () => { time.textContent = clock(Math.max(0, Math.ceil(left))); };
+    const halt = () => { clearInterval(tick); tick = null; card.classList.remove("is-run"); };
+    function start() {
+      audioOn();
+      end = Date.now() + left * 1000;
+      tick = setInterval(step, 250);
+      lbl.textContent = "Pause";
+      card.classList.add("is-run", "is-used");
+      reset.hidden = false; done.hidden = true;
+      wake(true);
+    }
+    function pause() {
+      left = Math.max(0, (end - Date.now()) / 1000);
+      halt(); wake(false);
+      lbl.textContent = "Weiter";
+    }
+    function step() {
+      left = (end - Date.now()) / 1000;
+      if (left <= 0) finish(); else paint();
+    }
+    function finish() {
+      halt(); left = 0; paint(); wake(false);
+      go.hidden = true;
+      done.textContent = n > 0
+        ? "Geschafft. Du bist " + (n === 1 ? "einmal" : n + "-mal") + " zurückgekommen."
+        : "Geschafft. Wie fühlst du dich jetzt?";
+      done.hidden = false;
+      gong();
+      if (navigator.vibrate) navigator.vibrate([180, 120, 180]);
+    }
+    function fresh() {
+      halt(); wake(false);
+      left = total; n = 0; paint();
+      if (num) num.textContent = "0";
+      lbl.textContent = "Timer starten";
+      go.hidden = false; done.hidden = true; reset.hidden = true;
+      card.classList.remove("is-used");
+    }
+    go.addEventListener("click", () => (tick ? pause() : start()));
+    reset.addEventListener("click", fresh);
+    if (count) count.addEventListener("click", () => {
+      n++; num.textContent = n;
+      count.classList.remove("is-bump"); void count.offsetWidth; count.classList.add("is-bump");
+      if (navigator.vibrate) navigator.vibrate(12);
+    });
+    // Wake Lock fällt beim Wechsel in eine andere App weg: beim Zurückkommen neu anfordern
+    document.addEventListener("visibilitychange", () => { if (tick && document.visibilityState === "visible") wake(true); });
+  });
+})();

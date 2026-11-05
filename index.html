@@ -29,7 +29,8 @@ app_page: true
     <article class="az-card" id="az-card" data-title="{{ p0.title }}" aria-live="polite">
       <div class="az-card-top">
         <p class="app-eyebrow az-tag">{{ site.data.formats[p0.format].name }} · {{ p0.minutes }} Min.</p>
-        <button class="az-mark" type="button" aria-pressed="false" aria-label="Auf die Merkliste setzen"><svg aria-hidden="true"><use href="#t-mark"/></svg></button>
+        <span class="az-acts"><button class="nx-share az-share" type="button" data-share data-share-practice aria-label="Übung teilen"><svg aria-hidden="true"><use href="#t-share"/></svg></button>
+        <button class="az-mark" type="button" aria-pressed="false" aria-label="Auf die Merkliste setzen"><svg aria-hidden="true"><use href="#t-mark"/></svg></button></span>
       </div>
       <h2 class="az-title">{{ p0.title }}</h2>
       <p class="px-intro az-intro">{{ p0.intro }}</p>

@@ -1,0 +1,27 @@
+{%- comment -%}
+  Übungskarte mit Timer für Blogartikel (Wunsch Anna-Lena 05.11.2026). Glas-Stil wie die Übungskarte
+  auf der Startseite (.az-card), Logik: nxTimer in assets/site.js, Stil: styles.css Abschnitt 21.
+  Usage: {% include timer.html minuten=3 titel="…" text="…" zaehler=false %}
+    minuten  Dauer in Minuten (Standard 3)
+    titel    Überschrift der Karte
+    text     optional, eine kurze Anleitung
+    zaehler  Zähler „Zurückgekommen +1“ (Standard: an; zaehler=false blendet ihn aus)
+  Start/Pause/Weiter auf dem großen Knopf, „Neu“ setzt zurück. Am Ende ein leiser Gong (Web Audio)
+  und eine kurze Vibration; der Bildschirm bleibt während des Timers an (Wake Lock, falls verfügbar).
+  Nichts wird gespeichert.
+{%- endcomment -%}
+{%- assign tmin = include.minuten | default: 3 -%}
+<div class="az-card nx-timer" data-sec="{{ tmin | times: 60 }}">
+<div class="az-card-top"><p class="app-eyebrow az-tag">Übung · {{ tmin }} Min.</p></div>
+<p class="az-title nx-t-title">{{ include.titel | default: "Kleine Übung" }}</p>
+{%- if include.text %}
+<p class="az-sub nx-t-text">{{ include.text }}</p>
+{%- endif %}
+<button class="az-cta nx-t-go" type="button"><span class="tlbl">Timer starten</span><i aria-hidden="true"></i><span class="az-time" role="timer">{{ tmin }}:00</span></button>
+<p class="az-done nx-t-done" role="status" hidden>Geschafft. Wie fühlst du dich jetzt?</p>
+{%- unless include.zaehler == false %}
+<button class="nx-t-count" type="button"><span>Zurückgekommen</span><b aria-hidden="true">+1</b><span class="nx-t-n" aria-live="polite">0</span></button>
+<p class="nx-t-hint">Tippe jedes Mal, wenn du zurückkommst.</p>
+{%- endunless %}
+<button class="az-other nx-t-reset" type="button" hidden><span aria-hidden="true">↺</span> Neu</button>
+</div>

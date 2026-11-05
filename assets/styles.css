@@ -1624,3 +1624,89 @@ body .sp .sp-open a:hover { text-decoration: underline; text-underline-offset: 3
 .q-group:target h2 { color: var(--deep-copper); }
 .q-back { margin-top: 40px !important; }
 
+
+
+/* ---------- 21. Teilen, Timer-Karte im Artikel, „Nidrassa empfiehlt“ (Telegram-Wünsche 05.11.2026) ----------
+   Teilen: ☰-Menü „Seite teilen“ (app-shell.html), Icon im Artikelkopf und auf der Übungskarte, Hinweis
+   „Link kopiert“ (.nx-toast). Timer: _includes/timer.html (Glas wie .az-card). Empfehlung:
+   _includes/empfehlung.html, goldener Stern neben der Headline (hell + dunkel). Logik: Ende von assets/site.js. */
+.nx-share {
+  flex: none; width: 40px; height: 40px; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: none; color: var(--a-ol); cursor: pointer;
+}
+.nx-share svg { width: 21px; height: 21px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.nx-share:focus-visible { outline: 1px solid var(--a-line); outline-offset: 2px; }
+.az-acts { display: flex; align-items: flex-start; margin: -10px -10px 0 0; }
+.az-acts .az-mark { margin: 0; }
+.article-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 28px; }
+.article-bar .back { margin-bottom: 0; }
+.article-bar .nx-share { margin-right: -9px; color: var(--deep-copper); }
+.app-menu-btn svg { stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 1024px) {
+  .app-menu > .app-menu-btn {
+    display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 18px; margin: 0;
+    border: 0; border-bottom: 1px solid var(--a-line); background: none; text-align: left; cursor: pointer;
+    font: 500 15px/1.3 var(--sans); color: var(--a-ink);
+  }
+  .app-menu > .app-menu-btn svg { flex: none; width: 20px; height: 20px; stroke: var(--a-ol); fill: none; stroke-width: 1.5; }
+}
+.nx-toast {
+  position: fixed; left: 50%; z-index: 90; bottom: calc(24px + var(--a-tabh, 0px) + var(--a-sb, 0px));
+  padding: 11px 20px; border-radius: 999px; background: var(--a-on-bg); color: var(--a-on-fg);
+  font: 500 14px/1.3 var(--sans); letter-spacing: .02em; box-shadow: 0 10px 28px -12px rgba(27, 25, 22, .5);
+  opacity: 0; transform: translate(-50%, 8px); transition: opacity .25s, transform .25s; pointer-events: none;
+}
+.nx-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* Timer-Karte im Artikel */
+.prose .nx-timer { margin: 32px 0 8px; padding: 22px 20px 16px; text-align: left; }
+.prose .nx-timer p { margin-top: 0; }
+.prose .nx-timer .az-done { margin-top: 16px; }
+.nx-timer .az-tag { color: var(--a-eb); }
+.prose .nx-timer .nx-t-title { margin-top: 6px; font-size: 30px; line-height: 1.1; color: var(--a-ink); }
+.prose .nx-timer .nx-t-text { margin-top: 8px; font-size: 15.5px; line-height: 1.5; }
+.nx-timer .az-cta { margin-top: 18px; }
+.nx-t-count {
+  display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 12px; padding: 7px 7px 7px 20px;
+  border: 1px solid var(--a-line); border-radius: 999px; background: none; cursor: pointer;
+  font: 500 15px/1.2 var(--sans); color: var(--a-ol); text-align: left;
+}
+.nx-t-count b { font-weight: 500; color: var(--a-eb); }
+.nx-t-n {
+  margin-left: auto; min-width: 38px; height: 38px; padding: 0 10px; display: grid; place-items: center; border-radius: 999px;
+  background: var(--a-chip); font: 500 17px/1 var(--sans); color: var(--a-ink); font-variant-numeric: lining-nums tabular-nums;
+}
+.nx-t-count.is-bump .nx-t-n { animation: nx-bump .35s ease-out; }
+@keyframes nx-bump { 40% { transform: scale(1.18); } }
+.prose .nx-timer .nx-t-hint { margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--a-muted); text-align: center; }
+.nx-timer .nx-t-reset { margin-top: 6px; }
+.nx-timer .nx-t-reset[hidden], .nx-timer .az-done[hidden] { display: none; }
+
+/* „Nidrassa empfiehlt“: in der Meta-Zeile „… · Lesevorschlag ✦“ mit goldenem Stern */
+.nx-star { --s1: #A8822A; --s2: #C9A13F; --s3: #E2C068; --s4: #F3DFA0; flex: none; width: 18px; height: 18px; }
+.nx-rec, .nx-nw { white-space: nowrap; }
+@media (max-width: 600px) { .article-head .eyebrow:has(.nx-rec) { letter-spacing: .16em; } }
+.nx-rec .nx-star { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.28em; margin-left: .3em; }
+/* Reihe in der Blog-Übersicht (erst ab 3 markierten Artikeln, blog.html) */
+.blog-rec-section { padding: 0 0 72px; }
+.nx-rec-title { display: flex; align-items: center; gap: 10px; }
+.nx-rec-title .nx-star { width: 24px; height: 24px; }
+@media (max-width: 1024px) {
+  .app-page .blog-rec-section { padding: 0 0 8px; }
+  .app-page .blog-rec-section .wrap { padding: 0 20px; }
+  .app-page .nx-rec-title { margin: 18px 0 12px; }
+  .nx-rec-row { display: grid; grid-auto-flow: column; grid-auto-columns: 74%; grid-template-columns: none; gap: 14px; margin: 0 -20px; padding: 2px 20px 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+  .nx-rec-row::-webkit-scrollbar { display: none; }
+  .nx-rec-row .post { scroll-snap-align: start; }
+  .nx-rec-row .post .body { padding: 16px 18px 20px; }
+  .nx-rec-row .post h3 { font-size: 21px; }
+  .nx-rec-row .post .body > p:not(.meta) { display: none; }
+}
+@media (max-width: 1024px) and (prefers-color-scheme: dark) {
+  body.dark-ok .nx-star, body.app-page .nx-star { filter: drop-shadow(0 0 2px rgba(232, 196, 104, .45)); }
+  body.dark-ok .article-bar .nx-share { color: #E3A89A; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-toast { transition: none; }
+  .nx-t-count.is-bump .nx-t-n { animation: none; }
+}

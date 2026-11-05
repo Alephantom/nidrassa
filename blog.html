@@ -19,6 +19,19 @@ app_page: true
   </div>
 </section>
 
+{%- comment -%} Reihe „Nidrassa empfiehlt“: erst ab 3 markierten Artikeln (front matter empfehlung: true), höchstens 5. {%- endcomment -%}
+{%- assign recs = site.posts | where_exp: "p", "p.empfehlung == true" -%}
+{%- if recs.size >= 3 %}
+<section class="blog-rec-section" aria-labelledby="rec-h">
+  <div class="wrap">
+    <h2 class="list-title nx-rec-title" id="rec-h"><svg class="nx-star" aria-hidden="true"><use href="#star"/></svg>Nidrassa empfiehlt</h2>
+    <div class="posts nx-rec-row">
+      {% for post in recs limit: 5 %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
 <section class="blog-hl-section">
   <div class="wrap">
     <h2 class="list-title">Neu im Blog</h2>

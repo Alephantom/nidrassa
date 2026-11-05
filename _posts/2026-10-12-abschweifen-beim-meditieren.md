@@ -3,6 +3,7 @@ title: "Warum dein Geist abschweift – und warum genau das dein Training ist"
 description: "Deine Gedanken schweifen beim Meditieren ständig ab? Genau das ist dein Training. Was die Hirnforschung dazu sagt – und eine 1-Minuten-Übung."
 date: 2026-10-12 07:00:00 +0200
 topic: meditation
+empfehlung: true
 keywords: [Abschweifen beim Meditieren, Gedanken schweifen ab Meditation, Default Mode Network, Meditation Gehirn, Mental Load Meditation]
 image: /assets/cushion.webp
 image_alt: "Ein rostrotes Meditationskissen liegt vor einer Steinmauer"
