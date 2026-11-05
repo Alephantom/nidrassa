@@ -1,0 +1,30 @@
+---
+layout: default
+title: "Quellen zu den Übungen"
+description: "Warum die Nidrassa-Übungen wirken: die Studien und Übersichtsarbeiten hinter den kurzen Erklärungen, je Übung mit DOI-Link."
+permalink: /quellen/
+---
+{%- comment -%}
+  Sources for the practice intros (05.11.2026). Data: _data/practices.yml (slug, intro, sources) + _data/quellen.yml.
+  Anchor per practice = slug, linked from every practice card („Warum das wirkt – Quellen →“).
+{%- endcomment -%}
+<main class="legal quellen">
+  <div class="wrap">
+    <p class="eyebrow">Begleitübungen</p>
+    <h1>Warum das wirkt</h1>
+    <p class="q-intro">Die kurzen Erklärungen zu unseren Übungen stützen sich auf veröffentlichte Studien und Übersichtsarbeiten. Sie beschreiben, was vielen Menschen hilft, und ersetzen keine ärztliche oder psychotherapeutische Begleitung.</p>
+    <p>Die Übungen sind kleine Pausen für deinen Alltag und ersetzen keine Therapie. Wenn es dir über längere Zeit nicht gut geht, hole dir bitte ärztliche oder psychotherapeutische Unterstützung.</p>
+    {%- for p in site.data.practices %}
+    <section class="q-group" id="{{ p.slug }}">
+      <h2>{{ p.title }}<span class="q-min">{{ site.data.formats[p.format].name }} · {{ p.minutes }} Min.</span></h2>
+      <p class="px-intro">{{ p.intro }}</p>
+      <ul class="q-list">
+        {%- for k in p.sources %}{% assign q = site.data.quellen[k] %}
+        <li>{{ q.authors }} ({{ q.year }}). {{ q.title }}. <em>{{ q.journal }}</em>. <a href="https://doi.org/{{ q.doi }}" target="_blank" rel="noopener">doi.org/{{ q.doi }}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endfor %}
+    <p class="q-back"><a href="/uebungen/">← Alle Übungen</a></p>
+  </div>
+</main>

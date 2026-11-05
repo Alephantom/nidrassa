@@ -32,8 +32,10 @@ app_page: true
         <button class="az-mark" type="button" aria-pressed="false" aria-label="Auf die Merkliste setzen"><svg aria-hidden="true"><use href="#t-mark"/></svg></button>
       </div>
       <h2 class="az-title">{{ p0.title }}</h2>
+      <p class="px-intro az-intro">{{ p0.intro }}</p>
       <p class="az-sub">{{ nums[p0.steps.size] }} Schritte für deine Atempause.</p>
       <ol class="az-steps">{% for s in p0.steps %}<li><b>{{ forloop.index }}</b><span>{{ s }}</span></li>{% endfor %}</ol>
+      {% include practice-links.html p=p0 %}
       <button class="az-cta" type="button" id="az-timer"><span class="tlbl">Timer starten</span><i aria-hidden="true"></i><span class="az-time">{{ p0.minutes }}:00</span></button>
       <p class="az-done" hidden>Geschafft. Wie fühlst du dich jetzt?</p>
       <button class="az-other" type="button" id="az-other"><span aria-hidden="true">⇄</span> Andere Übung</button>
@@ -108,7 +110,7 @@ app_page: true
       </div>
       <div class="pick" id="pick" aria-live="polite" hidden></div>
       {%- comment -%} Practice data for the random picker in assets/site.js {%- endcomment -%}
-      <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}}</script>
+      <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}, "video": {{ site.practice_video_default | jsonify }}}</script>
       <p class="mx-tagline mx-mobile">Eine kleine Pause. Mitten im Alltag.</p>
       <svg class="mx-star" aria-hidden="true"><use href="#star"/></svg>
       <a class="mx-link" href="/uebungen/">Alle Übungen ansehen →</a>

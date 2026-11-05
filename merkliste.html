@@ -19,5 +19,5 @@ noindex: true
   <p class="app-lead">Gespeichert nur auf diesem Gerät.</p>
   <div class="merk-list" id="merk-list"></div>
   <p class="merk-empty" id="merk-empty">Noch nichts gemerkt. Tippe in der <a href="/">Auszeit</a> auf das Lesezeichen einer Übung, dann findest du sie hier wieder.</p>
-  <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}}</script>
+  <script type="application/json" id="practice-data">{"formats": {{ site.data.formats | jsonify }}, "practices": {{ site.data.practices | jsonify }}, "video": {{ site.practice_video_default | jsonify }}}</script>
 </main>

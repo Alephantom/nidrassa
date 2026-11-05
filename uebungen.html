@@ -33,12 +33,15 @@ permalink: /uebungen/
           {%- for e in items %}
           <details class="ex">
             <summary><span class="dur">{{ e.minutes }} Min.</span>{{ e.title }}</summary>
+            <p class="px-intro">{{ e.intro }}</p>
             <ol class="steps">{% for step in e.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+            {% include practice-links.html p=e %}
           </details>
           {%- endfor %}
         </div>
       </div>
     </div>
     {%- endfor %}
+    <p class="lib-quellen"><a href="/quellen/">Warum das wirkt – Quellen →</a></p>
   </div>
 </section>

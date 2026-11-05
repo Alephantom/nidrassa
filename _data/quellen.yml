@@ -1,0 +1,135 @@
+# Studies behind the practice intros (/quellen/). Key = used in practices.yml „sources“.
+# Every DOI checked 05.11.2026 via doi.org handle API (responseCode 1) + Crossref metadata.
+
+balban2023:
+  authors: "Balban MY, Neri E, Kogon MM et al."
+  year: 2023
+  title: "Brief structured respiration practices enhance mood and reduce physiological arousal"
+  journal: "Cell Reports Medicine 4(1):100895"
+  doi: "10.1016/j.xcrm.2022.100895"
+bratman2015:
+  authors: "Bratman GN, Hamilton JP, Hahn KS, Daily GC, Gross JJ"
+  year: 2015
+  title: "Nature experience reduces rumination and subgenual prefrontal cortex activation"
+  journal: "PNAS 112(28):8567–8572"
+  doi: "10.1073/pnas.1510459112"
+davis2016:
+  authors: "Davis DE, Choe E, Meyers J et al."
+  year: 2016
+  title: "Thankful for the little things: A meta-analysis of gratitude interventions"
+  journal: "Journal of Counseling Psychology 63(1):20–31"
+  doi: "10.1037/cou0000107"
+dickens2017:
+  authors: "Dickens LR"
+  year: 2017
+  title: "Using gratitude to promote positive change: A series of meta-analyses investigating the effectiveness of gratitude interventions"
+  journal: "Basic and Applied Social Psychology 39(4):193–208"
+  doi: "10.1080/01973533.2017.1323638"
+fincham2023:
+  authors: "Fincham GW, Strauss C, Montero-Marin J, Cavanagh K"
+  year: 2023
+  title: "Effect of breathwork on stress and mental health: A meta-analysis of randomised-controlled trials"
+  journal: "Scientific Reports 13:432"
+  doi: "10.1038/s41598-022-27247-y"
+frattaroli2006:
+  authors: "Frattaroli J"
+  year: 2006
+  title: "Experimental disclosure and its moderators: A meta-analysis"
+  journal: "Psychological Bulletin 132(6):823–865"
+  doi: "10.1037/0033-2909.132.6.823"
+gan2022:
+  authors: "Gan R, Zhang L, Chen S"
+  year: 2022
+  title: "The effects of body scan meditation: A systematic review and meta-analysis"
+  journal: "Applied Psychology: Health and Well-Being 14(3):1062–1080"
+  doi: "10.1111/aphw.12366"
+goyal2014:
+  authors: "Goyal M, Singh S, Sibinga EMS et al."
+  year: 2014
+  title: "Meditation programs for psychological stress and well-being: A systematic review and meta-analysis"
+  journal: "JAMA Internal Medicine 174(3):357–368"
+  doi: "10.1001/jamainternmed.2013.13018"
+hanley2015:
+  authors: "Hanley AW, Warner AR, Dehili VM et al."
+  year: 2015
+  title: "Washing dishes to wash the dishes: Brief instruction in an informal mindfulness practice"
+  journal: "Mindfulness 6(5):1095–1103"
+  doi: "10.1007/s12671-014-0360-9"
+hasenkamp2012:
+  authors: "Hasenkamp W, Wilson-Mendenhall CD, Duncan E, Barsalou LW"
+  year: 2012
+  title: "Mind wandering and attention during focused meditation: A fine-grained temporal analysis of fluctuating cognitive states"
+  journal: "NeuroImage 59(1):750–760"
+  doi: "10.1016/j.neuroimage.2011.07.008"
+laborde2022:
+  authors: "Laborde S, Allen M, Borges U et al."
+  year: 2022
+  title: "Effects of voluntary slow breathing on heart rate and heart rate variability: A systematic review and a meta-analysis"
+  journal: "Neuroscience & Biobehavioral Reviews 138:104711"
+  doi: "10.1016/j.neubiorev.2022.104711"
+lieberman2007:
+  authors: "Lieberman MD, Eisenberger NI, Crockett MJ et al."
+  year: 2007
+  title: "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli"
+  journal: "Psychological Science 18(5):421–428"
+  doi: "10.1111/j.1467-9280.2007.01916.x"
+monteromarin2013:
+  authors: "Montero-Marín J, Asún S, Estrada-Marcén N et al."
+  year: 2013
+  title: "Efectividad de un programa de estiramientos sobre los niveles de ansiedad de los trabajadores de una plataforma logística: un estudio controlado aleatorizado"
+  journal: "Atención Primaria 45(7):376–383"
+  doi: "10.1016/j.aprim.2013.03.002"
+pascoe2017:
+  authors: "Pascoe MC, Thompson DR, Ski CF"
+  year: 2017
+  title: "Yoga, mindfulness-based stress reduction and stress-related physiological measures: A meta-analysis"
+  journal: "Psychoneuroendocrinology 86:152–168"
+  doi: "10.1016/j.psyneuen.2017.08.008"
+seligman2005:
+  authors: "Seligman MEP, Steen TA, Park N, Peterson C"
+  year: 2005
+  title: "Positive psychology progress: Empirical validation of interventions"
+  journal: "American Psychologist 60(5):410–421"
+  doi: "10.1037/0003-066X.60.5.410"
+teut2013:
+  authors: "Teut M, Roesner EJ, Ortiz M et al."
+  year: 2013
+  title: "Mindful walking in psychologically distressed individuals: A randomized controlled trial"
+  journal: "Evidence-Based Complementary and Alternative Medicine 2013:489856"
+  doi: "10.1155/2013/489856"
+torre2018:
+  authors: "Torre JB, Lieberman MD"
+  year: 2018
+  title: "Putting feelings into words: Affect labeling as implicit emotion regulation"
+  journal: "Emotion Review 10(2):116–124"
+  doi: "10.1177/1754073917742706"
+toussaint2021:
+  authors: "Toussaint L, Nguyen QA, Roettger C et al."
+  year: 2021
+  title: "Effectiveness of progressive muscle relaxation, deep breathing, and guided imagery in promoting psychological and physiological states of relaxation"
+  journal: "Evidence-Based Complementary and Alternative Medicine 2021:5924040"
+  doi: "10.1155/2021/5924040"
+wang2020:
+  authors: "Wang WL, Chen KH, Pan YC et al."
+  year: 2020
+  title: "The effect of yoga on sleep quality and insomnia in women with sleep problems: A systematic review and meta-analysis"
+  journal: "BMC Psychiatry 20:195"
+  doi: "10.1186/s12888-020-02566-4"
+webb2012:
+  authors: "Webb TL, Miles E, Sheeran P"
+  year: 2012
+  title: "Dealing with feeling: A meta-analysis of the effectiveness of strategies derived from the process model of emotion regulation"
+  journal: "Psychological Bulletin 138(4):775–808"
+  doi: "10.1037/a0027600"
+xu2024:
+  authors: "Xu Z, Zheng X, Ding H et al."
+  year: 2024
+  title: "The effect of walking on depressive and anxiety symptoms: Systematic review and meta-analysis"
+  journal: "JMIR Public Health and Surveillance 10:e48355"
+  doi: "10.2196/48355"
+zaccaro2018:
+  authors: "Zaccaro A, Piarulli A, Laurino M et al."
+  year: 2018
+  title: "How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing"
+  journal: "Frontiers in Human Neuroscience 12:353"
+  doi: "10.3389/fnhum.2018.00353"

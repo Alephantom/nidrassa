@@ -1,0 +1,8 @@
+{%- comment -%}
+  Small links under a practice: „Mit Video mitatmen → Instagram“ (atmung only; own reel via video_url, else
+  site.practice_video_default) and „Warum das wirkt – Quellen →“ (anchor on /quellen/). Param: p = practice.
+  Same markup is built in site.js (practiceLinks) when the card swaps.
+{%- endcomment -%}
+<p class="px-links">
+  {%- if include.p.format == "atmung" %}<a href="{{ include.p.video_url | default: site.practice_video_default }}" target="_blank" rel="noopener">Mit Video mitatmen → Instagram</a>{% endif -%}
+  <a href="/quellen/#{{ include.p.slug }}">Warum das wirkt – Quellen →</a></p>

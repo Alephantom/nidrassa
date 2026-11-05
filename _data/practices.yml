@@ -1,9 +1,15 @@
 # Companion practices ("Begleitübungen").
 # format: key from formats.yml · minutes: 2, 5 or 15 (used by the 2-5-15 picker) · steps: shown as a numbered list.
+# slug: anchor on /quellen/ · intro: short italic „why + when“ text on the card (INTROS_v1.md, approved 05.11.2026)
+# sources: keys from quellen.yml · video_url (optional): own reel for this practice; atmung practices without it
+#   link to site.practice_video_default (Instagram reels page).
 
 - format: meditation
   minutes: 2
   title: "Zwölf bewusste Atemzüge"
+  slug: zwoelf-atemzuege
+  intro: "Wenn du länger aus- als einatmest, sprichst du den Vagusnerv an, die „Bremse“ deines Nervensystems: Der Puls wird ruhiger, der Körper schaltet einen Gang zurück. Ideal zwischen zwei Terminen, vor dem Abholen oder wenn du merkst, dass deine Stimme schärfer wird."
+  sources: [laborde2022, zaccaro2018]
   steps:
     - "Halte an, wo du gerade bist. Stelle beide Füße auf den Boden und lege eine Hand auf deinen Bauch."
     - "Atme ruhig durch die Nase ein und spüre, wie sich dein Bauch unter deiner Hand hebt."
@@ -13,6 +19,9 @@
 - format: atmung
   minutes: 2
   title: "Der lange Seufzer"
+  slug: langer-seufzer
+  intro: "Zwei kurze Einatemzüge füllen deine Lunge ganz, das lange Ausatmen danach lässt deinen Körper herunterfahren; täglich geübt hob dieses Seufzen (cyclic sighing) in einer Studie die Stimmung. Gut, wenn dein Kind weint, das Telefon klingelt und der Topf überkocht, alles zugleich."
+  sources: [balban2023]
   steps:
     - "Atme zweimal kurz hintereinander durch die Nase ein."
     - "Atme lang und langsam durch den Mund aus."
@@ -20,6 +29,9 @@
 - format: journaling
   minutes: 2
   title: "Ein ehrlicher Satz"
+  slug: ehrlicher-satz
+  intro: "Gefühle in Worte zu fassen kann die Alarmzentrale im Gehirn (die Amygdala) dämpfen, Forschende nennen das „Affect Labeling“. Gut, wenn sich alles gleichzeitig anfühlt und du nicht genau weißt, was los ist."
+  sources: [lieberman2007, torre2018]
   steps:
     - "Nimm Stift und Papier oder dein Handy."
     - "Vervollständige: „Gerade fühle ich mich …“"
@@ -27,6 +39,9 @@
 - format: dehnen
   minutes: 2
   title: "Schultern lösen"
+  slug: schultern-loesen
+  intro: "Wenn du Muskeln bewusst anspannst und dann loslässt, spürt dein Körper den Unterschied, und viele erleben das als echte Entspannung (ähnlich der progressiven Muskelentspannung). Gut nach langem Tragen, Stillen oder Tippen, wenn deine Schultern unbemerkt bis zu den Ohren gewandert sind."
+  sources: [toussaint2021]
   steps:
     - "Zieh die Schultern hoch zu den Ohren und halte kurz."
     - "Lass sie mit dem Ausatmen fallen. Fünfmal."
@@ -34,6 +49,9 @@
 - format: alltag
   minutes: 2
   title: "Unter der Dusche"
+  slug: unter-der-dusche
+  intro: "Wenn du deine Aufmerksamkeit ganz auf Wärme, Geräusch und Gefühl des Wassers richtest, übst du Achtsamkeit mitten im Alltag; schon achtsames Abwaschen machte Menschen in einer Studie weniger nervös. Ideal an Tagen, an denen für eine eigene Pause kein Platz bleibt."
+  sources: [hanley2015]
   steps:
     - "Spür nur das Wasser: Temperatur, Geräusch, wo es auf die Haut trifft."
     - "Wenn Gedanken an den Tag kommen, geh zurück zum Wasser."
@@ -41,6 +59,9 @@
 - format: alltag
   minutes: 2
   title: "5-4-3-2-1"
+  slug: 5-4-3-2-1
+  intro: "Wenn du deine Sinne bewusst nach außen lenkst, holst du deine Aufmerksamkeit aus dem Gedankenkarussell zurück ins Hier und Jetzt. Hilfreich, wenn Gedanken kreisen oder Gefühle dich überrollen."
+  sources: [webb2012]
   steps:
     - "Nenne in Gedanken 5 Dinge, die du siehst."
     - "4 Dinge, die du hörst."
@@ -49,6 +70,9 @@
 - format: meditation
   minutes: 5
   title: "Body-Scan im Sitzen"
+  slug: body-scan
+  intro: "Wenn du Stück für Stück in deinen Körper hineinspürst, kannst du Anspannung früher bemerken; der Body-Scan ist ein Baustein von Achtsamkeitsprogrammen (MBSR), die in Studien Sorgen und Anspannung etwas lindern konnten. Gut nach einem vollen Vormittag oder wenn du nur noch im Kopf unterwegs bist."
+  sources: [goyal2014, gan2022]
   steps:
     - "Setz dich bequem hin, schließ die Augen oder senk den Blick."
     - "Wandere mit deiner Aufmerksamkeit langsam von den Füßen bis zum Kopf."
@@ -57,6 +81,9 @@
 - format: atmung
   minutes: 5
   title: "4-6-Atmung"
+  slug: 4-6-atmung
+  intro: "Langsames Atmen mit langem Ausatmen stärkt messbar die Aktivität deines Ruhenervs (die Herzratenvariabilität steigt), dein Körper bekommt das Signal: Du darfst loslassen. Gut am Abend, wenn dein Kind endlich schläft und du selbst noch auf Hochtouren läufst."
+  sources: [laborde2022, fincham2023]
   steps:
     - "Atme durch die Nase ein und zähle dabei bis 4."
     - "Atme langsam aus und zähle bis 6."
@@ -65,6 +92,9 @@
 - format: journaling
   minutes: 5
   title: "Drei gute Dinge"
+  slug: drei-gute-dinge
+  intro: "Wenn du am Abend gezielt nach Gutem suchst, lenkst du deinen Blick weg vom Unerledigten, und das kann bei vielen über Wochen die Stimmung leicht heben. Gut an Tagen, an denen sich alles nur nach Liste und Pflicht angefühlt hat."
+  sources: [seligman2005, davis2016]
   steps:
     - "Schreib drei Dinge auf, die heute gut waren. Auch kleine zählen."
     - "Such dir eins davon aus."
@@ -72,6 +102,9 @@
 - format: dehnen
   minutes: 5
   title: "Sanfte Morgenrunde"
+  slug: sanfte-morgenrunde
+  intro: "Sanftes Dehnen weckt deinen Körper behutsam auf und löst die Steifheit der Nacht; in einer Studie verringerte ein kurzes Dehnprogramm die Ängstlichkeit von Beschäftigten. Gut, bevor der Familienmorgen losgeht, oder nach einer unruhigen Nacht."
+  sources: [monteromarin2013]
   steps:
     - "Streck beide Arme weit nach oben und atme tief ein."
     - "Neig dich langsam zur Seite, erst rechts, dann links."
@@ -80,13 +113,31 @@
 - format: alltag
   minutes: 5
   title: "Auf dem Weg"
+  slug: auf-dem-weg
+  intro: "Wenn du beim Gehen bewusst wahrnimmst, statt aufs Handy zu schauen, verbindest du Bewegung mit Achtsamkeit; beides kann die Stimmung heben und das Grübeln leiser machen. Ideal auf dem Weg zur Kita, zum Einkaufen oder zurück zum Auto."
+  sources: [xu2024, bratman2015]
   steps:
     - "Steck das Handy weg."
     - "Nimm bewusst wahr: deine Schritte, die Geräusche, das Licht."
     - "Wenn du merkst, dass du abschweifst, fang einfach wieder an."
 - format: meditation
   minutes: 15
+  title: "Dankbarkeit spüren"
+  slug: dankbarkeit-spueren
+  intro: "Wenn du deine Aufmerksamkeit bewusst auf Gutes richtest, lenkst du sie weg vom Unerledigten; Dankbarkeitsübungen konnten in Studien die Stimmung leicht heben. Gut am Abend oder an Tagen, an denen du nur siehst, was noch fehlt."
+  sources: [davis2016, dickens2017]
+  steps:
+    - "Setze dich bequem hin, schließe die Augen oder senke den Blick und atme ein paar Mal ruhig aus."
+    - "Denke an etwas Kleines von heute, für das du dankbar bist: eine warme Tasse, ein Lachen, ein Moment Ruhe. Bleibe einige Atemzüge dabei und spüre, wo du es im Körper wahrnimmst."
+    - "Denke an einen Menschen, der dir gutgetan hat, und lasse ein stilles „Danke“ zu ihm wandern."
+    - "Wende dich dann dir selbst zu: Wofür kannst du dir heute danken? Für etwas, das du getragen, geschafft oder ausgehalten hast."
+    - "Lasse das Gefühl noch ein wenig nachklingen, atme tief aus und öffne langsam die Augen."
+- format: atmung
+  minutes: 15
   title: "Der Atem als Anker"
+  slug: atem-als-anker
+  intro: "Wenn du das Abschweifen bemerkst und freundlich zum Atem zurückkehrst, arbeiten andere Netzwerke im Gehirn als beim Grübeln, und regelmäßiges Üben kann Sorgen und Anspannung lindern. Gut, wenn du 15 Minuten für dich hast, etwa im Mittagsschlaf deines Kindes."
+  sources: [hasenkamp2012, goyal2014]
   steps:
     - "Stell dir einen Timer auf 15 Minuten und setz dich bequem hin."
     - "Richte deine Aufmerksamkeit auf den Atem, an der Nase oder am Bauch."
@@ -95,6 +146,9 @@
 - format: journaling
   minutes: 15
   title: "Was brauche ich gerade wirklich?"
+  slug: was-brauche-ich
+  intro: "Wenn du Gedanken und Gefühle frei aufschreibst, ordnest du, was sonst ungeordnet im Kopf kreist; Studien zum expressiven Schreiben zeigen kleine, aber echte positive Effekte. Gut, wenn du funktionierst, aber nicht mehr spürst, was du selbst brauchst."
+  sources: [frattaroli2006]
   steps:
     - "Nimm dir die Frage: „Was brauche ich gerade wirklich?“"
     - "Schreib zehn Minuten, ohne abzusetzen."
@@ -102,6 +156,9 @@
 - format: dehnen
   minutes: 15
   title: "Runterkommen am Abend"
+  slug: runterkommen-am-abend
+  intro: "Langsame Bewegungen im Rhythmus des Atems helfen deinem Körper, vom Tag auf Ruhe umzuschalten; Yoga konnte in Studien Stresswerte wie Cortisol senken und den Schlaf von Frauen verbessern. Gut, wenn das Einschlafen dauert, weil dein Kopf schon den nächsten Tag plant."
+  sources: [pascoe2017, wang2020]
   steps:
     - "Katze-Kuh im Vierfüßlerstand, im Rhythmus deines Atems."
     - "Kindhaltung, einige Atemzüge lang."
@@ -110,6 +167,9 @@
 - format: alltag
   minutes: 15
   title: "Langsames Gehen"
+  slug: langsames-gehen
+  intro: "Wenn du jeden Schritt bewusst spürst, bindest du deine Aufmerksamkeit an den Körper und gibst dem Gedankenkarussell weniger Raum; in einer Studie senkte achtsames Gehen das Stressempfinden. Gut an Abenden, an denen du spürst, dass alles zu schnell geworden ist."
+  sources: [teut2013]
   steps:
     - "Such dir einen ruhigen Ort, drinnen oder draußen."
     - "Geh deutlich langsamer als sonst."
