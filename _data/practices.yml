@@ -3,12 +3,13 @@
 
 - format: meditation
   minutes: 2
-  title: "Drei bewusste Atemzüge"
+  title: "Zwölf bewusste Atemzüge"
   steps:
-    - "Halte an, wo du gerade bist."
-    - "Atme dreimal langsam ein und aus."
-    - "Spür bei jedem Ausatmen, wie deine Schultern ein Stück sinken."
-    - "Dann mach weiter mit deinem Tag."
+    - "Halte an, wo du gerade bist. Stelle beide Füße auf den Boden und lege eine Hand auf deinen Bauch."
+    - "Atme ruhig durch die Nase ein und spüre, wie sich dein Bauch unter deiner Hand hebt."
+    - "Atme langsam durch den Mund aus, etwas länger als das Einatmen, und lasse bei jedem Ausatmen deine Schultern ein Stück sinken."
+    - "Zähle so zwölf Atemzüge. Wenn deine Gedanken wandern, beginne einfach wieder bei eins, ganz ohne Druck."
+    - "Spüre zum Schluss kurz nach: Was ist jetzt ein wenig ruhiger als vorher? Dann gehe weiter in deinen Tag."
 - format: atmung
   minutes: 2
   title: "Der lange Seufzer"
