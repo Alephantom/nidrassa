@@ -659,3 +659,19 @@ document.querySelectorAll("[data-back]").forEach(a => a.addEventListener("click"
     }
   }, { passive: true });
 })();
+
+// ---------- Installierte App (Startbildschirm, display-mode standalone) ----------
+// Etsy und andere fremde Seiten öffnen im Browser statt in der App: Links nach außen und die
+// Etsy-Weiterleitungen (/etsy/…) bekommen dort target=_blank. Die Android-Zurück-Geste
+// bleibt in der App-History (Tabs und Seiten sind normale Navigationen).
+(() => {
+  const app = window.matchMedia && matchMedia("(display-mode: standalone)");
+  if (!app) return;
+  const external = a => a.origin !== location.origin || a.pathname.startsWith("/etsy/");
+  document.addEventListener("click", e => {
+    if (!app.matches) return;
+    const a = e.target.closest && e.target.closest("a[href]");
+    if (!a || a.target || a.hasAttribute("download") || !/^https?:/.test(a.protocol) || !external(a)) return;
+    a.target = "_blank"; a.rel = "noopener";
+  }, true);
+})();

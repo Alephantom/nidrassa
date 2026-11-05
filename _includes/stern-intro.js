@@ -22,6 +22,22 @@
   var EVENTS = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
 
   var curtain, star, cue, geo, liftDur = LIFT, start = 0, running = false, finished = false;
+  var OLIVE = '#42452A', metas = [], tinted = false;
+  // Installierte App (Startbildschirm): Android zeigt vorher den Splash (Olive, Stern mittig, ~128 dp).
+  // Der Intro-Stern beginnt deshalb genau dort, in der Bildschirmmitte, und gleitet beim Wachsen nach oben;
+  // die Schrift blendet erst danach ein. So wirkt Splash → Intro wie ein Übergang.
+  var APP = !!(window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  var texts = [];
+
+  // Status-/Browserleiste (theme-color) während des Vorhangs in Olive: die App vom Startbildschirm
+  // startet mit dem olivgrünen Splash (Manifest background_color) und geht nahtlos ins Intro über.
+  function tint(on) {
+    if (on === tinted) return; tinted = on;
+    if (on) metas = [].slice.call(document.querySelectorAll('meta[name="theme-color"]'));
+    metas.forEach(function (m) {
+      if (on) { m.dataset.siColor = m.content; m.content = OLIVE; } else { m.content = m.dataset.siColor; }
+    });
+  }
 
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
   function inOut(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
@@ -47,8 +63,15 @@
     curtain.appendChild(hero.querySelector('.hero-inner').cloneNode(true));
     var a = curtain.querySelector('a'); if (a) a.setAttribute('tabindex', '-1');
     document.body.appendChild(curtain);
+    tint(true);
     star = curtain.querySelector('.star');
     cue = curtain.querySelector('.scroll');
+    if (APP) {
+      texts = [].slice.call(curtain.querySelectorAll('.hero-inner > :not(svg)'));
+      texts.forEach(function (el) { el.style.opacity = '0'; });
+      var r = star.getBoundingClientRect();                // vor dem ersten Bild: Stern in die Mitte
+      star.style.transform = 'translateY(' + (innerHeight / 2 - (r.top + r.height / 2)) + 'px) scale(.5)';
+    }
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     // erstes Bild unter dem Hero schon jetzt laden (wird im Endzustand sichtbar)
     var img = document.querySelector('.hero ~ section img[loading="lazy"]');
@@ -57,12 +80,13 @@
 
   // Nach dem Laden der Schriften: Geometrie messen, Seite darunter auf den Inhalt stellen
   function measure() {
+    star.style.transform = '';                             // Mitte-Versatz (App) nicht mitmessen
     var sr = star.getBoundingClientRect();
     var hr = curtain.querySelector('h1').getBoundingClientRect();
     var size = sr.width, cy = sr.top + sr.height / 2;
     var gap = Math.max(14, innerHeight * 0.025);           // Abstand Spitze → Oberkante NIDRASSA
     var target = (hr.top - gap) / TIP;                      // Größe, bei der die Spitze auf NIDRASSA zeigt
-    geo = { k: target / size, dy: -cy };                     // Mitte wandert an die Oberkante (= halbiert)
+    geo = { k: target / size, dy: -cy, d0: APP ? innerHeight / 2 - cy : 0 };  // Mitte wandert an die Oberkante (= halbiert)
     bigStar(sr.left + sr.width / 2, cy, size * geo.k);
     syncScroll();
   }
@@ -91,8 +115,11 @@
   function render(t) {
     var g = inOut(clamp((t - T_GROW) / GROW));
     var l = lift(clamp((t - T_LIFT) / liftDur));
-    star.style.transform = 'translateY(' + (geo.dy * g) + 'px) rotate(' + (360 * g) + 'deg) scale(' + (1 + (geo.k - 1) * g) / geo.k + ')';
-    if (cue) cue.style.opacity = String(1 - clamp(g * 2.5));
+    star.style.transform = 'translateY(' + (geo.dy * g + geo.d0 * (1 - g)) + 'px) rotate(' + (360 * g) + 'deg) scale(' + (1 + (geo.k - 1) * g) / geo.k + ')';
+    if (APP) {
+      var o = String(clamp((g - .15) / .5));
+      texts.forEach(function (el) { if (el !== cue) el.style.opacity = o; });
+    } else if (cue) cue.style.opacity = String(1 - clamp(g * 2.5));
     // ganz hoch inkl. Schatten (80 px), damit beim Entfernen nichts mehr zuckt
     curtain.style.transform = 'translateY(calc(' + (-100 * l) + '% - ' + (80 * l) + 'px))';
   }
@@ -101,6 +128,7 @@
     if (finished) return; finished = true;
     EVENTS.forEach(function (e) { removeEventListener(e, skip); });
     if (curtain) curtain.remove();
+    tint(false);
     if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
   }
 
@@ -114,6 +142,7 @@
     if (finished) return;
     var t = performance.now() - start;
     if (t < T_LIFT) syncScroll();                          // falls sich darunter noch etwas verschiebt
+    else tint(false);                                      // Vorhang hebt sich: Leiste wieder in Seitenfarbe
     render(t);
     if (t - T_LIFT >= liftDur) done(); else requestAnimationFrame(tick);
   }
@@ -121,6 +150,7 @@
   function begin() {
     if (running) return; running = true;
     measure();
+    render(0);                                             // gleiches Bild wie vor dem Messen, kein Springen
     start = performance.now();
     requestAnimationFrame(tick);
   }

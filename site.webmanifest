@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Nidrassa",
+  "short_name": "Nidrassa",
+  "description": "Kurze Auszeiten für Mamas: Atmen, Meditation, Journaling.",
+  "lang": "de",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#42452A",
+  "theme_color": "#F2EADF",
+  "user_preferences": { "color_scheme_dark": { "theme_color": "#1C1D15", "background_color": "#42452A" } },
+  "icons": [
+    { "src": "/assets/app-icon/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/app-icon/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/app-icon/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/assets/app-icon/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

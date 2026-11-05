@@ -1258,7 +1258,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
 
 /* --- Die App-Ansicht selbst: bis 1024 px --- */
 @media (max-width: 1024px) {
-  body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  body { padding-bottom: calc(var(--a-tabh) + var(--a-sb)); }
   body.app-page { background: var(--a-bg); color: var(--a-ink); }
   .app-only { display: block; }
   .app-view, .app-solo { max-width: none; margin: 0; padding: calc(var(--a-toph) + 22px) 20px 28px; }
@@ -1293,10 +1293,10 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   /* unten: Tab-Leiste, aktiver Tab als Pille */
   .app-tabs {
     display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
-    padding: 8px 6px calc(10px + env(safe-area-inset-bottom)); background: var(--a-tabs); border-top: 1px solid var(--a-line);
+    padding: 6px 6px calc(6px + var(--a-sb)); background: var(--a-tabs); box-shadow: var(--a-tabs-sh);
   }
-  .app-tabs a { display: flex; flex-direction: column; align-items: center; gap: 5px; font: 500 10px/1.2 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--a-ol); text-decoration: none; }
-  .app-tabs .ic { width: 54px; height: 30px; display: grid; place-items: center; border-radius: 999px; transition: background .2s; }
+  .app-tabs a { display: flex; flex-direction: column; align-items: center; gap: 3px; font: 500 10px/1.2 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--a-ol); text-decoration: none; }
+  .app-tabs .ic { width: 54px; height: 28px; display: grid; place-items: center; border-radius: 999px; transition: background .2s; }
   .app-tabs a[aria-current="page"] .ic { background: var(--a-pill); }
   .app-tabs svg { width: 22px; height: 22px; stroke: var(--a-ol); fill: none; stroke-width: 1.5; }
 
@@ -1387,7 +1387,7 @@ footer small { display: block; margin-top: 48px; font-size: 13px; color: var(--s
   .app-page .etsy-card .btn { background: #C9C7A6; color: #22231A; }
   /* Goldsterne: 4-Zack-Funkelsterne (Verlauf #F6E3A1→#D4AF37→#A8822A, leichter Glow), nur Seitenränder + Kopfzeile, nie über Text */
   body.app-page::before, body.app-page::after {
-    content: ""; position: fixed; top: var(--a-toph); bottom: 78px; z-index: 0; width: 16px; pointer-events: none;
+    content: ""; position: fixed; top: var(--a-toph); bottom: var(--a-tabh); z-index: 0; width: 16px; pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='560'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F6E3A1'/%3E%3Cstop offset='.55' stop-color='%23D4AF37'/%3E%3Cstop offset='1' stop-color='%23A8822A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url%28%23g%29'%3E%3Cpolygon opacity='0.85' points='8.00,35.50 9.21,39.79 13.50,41.00 9.21,42.21 8.00,46.50 6.79,42.21 2.50,41.00 6.79,39.79'/%3E%3Cpolygon opacity='0.6' points='5.00,147.50 5.77,150.23 8.50,151.00 5.77,151.77 5.00,154.50 4.23,151.77 1.50,151.00 4.23,150.23'/%3E%3Cpolygon opacity='0.75' points='10.00,261.50 10.99,265.01 14.50,266.00 10.99,266.99 10.00,270.50 9.01,266.99 5.50,266.00 9.01,265.01'/%3E%3Cpolygon opacity='0.6' points='7.00,370.50 8.43,375.57 13.50,377.00 8.43,378.43 7.00,383.50 5.57,378.43 0.50,377.00 5.57,375.57'/%3E%3Cpolygon opacity='0.7' points='9.00,477.00 9.88,480.12 13.00,481.00 9.88,481.88 9.00,485.00 8.12,481.88 5.00,481.00 8.12,480.12'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: repeat-y; filter: drop-shadow(0 0 3px rgba(232, 196, 104, .75));
   }
@@ -1522,6 +1522,22 @@ body .bb a { color: var(--a-ink); text-decoration: none; }
 @keyframes sw-in-r { from { transform: translateX(100%); } }
 @keyframes sw-in-l { from { transform: translateX(-100%); } }
 
+/* Android/Chrome 135+ (Edge-to-Edge mit viewport-fit=cover) und installierte App:
+   Die Tab-Leiste reicht immer bis unter die Gestenleiste, ihr Hintergrund (= html-Hintergrund) füllt den
+   Streifen, kein heller Rand. Muster nach developer.chrome.com/docs/css-ui/edge-to-edge: Höhe einmal mit dem
+   größten Inset (safe-area-max-inset-bottom) und per bottom nach unten schieben, solange das Inset kleiner ist
+   (Chrome-„Kinn“ sichtbar). Kein padding mit dem dynamischen Inset (Layout-Flackern, Kinn bleibt stehen).
+   Safari/ältere Browser kennen max-inset nicht: Fallback = normales Inset, bottom bleibt 0.
+   Oben statt harter Linie ein sehr feiner Schatten in Seitenfarbe. */
+@media (max-width: 1024px) {
+  :root { --a-tabh: 56px; --a-sb: env(safe-area-max-inset-bottom, env(safe-area-inset-bottom, 0px));
+    --a-tabs-sh: 0 -1px 0 rgba(66, 69, 42, .04), 0 -12px 24px -16px rgba(42, 42, 30, .28); }
+  .app-tabs { bottom: calc(env(safe-area-inset-bottom, 0px) - var(--a-sb)); }
+}
+@media (max-width: 1024px) and (prefers-color-scheme: dark) {
+  :root { --a-tabs-sh: 0 -1px 0 rgba(230, 221, 203, .04), 0 -12px 24px -14px rgba(0, 0, 0, .7); }
+}
+
 /* iPhone: ganzer Bildschirm (viewport-fit=cover in head.html). Tab-Leiste reicht bis ganz unten
    unter den Home-Indikator, Kopfzeile unter die Statusleiste; Hintergrund auch auf html, damit beim
    Überscrollen kein heller oder falschfarbiger Streifen erscheint. */
@@ -1531,12 +1547,12 @@ body .bb a { color: var(--a-ink); text-decoration: none; }
   body:not(.has-subnav) .app-top { height: calc(var(--a-toph) + var(--a-safe-t)); padding-top: var(--a-safe-t);
     padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
   .app-view, .app-solo { padding-top: calc(var(--a-toph) + var(--a-safe-t) + 22px); }
-  body.app-page::before, body.app-page::after { top: calc(var(--a-toph) + var(--a-safe-t)); bottom: calc(78px + env(safe-area-inset-bottom)); }
+  body.app-page::before, body.app-page::after { top: calc(var(--a-toph) + var(--a-safe-t)); bottom: calc(var(--a-tabh) + var(--a-sb)); }
 }
 @media (min-width: 700px) and (max-width: 1024px) {
   body:not(.has-subnav) .app-top { padding-left: max(34px, env(safe-area-inset-left)); padding-right: max(34px, env(safe-area-inset-right)); }
   .app-view, .app-solo { padding-top: calc(var(--a-toph) + var(--a-safe-t) + 30px); }
 }
 @media (max-width: 1024px) and (prefers-color-scheme: dark) {
-  html:has(> body.app-page), html:has(> body.dark-ok) { background: #22231A; }
+  html:has(> body.app-page), html:has(> body.dark-ok) { background: #1C1D15; }
 }
