@@ -1,7 +1,7 @@
 ---
 layout: null
-permalink: /pins/kalender.rss
+permalink: /pins/advent-ausdrucken.rss
 sitemap: false
-feed: kalender
+feed: advent-ausdrucken
 ---
 {%- include pin-feed.rss feed=page.feed -%}

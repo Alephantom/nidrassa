@@ -1,7 +1,7 @@
 ---
 layout: null
-permalink: /pins/mamatequiero.rss
+permalink: /pins/advent-erwachsene.rss
 sitemap: false
-feed: mamatequiero
+feed: advent-erwachsene
 ---
 {%- include pin-feed.rss feed=page.feed -%}

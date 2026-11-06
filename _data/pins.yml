@@ -1,44 +1,429 @@
 # Pinterest-Pins für die RSS-Feeds /pins/<feed>.rss  (Anleitung: PINTEREST_RSS_ANLEITUNG.md bei Cleo/nidrassa/pinterest)
 #
-# Ein Eintrag = ein Pin. Felder:
-#   id:           eindeutig, nie wiederverwenden (wird zur guid; Pinterest erkennt daran neue Pins)
-#   feed:         advent | kalender | mamatequiero  (= Board, siehe _data/pin_feeds.yml)
-#   datum:        "JJJJ-MM-TT HH:MM" Uhrzeit Granada. Der Pin erscheint im Feed ab dem ersten Build danach
-#                 (täglich 06:00 Granada oder bei jedem Merge); Pinterest holt ihn dann innerhalb von 24 h.
+# Ein Eintrag = ein Pin an einem Tag. Felder:
+#   id:           Pin-Name aus dem Plan (= Bilddatei ohne .jpg). guid im Feed = id + datum,
+#                 eine Wiederholung desselben Bildes an einem anderen Tag ist für Pinterest also ein neuer Pin.
+#   feed:         Feed-Schlüssel = Board, siehe _data/pin_feeds.yml
+#   datum:        "JJJJ-MM-TT" (Tag der Freigabe). Der Pin steht im Feed ab dem Build an diesem Tag
+#                 (täglich 05:00 UTC = 06:00 Granada, oder bei jedem Merge) und bleibt 30 Tage drin.
+#   uhrzeit:      "HH:MM" Uhrzeit Granada, nur für pubDate.
 #   titel:        max. 100 Zeichen
 #   beschreibung: max. ca. 420 Zeichen OHNE Rabattcode. Bei Etsy-Zielen hängt der Feed den Satz mit PINTEREST26 selbst an.
-#   bild:         Dateiname unter /assets/pinterest/ (JPG, 1000×1500, muss im Repo liegen)
+#   bild:         Dateiname unter /assets/pinterest/ (JPG, 1000×1500, ≤ 300 KB, muss im Repo liegen; fehlt es, bleibt der Pin draußen)
 #   ziel:         advent | bluetenjahr | familienjahr (= /etsy/<ziel>/, siehe _data/etsy_links.yml)
 #                 oder ein Pfad auf nidrassa.com, z. B. /mamatequiero/
 #   aktiv:        true = wird veröffentlicht, false = bleibt draußen
 #
-# Woche 1 (Paket 1, 04.–11.11.) wurde per CSV hochgeladen und kommt NICHT in die Feeds.
-# Die drei Einträge unten sind nur Beispiele aus Paket 1 und bleiben dauerhaft aktiv: false.
-# Die Feeds starten mit Paket 2 (Pins ab 12.11.).
+# Paket 1 (04.–11.11.) wurde per CSV hochgeladen und kommt NICHT in die Feeds: die drei Beispiele unten bleiben IMMER aktiv: false.
+# Ab 12.11. kommen die Pins aus advent_offensive/PLAN_v2 (erzeugt mit advent_offensive/feed_12-22_11.py).
+# Platzhalter „neu (zu bauen)“ stehen auf aktiv: false. Wenn Bild + Text da sind: titel, beschreibung, bild eintragen, aktiv: true.
 
-- id: p1-k27g-01
-  feed: kalender
-  datum: "2026-11-08 13:00"
+- id: k27g-01-fotokalender-mama
+  feed: kalender-2027
+  datum: "2026-11-08"
+  uhrzeit: "13:00"
   titel: "Fotokalender für Mama 2027 – mit Blüten oder euren Familienfotos"
   beschreibung: "Ein Fotokalender für Mama, ganz ohne Fotobuch-Stress: Tausche in Canva die zwölf Blütenfotos gegen eure Familienmomente, drucke den Kalender in A4 aus und rahme ihn ein. Mit Feiertagen 2027 und Platz für das, was ihr guttut."
   bild: k27g-01-fotokalender-mama.jpg
   ziel: bluetenjahr
   aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)
 
-- id: p1-adv-b3-05
-  feed: advent
-  datum: "2026-11-10 20:30"
+- id: adv-b3-05-fuenf-minuten
+  feed: achtsamer-advent
+  datum: "2026-11-10"
+  uhrzeit: "20:30"
   titel: "Fünf Minuten am Tag: achtsamer Adventskalender für Frauen zum Ausdrucken"
   beschreibung: "Gönne dir fünf Minuten nur für dich: Jeden Tag im Advent ein Impuls, eine Frage, ein Satz. Mehr braucht es nicht. 24 Tagesseiten mit Stickern für deinen Kranz, als PDF in A4 und A5, sofort zum Ausdrucken."
   bild: adv-b3-05-fuenf-minuten.jpg
   ziel: advent
   aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)
 
-- id: p1-adv-z2
-  feed: advent
-  datum: "2026-11-11 20:30"
+- id: adv-z2-nicht-alles-heute
+  feed: achtsamer-advent
+  datum: "2026-11-11"
+  uhrzeit: "20:30"
   titel: "„Nicht alles muss heute.“ Ein Satz für die volle Adventszeit"
   beschreibung: "Die Liste wird im Dezember jeden Tag länger. Lies diesen Satz langsam und lasse eine Sache bis morgen liegen. Solche kleinen Pausen schenkt dir „Mein stiller Advent“: 24 Tage, jeden Tag 2–5 Minuten nur für dich, als PDF zum Ausdrucken."
   bild: adv-z2-nicht-alles-heute.jpg
   ziel: advent
   aktiv: false   # Paket 1, schon per CSV hochgeladen: NIE aktivieren (sonst doppelt)
+
+- id: adv-a02-frauen-ohne-schokolade
+  feed: achtsamer-advent
+  datum: "2026-11-12"
+  uhrzeit: "08:30"
+  titel: "Achtsamer Advent statt Schokolade: 24 kleine Pausen für Frauen zum Ausdrucken"
+  beschreibung: "Statt eines Stücks Schokolade wartet jeden Morgen ein ruhiger Moment auf dich. Atme dreimal tief durch, lies die Frage des Tages und klebe einen Sticker auf deinen Kranz. „Mein stiller Advent“ hat 24 Tagesseiten mit kleinen Übungen für 2–5 Minuten, als PDF in A4 und A5 zum Ausdrucken."
+  bild: adv-a02-frauen-ohne-schokolade.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: K-GESCHENK-06
+  feed: familienorganisation
+  datum: "2026-11-12"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-06.jpg
+  ziel: familienjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: adv-z4-genug-ist-genug
+  feed: mama-zitate
+  datum: "2026-11-12"
+  uhrzeit: "17:00"
+  titel: "„Genug ist genug.“ Ein Satz für volle Adventstage"
+  beschreibung: "Im Advent wird die Liste oft länger als der Tag. Lies den Satz langsam, streiche eine Sache und lasse sie einfach weg. Mehr solche kleinen Pausen findest du in „Mein stiller Advent“: 24 Tage, jeden Tag 2–5 Minuten nur für dich, als PDF zum Ausdrucken."
+  bild: adv-z4-genug-ist-genug.jpg
+  ziel: advent
+  aktiv: true   # fertig · Text: neu geschrieben
+
+- id: A-NEU-05
+  feed: geschenkideen
+  datum: "2026-11-12"
+  uhrzeit: "20:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-05.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: b1-b1-advent-inhalt
+  feed: advent-erwachsene
+  datum: "2026-11-13"
+  uhrzeit: "08:30"
+  titel: "Was steckt im Adventskalender für Erwachsene? Cover, Sticker und 24 Tagesseiten"
+  beschreibung: "Ein Blick hinein: ein Cover mit gemaltem Kranz, ein Stickerbogen mit 24 kleinen Bildern, 24 Tagesseiten mit Übung und Journaling-Frage, dazu eine Rückblick-Seite. Drucke alles in A5 oder zwei Seiten pro A4 aus, lege es neben deine Tasse und beginne am 1. Dezember. Ein Adventskalender, der dir gehört, nicht der To-do-Liste."
+  bild: b1-b1-advent-inhalt.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: b4-05-familienjahr-nicht-im-kopf
+  feed: familienorganisation
+  datum: "2026-11-13"
+  uhrzeit: "13:00"
+  titel: "Nicht alles muss in deinem Kopf sein: Familienplaner 2027 zum Ausdrucken"
+  beschreibung: "Elternabend, Kinderarzt, Geburtstag von Oma: Schreibe es einmal auf, dann muss es nicht mehr im Kopf wohnen. Der Familienplaner 2027 hat eine Spalte für jede Person, Häkchen für Erledigtes und ein Feld „Nicht vergessen“. Namen und Coverfoto passt du in Canva an. A4, PDF."
+  bild: b4-05-familienjahr-nicht-im-kopf.jpg
+  ziel: familienjahr
+  aktiv: true   # vorhanden · Text: bestand b4-05
+
+- id: A-NEU-06
+  feed: advent-erwachsene
+  datum: "2026-11-13"
+  uhrzeit: "20:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-06.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: A-NEU-07
+  feed: achtsamer-advent
+  datum: "2026-11-14"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-07.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: K-GESCHENK-07
+  feed: kalender-2027
+  datum: "2026-11-14"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-07.jpg
+  ziel: bluetenjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: adv-b3-04-advent-mama
+  feed: advent-ausdrucken
+  datum: "2026-11-14"
+  uhrzeit: "20:30"
+  titel: "Adventskalender zum Ausdrucken für Mamas: jeden Tag eine Pause in 2–5 Minuten"
+  beschreibung: "Zwischen Plätzchen, Basteln und Wunschzetteln für dein Kind bleibt für dich oft wenig Zeit. Dieser Adventskalender braucht nur 2–5 Minuten am Tag: Lies den Impuls, schreibe eine Zeile und spüre kurz nach, wie es dir geht. 24 Tagesseiten mit Stickern, als PDF sofort zum Ausdrucken."
+  bild: adv-b3-04-advent-mama.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: A-NEU-08
+  feed: achtsamkeit-mamas
+  datum: "2026-11-15"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-08.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: kal27-k3-05-alles-drin
+  feed: kalender-2027
+  datum: "2026-11-15"
+  uhrzeit: "13:00"
+  titel: "Kalender 2027 zum Ausdrucken: Das ist alles drin (15 Seiten, A4)"
+  beschreibung: "Das bekommst du: ein Cover mit Blütenbogen, eine Jahresübersicht mit allen Feiertagen 2027, zwölf Monatsseiten mit Blütenfoto und eine kleine Dankeseite. Alles in A4 hoch, als PDF sofort nach dem Kauf zum Download. Drucke nur die Seiten, die du brauchst."
+  bild: kal27-k3-05-alles-drin.jpg
+  ziel: bluetenjahr
+  aktiv: true   # vorhanden · Text: bestand kal27-k3-05-alles-drin
+
+- id: adv-z5-pause-fortschritt
+  feed: mama-zitate
+  datum: "2026-11-15"
+  uhrzeit: "17:00"
+  titel: "„Pause ist auch Fortschritt.“ Ein Satz für Mamas im Dezember"
+  beschreibung: "Eine Pause steht auf keiner Adventsliste, und trotzdem bringt sie dich weiter. Setze dich heute zwei Minuten hin, ohne etwas zu erledigen, und spüre, was sich verändert. „Mein stiller Advent“ schenkt dir 24 solche Pausen mit kleinen Übungen und Fragen, als Adventskalender zum Ausdrucken."
+  bild: adv-z5-pause-fortschritt.jpg
+  ziel: advent
+  aktiv: true   # fertig · Text: neu geschrieben
+
+- id: b1-d1-advent-schreiben
+  feed: geschenkideen
+  datum: "2026-11-15"
+  uhrzeit: "20:30"
+  titel: "Geschenkidee für Frauen, die gern schreiben: Journaling-Adventskalender zum Ausdrucken"
+  beschreibung: "Für die Schwester, die Freundin oder die Kollegin, die so gern Notizbücher füllt: 24 Tage mit einer Frage, einer kleinen Übung und einem Sticker für den Kranz. Drucke die PDF aus, binde sie mit einem Band zusammen und lege einen schönen Stift dazu. Ein Geschenk, das jeden Tag ein paar ruhige Minuten schenkt."
+  bild: b1-d1-advent-schreiben.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: A-NEU-09
+  feed: journaling
+  datum: "2026-11-16"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-09.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: K-GESCHENK-08
+  feed: familienorganisation
+  datum: "2026-11-16"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-08.jpg
+  ziel: familienjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: adv-a04-geschenk-freundin
+  feed: achtsamkeit-mamas
+  datum: "2026-11-16"
+  uhrzeit: "20:30"
+  titel: "Achtsamkeit für Mamas im Dezember: 24 ruhige Momente für dich oder zum Verschenken"
+  beschreibung: "Auch wenn der Dezember voll ist: Ein paar Minuten am Tag gehören dir. Spüre deinen Atem, schreibe einen Satz auf und lasse den Rest kurz liegen. „Mein stiller Advent“ begleitet dich mit 24 kleinen Übungen und Stickern für deinen Kranz. Behalte ihn für dich oder verschenke ihn an eine Mama, die gerade viel trägt. Sofort-Download zum Ausdrucken."
+  bild: adv-a04-geschenk-freundin.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: A-NEU-10
+  feed: advent-ausdrucken
+  datum: "2026-11-17"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-10.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: kal27-k2-05-alles-drin
+  feed: familienorganisation
+  datum: "2026-11-17"
+  uhrzeit: "13:00"
+  titel: "Familienplaner 2027: Das ist alles drin (15 Seiten zum Ausdrucken)"
+  beschreibung: "Das bekommst du: ein Cover für euer Familienfoto, eine Jahresübersicht mit Feiertagen, zwölf Monatsseiten mit vier Spalten und eine Dankeseite. Alles in A4 hoch, als PDF sofort nach dem Kauf zum Download. Drucke einmal alles oder Monat für Monat."
+  bild: kal27-k2-05-alles-drin.jpg
+  ziel: familienjahr
+  aktiv: true   # vorhanden · Text: bestand kal27-k2-05-alles-drin
+
+- id: A-NEU-11
+  feed: achtsamer-advent
+  datum: "2026-11-17"
+  uhrzeit: "20:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-11.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: b1-c3-advent-sticker
+  feed: advent-erwachsene
+  datum: "2026-11-18"
+  uhrzeit: "08:30"
+  titel: "Adventskalender für Erwachsene mit Stickern: Jeden Tag wächst dein Kranz"
+  beschreibung: "Am 1. Dezember ist dein Kranz noch leer. Klebe jeden Tag einen kleinen Bild-Sticker dazu, und bis Heiligabend ist er voll: mit Kerzen, Zweigen und kleinen Adventsdingen. Zu jedem Sticker gehören eine Übung und eine Frage für 2–5 Minuten. Druckbare PDF mit Cover, Stickerbogen und 24 Tagesseiten."
+  bild: b1-c3-advent-sticker.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: K-GESCHENK-09
+  feed: familienorganisation
+  datum: "2026-11-18"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-09.jpg
+  ziel: bluetenjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: adv-z6-ein-atemzug
+  feed: mama-zitate
+  datum: "2026-11-18"
+  uhrzeit: "17:00"
+  titel: "„Ein Atemzug reicht für den Anfang.“ Achtsamkeit im Advent in einer Minute"
+  beschreibung: "Du brauchst keine Stunde und keine Matte. Atme einmal tief ein und langsam wieder aus, gleich jetzt, zwischen zwei Erledigungen. Speichere den Satz für die vollen Dezembertage. In „Mein stiller Advent“ wartet jeden Tag eine kleine Übung wie diese: 24 Tage, 2–5 Minuten, als PDF zum Ausdrucken."
+  bild: adv-z6-ein-atemzug.jpg
+  ziel: advent
+  aktiv: true   # fertig · Text: neu geschrieben
+
+- id: A-NEU-12
+  feed: advent-ausdrucken
+  datum: "2026-11-18"
+  uhrzeit: "20:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-12.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: adv-a03-journaling-frage
+  feed: geschenkideen
+  datum: "2026-11-19"
+  uhrzeit: "08:30"
+  titel: "Geschenk für Frauen vor dem 1. Dezember: Journaling-Adventskalender zum Ausdrucken"
+  beschreibung: "Ein Geschenk, das nicht im Schrank verschwindet: Jeden Tag im Advent eine Frage, ein paar Zeilen und eine kleine Übung zum Durchatmen. Drucke den Kalender aus, lege ihn in einen Umschlag und schreibe ein paar liebe Worte dazu. Für die Freundin, die Schwester oder die Mama, die immer an alle denkt."
+  bild: adv-a03-journaling-frage.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: b4-02-bluetenjahr-was-zaehlt
+  feed: geschenkideen
+  datum: "2026-11-19"
+  uhrzeit: "13:00"
+  titel: "Plane nur, was wirklich zählt: ruhiger Monatskalender 2027 zum Ausdrucken"
+  beschreibung: "Nicht jeder Tag braucht einen Plan. Jede Monatsseite hat ein Feld für deinen Fokus, Platz für das, was dir guttut, und große Kästchen für die Termine, die wirklich zählen. Die Blütenfotos tauschst du in Canva gegen eigene. Wandkalender 2027 in A4, als PDF zum Ausdrucken."
+  bild: b4-02-bluetenjahr-was-zaehlt.jpg
+  ziel: bluetenjahr
+  aktiv: true   # vorhanden · Text: bestand b4-02
+
+- id: A-NEU-13
+  feed: journaling
+  datum: "2026-11-19"
+  uhrzeit: "20:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-13.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: A-NEU-14
+  feed: geschenkideen
+  datum: "2026-11-20"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-14.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: K-GESCHENK-10
+  feed: geschenkideen
+  datum: "2026-11-20"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-10.jpg
+  ziel: familienjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: b4-12-mtq-wann-zuletzt
+  feed: achtsamkeit-mamas
+  datum: "2026-11-20"
+  uhrzeit: "17:00"
+  titel: "Wann hat dir zuletzt jemand geschrieben? Brief-Club für Mamas: Warteliste"
+  beschreibung: "Ein Brief per Post, einfach so, nur für dich: Das ist „Mamá te quiero“, der Brief-Club von einer Mama an Mamas. Der erste Brief kommt im Januar 2027. Trag dich kostenlos und unverbindlich auf die Warteliste ein und erfahre als Erste, wann die Anmeldung öffnet."
+  bild: b4-12-mtq-wann-zuletzt.jpg
+  ziel: /mamatequiero/
+  aktiv: true   # vorhanden · Text: bestand b4-12
+
+- id: b1-a3-advent-abend
+  feed: journaling
+  datum: "2026-11-20"
+  uhrzeit: "20:30"
+  titel: "Abendritual im Advent: Schreibe eine Zeile, atme durch und lasse den Tag los"
+  beschreibung: "Wenn dein Kind schläft und es im Haus still wird, nimm dir fünf Minuten. Zünde eine Kerze an, lies die Frage des Tages und schreibe eine Zeile dazu. „Mein stiller Advent“ hat 24 solche Momente mit Übungen zum Atmen, Spüren und Schreiben. PDF zum Ausdrucken für einen ruhigeren Dezember."
+  bild: b1-a3-advent-abend.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: A-NEU-15
+  feed: achtsamer-advent
+  datum: "2026-11-21"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-15.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: b4-06-familienjahr-nicht-nur-du
+  feed: kalender-2027
+  datum: "2026-11-21"
+  uhrzeit: "13:00"
+  titel: "Alle sehen, was ansteht, nicht nur du: Familienkalender 2027 zum Ausdrucken"
+  beschreibung: "Wenn alle Termine an einem Ort hängen, musst du nicht mehr alles allein im Blick behalten. Jede Person hat ihre eigene Spalte, so sieht jeder, was ansteht. Familienplaner 2027 mit Jahresübersicht, Feiertagen und Geburtstagsfeld, in Canva anpassbar. A4 zum Ausdrucken."
+  bild: b4-06-familienjahr-nicht-nur-du.jpg
+  ziel: familienjahr
+  aktiv: true   # vorhanden · Text: bestand b4-06
+
+- id: adv-z7-langsamer-werden
+  feed: mama-zitate
+  datum: "2026-11-21"
+  uhrzeit: "17:00"
+  titel: "„Du darfst langsamer werden.“ Ein sanfter Satz für die Adventszeit"
+  beschreibung: "Der Dezember muss nicht schneller sein als der Rest des Jahres. Gehe heute einen Weg etwas langsamer, trinke deinen Tee im Sitzen und lasse eine Sache bewusst aus. Wenn du dir jeden Tag so einen Moment schenken möchtest: „Mein stiller Advent“ ist ein Adventskalender zum Ausdrucken mit 24 Übungen und Fragen nur für dich."
+  bild: adv-z7-langsamer-werden.jpg
+  ziel: advent
+  aktiv: true   # fertig · Text: neu geschrieben
+
+- id: adv-b3-06-ohne-schokolade
+  feed: achtsamer-advent
+  datum: "2026-11-21"
+  uhrzeit: "20:30"
+  titel: "24 Türchen voller Ruhe: achtsamer Advent für Mamas zum Ausdrucken"
+  beschreibung: "Hinter jedem Türchen wartet keine Süßigkeit, sondern ein ruhiger Moment für dich: eine Übung, eine Frage, ein Satz. Setze dich kurz hin, spüre deine Füße auf dem Boden und atme langsam aus. 24 Tagesseiten mit Stickern für deinen Kranz, als PDF in A4 und A5."
+  bild: adv-b3-06-ohne-schokolade.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben
+
+- id: A-NEU-16
+  feed: advent-ausdrucken
+  datum: "2026-11-22"
+  uhrzeit: "08:30"
+  titel: ""
+  beschreibung: ""
+  bild: a-neu-16.jpg
+  ziel: advent
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: K-GESCHENK-11
+  feed: familienorganisation
+  datum: "2026-11-22"
+  uhrzeit: "13:00"
+  titel: ""
+  beschreibung: ""
+  bild: k-geschenk-11.jpg
+  ziel: bluetenjahr
+  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+
+- id: b1-e3-frage-advent
+  feed: geschenkideen
+  datum: "2026-11-22"
+  uhrzeit: "20:30"
+  titel: "Was darf heute liegen bleiben? Adventskalender mit Fragen als Geschenk für Frauen"
+  beschreibung: "Diese Frage steht an einem der 24 Tage in „Mein stiller Advent“. Jeder Tag bringt eine Frage wie diese, eine kleine Übung und einen Sticker für den Kranz. Verschenke den Kalender an eine Frau, die viel trägt, oder drucke ihn für dich selbst aus. Bis zum 1. Dezember ist noch gut eine Woche Zeit."
+  bild: b1-e3-frage-advent.jpg
+  ziel: advent
+  aktiv: true   # Wiederholung · Text: neu geschrieben

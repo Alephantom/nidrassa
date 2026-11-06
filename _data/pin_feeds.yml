@@ -1,15 +1,39 @@
-# Pinterest-Feeds (RSS 2.0): ein Feed = ein Pinterest-Board.
+# Pinterest-Feeds (RSS 2.0): ein Feed = ein Pinterest-Board (Name exakt wie auf dem Konto und im Plan).
 # Pinterest verbindet jeden Feed mit genau EINEM Board (Einstellungen → Pins in großer Menge erstellen → Auto-Publish).
-# Neues Board: hier einen Eintrag + Datei pins/<schlüssel>.rss (Kopie von pins/advent.rss, nur "feed:" ändern).
-advent:
+# Neues Board: hier einen Eintrag + Datei pins/<schlüssel>.rss (Kopie von pins/achtsamer-advent.rss, nur "feed:" ändern).
+advent-erwachsene:
+  board: "Adventskalender für Erwachsene"
+  titel: "Nidrassa · Adventskalender für Erwachsene"
+  beschreibung: "Adventskalender für Erwachsene zum Ausdrucken: 24 kleine Pausen für Frauen und Mamas, ganz ohne Schokolade."
+advent-ausdrucken:
+  board: "Adventskalender zum Ausdrucken"
+  titel: "Nidrassa · Adventskalender zum Ausdrucken"
+  beschreibung: "Adventskalender zum Ausdrucken als PDF: Tagesseiten, Sticker und kleine Übungen für einen ruhigen Dezember."
+achtsamer-advent:
   board: "Achtsamer Advent"
   titel: "Nidrassa · Achtsamer Advent"
-  beschreibung: "Kleine Pausen für Mamas im Advent: Adventskalender zum Ausdrucken, ruhige Sätze und Journaling."
-kalender:
+  beschreibung: "Achtsamer Advent für Mamas: kleine Pausen, ruhige Sätze und Journaling-Fragen für die Adventszeit."
+achtsamkeit-mamas:
+  board: "Achtsamkeit für Mamas"
+  titel: "Nidrassa · Achtsamkeit für Mamas"
+  beschreibung: "Achtsamkeit für Mamas, die den Mental Load tragen: kurze Pausen, Atemübungen und kleine Rituale für den Alltag."
+journaling:
+  board: "Journaling & Achtsamkeit"
+  titel: "Nidrassa · Journaling & Achtsamkeit"
+  beschreibung: "Journaling und Achtsamkeit: Fragen, Schreibimpulse und ruhige Abendrituale für Frauen."
+geschenkideen:
+  board: "Geschenkideen für Frauen"
+  titel: "Nidrassa · Geschenkideen für Frauen"
+  beschreibung: "Geschenkideen für Frauen und Mamas: Adventskalender und Kalender 2027 zum Ausdrucken, persönlich und ruhig."
+familienorganisation:
+  board: "Familienorganisation"
+  titel: "Nidrassa · Familienorganisation"
+  beschreibung: "Familienorganisation ohne Chaos: Familienplaner 2027 zum Ausdrucken, damit nicht alles im Kopf einer Mama wohnt."
+kalender-2027:
   board: "Kalender 2027 zum Ausdrucken"
   titel: "Nidrassa · Kalender 2027 zum Ausdrucken"
-  beschreibung: "Wandkalender und Familienplaner 2027 zum Ausdrucken, mit Blüten oder euren Familienfotos."
-mamatequiero:
-  board: "Mamá te quiero"
-  titel: "Nidrassa · Mamá te quiero"
-  beschreibung: "Mamá te quiero: der Brief-Club für Mamas. Echte Post mit kleinen Pausen, einmal im Monat."
+  beschreibung: "Kalender 2027 zum Ausdrucken: Wandkalender mit Blüten oder euren Fotos und Familienplaner für bis zu 4 Personen."
+mama-zitate:
+  board: "Mental Load & Mama-Zitate"
+  titel: "Nidrassa · Mental Load & Mama-Zitate"
+  beschreibung: "Mama-Zitate und ruhige Sätze für volle Tage: Mental Load, Selbstfürsorge und kleine Pausen."

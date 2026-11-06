@@ -1,7 +1,7 @@
 ---
 layout: null
-permalink: /pins/advent.rss
+permalink: /pins/journaling.rss
 sitemap: false
-feed: advent
+feed: journaling
 ---
 {%- include pin-feed.rss feed=page.feed -%}
