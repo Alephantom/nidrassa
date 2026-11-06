@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/geschenkideen.rss
+sitemap: false
+feed: geschenkideen
+---
+{%- include pin-feed.rss feed=page.feed -%}

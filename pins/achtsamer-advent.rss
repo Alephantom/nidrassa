@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/achtsamer-advent.rss
+sitemap: false
+feed: achtsamer-advent
+---
+{%- include pin-feed.rss feed=page.feed -%}

@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/familienorganisation.rss
+sitemap: false
+feed: familienorganisation
+---
+{%- include pin-feed.rss feed=page.feed -%}

@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pins/kalender-2027.rss
+sitemap: false
+feed: kalender-2027
+---
+{%- include pin-feed.rss feed=page.feed -%}
