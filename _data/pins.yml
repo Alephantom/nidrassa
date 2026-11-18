@@ -434,10 +434,10 @@
   uhrzeit: "18:30"
   titel: "Meditation Zitat: Zurückkommen ist die eigentliche Übung"
   beschreibung: "Du setzt dich hin, und nach drei Atemzügen planst du schon das Abendessen? Genau so geht Meditation. Der Artikel zeigt, warum abschweifende Gedanken dazugehören und wie du mit einer kurzen Drei-Minuten-Übung das Zurückkommen trainierst. Meditation für Anfänger, ganz ohne Anspruch auf Stille. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text „Zurückkommen ist die eigentliche Übung.“ und darunter klein „Nicht das Stillsein.“. Unten die Marke Nidrassa."
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text „Zurückkommen ist die eigentliche Übung.“ und darunter klein „Nicht das Stillsein.“. Unten die Marke Nidrassa."
   bild: artikel-zitat-01.jpg
   ziel: /blog/abgeschweift-gut-so/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-02
   feed: mama-zitate
@@ -445,10 +445,10 @@
   uhrzeit: "18:30"
   titel: "Pause für Mamas: Fünf Minuten passen fast immer"
   beschreibung: "Eine Stunde für dich passt gerade nicht? Fünf Minuten fast immer, wenn du weißt, wann. Der Artikel zeigt, wie du eine kurze Pause an feste Momente im Familienalltag hängst und was du tust, wenn du unterbrochen wirst. Kleine Auszeit für busy Mamas, ohne Perfektion. Den ganzen Artikel findest du auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text „Fünf Minuten passen fast immer.“ und darunter klein „Hänge sie an den ersten Kaffee.“. Unten die Marke Nidrassa."
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text „Fünf Minuten passen fast immer.“ und darunter klein „Hänge sie an den ersten Kaffee.“. Unten die Marke Nidrassa."
   bild: artikel-zitat-02.jpg
   ziel: /blog/fuenf-minuten-pause/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-03
   feed: journaling
@@ -456,10 +456,10 @@
   uhrzeit: "18:30"
   titel: "Journaling Zitat: Weißt du nicht, was du schreiben sollst? Fang mit einer Frage an"
   beschreibung: "Das Notizbuch liegt da, der Stift auch, und im Kopf ist es leer? Der Artikel zeigt, warum eine einzige Frage den Einstieg ins Schreiben leichter macht als eine leere Seite, und gibt dir drei Journaling-Fragen zum Anfangen. Journaling für Anfänger und alle, die gerade feststecken. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Weißt du nicht, was du schreiben sollst? Fang mit einer Frage an.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Weißt du nicht, was du schreiben sollst? Fang mit einer Frage an.“"
   bild: artikel-zitat-03.jpg
   ziel: /blog/wenn-du-nicht-weisst-was-du-schreiben-sollst/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-04
   feed: achtsamkeit-mamas
@@ -467,10 +467,10 @@
   uhrzeit: "18:30"
   titel: "Atemübung für Mamas: Atme länger aus, als du einatmest"
   beschreibung: "In hektischen Momenten atmen wir oft flach und schnell, ohne es zu merken. Der Artikel erklärt, warum langes Ausatmen vielen hilft, wieder runterzukommen, und wie die 4-6-Atmung funktioniert: vor einem schwierigen Gespräch, beim Geschwisterstreit oder abends im Bett. Eine einfache Atemübung für den Alltag, nachzulesen auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Übung: Atme länger aus, als du einatmest.“ Darunter klein: „Ein langer Ausatem kann dich ruhiger werden lassen.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Übung: Atme länger aus, als du einatmest.“ Darunter klein: „Ein langer Ausatem kann dich ruhiger werden lassen.“"
   bild: artikel-zitat-04.jpg
   ziel: /blog/langes-ausatmen/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-05
   feed: mama-zitate
@@ -478,10 +478,10 @@
   uhrzeit: "18:30"
   titel: "Meditieren mit Kindern: Es muss nicht still sein"
   beschreibung: "Kein ruhiges Zimmer, keine freie Stunde, und irgendwer ruft immer „Mama“. Der Artikel zeigt, wie Meditieren im Familienalltag trotzdem klappt, nur anders als auf den Bildern mit Kissen und Stille. Mit Ideen für kurze Momente, wenn die Kinder zu Hause sind. Achtsamkeit für Mamas, ganz realistisch. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Es muss nicht alles still sein, damit du innerlich ruhig werden kannst.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Es muss nicht alles still sein, damit du innerlich ruhig werden kannst.“"
   bild: artikel-zitat-05.jpg
   ziel: /blog/meditieren-mit-kindern-im-haus/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-06
   feed: achtsamkeit-mamas
@@ -489,10 +489,10 @@
   uhrzeit: "18:30"
   titel: "Dehnen am Abend: Sage deinen Schultern, der Tag ist vorbei"
   beschreibung: "Der Tag ist vorbei, aber dein Körper hat es noch nicht gemerkt: Schultern oben, Rücken fest, Hüften steif vom Sitzen. Der Artikel zeigt drei sanfte Dehnübungen für den Abend, Katze-Kuh, Kindhaltung und liegende Drehung, die dir beim Ankommen helfen können. Ohne Matte-Ehrgeiz, nur so weit, wie es sich gut anfühlt. Mehr auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Abendübung: Atme einmal lange aus und sage deinen Schultern: Der Tag ist vorbei.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Abendübung: Atme einmal lange aus und sage deinen Schultern: Der Tag ist vorbei.“"
   bild: artikel-zitat-06.jpg
   ziel: /blog/dehnen-am-abend/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-07
   feed: achtsamkeit-mamas
@@ -500,10 +500,10 @@
   uhrzeit: "18:30"
   titel: "Klangmeditation für Anfängerinnen: Höre dem Ton zu"
   beschreibung: "Ein einzelner Ton hat einen Anfang und ein Ende. Wenn du ihm zuhörst, bis er verklungen ist, bist du ganz im Moment. Der Artikel zeigt, wie du mit Klangschale, Glas oder den Geräuschen um dich herum einen Anker für deine Meditation findest. Klangmeditation für Anfängerinnen und Achtsamkeit für Mamas, nachzulesen auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Übung: Lasse zwei Gläser leicht zusammenklingen und lausche ihrem Ton.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Übung: Lasse zwei Gläser leicht zusammenklingen und lausche ihrem Ton.“"
   bild: artikel-zitat-07.jpg
   ziel: /blog/klang-als-anker/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-08
   feed: mama-zitate
@@ -511,10 +511,10 @@
   uhrzeit: "18:30"
   titel: "Mental Load Zitat: Die Liste wird nie fertig"
   beschreibung: "Erst die Wäsche, dann die Mails, dann vielleicht eine Pause. Nur: Es ist nie alles erledigt. Der Artikel erklärt, warum Ruhe kein Bonus ist, den du dir verdienen musst, sondern etwas, das du brauchst, und wie ein kleiner Anfang aussehen kann. Für Mamas mit vollem Kopf und Pausen mit schlechtem Gewissen. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Die Liste wird nie fertig. Die Pause darf trotzdem kommen.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Die Liste wird nie fertig. Die Pause darf trotzdem kommen.“"
   bild: artikel-zitat-08.jpg
   ziel: /blog/ruhe-ist-keine-belohnung/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-10
   feed: mama-zitate
@@ -522,10 +522,10 @@
   uhrzeit: "18:30"
   titel: "Mental Load Zitat: Normal war der Tag. Leicht war er nicht."
   beschreibung: "Du bist erschöpft, obwohl du nichts Besonderes gemacht hast? Der Artikel erklärt, was Mental Load ist: das unsichtbare Planen, Erinnern und Vorausdenken, das eine Familie am Laufen hält. Mit drei kleinen Schritten, die die Liste im Kopf leichter machen können. Für Mamas mit vollem Kopf. Lies den ganzen Artikel auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Der Tag war normal. Leicht war er deshalb noch lange nicht.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Der Tag war normal. Leicht war er deshalb noch lange nicht.“ Darunter klein: #mamaalltag · Mental Load: die unsichtbare Arbeit."
   bild: artikel-zitat-10.jpg
   ziel: /blog/mental-load-warum-du-so-muede-bist-obwohl-du-nichts-besonderes-gemacht-hast/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-11
   feed: achtsamkeit-mamas
@@ -533,10 +533,10 @@
   uhrzeit: "18:30"
   titel: "Box-Atmung bei Stress: atme 4 Sekunden ein, halte 4, atme 4 aus, halte 4"
   beschreibung: "Es gibt Momente, da ist der Kopf zu voll für lange Erklärungen. Die Box-Atmung merkst du dir in zehn Sekunden: einatmen, halten, ausatmen, halten, alle Seiten gleich lang. Der Artikel erklärt die Atemübung bei Stress Schritt für Schritt und wann sie im Alltag gut passt, etwa vor einem schwierigen Telefonat. Mehr auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Übung: Wenn der Kopf zu voll ist, atme 4 Sekunden ein, halte 4, atme 4 aus, halte 4.“ Darunter klein: „Box-Atmung: ein ruhiger Takt für deinen Kopf.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Übung: Wenn der Kopf zu voll ist, atme 4 Sekunden ein, halte 4, atme 4 aus, halte 4.“ Darunter klein: „Box-Atmung: ein ruhiger Takt für deinen Kopf.“"
   bild: artikel-zitat-11.jpg
   ziel: /blog/box-atmung-eine-einfache-atemuebung-gegen-stress/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-12
   feed: mama-zitate
@@ -544,10 +544,10 @@
   uhrzeit: "18:30"
   titel: "Kurze Pause für Mamas: Ein Song lang nicht stillsitzen"
   beschreibung: "Du liest denselben Absatz zum dritten Mal und der Kaffee wirkt nicht mehr? Der Artikel zeigt einen Tanz-Flow in zweieinhalb Minuten, mit dem du den Vormittag abschütteln kannst. Ein Song, Tür zu, und wenn Kinder im Haus sind, tanzen sie einfach mit. Eine bewegte Pause für einen klaren Kopf, nachzulesen auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Übung: Einen Song lang nicht stillsitzen.“ Darunter klein: „Bewegung kann helfen, den Kopf freizubekommen.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Übung: Einen Song lang nicht stillsitzen.“ Darunter klein: „Bewegung kann helfen, den Kopf freizubekommen.“"
   bild: artikel-zitat-12.jpg
   ziel: /blog/tanzpause-ein-song-fuer-einen-klaren-kopf/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-13
   feed: journaling
@@ -555,10 +555,10 @@
   uhrzeit: "18:30"
   titel: "Journaling für Anfänger: Es muss nicht auf alles sofort eine Lösung geben"
   beschreibung: "Journaling für Anfänger ohne Druck: fünf einfache Fragen, ein Stift und zehn Minuten. Der Artikel zeigt, warum Fragen den Anfang leichter machen, wie oft und wie lange du schreiben kannst und welche drei Dinge du dabei nicht musst. Stichworte und Listen zählen genauso. Für alle, die nie Tagebuch geschrieben haben. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Es muss nicht auf alles sofort eine Lösung geben.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Es muss nicht auf alles sofort eine Lösung geben.“"
   bild: artikel-zitat-13.jpg
   ziel: /blog/journaling-fuer-anfaenger/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-14
   feed: achtsamkeit-mamas
@@ -566,10 +566,10 @@
   uhrzeit: "18:30"
   titel: "Meditation Zitat: Der Moment des Bemerkens ist das Training"
   beschreibung: "Deine Gedanken schweifen beim Meditieren ständig ab? Der Artikel erklärt, was die Hirnforschung dazu sagt, vom Default Mode Network bis zum Kreislauf aus Abschweifen, Bemerken und Zurückkommen. Und warum genau dieser Moment dein eigentliches Training ist. Mit einer kurzen 1-Minuten-Übung für zu Hause. Mehr auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Der Moment, in dem du bemerkst, dass du abschweifst, ist das Training.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Der Moment, in dem du bemerkst, dass du abschweifst, ist das Training.“"
   bild: artikel-zitat-14.jpg
   ziel: /blog/abschweifen-beim-meditieren/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-16
   feed: mama-zitate
@@ -577,10 +577,10 @@
   uhrzeit: "18:30"
   titel: "Nacken verspannt? Wo sind deine Schultern gerade?"
   beschreibung: "Beim Stillen, beim Scrollen, beim Schnippeln am Küchentisch: Der Nacken arbeitet ständig mit. Der Artikel zeigt drei sanfte Übungen zum Nacken dehnen, die du in fünf Minuten direkt am Stuhl machen kannst, und kleine Anker, damit du sie nicht vergisst. Für Mamas mit Bildschirm, Baby auf dem Arm und hochgezogenen Schultern. Mehr auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Wo sind deine Schultern gerade? Lass locker!“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Wo sind deine Schultern gerade? Lass locker!“"
   bild: artikel-zitat-16.jpg
   ziel: /blog/nacken-verspannt-3-sanfte-dehnuebungen/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-17
   feed: achtsamkeit-mamas
@@ -588,10 +588,10 @@
   uhrzeit: "18:30"
   titel: "Meditieren für Anfänger: Der Schreibtischstuhl reicht völlig"
   beschreibung: "Richtig sitzen beim Meditieren heißt nicht Lotussitz auf einem Felsen. Der Artikel zeigt, worauf es bei der Haltung ankommt und wie du auf dem Stuhl, auf dem Kissen oder im Bett eine Position findest, die stabil ist und nicht wehtut. Meditation für Anfänger mit dem, was du zu Hause schon hast. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Der Schreibtischstuhl reicht völlig für deine 15 Minuten Meditation.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Der Schreibtischstuhl reicht völlig für deine 15 Minuten Meditation.“"
   bild: artikel-zitat-17.jpg
   ziel: /blog/wie-sitze-ich-beim-meditieren-stuhl-kissen-oder-bett/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-21
   feed: mama-zitate
@@ -599,10 +599,10 @@
   uhrzeit: "18:30"
   titel: "Metta Meditation für Mamas: Wünsche dir, was du deinem Kind wünschst"
   beschreibung: "Metta Meditation heißt, bewusst freundliche Wünsche zu schicken, erst an Menschen, die du gern hast, und irgendwann auch an dich. Der Artikel erklärt, wie die Übung funktioniert, gibt dir eine kurze Version für heute und zeigt, warum man klein anfangen darf, wenn es sich ungewohnt anfühlt. Achtsamkeit für Mamas auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text „Wünsche dir selbst, was du deinem Kind wünschst.“. Unten die Marke Nidrassa."
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text „Wünsche dir selbst, was du deinem Kind wünschst.“. Unten die Marke Nidrassa."
   bild: artikel-zitat-21.jpg
   ziel: /blog/metta-meditation/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-23
   feed: mama-zitate
@@ -610,10 +610,10 @@
   uhrzeit: "18:30"
   titel: "Winterblues Zitat: Du bist keine Maschine. Du darfst ruhen."
   beschreibung: "Wenn es um halb fünf dunkel wird, sinkt bei vielen die Stimmung. Der Artikel zeigt kleine Rituale gegen den Winterblues, die wenig Zeit brauchen, und warum du in der dunklen Jahreszeit langsamer werden darfst. Mit der Idee einer Liste für helle Momente. Selbstmitgefühl für Mamas mit vollem Kopf, nachzulesen auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Du bist keine Maschine. Du darfst ruhen.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Du bist keine Maschine. Du darfst ruhen.“"
   bild: artikel-zitat-23.jpg
   ziel: /blog/winterblues-kleine-rituale-fuer-dunkle-tage/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
 
 - id: ZITAT-24
   feed: journaling
@@ -621,7 +621,7 @@
   uhrzeit: "18:30"
   titel: "Journaling Fragen für schwere Tage: Schreib es auf, dann muss dein Kopf es nicht tragen"
   beschreibung: "An schweren Tagen ist alles gleichzeitig da: Ärger, Müdigkeit, Traurigkeit, die To-do-Liste. Der Artikel gibt dir sieben sanfte Journaling Fragen zum Sortieren, ehrlich und ohne Druck zur guten Laune, und zeigt, wie du danach etwas Kleines für den Körper tust. Fünf Minuten, ein Stift, kein Richtig. Lies ihn auf nidrassa.com."
-  alt: "Typografisches Zitatbild mit einem Naturfoto aus Andalusien im Bogenfenster mit dem Text: „Schreib es auf. Dann muss dein Kopf es nicht mehr tragen.“"
+  alt: "Typografisches Zitatbild mit einem Winter- oder Blumenfoto im Bogenfenster mit dem Text: „Schreib es auf. Dann muss dein Kopf es nicht mehr tragen.“"
   bild: artikel-zitat-24.jpg
   ziel: /blog/journaling-fragen-fuer-schwere-tage/
-  aktiv: true   # Artikel-Zitat, Foto-Bogen-Design, Freigabe Anna-Lena 17.11.
+  aktiv: true   # Artikel-Zitat, Winter/Blumen-Fotos (Unsplash), Freigabe Anna-Lena 19.11.
