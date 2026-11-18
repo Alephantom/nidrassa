@@ -62,11 +62,11 @@
   feed: familienorganisation
   datum: "2026-11-12"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Familienplaner 2027 als Geschenk: wer hat wann was, alles auf einer Seite"
+  beschreibung: "Ein Geschenk, das den Familienalltag leichter macht: Unser Familienjahr 2027 hat eine Spalte für jede Person, Häkchen für Erledigtes und Platz für Geburtstage und „Nicht vergessen“. Euer Foto kommt in Canva aufs Cover. A4, 15 Seiten, sofort als PDF zum Ausdrucken."
   bild: k-geschenk-06.jpg
   ziel: familienjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: adv-z4-genug-ist-genug
   feed: mama-zitate
@@ -82,11 +82,11 @@
   feed: geschenkideen
   datum: "2026-11-12"
   uhrzeit: "20:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Geschenkideen für Frauen: Adventskalender zum Ausdrucken, der Ruhe schenkt"
+  beschreibung: "Ein Geschenk, das nicht im Schrank verschwindet: „Mein stiller Advent“ schenkt 24 ruhige Momente, jeden Tag 2–5 Minuten mit Impuls, Journaling-Frage und Sticker. Als PDF zum Ausdrucken, schön für die Freundin, die Schwester oder für dich selbst."
   bild: a-neu-05.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: b1-b1-advent-inhalt
   feed: advent-erwachsene
@@ -112,31 +112,31 @@
   feed: advent-erwachsene
   datum: "2026-11-13"
   uhrzeit: "20:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Adventskalender für Erwachsene: 24 Impulse statt Süßigkeiten zum Ausdrucken"
+  beschreibung: "Ein Adventskalender für Erwachsene, der leise ist: Jeden Abend ein kleiner Impuls, eine Frage und ein Moment nur für dich. Ohne Schokolade, ohne Druck, in 2–5 Minuten. PDF zum Ausdrucken mit Cover, 24 Tagesseiten und Stickerbogen."
   bild: a-neu-06.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: A-NEU-07
   feed: achtsamer-advent
   datum: "2026-11-14"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Achtsamer Advent: eine Minute Stille am Tag mit diesem Adventskalender zum Ausdrucken"
+  beschreibung: "Draußen Schnee, drinnen eine Minute für dich: Der achtsame Adventskalender „Mein stiller Advent“ lädt jeden Tag zum Innehalten ein, mit kleiner Übung, Journaling-Frage und Sticker. Damit der Dezember ein bisschen leiser wird. PDF zum Ausdrucken."
   bild: a-neu-07.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: K-GESCHENK-07
   feed: kalender-2027
   datum: "2026-11-14"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Kalender 2027 zum Ausdrucken: Blütenkalender in A4, ein schönes Geschenk"
+  beschreibung: "Jeden Monat eine neue Blüte: Der Wandkalender Blütenjahr 2027 zeigt zwölf Blütenfotos im goldenen Bogen, mit Feiertagen und Platz für das, was guttut. In A4 zu Hause gedruckt, ein Geschenk für Mama, Oma oder die Freundin. Die Fotos kannst du in Canva tauschen."
   bild: k-geschenk-07.jpg
   ziel: bluetenjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: adv-b3-04-advent-mama
   feed: advent-ausdrucken
@@ -152,11 +152,11 @@
   feed: achtsamkeit-mamas
   datum: "2026-11-15"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Achtsamkeit für Mamas: 5 Minuten am Abend mit dem Adventskalender zum Ausdrucken"
+  beschreibung: "Wenn das Haus still wird, ist Zeit für dich. „Mein stiller Advent“ schenkt dir im Dezember jeden Tag eine kleine Pause: ein Impuls, eine Frage, ein Sticker für deinen Kranz. Gemacht für Mamas, die für alle da sind. Sofort als PDF zum Ausdrucken."
   bild: a-neu-08.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: kal27-k3-05-alles-drin
   feed: kalender-2027
@@ -192,21 +192,21 @@
   feed: journaling
   datum: "2026-11-16"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Journaling im Advent: 24 Fragen zum Ausdrucken, eine pro Tag in 5 Minuten"
+  beschreibung: "Journaling für den Advent, ganz ohne leeres Blatt: Jede Tagesseite hat eine Frage, eine kleine Übung und Platz zum Schreiben. Zum Beispiel: Welche guten Wünsche schickst du dir heute? 24 Tagesseiten in A5, auch 2 pro A4, als PDF zum Ausdrucken."
   bild: a-neu-09.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: K-GESCHENK-08
   feed: familienorganisation
   datum: "2026-11-16"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Familienplaner 2027 zum Ausdrucken: Termine aus dem Kopf, ein Geschenk für Mama"
+  beschreibung: "Der Januar ist schon sortiert: Im Familienplaner 2027 stehen Kita, Training, Arbeit und Geburtstage für alle sichtbar an einem Ort. So trägt nicht eine Person alles im Kopf. Ein praktisches Geschenk für Mama und die ganze Familie, A4 als PDF zum Ausdrucken."
   bild: k-geschenk-08.jpg
   ziel: familienjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: adv-a04-geschenk-freundin
   feed: achtsamkeit-mamas
@@ -222,11 +222,11 @@
   feed: advent-ausdrucken
   datum: "2026-11-17"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Adventskalender zum Ausdrucken mit Stickerbogen: drucken, ausschneiden, aufkleben"
+  beschreibung: "Dein Advent zum Selbermachen: Drucke den Stickerbogen aus, schneide jeden Tag einen Sticker aus und klebe ihn auf dein Cover. So wächst dein Kranz Tag für Tag. Dazu 24 Tagesseiten mit Impuls und Journaling-Frage. PDF zum Ausdrucken, sofort startklar."
   bild: a-neu-10.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: kal27-k2-05-alles-drin
   feed: familienorganisation
@@ -242,11 +242,11 @@
   feed: achtsamer-advent
   datum: "2026-11-17"
   uhrzeit: "20:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Achtsamer Advent: vier Sonntage, 24 stille Momente zum Ausdrucken"
+  beschreibung: "Vier Sonntage, 24 Tage und jeden Tag ein kurzer Moment zum Innehalten. Der achtsame Adventskalender „Mein stiller Advent“ begleitet dich mit Impulsen wie „Drei Mal Danke“, einer Frage und einem Sticker. Als PDF zum Ausdrucken, für Frauen und Mamas."
   bild: a-neu-11.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: b1-c3-advent-sticker
   feed: advent-erwachsene
@@ -262,11 +262,11 @@
   feed: familienorganisation
   datum: "2026-11-18"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Wandkalender 2027 für die Familienorganisation: Monatsseite mit Notizfeld"
+  beschreibung: "Platz für alles, was diesen Monat zählt: Der Wandkalender Blütenjahr 2027 hat große Tagesfelder, Feiertage, „Mein Fokus“ und „Was mir guttut“. Ein ruhiges Geschenk für Frauen, die den Überblick behalten wollen. A4 zum Ausdrucken, Fotos in Canva tauschbar."
   bild: k-geschenk-09.jpg
   ziel: bluetenjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: adv-z6-ein-atemzug
   feed: mama-zitate
@@ -282,11 +282,11 @@
   feed: advent-ausdrucken
   datum: "2026-11-18"
   uhrzeit: "20:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Adventskalender zum Ausdrucken als PDF: Cover, 24 Tagesseiten, Sticker, Rückblick"
+  beschreibung: "Ein Advent, der auf Papier passt: Cover mit Kranz, Cover zum Bekleben, Stickerbogen, 24 Tagesseiten in A5 (auch 2 pro A4), Rückblick-Seite und Anleitung. Einmal ausdrucken und jeden Tag 2–5 Minuten für dich nehmen. Sofort-Download."
   bild: a-neu-12.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: adv-a03-journaling-frage
   feed: geschenkideen
@@ -312,31 +312,31 @@
   feed: journaling
   datum: "2026-11-19"
   uhrzeit: "20:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Journaling Jahresrückblick: Was war schön in diesem Jahr? Adventskalender zum Ausdrucken"
+  beschreibung: "Schreib dein Jahr in Ruhe zu Ende: „Mein stiller Advent“ hat neben 24 Tagesseiten mit Journaling-Fragen auch eine Rückblick-Seite. Was war schön, was hat dich getragen, was nimmst du mit? Für ruhige Abende im Dezember. PDF zum Ausdrucken."
   bild: a-neu-13.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: A-NEU-14
   feed: geschenkideen
   datum: "2026-11-20"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Geschenk für Schwester oder Kollegin: achtsamer Adventskalender zum Ausdrucken"
+  beschreibung: "Für die Frau, die immer an alle denkt: Mit „Mein stiller Advent“ schenkst du ihr 24 Momente, die nur ihr gehören. Jeden Tag ein Impuls, eine Frage und ein Sticker, in 2–5 Minuten. Ein kleines Geschenk für Schwester, Kollegin oder Nachbarin, sofort als PDF."
   bild: a-neu-14.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: K-GESCHENK-10
   feed: geschenkideen
   datum: "2026-11-20"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Fotokalender 2027 als Geschenk: Familienplaner mit eurem Foto auf dem Cover"
+  beschreibung: "Euer Lieblingsfoto auf dem Cover: Beim Familienplaner 2027 tauschst du das Coverbild in Canva gegen euer eigenes Foto und druckst ihn zu Hause aus. Innen eine Spalte für jede Person. Ein persönliches Weihnachtsgeschenk für die Familie, sofort als PDF."
   bild: k-geschenk-10.jpg
   ziel: familienjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: b4-12-mtq-wann-zuletzt
   feed: achtsamkeit-mamas
@@ -362,11 +362,11 @@
   feed: achtsamer-advent
   datum: "2026-11-21"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Achtsamer Advent zum Ausdrucken: Die Wäsche kann warten"
+  beschreibung: "Die Wäsche kann warten, du nicht. Der achtsame Adventskalender „Mein stiller Advent“ gibt dir 24 kleine Erlaubnisse, langsamer zu werden: jeden Tag ein Impuls, eine Journaling-Frage und ein Sticker. Für Frauen und Mamas im vollen Dezember. PDF zum Ausdrucken."
   bild: a-neu-15.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: b4-06-familienjahr-nicht-nur-du
   feed: kalender-2027
@@ -402,21 +402,21 @@
   feed: advent-ausdrucken
   datum: "2026-11-22"
   uhrzeit: "08:30"
-  titel: ""
-  beschreibung: ""
+  titel: "Adventskalender zum Ausdrucken und Selbstgestalten: Cover zum Bekleben"
+  beschreibung: "Gestalte deinen Advent selbst: Neben dem fertigen Cover mit Kranz gibt es ein Cover zum Bekleben. Jeden Tag kommt ein Sticker dazu, bis am 24. dein Kranz fertig ist. Dazu 24 Tagesseiten mit Impuls und Frage. Als PDF zum Ausdrucken."
   bild: a-neu-16.jpg
   ziel: advent
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: K-GESCHENK-11
   feed: familienorganisation
   datum: "2026-11-22"
   uhrzeit: "13:00"
-  titel: ""
-  beschreibung: ""
+  titel: "Blütenkalender 2027 zum Ausdrucken: ein Jahr, das blüht, als Geschenk für sie"
+  beschreibung: "Ein Jahr, das blüht: zwölf Blütenmotive im goldenen Bogen oder eure eigenen Fotos, in Canva getauscht. Der Wandkalender 2027 hat Feiertage und Platz für Termine und Notizen. Zu Hause in A4 gedruckt und gerahmt, ein Geschenk, das jeden Monat neu überrascht."
   bild: k-geschenk-11.jpg
   ziel: bluetenjahr
-  aktiv: false   # neu (zu bauen): Pablo baut Bild + Text (final/TEXTE_12-22_11.csv), Cleo trägt nach
+  aktiv: true   # neu: Pablos Bild + Text (TEXTE_12-22_11.csv), aktiviert 14.11.
 
 - id: b1-e3-frage-advent
   feed: geschenkideen
